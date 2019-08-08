@@ -1014,6 +1014,9 @@ components:
       example: 9081FCCB41F8C8409A9B99E485E0E28D23BD6304EF7215E01A
     Amount:
       type: array
+      description: |
+        Absolute amount. An amount of 123456789 (absolute) for a mosaic with
+        divisibility 6 means 123.456789 (relative).
       items:
         type: integer
         format: int64
@@ -1829,13 +1832,16 @@ components:
       type: object
       required:
         - height
-        - hash
-        - merkleComponentHash
         - index
         - id
       properties:
         height:
           $ref: "#/components/schemas/Height"
+        aggregateHash:
+          $ref: "#/components/schemas/Hash256"
+        aggregateId:
+          type: integer
+          format: int32
         hash:
           $ref: "#/components/schemas/Hash256"
         merkleComponentHash:
