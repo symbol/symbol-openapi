@@ -394,7 +394,7 @@ paths:
         - Block routes
       summary: Get the merkle path for a given a receipt statement hash and block
       description: |
-        Returns the merkle path for a receipt statement or resolution linked to a
+        Returns the merkle path for a receipt statement orresolution linked to a
         block. The path is the complementary data needed to calculate the merkle
         root. A client can compare if the calculated root equals the one
         recorded in the block header, verifying that the receipt was linked with
@@ -468,7 +468,7 @@ paths:
       tags:
         - Diagnostic routes
       summary: Get the version of the running rest component
-      description: Returns the version of the running catapult-rest component.
+      description: Returns the version of the running rest component.
       operationId: getServerInfo
       responses:
         "200":
@@ -482,7 +482,7 @@ paths:
       tags:
         - Mosaic routes
       summary: Get mosaic information
-      description: Gets the mosaic definition for a given mosaic identifier.
+      description: Gets the mosaic definition for a given mosaicId.
       operationId: getMosaic
       parameters:
         - $ref: "#/components/parameters/mosaicId"
@@ -548,7 +548,7 @@ paths:
       tags:
         - Namespace routes
       summary: Get namespace information
-      description: Gets the namespace for a given namespace identifier.
+      description: Gets the namespace for a given namespaceId.
       operationId: getNamespace
       parameters:
         - $ref: "#/components/parameters/namespaceId"
@@ -824,7 +824,8 @@ paths:
       tags:
         - Node routes
       summary: Get the node information
-      description: Supplies additional information about the application running on a node.
+      description: |
+        Supplies additional information about the application running on a node.
       operationId: getNodeInfo
       responses:
         "200":
@@ -886,21 +887,21 @@ components:
     accountId:
       name: accountId
       in: path
-      description: Account public key or address.
+      description: Public key or address of the account.
       required: true
       schema:
         type: string
     transactionHash:
       name: hash
       in: path
-      description: Transaction hash.
+      description: Hash of the transaction.
       required: true
       schema:
         $ref: "#/components/schemas/Hash256"
     height:
       name: height
       in: path
-      description: Block height. If height -1 is not a multiple of the limit
+      description: Height of the block. If height -1 is not a multiple of the limit
         provided, the inferior closest multiple + 1 is used instead.
       required: true
       schema:
@@ -923,7 +924,7 @@ components:
     mosaicId:
       name: mosaicId
       in: path
-      description: Mosaic identifier.
+      description: Identifier of the mosaic.
       required: true
       schema:
         type: string
@@ -931,7 +932,7 @@ components:
     namespaceId:
       name: namespaceId
       in: path
-      description: Namespace identifier.
+      description: Identifier of the namespace.
       required: true
       schema:
         type: string
@@ -949,7 +950,7 @@ components:
     publicKey:
       name: publicKey
       in: path
-      description: Public key.
+      description: Public key of the account.
       required: true
       schema:
         $ref: "#/components/schemas/PublicKey"
@@ -966,27 +967,29 @@ components:
     receiptHash:
       name: hash
       in: path
-      description: Receipt hash.
+      description: Hash of the receipt.
       required: true
       schema:
         $ref: "#/components/schemas/Hash256"
     transactionId:
       name: transactionId
       in: path
-      description: Transaction identifier or hash.
+      description: Identifier of the transaction or hash.
       required: true
       schema:
         type: string
     transactionIdLimit:
       name: id
       in: query
-      description: Transaction identifier up to which transactions are returned.
+      description: |
+        Transaction identifier up to which transactions are returned.
       schema:
         type: string
     namespaceIdLimit:
       name: id
       in: query
-      description: Namespace identifier up to which transactions are returned.
+      description: |
+        Namespace identifier up to which transactions are returned.
       schema:
         type: string
   requestBodies:
@@ -1037,16 +1040,35 @@ components:
     # Generic types
     Address:
       type: string
-      description: Decoded address.
+      description: Address of the account decoded.
       example: 9081FCCB41F8C8409A9B99E485E0E28D23BD6304EF7215E01A
     Amount:
-      $ref: "#/components/schemas/UInt64"
-      description: Absolute amount. An amount of 123456789 (absolute) for a mosaic with
+      type: array
+      description: |
+        Absolute amount. An amount of 123456789 (absolute) for a mosaic with
         divisibility 6 means 123.456789 (relative).
+      items:
+        type: integer
+        format: int64
+      example:
+        - lower
+        - higher
     BlockDuration:
-      $ref: "#/components/schemas/UInt64"
+      type: array
+      items:
+        type: integer
+        format: int64
+      example:
+        - lower
+        - higher
     Difficulty:
-      $ref: "#/components/schemas/UInt64"
+      type: array
+      items:
+        type: integer
+        format: int64
+      example:
+        - lower
+        - higher
     Error:
       type: object
       properties:
@@ -1061,34 +1083,71 @@ components:
       type: string
       example: C8FC3FB54FDDFBCE0E8C71224990124E4EEC5AD5D30E592EDFA9524669A23810
     Height:
-      $ref: "#/components/schemas/UInt64"
+      type: array
+      items:
+        type: integer
+        format: int64
+      example:
+        - lower
+        - higher
     Importance:
-      $ref: "#/components/schemas/UInt64"
+      type: string
     PublicKey:
       type: string
       example: AC1A6E1D8DE5B17D2C6B1293F1CAD3829EEACF38D09311BB3C8E5A880092DE26
     MosaicId:
-      $ref: "#/components/schemas/UInt64"
+      type: array
+      items:
+        type: integer
+        format: int64
+      example:
+        - lower
+        - higher
     NamespaceId:
-      $ref: "#/components/schemas/UInt64"
+      type: array
+      items:
+        type: integer
+        format: int64
+      example:
+        - lower
+        - higher
     Score:
-      $ref: "#/components/schemas/UInt64"
+      type: array
+      items:
+        type: integer
+        format: int64
+      example:
+        - lower
+        - higher
     Signature:
       type: string
+      description: Signature of the entity generated by the signer.
       example: 4B408BBEDF25F2AC8E0E44A6E51E3CCBA03885902055F75EB9FF50433532CA44BF9175FDA7502EEE2FC1617126E453A2BD692BAFDAAF06BC8EDEBA7961B3730D
     Timestamp:
-      $ref: "#/components/schemas/UInt64"
+      type: array
+      items:
+        type: integer
+        format: int64
+      example:
+        - lower
+        - higher
     UnresolvedAddress:
       type: string
       description: |
-        Address decoded. If the bit 0 of byte 0 is not set (like in 0x90), then it is a
+        Address of the account decoded. If the bit 0 of byte 0 is not set (like in 0x90), then it is a
         regular address. Else (e.g. 0x91) it represents a namespace id which starts at byte 1.
       example: 9081FCCB41F8C8409A9B99E485E0E28D23BD6304EF7215E01A
     UnresolvedMosaicId:
-      $ref: "#/components/schemas/UInt64"
+      type: array
       description: |
-        Mosaic identifier. If the most significant bit of byte 0 is set, a namespaceId (alias)
+        Identifier of the mosaic. If the most significant bit of byte 0 is set, a namespaceId (alias)
         is used instead of the real  mosaic identifier.
+      items:
+        type: integer
+        format: int64
+      example:
+        - lower
+        - higher
     Mosaic:
       type: object
       required:
@@ -1182,7 +1241,7 @@ components:
       type: integer
       format: int32
       description: |
-        Entity version. The higher byte represents the network
+        Version of the entity. The higher byte represents the network
         identifier:
         * 0x68 (MAIN_NET) - Public main network.
         * 0x98 (TEST_NET) - Public test network.
@@ -1338,6 +1397,19 @@ components:
         * 0xE134 (57652 decimal) - Transaction_Group.
         * 0xF143 (61763 decimal) - Address_Alias_Resolution.
         * 0xF243 (62019 decimal) - Mosaic_Alias_Resolution.
+    # Enumerations - Metadata
+    MetadataTypeEnum:
+      type: integer
+      format: uint8
+      enum:
+        - 0
+        - 1
+        - 2
+      description: |
+        Type of metadata:
+        * 0 - Account
+        * 1 - Mosaic
+        * 2 - Namespace
     BalanceTransferReceiptDTO:
       type: object
       description: Invisible state change that triggered a mosaic transfer.
@@ -1351,9 +1423,13 @@ components:
             - amount
           properties:
             sender:
-              $ref: "#/components/schemas/PublicKey"
+              type: string
+              description: Public key of the sender.
+              example: D799E559AB735A5E62187306E80C1679EE3E1170532280C968D974E351CB412F
             recipient:
-              $ref: "#/components/schemas/Address"
+              type: string
+              description: Public key of the recipient.
+              example: D799E559AB735A5E62187306E80C1679EE3E1170532280C968D974E351CB412F
             mosaicId:
               $ref: "#/components/schemas/MosaicId"
             amount:
@@ -1370,7 +1446,9 @@ components:
             - amount
           properties:
             account:
-              $ref: "#/components/schemas/PublicKey"
+              type: string
+              description: Public key of the target account.
+              example: D799E559AB735A5E62187306E80C1679EE3E1170532280C968D974E351CB412F
             mosaicId:
               $ref: "#/components/schemas/MosaicId"
             amount:
@@ -1509,7 +1587,7 @@ components:
         accountType:
           $ref: "#/components/schemas/AccountTypeEnum"
         linkedAccountKey:
-          $ref: "#/components/schemas/PublicKey"
+          type: string
         activityBuckets:
           type: array
           items:
@@ -1689,7 +1767,7 @@ components:
       properties:
         name:
           type: string
-          description: Network name.
+          description: Name of the network.
           example: mijinTest
         description:
           type: string
@@ -1749,11 +1827,11 @@ components:
           $ref: "#/components/schemas/RolesTypeEnum"
         host:
           type: string
-          description: Node IP address.
+          description: IP address of the endpoint.
           example: 127.0.0.1
         friendlyName:
           type: string
-          description: Node friendly name.
+          description: Name of the node.
           example: api-node-0
     CommunicationTimestampsDTO:
       type: object
@@ -1949,7 +2027,9 @@ components:
             - signer
           properties:
             signer:
-              $ref: "#/components/schemas/PublicKey"
+              type: string
+              description: Public key of the signer account.
+              example: D799E559AB735A5E62187306E80C1679EE3E1170532280C968D974E351CB412F
     # Schemas - LockHash
     HashLockTransactionBodyDTO:
       type: object
@@ -1994,9 +2074,14 @@ components:
         hashAlgorithm:
           $ref: "#/components/schemas/HashAlgorithmEnum"
         secret:
-          $ref: "#/components/schemas/Hash256"
+          type: string
+          description: Proof hashed.
+          example: 759DE013523D2C36F54BA184611AC887C6C994412E28B35221098E084050249B
         recipient:
-          $ref: "#/components/schemas/UnresolvedAddress"
+          type: string
+          description: Address of the recipient account decoded. This account will receive the funds once the
+            transaction is unlocked.
+          example: 90829855740901BAA6EF35C91CF00D0059212BF49FBAEC3277
     SecretLockTransactionDTO:
       type: object
       description: Transaction to sends mosaics to a recipient if the proof used is
@@ -2021,9 +2106,14 @@ components:
         hashAlgorithm:
           $ref: "#/components/schemas/HashAlgorithmEnum"
         secret:
-          $ref: "#/components/schemas/Hash256"
+          type: string
+          description: Proof hashed.
+          example: 759DE013523D2C36F54BA184611AC887C6C994412E28B35221098E084050249B
         recipient:
-          $ref: "#/components/schemas/UnresolvedAddress"
+          type: string
+          description: Address of the recipient account decoded. This account will receive the funds once the
+            transaction is unlocked.
+          example: 90829855740901BAA6EF35C91CF00D0059212BF49FBAEC3277
         proof:
           type: string
           description: Original random set of bytes.
@@ -2046,7 +2136,8 @@ components:
         - linkAction
       properties:
         remoteAccountKey:
-          $ref: "#/components/schemas/PublicKey"
+          type: string
+          description: Public key of the remote account.
         linkAction:
           $ref: "#/components/schemas/LinkActionEnum"
     AccountLinkTransactionDTO:
@@ -2095,7 +2186,9 @@ components:
         height:
           $ref: "#/components/schemas/Height"
         owner:
-          $ref: "#/components/schemas/PublicKey"
+          type: string
+          description: Public key of the mosaic owner.
+          example: EFF9BC7472263D03EF6362B1F200FD3061BCD1BABE78F82119FB88811227CE85
         revision:
           type: integer
           format: int32
@@ -2115,7 +2208,7 @@ components:
     MosaicDefinitionTransactionBodyDTO:
       type: object
       required:
-        - nonce
+        - mosaicNonce
         - mosaicId
         - properties
       properties:
@@ -2200,9 +2293,13 @@ components:
         - multisigAccounts
       properties:
         account:
-          $ref: "#/components/schemas/PublicKey"
+          type: string
+          description: Public key of the account.
+          example: AC1A6E1D8DE5B17D2C6B1293F1CAD3829EEACF38D09311BB3C8E5A880092DE26
         accountAddress:
-          $ref: "#/components/schemas/Address"
+          type: string
+          description: Address of the account decoded.
+          example: 9081FCCB41F8C8409A9B99E485E0E28D23BD6304EF7215E01A
         minApproval:
           type: integer
           format: int32
@@ -2216,8 +2313,11 @@ components:
         cosignatories:
           type: array
           description: Array of public keys of the cosignatory accounts.
+          example:
+            - 5D9513282B65A12A1B68DCB67DB64245721F7AE7822BE441FE813173803C512C
+            - AC1A6E1D8DE5B17D2C6B1293F1CAD3829EEACF38D09311BB3C8E5A880092DE26
           items:
-            $ref: "#/components/schemas/PublicKey"
+            type: string
         multisigAccounts:
           type: array
           description: Array of multisig accounts where the account is cosignatory.
@@ -2343,9 +2443,13 @@ components:
         - parentId
       properties:
         owner:
-          $ref: "#/components/schemas/PublicKey"
+          type: string
+          description: Public key of the owner of the namespace.
+          example: EFF9BC7472263D03EF6362B1F200FD3061BCD1BABE78F82119FB88811227CE85
         ownerAddress:
-          $ref: "#/components/schemas/Address"
+          type: string
+          description: Address of the owner of the namespace decoded.
+          example: 906CBD9B8EC88014F7A4181B00C1837646BD46E504E3D72C44
         startHeight:
           $ref: "#/components/schemas/Height"
         endHeight:
@@ -2379,7 +2483,7 @@ components:
           $ref: "#/components/schemas/NamespaceId"
         name:
           type: string
-          description: Namespace name.
+          description: Name of the namespace.
           example: cat
     AliasDTO:
       type: object
@@ -2409,7 +2513,7 @@ components:
           $ref: "#/components/schemas/NamespaceId"
         name:
           type: string
-          description: Namespace name.
+          description: Name of the namespace.
         parentId:
           $ref: "#/components/schemas/NamespaceId"
     RegisterNamespaceTransactionDTO:
@@ -2742,7 +2846,8 @@ components:
         restrictionKey:
           $ref: "#/components/schemas/UInt64"
         targetAddress:
-          $ref: "#/components/schemas/UnresolvedAddress"
+          type: string
+          description: Address of the target account decoded.
         previousRestrictionValue:
           $ref: "#/components/schemas/UInt64"
         newRestrictionValue:
@@ -2814,7 +2919,11 @@ components:
         - message
       properties:
         recipient:
-          $ref: "#/components/schemas/UnresolvedAddress"
+          type: string
+          description: Address of the recipiend account decoded. If the bit 0 of byte 0 is not set (like in 0x90), then it is a
+            regular address. Else (e.g. 0x91) it represents a namespace id which
+            starts at byte 1.
+          example: 909B5339654B16CF86F55EAEB1C8708A033286B3EBB314A792
         mosaics:
           type: array
           description: Array of mosaics sent to the recipient. If the most significant
@@ -2852,11 +2961,7 @@ components:
           type: array
           description: Array of metadata objects.
           items:
-            anyOf:
-              - $ref: "#/components/schemas/MetadataDTO"
-              - $ref: "#/components/schemas/MetadataDTO"
-              - $ref: "#/components/schemas/MetadataDTO"
-          example: metadata-key
+            $ref: "#/components/schemas/MetadataDTO"
     MetadataDTO:
       type: object
       required:
@@ -2879,8 +2984,7 @@ components:
         targetId:
           $ref: "#/components/schemas/UInt64"
         metadataType:
-          type: integer
-          format: uint8
+          $ref: "#/components/schemas/MetadataTypeEnum"
         value:
           type: string
 
