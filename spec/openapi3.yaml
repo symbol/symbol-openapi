@@ -1357,7 +1357,7 @@ components:
             - artifactId
           properties:
             artifactId:
-              oneOf:
+              anyOf:
                 - $ref: "#/components/schemas/NamespaceId"
                 - $ref: "#/components/schemas/MosaicId"
     InflationReceiptDTO:
@@ -1797,7 +1797,7 @@ components:
         meta:
           $ref: "#/components/schemas/TransactionMetaDTO"
         transaction:
-          oneOf:
+          anyOf:
             - $ref: "#/components/schemas/AccountLinkTransactionDTO"
             - $ref: "#/components/schemas/AggregateCompleteTransactionDTO"
             - $ref: "#/components/schemas/AggregateBondedTransactionDTO"
@@ -1845,7 +1845,7 @@ components:
         meta:
           $ref: "#/components/schemas/EmbeddedTransactionMetaDTO"
         transaction:
-          oneOf:
+          anyOf:
             - $ref: "#/components/schemas/EmbeddedAccountLinkTransactionDTO"
             - $ref: "#/components/schemas/EmbeddedMosaicDefinitionTransactionDTO"
             - $ref: "#/components/schemas/EmbeddedMosaicSupplyChangeTransactionDTO"
