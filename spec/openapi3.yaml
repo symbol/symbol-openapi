@@ -964,7 +964,9 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/accountIds"
+            oneOf:
+              - $ref: "#/components/schemas/accountIdsPublicKeys"
+              - $ref: "#/components/schemas/accountIdsAddresses"
       required: false
     cosignature:
       content:
@@ -1355,7 +1357,7 @@ components:
             - artifactId
           properties:
             artifactId:
-              anyOf:
+              oneOf:
                 - $ref: "#/components/schemas/NamespaceId"
                 - $ref: "#/components/schemas/MosaicId"
     InflationReceiptDTO:
@@ -1795,7 +1797,7 @@ components:
         meta:
           $ref: "#/components/schemas/TransactionMetaDTO"
         transaction:
-          anyOf:
+          oneOf:
             - $ref: "#/components/schemas/AccountLinkTransactionDTO"
             - $ref: "#/components/schemas/AggregateCompleteTransactionDTO"
             - $ref: "#/components/schemas/AggregateBondedTransactionDTO"
@@ -1843,7 +1845,7 @@ components:
         meta:
           $ref: "#/components/schemas/EmbeddedTransactionMetaDTO"
         transaction:
-          anyOf:
+          oneOf:
             - $ref: "#/components/schemas/EmbeddedAccountLinkTransactionDTO"
             - $ref: "#/components/schemas/EmbeddedMosaicDefinitionTransactionDTO"
             - $ref: "#/components/schemas/EmbeddedMosaicSupplyChangeTransactionDTO"
@@ -2482,7 +2484,7 @@ components:
           type: array
           description: Array of receipts.
           items:
-            anyOf:
+            oneOf:
               - $ref: "#/components/schemas/BalanceTransferReceiptDTO"
               - $ref: "#/components/schemas/BalanceChangeReceiptDTO"
               - $ref: "#/components/schemas/ArtifactExpiryReceiptDTO"
@@ -2499,7 +2501,7 @@ components:
         height:
           $ref: "#/components/schemas/Height"
         unresolved:
-          anyOf:
+          oneOf:
             - $ref: "#/components/schemas/UnresolvedMosaicId"
             - $ref: "#/components/schemas/UnresolvedAddress"
         resolutionEntries:
@@ -2519,7 +2521,7 @@ components:
         source:
           $ref: "#/components/schemas/SourceDTO"
         resolved:
-          anyOf:
+          oneOf:
             - $ref: "#/components/schemas/Address"
             - $ref: "#/components/schemas/MosaicId"
     SourceDTO:
@@ -2585,7 +2587,7 @@ components:
           type: array
           description: Address, transaction type, or mosaic id to restrict.
           items:
-            anyOf:
+            oneOf:
               - $ref: "#/components/schemas/UnresolvedAddress"
               - $ref: "#/components/schemas/EntityTypeEnum"
               - $ref: "#/components/schemas/UnresolvedMosaicId"
@@ -2806,7 +2808,7 @@ components:
         - $ref: "#/components/schemas/EmbeddedTransactionDTO"
         - $ref: "#/components/schemas/TransferTransactionBodyDTO"
     # Request bodies
-    accountIds:
+    accountIdsPublicKeys:
       type: object
       properties:
         publicKeys:
@@ -2814,6 +2816,9 @@ components:
           description: Array of public keys.
           items:
             $ref: "#/components/schemas/PublicKey"
+    accountIdsAddresses:
+      type: object
+      properties:
         addresses:
           type: array
           description: Array of addresses.
