@@ -964,7 +964,7 @@ components:
       content:
         application/json:
           schema:
-            oneOf:
+            anyOf:
               - $ref: "#/components/schemas/accountIdsPublicKeys"
               - $ref: "#/components/schemas/accountIdsAddresses"
       required: false
@@ -2484,7 +2484,7 @@ components:
           type: array
           description: Array of receipts.
           items:
-            oneOf:
+            anyOf:
               - $ref: "#/components/schemas/BalanceTransferReceiptDTO"
               - $ref: "#/components/schemas/BalanceChangeReceiptDTO"
               - $ref: "#/components/schemas/ArtifactExpiryReceiptDTO"
@@ -2501,7 +2501,7 @@ components:
         height:
           $ref: "#/components/schemas/Height"
         unresolved:
-          oneOf:
+          anyOf:
             - $ref: "#/components/schemas/UnresolvedMosaicId"
             - $ref: "#/components/schemas/UnresolvedAddress"
         resolutionEntries:
@@ -2521,7 +2521,7 @@ components:
         source:
           $ref: "#/components/schemas/SourceDTO"
         resolved:
-          oneOf:
+          anyOf:
             - $ref: "#/components/schemas/Address"
             - $ref: "#/components/schemas/MosaicId"
     SourceDTO:
@@ -2587,7 +2587,7 @@ components:
           type: array
           description: Address, transaction type, or mosaic id to restrict.
           items:
-            oneOf:
+            anyOf:
               - $ref: "#/components/schemas/UnresolvedAddress"
               - $ref: "#/components/schemas/EntityTypeEnum"
               - $ref: "#/components/schemas/UnresolvedMosaicId"
