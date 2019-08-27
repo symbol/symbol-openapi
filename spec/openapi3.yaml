@@ -1499,7 +1499,7 @@ components:
         - rawScore
       properties:
         startHeight:
-          $ref: "#/components/schemas/Height"
+          type: string
         totalFeesPaid:
           type: number
           format: int64
