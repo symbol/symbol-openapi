@@ -2636,15 +2636,14 @@ components:
           $ref: "#/components/schemas/AccountRestrictionModificationActionEnum"
     AccountAddressRestrictionModificationDTO:
       type: object
-      properties:
-        allOf:
-          - $ref: "#/components/schemas/AccountRestrictionModificationDTO"
-          - type: object
-            required:
-              - value
-            properties:
-              - value:
-                $ref: "#/components/schemas/UnresolvedAddress"
+      allOf:
+        - $ref: "#/components/schemas/AccountRestrictionModificationDTO"
+        - type: object
+          required:
+            - value
+          properties:
+            value:
+              $ref: "#/components/schemas/UnresolvedAddress"
     AccountAddressRestrictionTransactionBodyDTO:
       type: object
       required:
@@ -2670,15 +2669,14 @@ components:
         - $ref: "#/components/schemas/AccountAddressRestrictionTransactionBodyDTO"
     AccountMosaicRestrictionModificationDTO:
       type: object
-      properties:
-        allOf:
-          - $ref: "#/components/schemas/AccountRestrictionModificationDTO"
-          - type: object
-            required:
-              - value
-            properties:
-              - value:
-                $ref: "#/components/schemas/UnresolvedMosaicId"
+      allOf:
+        - $ref: "#/components/schemas/AccountRestrictionModificationDTO"
+        - type: object
+          required:
+            - value
+          properties:
+            value:
+              $ref: "#/components/schemas/UnresolvedMosaicId"
     AccountMosaicRestrictionTransactionBodyDTO:
       type: object
       required:
@@ -2704,15 +2702,14 @@ components:
         - $ref: "#/components/schemas/AccountMosaicRestrictionTransactionBodyDTO"
     AccountOperationRestrictionModificationDTO:
       type: object
-      properties:
-        allOf:
-          - $ref: "#/components/schemas/AccountRestrictionModificationDTO"
-          - type: object
-            required:
-              - value
-            properties:
-              - value:
-                $ref: "#/components/schemas/TransactionTypeEnum"
+      allOf:
+        - $ref: "#/components/schemas/AccountRestrictionModificationDTO"
+        - type: object
+          required:
+            - value
+          properties:
+            value:
+              $ref: "#/components/schemas/TransactionTypeEnum"
     AccountOperationRestrictionTransactionBodyDTO:
       type: object
       required:
