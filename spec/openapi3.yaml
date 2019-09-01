@@ -2092,11 +2092,11 @@ components:
     MosaicDefinitionTransactionBodyDTO:
       type: object
       required:
-        - mosaicNonce
+        - nonce
         - mosaicId
         - properties
       properties:
-        mosaicNonce:
+        nonce:
           type: integer
           format: int64
           description: Random nonce used to generate the mosaic id.
