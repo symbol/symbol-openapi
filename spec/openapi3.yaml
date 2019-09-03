@@ -2117,7 +2117,7 @@ components:
     MosaicDefinitionTransactionBodyDTO:
       type: object
       required:
-        - nonce
+        - mosaicNonce
         - mosaicId
         - properties
       properties:
