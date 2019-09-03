@@ -1429,15 +1429,10 @@ components:
     AccountInfoDTO:
       type: object
       required:
-        - meta
         - account
       properties:
-        meta:
-          $ref: "#/components/schemas/AccountMetaDTO"
         account:
           $ref: "#/components/schemas/AccountDTO"
-    AccountMetaDTO:
-      type: object
     AccountDTO:
       type: object
       required:
@@ -1514,21 +1509,21 @@ components:
       type: object
       required:
         - hash
-        - generationHash
         - totalFee
-        - subCacheMerkleRoots
+        - generationHash
+        - stateHashSubCacheMerkleRoots
         - numTransactions
       properties:
         hash:
           $ref: "#/components/schemas/Hash256"
+        totalFee:
+          $ref: "#/components/schemas/Amount"
         generationHash:
           $ref: "#/components/schemas/Hash256"
-        subCacheMerkleRoots:
+        stateHashSubCacheMerkleRoots:
           type: array
           items:
             $ref: "#/components/schemas/Hash256"
-        totalFee:
-          $ref: "#/components/schemas/Amount"
         numTransactions:
           type: integer
           format: int32
@@ -1766,7 +1761,6 @@ components:
           $ref: "#/components/schemas/BlockDuration"
         height:
           $ref: "#/components/schemas/Height"
-      example: 0
     TransactionMetaDTO:
       type: object
       required:
@@ -2033,21 +2027,11 @@ components:
         - $ref: "#/components/schemas/EmbeddedTransactionDTO"
         - $ref: "#/components/schemas/AccountLinkTransactionBodyDTO"
     # Schemas - Mosaic
-    MosaicMetaDTO:
-      type: object
-      required:
-        - id
-      properties:
-        id:
-          type: string
     MosaicInfoDTO:
       type: object
       required:
-        - meta
         - mosaic
       properties:
-        meta:
-          $ref: "#/components/schemas/MosaicMetaDTO"
         mosaic:
           $ref: "#/components/schemas/MosaicDTO"
     MosaicDTO:
@@ -2058,8 +2042,8 @@ components:
         - startHeight
         - ownerPublicKey
         - ownerAddress
-        - properties
         - revision
+        - properties
       properties:
         id:
           $ref: "#/components/schemas/MosaicId"
@@ -2184,8 +2168,8 @@ components:
         - accountAddress
         - minApproval
         - minRemoval
-        - cosignatories
-        - multisigAccounts
+        - cosignatoryPublicKeys
+        - multisigPublicKeys
       properties:
         accountPublicKey:
           $ref: "#/components/schemas/PublicKey"
@@ -2201,12 +2185,12 @@ components:
           type: integer
           format: int32
           example: 1
-        cosignatories:
+        cosignatoryPublicKeys:
           type: array
           description: Array of public keys of the cosignatory accounts.
           items:
             $ref: "#/components/schemas/PublicKey"
-        multisigAccounts:
+        multisigPublicKeys:
           type: array
           description: Array of multisig accounts where the account is cosignatory.
           example:
@@ -2340,24 +2324,18 @@ components:
     NamespaceDTO:
       type: object
       required:
+        - registrationType
+        - depth
+        - level0
+        - alias
+        - parentId
         - ownerPublicKey
         - ownerAddress
         - startHeight
         - endHeight
-        - depth
-        - level0
-        - registrationType
-        - alias
-        - parentId
       properties:
-        ownerPublicKey:
-          $ref: "#/components/schemas/PublicKey"
-        ownerAddress:
-          $ref: "#/components/schemas/Address"
-        startHeight:
-          $ref: "#/components/schemas/Height"
-        endHeight:
-          $ref: "#/components/schemas/Height"
+        registrationType:
+          $ref: "#/components/schemas/NamespaceRegistrationTypeEnum"
         depth:
           type: integer
           format: int32
@@ -2369,12 +2347,18 @@ components:
           $ref: "#/components/schemas/NamespaceId"
         level2:
           $ref: "#/components/schemas/NamespaceId"
-        registrationType:
-          $ref: "#/components/schemas/NamespaceRegistrationTypeEnum"
         alias:
           $ref: "#/components/schemas/AliasDTO"
         parentId:
           $ref: "#/components/schemas/NamespaceId"
+        ownerPublicKey:
+          $ref: "#/components/schemas/PublicKey"
+        ownerAddress:
+          $ref: "#/components/schemas/Address"
+        startHeight:
+          $ref: "#/components/schemas/Height"
+        endHeight:
+          $ref: "#/components/schemas/Height"
     NamespaceNameDTO:
       type: object
       required:
