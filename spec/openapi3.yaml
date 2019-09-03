@@ -1191,7 +1191,7 @@ components:
     MosaicFlagsEnum:
       type: integer
       format: int32
-      enum:
+      description: |
         - 0x00 (none) - No flags present.
         - 0x01 (supplyMutable) - Mosaic supports supply changes even when mosaic owner owns partial supply.
         - 0x02 (transferable) - Mosaic supports transfers between arbitrary accounts. When not set, mosaic can only be transferred to and from mosaic owner.
