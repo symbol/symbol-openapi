@@ -1011,7 +1011,7 @@ components:
       $ref: "#/components/schemas/UInt64"
     Difficulty:
       $ref: "#/components/schemas/UInt64"
-    Error:
+    ModelError:
       type: object
       properties:
         code:
@@ -1208,7 +1208,7 @@ components:
         * 1  - Increase.
       example: 0
     # Enumerations - Multisig
-    CosignatoryModificationAction:
+    CosignatoryModificationActionEnum:
       type: integer
       format: int32
       enum:
@@ -2220,7 +2220,7 @@ components:
         - cosignatoryPublicKey
       properties:
         modificationAction:
-          $ref: "#/components/schemas/CosignatoryModificationAction"
+          $ref: "#/components/schemas/CosignatoryModificationActionEnum"
         cosignatoryPublicKey:
           $ref: "#/components/schemas/PublicKey"
     MultisigAccountModificationTransactionBodyDTO:
@@ -2917,16 +2917,16 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: '#/components/schemas/ModelError'
     InvalidContent:
       description: InvalidContent
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: '#/components/schemas/ModelError'
     InvalidArgument:
       description: InvalidArgument
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: '#/components/schemas/ModelError'
