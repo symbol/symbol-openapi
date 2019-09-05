@@ -2874,7 +2874,7 @@ components:
           type: array
           description: Array of namespace identifiers.
           items:
-            $ref: "#/components/schemas/NamespaceIds"
+            $ref: "#/components/schemas/NamespaceId"
     transactionIds:
       type: object
       properties:
