@@ -2305,9 +2305,9 @@ components:
     MosaicsNamesDTO:
       type: object
       required:
-        - accountNames
+        - mosaicNames
       properties:
-        accountNames:
+        mosaicNames:
           type: array
           description: Array of mosaic names.
           items:
