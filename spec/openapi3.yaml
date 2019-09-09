@@ -188,7 +188,7 @@ paths:
                   $ref: "#/components/schemas/TransactionInfoDTO"
         "409":
           $ref : "#/components/responses/InvalidArgument"
-  "/account/{accountId}/restrictions/":
+  "/account/{accountId}/restrictions":
     get:
       tags:
         - Account routes
@@ -2498,6 +2498,13 @@ components:
       type: object
       description: Collection of receipts related to a transaction.
       required:
+        - statement
+      properties:
+        statement:
+          $ref: "#/components/schemas/TransactionStatementBodyDTO"
+    TransactionStatementBodyDTO:
+      type: object
+      required:
         - height
         - source
         - receipts
@@ -2519,6 +2526,13 @@ components:
       type: object
       description: A resolution statement keeps the relation between a namespace alias used
         in a transaction and the real address or mosaicId.
+      required:
+        - statement
+      properties:
+        statement:
+          $ref: "#/components/schemas/ResolutionStatementBodyDTO"
+    ResolutionStatementBodyDTO:
+      type: object
       required:
         - height
         - unresolved
