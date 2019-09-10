@@ -2058,7 +2058,9 @@ components:
         - ownerPublicKey
         - ownerAddress
         - revision
-        - properties
+        - flags
+        - divisibility
+        - duration
       properties:
         id:
           $ref: "#/components/schemas/MosaicId"
@@ -2075,11 +2077,6 @@ components:
           format: int32
           description: Number of definitions for the same mosaic.
           example: 1
-        properties:
-          $ref: "#/components/schemas/MosaicPropertiesDTO"
-    MosaicPropertiesDTO:
-      type: object
-      properties:
         flags:
           $ref: "#/components/schemas/MosaicFlagsEnum"
         divisibility:
