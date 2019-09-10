@@ -2096,7 +2096,9 @@ components:
       required:
         - nonce
         - id
-        - properties
+        - flags
+        - divisibility
+        - duration
       properties:
         nonce:
           type: integer
