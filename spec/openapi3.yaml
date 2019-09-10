@@ -1119,10 +1119,13 @@ components:
         - 16961
         - 16717
         - 16973
+        - 16718
         - 16974
         - 17230
+        - 16708
+        - 16964
+        - 17220
         - 16725
-        - 16718
         - 16712
         - 16722
         - 16978
@@ -1139,10 +1142,13 @@ components:
         * 0x4241 (16961 decimal) - AggregateBondedTransaction.
         * 0x414D (16717 decimal) - MosaicDefinitionTransaction.
         * 0x424D (16973 decimal) - MosaicSupplyChangeTransaction.
+        * 0x414E (16718 decimal) - NamespaceRegistrationTransaction.
         * 0x424E (16974 decimal) - AddressAliasTransaction.
         * 0x434E (17230 decimal) - MosaicAliasTransaction.
+        * 0x4144 (16708 decimal) - AccountMetadataTransaction.
+        * 0x4244 (16964 decimal) - MosaicMetadataTransaction.
+        * 0x4344 (17220 decimal) - NamespaceMetadataTransaction.
         * 0x4155 (16725 decimal) - MultisigAccountModificationTransaction.
-        * 0x414E (16718 decimal) - NamespaceRegistrationTransaction.
         * 0x4148 (16712 decimal) - HashLockTransaction.
         * 0x4152 (16722 decimal) - SecretLockTransaction.
         * 0x4252 (16978 decimal) - SecretProofTransaction.
@@ -2259,6 +2265,121 @@ components:
       allOf:
         - $ref: "#/components/schemas/EmbeddedTransactionDTO"
         - $ref: "#/components/schemas/MultisigAccountModificationTransactionBodyDTO"
+    # Schemas - Metadata
+    AccountMetadataTransactionBodyDTO:
+      type: object
+      required:
+        - targetPublicKey
+        - scopedMetadataKey
+        - valueSizeDelta
+        - valueSize
+        - value
+      properties:
+        targetPublicKey:
+          $ref: "#/components/schemas/PublicKey"
+          description: Metadata target public key.
+        scopedMetadataKey:
+          type: string
+          description: Metadata key scoped to source, target and type.
+        valueSizeDelta:
+          type: number
+          format: int32
+          description: Change in value size in bytes.
+        valueSize:
+          type: number
+          format: int32
+          description: Value size in bytes.
+        value:
+          type: string
+          description: When there is an existing value, the new value is calculated as xor(previous-value, value).
+    AccountMetadataTransactionDTO:
+      type: object
+      description: Transaction to create or modify a multisig account.
+      allOf:
+        - $ref: "#/components/schemas/TransactionDTO"
+        - $ref: "#/components/schemas/AccountMetadataTransactionBodyDTO"
+    EmbeddedAccountMetadataTransactionTransactionDTO:
+      allOf:
+        - $ref: "#/components/schemas/EmbeddedTransactionDTO"
+        - $ref: "#/components/schemas/AccountMetadataTransactionBodyDTO"
+    MosaicMetadataTransactionBodyDTO:
+      type: object
+      required:
+        - targetPublicKey
+        - scopedMetadataKey
+        - targetMosaicId
+        - valueSizeDelta
+        - valueSize
+        - value
+      properties:
+        targetPublicKey:
+          $ref: "#/components/schemas/PublicKey"
+          description: Metadata target public key.
+        scopedMetadataKey:
+          type: string
+          description: Metadata key scoped to source, target and type.
+        targetMosaicId:
+          $ref: "#/components/schemas/UnresolvedMosaicId"
+        valueSizeDelta:
+          type: number
+          format: int32
+          description: Change in value size in bytes.
+        valueSize:
+          type: number
+          format: int32
+          description: Value size in bytes.
+        value:
+          type: string
+          description: When there is an existing value, the new value is calculated as xor(previous-value, value).
+    MosaicMetadataTransactionDTO:
+      type: object
+      description: Transaction to create or modify a multisig account.
+      allOf:
+        - $ref: "#/components/schemas/TransactionDTO"
+        - $ref: "#/components/schemas/MosaicMetadataTransactionBodyDTO"
+    EmbeddedMosaicMetadataTransactionTransactionDTO:
+      allOf:
+        - $ref: "#/components/schemas/EmbeddedTransactionDTO"
+        - $ref: "#/components/schemas/MosaicMetadataTransactionBodyDTO"
+    NamespaceMetadataTransactionBodyDTO:
+      type: object
+      required:
+        - targetPublicKey
+        - scopedMetadataKey
+        - targetMosaicId
+        - valueSizeDelta
+        - valueSize
+        - value
+      properties:
+        targetPublicKey:
+          $ref: "#/components/schemas/PublicKey"
+          description: Metadata target public key.
+        scopedMetadataKey:
+          type: string
+          description: Metadata key scoped to source, target and type.
+        targetNamespaceId:
+          $ref: "#/components/schemas/NamespaceId"
+        valueSizeDelta:
+          type: number
+          format: int32
+          description: Change in value size in bytes.
+        valueSize:
+          type: number
+          format: int32
+          description: Value size in bytes.
+        value:
+          type: string
+          description: When there is an existing value, the new value is calculated as xor(previous-value, value).
+    NamespaceMetadataTransactionDTO:
+      type: object
+      description: Transaction to create or modify a multisig account.
+      allOf:
+        - $ref: "#/components/schemas/TransactionDTO"
+        - $ref: "#/components/schemas/NamespaceMetadataTransactionBodyDTO"
+    EmbeddedNamespaceMetadataTransactionTransactionDTO:
+      allOf:
+        - $ref: "#/components/schemas/EmbeddedTransactionDTO"
+        - $ref: "#/components/schemas/NamespaceMetadataTransactionBodyDTO"
     # Schemas - Namespace
     AccountNamesDTO:
       type: object
