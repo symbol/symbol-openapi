@@ -59,7 +59,7 @@ paths:
           $ref : "#/components/responses/InvalidContent"
         "409":
           $ref : "#/components/responses/InvalidArgument"
-  "/account/{publicKey}/transactions":
+  "/account/{accountId}/transactions":
     get:
       tags:
         - Account routes
@@ -67,7 +67,7 @@ paths:
       description: Gets an array of transactions for which an account is the sender or receiver.
       operationId: transactions
       parameters:
-        - $ref: "#/components/parameters/publicKey"
+        - $ref: "#/components/parameters/accountId"
         - $ref: "#/components/parameters/pageSize"
         - $ref: "#/components/parameters/transactionIdLimit"
         - $ref: "#/components/parameters/ordering"
@@ -83,7 +83,7 @@ paths:
                   $ref: "#/components/schemas/TransactionInfoDTO"
         "409":
           $ref : "#/components/responses/InvalidArgument"
-  "/account/{publicKey}/transactions/incoming":
+  "/account/{accountId}/transactions/incoming":
     get:
       tags:
         - Account routes
@@ -94,7 +94,7 @@ paths:
         the transaction.
       operationId: incomingTransactions
       parameters:
-        - $ref: "#/components/parameters/publicKey"
+        - $ref: "#/components/parameters/accountId"
         - $ref: "#/components/parameters/pageSize"
         - $ref: "#/components/parameters/transactionIdLimit"
         - $ref: "#/components/parameters/ordering"
@@ -110,7 +110,7 @@ paths:
                   $ref: "#/components/schemas/TransactionInfoDTO"
         "409":
           $ref : "#/components/responses/InvalidArgument"
-  "/account/{publicKey}/transactions/outgoing":
+  "/account/{accountId}/transactions/outgoing":
     get:
       tags:
         - Account routes
@@ -120,7 +120,7 @@ paths:
         transaction.
       operationId: outgoingTransactions
       parameters:
-        - $ref: "#/components/parameters/publicKey"
+        - $ref: "#/components/parameters/accountId"
         - $ref: "#/components/parameters/pageSize"
         - $ref: "#/components/parameters/transactionIdLimit"
         - $ref: "#/components/parameters/ordering"
@@ -136,7 +136,7 @@ paths:
                   $ref: "#/components/schemas/TransactionInfoDTO"
         "409":
           $ref : "#/components/responses/InvalidArgument"
-  "/account/{publicKey}/transactions/unconfirmed":
+  "/account/{accountId}/transactions/unconfirmed":
     get:
       tags:
         - Account routes
@@ -146,7 +146,7 @@ paths:
         is the sender or receiver.
       operationId: unconfirmedTransactions
       parameters:
-        - $ref: "#/components/parameters/publicKey"
+        - $ref: "#/components/parameters/accountId"
         - $ref: "#/components/parameters/pageSize"
         - $ref: "#/components/parameters/transactionIdLimit"
         - $ref: "#/components/parameters/ordering"
@@ -162,7 +162,7 @@ paths:
                   $ref: "#/components/schemas/TransactionInfoDTO"
         "409":
           $ref : "#/components/responses/InvalidArgument"
-  "/account/{publicKey}/transactions/partial":
+  "/account/{accountId}/transactions/partial":
     get:
       tags:
         - Account routes
@@ -172,7 +172,7 @@ paths:
         or requires to cosign the transaction.
       operationId: partialTransactions
       parameters:
-        - $ref: "#/components/parameters/publicKey"
+        - $ref: "#/components/parameters/accountId"
         - $ref: "#/components/parameters/pageSize"
         - $ref: "#/components/parameters/transactionIdLimit"
         - $ref: "#/components/parameters/ordering"
@@ -910,13 +910,6 @@ components:
       schema:
         type: string
         default: -id
-    publicKey:
-      name: publicKey
-      in: path
-      description: Public key.
-      required: true
-      schema:
-        $ref: "#/components/schemas/PublicKey"
     pageSize:
       name: pageSize
       in: query
