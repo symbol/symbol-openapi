@@ -1500,13 +1500,13 @@ components:
         startHeight:
           $ref: "#/components/schemas/Height"
         totalFeesPaid:
-          type: number
+          type: integer
           format: int64
         beneficiaryCount:
-          type: number
+          type: integer
           format: int32
         rawScore:
-          type: number
+          type: integer
           format: int64
     # Schemas - Block
     BlockInfoDTO:
@@ -2275,11 +2275,11 @@ components:
           type: string
           description: Metadata key scoped to source, target and type.
         valueSizeDelta:
-          type: number
+          type: integer
           format: int32
           description: Change in value size in bytes.
         valueSize:
-          type: number
+          type: integer
           format: int32
           description: Value size in bytes.
         value:
@@ -2314,11 +2314,11 @@ components:
         targetMosaicId:
           $ref: "#/components/schemas/UnresolvedMosaicId"
         valueSizeDelta:
-          type: number
+          type: integer
           format: int32
           description: Change in value size in bytes.
         valueSize:
-          type: number
+          type: integer
           format: int32
           description: Value size in bytes.
         value:
@@ -2353,11 +2353,11 @@ components:
         targetNamespaceId:
           $ref: "#/components/schemas/NamespaceId"
         valueSizeDelta:
-          type: number
+          type: integer
           format: int32
           description: Change in value size in bytes.
         valueSize:
-          type: number
+          type: integer
           format: int32
           description: Value size in bytes.
         value:
