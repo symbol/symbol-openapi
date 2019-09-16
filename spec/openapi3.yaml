@@ -2284,7 +2284,6 @@ components:
           description: Value size in bytes.
         value:
           type: string
-          format: hex
           description: When there is an existing value, the new value is calculated as xor(previous-value, value).
     AccountMetadataTransactionDTO:
       type: object
@@ -2324,7 +2323,6 @@ components:
           description: Value size in bytes.
         value:
           type: string
-          format: hex
           description: When there is an existing value, the new value is calculated as xor(previous-value, value).
     MosaicMetadataTransactionDTO:
       type: object
@@ -2364,7 +2362,6 @@ components:
           description: Value size in bytes.
         value:
           type: string
-          format: hex
           description: When there is an existing value, the new value is calculated as xor(previous-value, value).
     NamespaceMetadataTransactionDTO:
       type: object
