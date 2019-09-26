@@ -2727,12 +2727,12 @@ components:
     NamespaceNameDTO:
       type: object
       required:
-        - namespaceId
+        - id
         - name
       properties:
         parentId:
           $ref: "#/components/schemas/NamespaceId"
-        namespaceId:
+        id:
           $ref: "#/components/schemas/NamespaceId"
         name:
           type: string
