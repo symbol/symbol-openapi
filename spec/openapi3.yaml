@@ -3263,7 +3263,7 @@ components:
       allOf:
         - $ref: "#/components/schemas/EmbeddedTransactionDTO"
         - $ref: "#/components/schemas/MosaicGlobalRestrictionTransactionBodyDTO"
-    MosaicGlobalRestrictionRestrictionsItemDTO:
+    MosaicGlobalRestrictionEntryRestrictionDTO:
       type: object
       required:
         - referenceMosaicId
@@ -3277,7 +3277,7 @@ components:
           description: Restriction value.
         restrictionType:
           type: integer
-    MosaicGlobalRestrictionRestrictionsDTO:
+    MosaicGlobalRestrictionEntryDTO:
       type: object
       required:
         - key
@@ -3290,7 +3290,7 @@ components:
         restriction:
           type: array
           items:
-            $ref: "#/components/schemas/MosaicGlobalRestrictionRestrictionsItemDTO"
+            $ref: "#/components/schemas/MosaicGlobalRestrictionEntryRestrictionDTO"
     MosaicGlobalRestrictionDTO:
       type: object
       required:
@@ -3308,8 +3308,8 @@ components:
         restrictions:
           type: array
           items:
-            $ref: "#/components/schemas/MosaicGlobalRestrictionRestrictionsDTO"
-    MosaicAddressRestrictionRestrictionsDTO:
+            $ref: "#/components/schemas/MosaicGlobalRestrictionEntryDTO"
+    MosaicAddressRestrictionEntryDTO:
       type: object
       required:
         - key
@@ -3342,7 +3342,7 @@ components:
         restrictions:
           type: array
           items:
-            $ref: "#/components/schemas/MosaicAddressRestrictionRestrictionsDTO"
+            $ref: "#/components/schemas/MosaicAddressRestrictionEntryDTO"
 
     # Schemas - Transfer
     MessageDTO:
