@@ -254,6 +254,30 @@ paths:
           $ref: "#/components/responses/ResourceNotFound"
         "409":
           $ref: "#/components/responses/InvalidArgument"
+    post:
+      tags:
+        - Restriction routes
+      summary: Get mosaic address restrictions for a given mosaic and account identifiers array.
+      description: Get mosaic address restrictions.
+      operationId: getMosaicAddressRestrictions
+      parameters:
+        - $ref: "#/components/parameters/mosaicId"
+      requestBody:
+        $ref: "#/components/requestBodies/accountIds"
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                description: Array of mosaics address restrictions.
+                items:
+                  $ref: "#/components/schemas/MosaicAddressRestrictionDTO"
+        "400":
+          $ref : "#/components/responses/InvalidContent"
+        "409":
+          $ref : "#/components/responses/InvalidArgument"
   "/restrictions/mosaic/{mosaicId}/address/{accountId}":
     get:
       tags:
@@ -294,31 +318,6 @@ paths:
                 description: Array of mosaics global restrictions.
                 items:
                   $ref: "#/components/schemas/MosaicGlobalRestrictionDTO"
-        "400":
-          $ref : "#/components/responses/InvalidContent"
-        "409":
-          $ref : "#/components/responses/InvalidArgument"
-  "/restrictions/mosaic/{mosaicId}":
-    post:
-      tags:
-        - Restriction routes
-      summary: Get mosaic address restrictions for a given mosaic and account identifiers array.
-      description: Get mosaic address restrictions.
-      operationId: getMosaicAddressRestrictions
-      parameters:
-        - $ref: "#/components/parameters/mosaicId"
-      requestBody:
-        $ref: "#/components/requestBodies/accountIds"
-      responses:
-        "200":
-          description: success
-          content:
-            application/json:
-              schema:
-                type: array
-                description: Array of mosaics address restrictions.
-                items:
-                  $ref: "#/components/schemas/MosaicAddressRestrictionDTO"
         "400":
           $ref : "#/components/responses/InvalidContent"
         "409":
@@ -3262,7 +3261,7 @@ components:
         - restrictionType
       properties:
         referenceMosaicId:
-          $ref: "#/components/schemas/mosaicId"
+          $ref: "#/components/schemas/MosaicId"
         restrictionValue:
           type: string
           description: Restriction value.
@@ -3295,7 +3294,7 @@ components:
         entryType:
           type: integer
         mosaicId:
-          $ref: "#/components/schemas/mosaicId"
+          $ref: "#/components/schemas/MosaicId"
         restrictions:
           type: array
           items:
@@ -3327,7 +3326,7 @@ components:
         entryType:
           type: integer
         mosaicId:
-          $ref: "#/components/schemas/mosaicId"
+          $ref: "#/components/schemas/MosaicId"
         targetAddress:
           $ref: "#/components/schemas/Address"
         restrictions:
