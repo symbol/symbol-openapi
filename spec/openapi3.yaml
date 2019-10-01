@@ -1531,6 +1531,16 @@ components:
         * 0  - Decrease.
         * 1  - Increase.
       example: 0
+    # Enumerations - Mosaic restriction type
+    MosaicRestrictionTypeEnum:
+      type: integer
+      format: int32
+      enum:
+        - 0
+        - 1
+      description: |
+        - 0 - Mosaic address restriction.
+        - 1 - Mosaic global restriction.
     # Enumerations - Multisig
     CosignatoryModificationActionEnum:
       type: integer
@@ -3292,7 +3302,7 @@ components:
         compositeHash:
           $ref: "#/components/schemas/Hash256"
         entryType:
-          type: integer
+          $ref: "#/components/schemas/MosaicRestrictionTypeEnum"
         mosaicId:
           $ref: "#/components/schemas/MosaicId"
         restrictions:
