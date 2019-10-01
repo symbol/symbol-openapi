@@ -3288,9 +3288,7 @@ components:
           description: Restriction key.
           example: 0DC67FBE1CAD29E3
         restriction:
-          type: array
-          items:
-            $ref: "#/components/schemas/MosaicGlobalRestrictionEntryRestrictionDTO"
+          $ref: "#/components/schemas/MosaicGlobalRestrictionEntryRestrictionDTO"
     MosaicGlobalRestrictionEntryWrapperDTO:
       type: object
       required:
