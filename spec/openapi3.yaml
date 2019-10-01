@@ -275,7 +275,7 @@ paths:
           $ref: "#/components/responses/ResourceNotFound"
         "409":
           $ref: "#/components/responses/InvalidArgument"
-  "/restrictions/mosaic":
+  /restrictions/mosaic:
     post:
       tags:
         - Restriction routes
