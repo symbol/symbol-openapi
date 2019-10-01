@@ -3291,7 +3291,7 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/MosaicGlobalRestrictionEntryRestrictionDTO"
-    MosaicGlobalRestrictionDTO:
+    MosaicGlobalRestrictionEntryWrapperDTO:
       type: object
       required:
         - compositeHash
@@ -3309,6 +3309,13 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/MosaicGlobalRestrictionEntryDTO"
+    MosaicGlobalRestrictionDTO:
+      type: object
+      required:
+        - mosaicRestrictionEntry
+      properties:
+        mosaicRestrictionEntry:
+          $ref: "#/components/schemas/MosaicGlobalRestrictionEntryWrapperDTO"
     MosaicAddressRestrictionEntryDTO:
       type: object
       required:
@@ -3322,7 +3329,7 @@ components:
         value:
           type: string
           description: Restriction value.
-    MosaicAddressRestrictionDTO:
+    MosaicAddressRestrictionEntryWrapperDTO:
       type: object
       required:
         - compositeHash
@@ -3343,6 +3350,13 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/MosaicAddressRestrictionEntryDTO"
+    MosaicAddressRestrictionDTO:
+      type: object
+      required:
+        - mosaicRestrictionEntry
+      properties:
+        mosaicRestrictionEntry:
+          $ref: "#/components/schemas/MosaicAddressRestrictionEntryWrapperDTO"
 
     # Schemas - Transfer
     MessageDTO:
