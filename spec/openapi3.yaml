@@ -521,6 +521,54 @@ paths:
           $ref : "#/components/responses/InvalidContent"
         "409":
           $ref : "#/components/responses/InvalidArgument"
+  "/account/{accountId}/mosaics":
+    get:
+      tags:
+        - Mosaic routes
+      summary: Get mosaics created by an account
+      description: Gets an array of mosaics created for a given account address.
+      operationId: getMosaicsFromAccount
+      parameters:
+        - $ref: "#/components/parameters/accountId"
+        - $ref: "#/components/parameters/pageSize"
+        - $ref: "#/components/parameters/mosaicIdLimit"
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                description: Array of mosaics information.
+                items:
+                  $ref: "#/components/schemas/MosaicInfoDTO"
+        "404":
+          $ref: "#/components/responses/ResourceNotFound"
+        "409":
+          $ref: "#/components/responses/InvalidArgument"
+  /account/mosaics:
+    post:
+      tags:
+        - Mosaic routes
+      summary: Get mosaics created for given array of addresses
+      description: Gets mosaics created for a given array of addresses.
+      operationId: getMosaicsFromAccounts
+      requestBody:
+        $ref: "#/components/requestBodies/accountIds"
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                description: Array of mosaics information.
+                items:
+                  $ref: "#/components/schemas/MosaicInfoDTO"
+        "400":
+          $ref: "#/components/responses/InvalidContent"
+        "409":
+          $ref: "#/components/responses/InvalidArgument"
   /mosaic/names:
     post:
       tags:
@@ -1166,6 +1214,12 @@ components:
       name: id
       in: query
       description: Namespace identifier up to which transactions are returned.
+      schema:
+        type: string
+    mosaicIdLimit:
+      name: id
+      in: query
+      description: Mosaic identifier up to which transactions are returned.
       schema:
         type: string
   requestBodies:
