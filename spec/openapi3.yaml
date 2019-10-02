@@ -3339,7 +3339,7 @@ components:
         compositeHash:
           $ref: "#/components/schemas/Hash256"
         entryType:
-          type: integer
+          $ref: "#/components/schemas/MosaicRestrictionEntryTypeEnum"
         mosaicId:
           $ref: "#/components/schemas/MosaicId"
         targetAddress:
