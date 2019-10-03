@@ -3263,6 +3263,11 @@ components:
       allOf:
         - $ref: "#/components/schemas/EmbeddedTransactionDTO"
         - $ref: "#/components/schemas/MosaicGlobalRestrictionTransactionBodyDTO"
+    MosaicRestrictionKey:
+      type: string
+      format: hex
+      description: Restriction key.
+      example: 0DC67FBE1CAD29E3
     MosaicGlobalRestrictionEntryRestrictionDTO:
       type: object
       required:
@@ -3276,7 +3281,7 @@ components:
           type: string
           description: Restriction value.
         restrictionType:
-          type: integer
+          $ref: "#/components/schemas/MosaicRestrictionTypeEnum"
     MosaicGlobalRestrictionEntryDTO:
       type: object
       required:
@@ -3284,9 +3289,7 @@ components:
         - restriction
       properties:
         key:
-          type: string
-          description: Restriction key.
-          example: 0DC67FBE1CAD29E3
+          $ref: "#/components/schemas/MosaicRestrictionKey"
         restriction:
           $ref: "#/components/schemas/MosaicGlobalRestrictionEntryRestrictionDTO"
     MosaicGlobalRestrictionEntryWrapperDTO:
@@ -3321,9 +3324,7 @@ components:
         - value
       properties:
         key:
-          type: string
-          description: Restriction key.
-          example: 0DC67FBE1CAD29E3
+          $ref: "#/components/schemas/MosaicRestrictionKey"
         value:
           type: string
           description: Restriction value.
