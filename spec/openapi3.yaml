@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 0.7.18
+  version: 0.7.19
   title: Catapult REST Endpoints
   license:
     name: Apache 2.0
@@ -3313,6 +3313,7 @@ components:
           format: int32
         value:
           type: string
+          format: hex
 
     # Request bodies
     accountIds:
