@@ -3210,7 +3210,7 @@ components:
         mosaicId:
           $ref: "#/components/schemas/UnresolvedMosaicId"
         restrictionKey:
-          - $ref: "#/components/schemas/MosaicRestrictionKey"
+          $ref: "#/components/schemas/MosaicRestrictionKey"
         targetAddress:
           $ref: "#/components/schemas/UnresolvedAddress"
         previousRestrictionValue:
@@ -3246,7 +3246,7 @@ components:
         referenceMosaicId:
           $ref: "#/components/schemas/UnresolvedMosaicId"
         restrictionKey:
-          - $ref: "#/components/schemas/MosaicRestrictionKey"
+          $ref: "#/components/schemas/MosaicRestrictionKey"
         previousRestrictionValue:
           type: string
           description: Previous restriction value.
