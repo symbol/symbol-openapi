@@ -618,8 +618,6 @@ paths:
       operationId: getMosaicsFromAccount
       parameters:
         - $ref: "#/components/parameters/accountId"
-        - $ref: "#/components/parameters/pageSize"
-        - $ref: "#/components/parameters/mosaicIdLimit"
       responses:
         "200":
           description: success
@@ -1302,12 +1300,6 @@ components:
       name: id
       in: query
       description: Namespace identifier up to which transactions are returned.
-      schema:
-        type: string
-    mosaicIdLimit:
-      name: id
-      in: query
-      description: Mosaic identifier up to which transactions are returned.
       schema:
         type: string
   requestBodies:
