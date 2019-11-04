@@ -2864,7 +2864,7 @@ components:
           type: array
           description: Array of namespaces information.
           items:
-            $ref: "#/components/schemas/NamespaceDTO"
+            $ref: "#/components/schemas/NamespaceInfoDTO"
     NamespaceDTO:
       type: object
       required:
