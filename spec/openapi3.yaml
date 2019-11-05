@@ -2647,7 +2647,7 @@ components:
           type: array
           description: Array of cosignatory accounts to delete.
           items:
-            $ref: "#/components/schemas/PublicKEy"
+            $ref: "#/components/schemas/PublicKey"
     MultisigAccountModificationTransactionDTO:
       type: object
       description: Transaction to create or modify a multisig account.
