@@ -1509,23 +1509,27 @@ components:
     NetworkTypeEnum:
       type: integer
       format: int32
+      enum:
+        - 104
+        - 152
+        - 96
+        - 144
       description: |
-        Entity version. The higher byte represents the network
-        identifier:
-        * 0x68 (MAIN_NET) - Public main network.
-        * 0x98 (TEST_NET) - Public test network.
-        * 0x60 (MIJIN) - Private network.
-        * 0x90 (MIJIN_TEST) - Private test network.
-      example: 36867
+        Network type:
+        * 0x60 (96 decimal) - Private network.
+        * 0x90 (144 decimal) - Private test network.
+        * 0x68 (104 decimal) - Public main network.
+        * 0x98 (152 decimal) - Public test network.
+      example: 144
     NetworkTypeNameEnum:
       type: string
-      description: Network name.
       example: mijinTest
       enum:
         - mijin
         - mijinTest
         - public
         - publicTest
+      description: Network name.
     # Enumerations - Node
     RolesTypeEnum:
       type: integer
@@ -1594,18 +1598,6 @@ components:
       description: |
         - 0 - Mosaic address restriction.
         - 1 - Mosaic global restriction.
-    # Enumerations - Multisig
-    CosignatoryModificationActionEnum:
-      type: integer
-      format: int32
-      enum:
-        - 0
-        - 1
-      description: |
-        Type of modification:
-        * 0 - Remove cosignatory.
-        * 1 - Add cosignatory.
-      example: 0
     # Enumerations - Metadata
     MetadataTypeEnum:
       type: integer
@@ -1701,19 +1693,19 @@ components:
         - $ref: "#/components/schemas/ReceiptDTO"
         - type: object
           required:
-            - senderPublicKey
-            - recipientAddress
             - mosaicId
             - amount
+            - senderPublicKey
+            - recipientAddress
           properties:
-            senderPublicKey:
-              $ref: "#/components/schemas/PublicKey"
-            recipientAddress:
-              $ref: "#/components/schemas/Address"
             mosaicId:
               $ref: "#/components/schemas/MosaicId"
             amount:
               $ref: "#/components/schemas/Amount"
+            senderPublicKey:
+              $ref: "#/components/schemas/PublicKey"
+            recipientAddress:
+              $ref: "#/components/schemas/Address"
     BalanceChangeReceiptDTO:
       type: object
       description: Invisible state change that changed an account balance.
@@ -1721,19 +1713,19 @@ components:
         - $ref: "#/components/schemas/ReceiptDTO"
         - type: object
           required:
-            - targetPublicKey
             - mosaicId
             - amount
+            - targetPublicKey
           properties:
-            targetPublicKey:
-              $ref: "#/components/schemas/PublicKey"
             mosaicId:
               $ref: "#/components/schemas/MosaicId"
             amount:
               $ref: "#/components/schemas/Amount"
-    ArtifactExpiryReceiptDTO:
+            targetPublicKey:
+              $ref: "#/components/schemas/PublicKey"
+    NamespaceExpiryReceiptDTO:
       type: object
-      description: An artifact namespace or mosaic expired.
+      description: An namespace expired in this block.
       allOf:
         - $ref: "#/components/schemas/ReceiptDTO"
         - type: object
@@ -1741,9 +1733,18 @@ components:
             - artifactId
           properties:
             artifactId:
-              anyOf:
-                - $ref: "#/components/schemas/NamespaceId"
-                - $ref: "#/components/schemas/MosaicId"
+              $ref: "#/components/schemas/NamespaceId"
+    MosaicExpiryReceiptDTO:
+      type: object
+      description: A mosaic expired in this block.
+      allOf:
+        - $ref: "#/components/schemas/ReceiptDTO"
+        - type: object
+          required:
+            - artifactId
+          properties:
+            artifactId:
+              $ref: "#/components/schemas/MosaicId"
     InflationReceiptDTO:
       type: object
       description: Native currency mosaics that were created due to inflation.
@@ -1759,42 +1760,29 @@ components:
             amount:
               $ref: "#/components/schemas/Amount"
     # Enumerations - RestrictionAccount
-    AccountRestrictionTypeEnum:
+    AccountRestrictionFlagsEnum:
       type: integer
       format: int32
       example: 1
       enum:
         - 1
         - 2
-        - 5
-        - 65
-        - 68
-        - 129
-        - 130
-        - 193
-        - 196
+        - 16385
+        - 16388
+        - 32769
+        - 32770
+        - 49153
+        - 49156
       description: |
         Type of account restriction:
-        * 0x01 (1 decimal) - Allow only incoming transactions from a given address.
-        * 0x02 (2 decimal) - Allow only incoming transactions containing a given mosaic identifier.
-        * 0x05 (5 decimal) - Account restriction sentinel.
-        * 0x41 (65 decimal) - Allow only outgoing transactions to a given address.
-        * 0x44 (68 decimal) - Allow only outgoing transactions with a given transaction type.
-        * 0x81 (129 decimal) - Block incoming transactions from a given address.
-        * 0x82 (130 decimal) - Block incoming transactions containing a given mosaic identifier.
-        * 0xC1 (193 decimal) - Block outgoing transactions to a given address.
-        * 0xC4 (196 decimal) - Block outgoing transactions with a given transaction type.
-    AccountRestrictionModificationActionEnum:
-      type: integer
-      format: int32
-      enum:
-        - 0
-        - 1
-      description: |
-        Type of action:
-        * 0 - Remove property.
-        * 1 - Add property.
-      example: 0
+        * 0x0001 (1 decimal) - Allow only incoming transactions from a given address.
+        * 0x0002 (2 decimal) - Allow only incoming transactions containing a given mosaic identifier.
+        * 0x4001 (16385 decimal) - Allow only outgoing transactions to a given address.
+        * 0x4004 (16388 decimal) - Allow only outgoing transactions with a given transaction type.
+        * 0x8001 (32769 decimal) - Block incoming transactions from a given address.
+        * 0x8002 (32770 decimal) - Block incoming transactions containing a given mosaic identifier.
+        * 0xC001 (49153 decimal) - Block outgoing transactions to a given address.
+        * 0xC004 (49156 decimal) - Block outgoing transactions with a given transaction type.
     # Enumerations - RestrictionMosaic
     MosaicRestrictionTypeEnum:
       type: integer
@@ -2038,11 +2026,16 @@ components:
       required:
         - signerPublicKey
         - version
+        - network
         - type
       properties:
         signerPublicKey:
           $ref: "#/components/schemas/PublicKey"
         version:
+          type: integer
+          format: int32
+          description: Entity version.
+        network:
           $ref: "#/components/schemas/NetworkTypeEnum"
         type:
           type: integer
@@ -2289,9 +2282,12 @@ components:
     AggregateTransactionBodyDTO:
       type: object
       required:
+        - transactionsHash
         - cosignatures
         - transactions
       properties:
+        transactionsHash:
+          $ref: "#/components/schemas/Hash256"
         cosignatures:
           type: array
           description: Array of transaction cosignatures.
@@ -2355,23 +2351,23 @@ components:
     SecretLockTransactionBodyDTO:
       type: object
       required:
-        - duration
+        - secret
         - mosaicId
         - amount
+        - duration
         - hashAlgorithm
-        - secret
         - recipientAddress
       properties:
-        duration:
-          $ref: "#/components/schemas/BlockDuration"
+        secret:
+          $ref: "#/components/schemas/Hash256"
         mosaicId:
           $ref: "#/components/schemas/UnresolvedMosaicId"
         amount:
           $ref: "#/components/schemas/Amount"
+        duration:
+          $ref: "#/components/schemas/BlockDuration"
         hashAlgorithm:
           $ref: "#/components/schemas/LockHashAlgorithmEnum"
-        secret:
-          $ref: "#/components/schemas/Hash256"
         recipientAddress:
           $ref: "#/components/schemas/UnresolvedAddress"
     SecretLockTransactionDTO:
@@ -2391,15 +2387,15 @@ components:
     SecretProofTransactionBodyDTO:
       type: object
       required:
-        - hashAlgorithm
         - secret
+        - hashAlgorithm
         - recipientAddress
         - proof
       properties:
-        hashAlgorithm:
-          $ref: "#/components/schemas/LockHashAlgorithmEnum"
         secret:
           $ref: "#/components/schemas/Hash256"
+        hashAlgorithm:
+          $ref: "#/components/schemas/LockHashAlgorithmEnum"
         recipientAddress:
           $ref: "#/components/schemas/UnresolvedAddress"
         proof:
@@ -2498,19 +2494,21 @@ components:
     MosaicDefinitionTransactionBodyDTO:
       type: object
       required:
-        - nonce
         - id
+        - duration
+        - nonce
         - flags
         - divisibility
-        - duration
       properties:
+        id:
+          $ref: "#/components/schemas/MosaicId"
+        duration:
+          $ref: "#/components/schemas/BlockDuration"
         nonce:
           type: integer
           format: int64
           description: Random nonce used to generate the mosaic id.
           example: 0
-        id:
-          $ref: "#/components/schemas/MosaicId"
         flags:
           $ref: "#/components/schemas/MosaicFlagsEnum"
         divisibility:
@@ -2520,8 +2518,6 @@ components:
             Determines up to what decimal place the mosaic can be divided.
             Divisibility of 3 means that a mosaic can be divided into smallest parts of 0.001 mosaics.
             The divisibility must be in the range of 0 and 6.
-        duration:
-          $ref: "#/components/schemas/BlockDuration"
     MosaicDefinitionTransactionDTO:
       type: object
       description: Transaction to create a new mosaic.
@@ -2537,15 +2533,15 @@ components:
       type: object
       required:
         - mosaicId
-        - action
         - delta
+        - action
       properties:
         mosaicId:
           $ref: "#/components/schemas/UnresolvedMosaicId"
-        action:
-          $ref: "#/components/schemas/MosaicSupplyChangeActionEnum"
         delta:
           $ref: "#/components/schemas/Amount"
+        action:
+          $ref: "#/components/schemas/MosaicSupplyChangeActionEnum"
     MosaicSupplyChangeTransactionDTO:
       type: object
       description: Transaction to increase or decrease the supply of a mosaic.
@@ -2618,22 +2614,13 @@ components:
             - 565059F55E68F904214E8BE1D610B5BBEA4CE46CC13D246D45BC1DAE5D32A0D2
           items:
             type: string
-    CosignatoryModificationDTO:
-      type: object
-      required:
-        - modificationAction
-        - cosignatoryPublicKey
-      properties:
-        modificationAction:
-          $ref: "#/components/schemas/CosignatoryModificationActionEnum"
-        cosignatoryPublicKey:
-          $ref: "#/components/schemas/PublicKey"
     MultisigAccountModificationTransactionBodyDTO:
       type: object
       required:
         - minRemovalDelta
         - minApprovalDelta
-        - modifications
+        - publicKeyAdditions
+        - publicKeyDeletions
       properties:
         minRemovalDelta:
           type: integer
@@ -2651,11 +2638,16 @@ components:
             modifying an existing multisig account, this indicates the relative
             change of the minimum cosignatories.
           example: 1
-        modifications:
+        publicKeyAdditions:
           type: array
-          description: Array of cosignatory accounts to add or delete.
+          description: Array of cosignatory accounts to add.
           items:
-            $ref: "#/components/schemas/CosignatoryModificationDTO"
+            $ref: "#/components/schemas/PublicKey"
+        publicKeyDeletions:
+          type: array
+          description: Array of cosignatory accounts to delete.
+          items:
+            $ref: "#/components/schemas/PublicKEy"
     MultisigAccountModificationTransactionDTO:
       type: object
       description: Transaction to create or modify a multisig account.
@@ -2931,20 +2923,20 @@ components:
     NamespaceRegistrationTransactionBodyDTO:
       type: object
       required:
-        - registrationType
         - duration
         - parentId
         - id
+        - registrationType
         - name
       properties:
-        registrationType:
-          $ref: "#/components/schemas/NamespaceRegistrationTypeEnum"
         duration:
           $ref: "#/components/schemas/BlockDuration"
         parentId:
           $ref: "#/components/schemas/NamespaceId"
         id:
           $ref: "#/components/schemas/NamespaceId"
+        registrationType:
+          $ref: "#/components/schemas/NamespaceRegistrationTypeEnum"
         name:
           type: string
           description: Namespace name.
@@ -2962,16 +2954,16 @@ components:
     AddressAliasTransactionBodyDTO:
       type: object
       required:
-        - aliasAction
         - namespaceId
         - address
+        - aliasAction
       properties:
-        aliasAction:
-          $ref: "#/components/schemas/AliasActionEnum"
         namespaceId:
           $ref: "#/components/schemas/NamespaceId"
         address:
           $ref: "#/components/schemas/Address"
+        aliasAction:
+          $ref: "#/components/schemas/AliasActionEnum"
     AddressAliasTransactionDTO:
       type: object
       description: Transaction to link a namespace to an account.
@@ -2986,16 +2978,16 @@ components:
     MosaicAliasTransactionBodyDTO:
       type: object
       required:
-        - aliasAction
         - namespaceId
         - mosaicId
+        - aliasAction
       properties:
-        aliasAction:
-          $ref: "#/components/schemas/AliasActionEnum"
         namespaceId:
           $ref: "#/components/schemas/NamespaceId"
         mosaicId:
           $ref: "#/components/schemas/MosaicId"
+        aliasAction:
+          $ref: "#/components/schemas/AliasActionEnum"
     MosaicAliasTransactionDTO:
       type: object
       description: Transaction to link a namespace to a mosaic.
@@ -3058,7 +3050,8 @@ components:
             anyOf:
               - $ref: "#/components/schemas/BalanceTransferReceiptDTO"
               - $ref: "#/components/schemas/BalanceChangeReceiptDTO"
-              - $ref: "#/components/schemas/ArtifactExpiryReceiptDTO"
+              - $ref: "#/components/schemas/NamespaceExpiryReceiptDTO"
+              - $ref: "#/components/schemas/MosaicExpiryReceiptDTO"
               - $ref: "#/components/schemas/InflationReceiptDTO"
     ResolutionStatementDTO:
       type: object
@@ -3160,7 +3153,7 @@ components:
         - values
       properties:
         restrictionType:
-          $ref: "#/components/schemas/AccountRestrictionTypeEnum"
+          $ref: "#/components/schemas/AccountRestrictionFlagsEnum"
         values:
           type: array
           description: Address, transaction type, or mosaic id to restrict.
@@ -3169,28 +3162,25 @@ components:
               - $ref: "#/components/schemas/UnresolvedAddress"
               - $ref: "#/components/schemas/TransactionTypeEnum"
               - $ref: "#/components/schemas/UnresolvedMosaicId"
-    AccountAddressRestrictionModificationDTO:
-      type: object
-      required:
-        - modificationAction
-        - value
-      properties:
-        modificationAction:
-          $ref: "#/components/schemas/AccountRestrictionModificationActionEnum"
-        value:
-          $ref: "#/components/schemas/UnresolvedAddress"
     AccountAddressRestrictionTransactionBodyDTO:
       type: object
       required:
         - restrictionType
-        - modifications
+        - restrictionAdditions
+        - restrictionDeletions
       properties:
         restrictionType:
-          $ref: "#/components/schemas/AccountRestrictionTypeEnum"
-        modifications:
+          $ref: "#/components/schemas/AccountRestrictionFlagsEnum"
+        restrictionAdditions:
           type: array
+          description: Account restriction additions.
           items:
-            $ref: "#/components/schemas/AccountAddressRestrictionModificationDTO"
+            $ref: "#/components/schemas/UnresolvedAddress"
+        restrictionDeletions:
+          type: array
+          description: Account restriction deletions.
+          items:
+            $ref: "#/components/schemas/UnresolvedAddress"
     AccountAddressRestrictionTransactionDTO:
       type: object
       description: Transaction to prevent incoming and outgoing transactions for a given a set of addresses.
@@ -3202,28 +3192,25 @@ components:
       allOf:
         - $ref: "#/components/schemas/EmbeddedTransactionDTO"
         - $ref: "#/components/schemas/AccountAddressRestrictionTransactionBodyDTO"
-    AccountMosaicRestrictionModificationDTO:
-      type: object
-      required:
-        - modificationAction
-        - value
-      properties:
-        modificationAction:
-          $ref: "#/components/schemas/AccountRestrictionModificationActionEnum"
-        value:
-          $ref: "#/components/schemas/UnresolvedMosaicId"
     AccountMosaicRestrictionTransactionBodyDTO:
       type: object
       required:
         - restrictionType
-        - modifications
+        - restrictionAdditions
+        - restrictionDeletions
       properties:
         restrictionType:
-          $ref: "#/components/schemas/AccountRestrictionTypeEnum"
-        modifications:
+          $ref: "#/components/schemas/AccountRestrictionFlagsEnum"
+        restrictionAdditions:
           type: array
+          description: Account restriction additions.
           items:
-            $ref: "#/components/schemas/AccountMosaicRestrictionModificationDTO"
+            $ref: "#/components/schemas/UnresolvedMosaicId"
+        restrictionDeletions:
+          type: array
+          description: Account restriction deletions.
+          items:
+            $ref: "#/components/schemas/UnresolvedMosaicId"
     AccountMosaicRestrictionTransactionDTO:
       type: object
       description: Transaction to prevent incoming transactions containing a given set of mosaics.
@@ -3235,28 +3222,25 @@ components:
       allOf:
         - $ref: "#/components/schemas/EmbeddedTransactionDTO"
         - $ref: "#/components/schemas/AccountMosaicRestrictionTransactionBodyDTO"
-    AccountOperationRestrictionModificationDTO:
-      type: object
-      required:
-        - modificationAction
-        - value
-      properties:
-        modificationAction:
-          $ref: "#/components/schemas/AccountRestrictionModificationActionEnum"
-        value:
-          $ref: "#/components/schemas/TransactionTypeEnum"
     AccountOperationRestrictionTransactionBodyDTO:
       type: object
       required:
         - restrictionType
-        - modifications
+        - restrictionAdditions
+        - restrictionDeletions
       properties:
         restrictionType:
-          $ref: "#/components/schemas/AccountRestrictionTypeEnum"
-        modifications:
+          $ref: "#/components/schemas/AccountRestrictionFlagsEnum"
+        restrictionAdditions:
           type: array
+          description: Account restriction additions.
           items:
-            $ref: "#/components/schemas/AccountOperationRestrictionModificationDTO"
+            $ref: "#/components/schemas/TransactionTypeEnum"
+        restrictionDeletions:
+          type: array
+          description: Account restriction deletions.
+          items:
+            $ref: "#/components/schemas/TransactionTypeEnum"
     AccountOperationRestrictionTransactionDTO:
       type: object
       description: Transaction to prevent outgoing transactions by transaction type.
@@ -3274,22 +3258,22 @@ components:
       required:
         - mosaicId
         - restrictionKey
-        - targetAddress
         - previousRestrictionValue
         - newRestrictionValue
+        - targetAddress
       properties:
         mosaicId:
           $ref: "#/components/schemas/UnresolvedMosaicId"
         restrictionKey:
           $ref: "#/components/schemas/MosaicRestrictionKey"
-        targetAddress:
-          $ref: "#/components/schemas/UnresolvedAddress"
         previousRestrictionValue:
           type: string
           description: Previous restriction value.
         newRestrictionValue:
           type: string
           description: New restriction value.
+        targetAddress:
+          $ref: "#/components/schemas/UnresolvedAddress"
     MosaicAddressRestrictionTransactionDTO:
       type: object
       description: Transaction to set a restriction rule to an address.
@@ -3308,8 +3292,8 @@ components:
         - referenceMosaicId
         - restrictionKey
         - previousRestrictionValue
-        - previousRestrictionType
         - newRestrictionValue
+        - previousRestrictionType
         - newRestrictionType
       properties:
         mosaicId:
@@ -3321,11 +3305,11 @@ components:
         previousRestrictionValue:
           type: string
           description: Previous restriction value.
-        previousRestrictionType:
-          $ref: "#/components/schemas/MosaicRestrictionTypeEnum"
         newRestrictionValue:
           type: string
           description: New restriction value.
+        previousRestrictionType:
+          $ref: "#/components/schemas/MosaicRestrictionTypeEnum"
         newRestrictionType:
           $ref: "#/components/schemas/MosaicRestrictionTypeEnum"
     MosaicGlobalRestrictionTransactionDTO:
