@@ -1348,6 +1348,11 @@ components:
       type: string
       description: Duration expressed in number of blocks.
       example: 200
+    BlockFeeMultiplier:
+      type: integer
+      format: int32
+      description: Fee multiplier applied to transactions contained in block.
+      example: 0
     Difficulty:
       type: string
       description: Defines how difficult it will be to harvest next the block, based on previous blocks.
@@ -1935,12 +1940,12 @@ components:
             - height
             - timestamp
             - difficulty
-            - feeMultiplier
             - previousBlockHash
             - transactionsHash
             - receiptsHash
             - stateHash
             - beneficiaryPublicKey
+            - feeMultiplier
           properties:
             height:
               $ref: "#/components/schemas/Height"
@@ -1948,11 +1953,6 @@ components:
               $ref: "#/components/schemas/Timestamp"
             difficulty:
               $ref: "#/components/schemas/Difficulty"
-            feeMultiplier:
-              type: integer
-              format: int32
-              description: Fee multiplier applied to transactions contained in block.
-              example: 0
             previousBlockHash:
               $ref: "#/components/schemas/Hash256"
             transactionsHash:
@@ -1963,6 +1963,8 @@ components:
               $ref: "#/components/schemas/Hash256"
             beneficiaryPublicKey:
               $ref: "#/components/schemas/PublicKey"
+            feeMultiplier:
+              $ref: "#/components/schemas/BlockFeeMultiplier"
     HeightInfoDTO:
       type: object
       required:
