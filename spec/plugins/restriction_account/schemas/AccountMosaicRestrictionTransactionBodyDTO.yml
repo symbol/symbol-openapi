@@ -1,0 +1,18 @@
+type: object
+required:
+  - restrictionType
+  - restrictionAdditions
+  - restrictionDeletions
+properties:
+  restrictionType:
+    $ref: "./AccountRestrictionFlagsEnum.yml"
+  restrictionAdditions:
+    type: array
+    description: Account restriction additions.
+    items:
+      $ref: "../../../types/UnresolvedMosaicId.yml"
+  restrictionDeletions:
+    type: array
+    description: Account restriction deletions.
+    items:
+      $ref: "../../../types/UnresolvedMosaicId.yml"

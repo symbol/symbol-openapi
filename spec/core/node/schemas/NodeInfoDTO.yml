@@ -1,0 +1,36 @@
+type: object
+required:
+  - publicKey
+  - port
+  - networkIdentifier
+  - version
+  - roles
+  - host
+  - friendlyName
+properties:
+  publicKey:
+    $ref: "../../../types/PublicKey.yml"
+  port:
+    type: integer
+    description: Port used for the communication.
+    format: int32
+    example: 7900
+  networkIdentifier:
+    type: integer
+    format: int32
+    example: 144
+  version:
+    type: integer
+    description: Version of the application.
+    format: int32
+    example: 0
+  roles:
+    $ref: "./RolesTypeEnum.yml"
+  host:
+    type: string
+    description: Node IP address.
+    example: 127.0.0.1
+  friendlyName:
+    type: string
+    description: Node friendly name.
+    example: api-node-0

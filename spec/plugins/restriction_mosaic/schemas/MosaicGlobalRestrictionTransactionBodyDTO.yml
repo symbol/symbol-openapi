@@ -1,0 +1,26 @@
+type: object
+required:
+  - mosaicId
+  - referenceMosaicId
+  - restrictionKey
+  - previousRestrictionValue
+  - newRestrictionValue
+  - previousRestrictionType
+  - newRestrictionType
+properties:
+  mosaicId:
+    $ref: "../../../types/UnresolvedMosaicId.yml"
+  referenceMosaicId:
+    $ref: "../../../types/UnresolvedMosaicId.yml"
+  restrictionKey:
+    $ref: "../../../types/MosaicRestrictionKey.yml"
+  previousRestrictionValue:
+    type: string
+    description: Previous restriction value.
+  newRestrictionValue:
+    type: string
+    description: New restriction value.
+  previousRestrictionType:
+    $ref: "./MosaicRestrictionTypeEnum.yml"
+  newRestrictionType:
+    $ref: "./MosaicRestrictionTypeEnum.yml"
