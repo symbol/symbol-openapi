@@ -2,9 +2,8 @@ tags:
   - Chain routes
 summary: Get the current score of the chain
 description: |
-  Gets the current score of the blockchain. The higher the score, the
-  better the chain. During synchronization, nodes try to get the best
-  blockchain in the network.
+  Gets the current score of the blockchain. The higher the score, the better the chain.
+  During synchronization, nodes try to get the best blockchain in the network.
 
   The score for a block is derived from its difficulty and the time (in seconds) that has elapsed since the last block:
 

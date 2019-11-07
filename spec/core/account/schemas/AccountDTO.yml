@@ -30,9 +30,8 @@ properties:
   mosaics:
     type: array
     description: |
-      Mosaic units owned. The amount is represented in
-      absolute amount. Thus a balance of 123456789 for a mosaic with
-      divisibility 6 (absolute) means the account owns 123.456789.
+      Mosaic units owned. The amount is represented in absolute amount.
+      Thus a balance of 123456789 for a mosaic with divisibility 6 (absolute) means the account owns 123.456789.
     items:
       $ref: "../../../types/Mosaic.yml"
   importance:

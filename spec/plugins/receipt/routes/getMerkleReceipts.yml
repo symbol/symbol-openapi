@@ -2,11 +2,10 @@ tags:
   - Receipt routes
 summary: Get the merkle path for a given a receipt statement hash and block
 description: |
-  Returns the merkle path for a receipt statement or resolution linked to a
-  block. The path is the complementary data needed to calculate the merkle
-  root. A client can compare if the calculated root equals the one
-  recorded in the block header, verifying that the receipt was linked with
-  the block.
+  Returns the merkle path for a receipt statement or resolution linked to a block.
+  The path is the complementary data needed to calculate the merkle root.
+  A client can compare if the calculated root equals the one recorded in the block header,
+  verifying that the receipt was linked with the block.
 operationId: getMerkleReceipts
 parameters:
   - $ref: "../../../parameters/height.yml"

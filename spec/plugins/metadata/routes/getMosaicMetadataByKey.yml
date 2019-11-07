@@ -1,7 +1,7 @@
 tags:
   - Metadata routes
 summary: Get mosaic metadata
-description: Returns the mosaic metadata given a mosaic id and a key
+description: Returns the mosaic metadata given a mosaic id and a key.
 operationId: getMosaicMetadataByKey
 parameters:
   - $ref: "../../../parameters/mosaicId.yml"

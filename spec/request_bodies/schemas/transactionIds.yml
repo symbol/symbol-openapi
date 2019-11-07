@@ -2,7 +2,7 @@ type: object
 properties:
   transactionIds:
     type: array
-    description: Array of transaction ids.
+    description: Array of transaction identifiers.
     items:
       type: string
     example:

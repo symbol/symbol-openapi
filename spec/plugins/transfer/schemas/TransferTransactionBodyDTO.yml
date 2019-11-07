@@ -8,9 +8,8 @@ properties:
     $ref: "../../../types/UnresolvedAddress.yml"
   mosaics:
     type: array
-    description: Array of mosaics sent to the recipient. If the most significant
-      bit of byte 0 is set, a namespaceId (alias) is used instead of a
-      instead of a mosaicId corresponds to a mosaicId.
+    description: |
+      Array of mosaics sent to the recipient.
     items:
       $ref: "../../../types/UnresolvedMosaic.yml"
   message:

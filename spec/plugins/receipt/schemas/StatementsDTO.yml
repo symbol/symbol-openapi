@@ -1,6 +1,5 @@
 type: object
-description: Collection of transaction statements and resolutions triggered for
-  the block requested.
+description: Collection of transaction statements and resolutions triggered for the block requested.
 required:
   - transactionStatements
   - addressResolutionStatements

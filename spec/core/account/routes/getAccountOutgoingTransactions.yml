@@ -1,9 +1,9 @@
 tags:
   - Account routes
 summary: Get outgoing transactions
-description: Gets an array of outgoing transactions. A transaction is said to be
-  outgoing with respect to an account if the account is the sender of the
-  transaction.
+description: |
+  Gets an array of outgoing transactions. A transaction is said to be outgoing with respect to an account
+  if the account is the sender of the transaction.
 operationId: getAccountOutgoingTransactions
 parameters:
   - $ref: "../../../parameters/accountId.yml"

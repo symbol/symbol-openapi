@@ -1,8 +1,7 @@
 tags:
   - Restriction Account routes
 summary: Get the account restrictions
-description: |
-  Returns the account restrictions for a given account.
+description: Returns the account restrictions for a given account.
 operationId: getAccountRestrictions
 parameters:
   - $ref: "../../../parameters/accountId.yml"

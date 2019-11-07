@@ -1,7 +1,7 @@
 tags:
   - Metadata routes
 summary: Get account metadata
-description: Returns the account metadata given an account id and a key
+description: Returns the account metadata given an account id and a key.
 operationId: getAccountMetadataByKey
 parameters:
   - $ref: "../../../parameters/accountId.yml"
