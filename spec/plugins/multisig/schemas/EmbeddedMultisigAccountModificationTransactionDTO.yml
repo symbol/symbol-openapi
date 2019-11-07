@@ -1,0 +1,3 @@
+allOf:
+  - $ref: "../../../core/transaction/schemas/EmbeddedTransactionDTO.yml"
+  - $ref: "./MultisigAccountModificationTransactionBodyDTO.yml"

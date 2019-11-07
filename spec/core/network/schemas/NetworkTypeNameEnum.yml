@@ -1,0 +1,8 @@
+type: string
+example: mijinTest
+enum:
+  - mijin
+  - mijinTest
+  - public
+  - publicTest
+description: Network name.

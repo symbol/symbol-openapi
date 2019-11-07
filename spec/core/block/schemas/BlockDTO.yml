@@ -1,0 +1,32 @@
+type: object
+allOf:
+  - type: object
+    required:
+      - height
+      - timestamp
+      - difficulty
+      - previousBlockHash
+      - transactionsHash
+      - receiptsHash
+      - stateHash
+      - beneficiaryPublicKey
+      - feeMultiplier
+    properties:
+      height:
+        $ref: "../../../types/Height.yml"
+      timestamp:
+        $ref: "../../../types/Timestamp.yml"
+      difficulty:
+        $ref: "../../../types/Difficulty.yml"
+      previousBlockHash:
+        $ref: "../../../types/Hash256.yml"
+      transactionsHash:
+        $ref: "../../../types/Hash256.yml"
+      receiptsHash:
+        $ref: "../../../types/Hash256.yml"
+      stateHash:
+        $ref: "../../../types/Hash256.yml"
+      beneficiaryPublicKey:
+        $ref: "../../../types/PublicKey.yml"
+      feeMultiplier:
+        $ref: "../../../types/BlockFeeMultiplier.yml"
