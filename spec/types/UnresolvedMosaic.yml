@@ -6,4 +6,4 @@ properties:
   id:
     $ref: "./UnresolvedMosaicId.yml"
   amount:
-    $ref: "/Amount.yml"
+    $ref: "./Amount.yml"

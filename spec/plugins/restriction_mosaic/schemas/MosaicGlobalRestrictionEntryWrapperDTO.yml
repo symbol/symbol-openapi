@@ -6,7 +6,7 @@ required:
   - restrictions
 properties:
   compositeHash:
-    - $ref: "../../../types/Hash256.yml"
+    $ref: "../../../types/Hash256.yml"
   entryType:
     $ref: "./MosaicRestrictionEntryTypeEnum.yml"
   mosaicId:

@@ -1,10 +1,5 @@
-type: object
-properties:
-  transactionIds:
-    type: array
-    description: Array of transaction ids.
-    items:
-      type: string
-    example:
-      - 59B8DA0F0CB2720001103922
-      - 59B8D8E60CB2720001103904
+content:
+  application/json:
+    schema:
+      $ref: "./schemas/transactionIds.yml"
+required: true

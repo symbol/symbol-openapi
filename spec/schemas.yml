@@ -40,7 +40,7 @@ UnresolvedAddress:
 UnresolvedMosaicId:
   "$ref": "./types/UnresolvedMosaicId.yml"
 UnresolvedMosaic:
-  "$ref": "./types/UnresolvedMosaicId.yml"
+  "$ref": "./types/UnresolvedMosaic.yml"
 
 # Core - Account
 AccountTypeEnum:
@@ -137,10 +137,8 @@ EmbeddedAccountLinkTransactionDTO:
 # Plugin - Aggregate
 AggregateTransactionBodyDTO:
   "$ref": "./plugins/aggregate/schemas/AggregateTransactionBodyDTO.yml"
-AggregateCompleteTransactionDTO:
-  "$ref": "./plugins/aggregate/schemas/AggregateTransactionBodyDTO.yml"
-AggregateBondedTransactionDTO:
-  "$ref": "./plugins/aggregate/schemas/AggregateTransactionBodyDTO.yml"
+AggregateTransactionDTO:
+  "$ref": "./plugins/aggregate/schemas/AggregateTransactionDTO.yml"
 CosignatureDTO:
   "$ref": "./plugins/aggregate/schemas/CosignatureDTO.yml"
 
@@ -342,7 +340,7 @@ EmbeddedAccountOperationRestrictionTransactionDTO:
 MosaicRestrictionEntryTypeEnum:
   "$ref": "./plugins/restriction_mosaic/schemas/MosaicRestrictionEntryTypeEnum.yml"
 MosaicRestrictionTypeEnum:
-"$ref": "./plugins/restriction_mosaic/schemas/MosaicRestrictionTypeEnum.yml"
+  "$ref": "./plugins/restriction_mosaic/schemas/MosaicRestrictionTypeEnum.yml"
 EmbeddedMosaicAddressRestrictionTransactionDTO:
   "$ref": "./plugins/restriction_mosaic/schemas/EmbeddedMosaicAddressRestrictionTransactionDTO.yml"
 EmbeddedMosaicGlobalRestrictionTransactionDTO:
@@ -384,16 +382,16 @@ TransferTransactionDTO:
 
 # Request bodies
 accountIds:
-  "$ref": "./request_bodies/accountIds.yml"
+  "$ref": "./request_bodies/schemas/accountIds.yml"
 cosignature:
-  "$ref": "./request_bodies/cosignature.yml"
+  "$ref": "./request_bodies/schemas/cosignature.yml"
 mosaicIds:
-  "$ref": "./request_bodies/mosaicIds.yml"
+  "$ref": "./request_bodies/schemas/mosaicIds.yml"
 namespaceIds:
-  "$ref": "./request_bodies/namespaceIds.yml"
+  "$ref": "./request_bodies/schemas/namespaceIds.yml"
 transactionHashes:
-  "$ref": "./request_bodies/transactionHashes.yml"
+  "$ref": "./request_bodies/schemas/transactionHashes.yml"
 transactionIds:
-  "$ref": "./request_bodies/transactionIds.yml"
+  "$ref": "./request_bodies/schemas/transactionIds.yml"
 transactionPayload:
-  "$ref": "./request_bodies/transactionPayload.yml"
+  "$ref": "./request_bodies/schemas/transactionPayload.yml"

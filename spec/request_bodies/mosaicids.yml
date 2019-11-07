@@ -1,5 +1,5 @@
 content:
   application/json:
     schema:
-      $ref: "./schemas/namespaceIds.yml"
+      $ref: "./schemas/mosaicIds.yml"
 required: true

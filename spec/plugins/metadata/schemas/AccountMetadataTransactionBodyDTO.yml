@@ -8,7 +8,6 @@ required:
 properties:
   targetPublicKey:
     $ref: "../../../types/PublicKey.yml"
-    description: Metadata target public key.
   scopedMetadataKey:
     $ref: "../../../types/MetadataKey.yml"
   valueSizeDelta:

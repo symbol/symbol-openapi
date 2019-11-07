@@ -5,7 +5,7 @@ required:
   - restrictionType
 properties:
   referenceMosaicId:
-    - $ref: "../../../types/MosaicId.yml"
+    $ref: "../../../types/MosaicId.yml"
   restrictionValue:
     type: string
     description: Restriction value.

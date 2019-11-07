@@ -12,6 +12,6 @@ properties:
       bit of byte 0 is set, a namespaceId (alias) is used instead of a
       instead of a mosaicId corresponds to a mosaicId.
     items:
-    $ref: "../../../types/Mosaic.yml"
+      $ref: "../../../types/UnresolvedMosaic.yml"
   message:
     $ref: "./MessageDTO.yml"

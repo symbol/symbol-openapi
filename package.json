@@ -4,8 +4,9 @@
   "description": "OpenAPI spec for Catapult",
   "main": "index.js",
   "scripts": {
-    "test": "swagger-cli validate spec/openapi3.yaml",
-    "postman": "openapi2postmanv2 -s spec/openapi3.yaml -o spec/postman.json -p"
+    "test": "swagger-cli validate build/openapi3.yml",
+    "build": "swagger-cli bundle ./spec/openapi.yml --outfile ./build/openapi3.yml --type yaml",
+    "postman": "openapi2postmanv2 -s build/openapi3.yaml -o build/postman.json -p"
   },
   "repository": {
     "type": "git",

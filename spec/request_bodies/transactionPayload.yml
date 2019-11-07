@@ -1,5 +1,5 @@
-type: object
-properties:
-  payload:
-    type: string
-    description: Transaction payload.
+content:
+  application/json:
+    schema:
+      $ref: "./schemas/transactionPayload.yml"
+required: true
