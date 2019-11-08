@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 0.7.19
+  version: 0.7.21
   title: Catapult REST Endpoints
   license:
     name: Apache 2.0
@@ -95,9 +95,8 @@ paths:
         - Account routes
       summary: Get incoming transactions
       description: |
-        Gets an array of incoming transactions. A transaction is said to be
-        incoming with respect to an account if the account is the recipient of
-        the transaction.
+        Gets an array of incoming transactions. A transaction is said to be incoming with respect to an account
+        if the account is the recipient of the transaction.
       operationId: getAccountIncomingTransactions
       parameters:
         - $ref: '#/components/parameters/accountId'
@@ -121,7 +120,9 @@ paths:
       tags:
         - Account routes
       summary: Get outgoing transactions
-      description: Gets an array of outgoing transactions. A transaction is said to be outgoing with respect to an account if the account is the sender of the transaction.
+      description: |
+        Gets an array of outgoing transactions. A transaction is said to be outgoing with respect to an account
+        if the account is the sender of the transaction.
       operationId: getAccountOutgoingTransactions
       parameters:
         - $ref: '#/components/parameters/accountId'
@@ -145,9 +146,7 @@ paths:
       tags:
         - Account routes
       summary: Get unconfirmed transactions
-      description: |
-        Gets the array of transactions not included in a block where an account
-        is the sender or receiver.
+      description: Gets the array of transactions not included in a block where an account is the sender or receiver.
       operationId: getAccountUnconfirmedTransactions
       parameters:
         - $ref: '#/components/parameters/accountId'
@@ -172,8 +171,7 @@ paths:
         - Account routes
       summary: Get aggregate bonded transactions information
       description: |
-        Gets an array of aggregate bonded transactions where the account is the sender
-        or requires to cosign the transaction.
+        Gets an array of aggregate bonded transactions where the account is the sender or requires to cosign the transaction.
       operationId: getAccountPartialTransactions
       parameters:
         - $ref: '#/components/parameters/accountId'
@@ -305,9 +303,8 @@ paths:
         - Chain routes
       summary: Get the current score of the chain
       description: |
-        Gets the current score of the blockchain. The higher the score, the
-        better the chain. During synchronization, nodes try to get the best
-        blockchain in the network.
+        Gets the current score of the blockchain. The higher the score, the better the chain.
+        During synchronization, nodes try to get the best blockchain in the network.
 
         The score for a block is derived from its difficulty and the time (in seconds) that has elapsed since the last block:
 
@@ -438,8 +435,8 @@ paths:
         - Transaction routes
       summary: Announce a new transaction
       description: |
-        Announces a transaction to the network. We recommended to use the
-        NEM2-SDK to announce transactions as they should be serialized.
+        Announces a transaction to the network.
+        We recommended to use the NEM2-SDK to announce transactions as they should be serialized.
       operationId: putTransaction
       requestBody:
         $ref: '#/components/requestBodies/transactionPayload'
@@ -611,7 +608,7 @@ paths:
       tags:
         - Metadata routes
       summary: Get account metadata
-      description: Returns the account metadata given an account id and a key
+      description: Returns the account metadata given an account id and a key.
       operationId: getAccountMetadataByKey
       parameters:
         - $ref: '#/components/parameters/accountId'
@@ -632,7 +629,7 @@ paths:
       tags:
         - Metadata routes
       summary: Get mosaic metadata
-      description: Returns the mosaic metadata given a mosaic id and a key
+      description: Returns the mosaic metadata given a mosaic id and a key.
       operationId: getMosaicMetadataByKey
       parameters:
         - $ref: '#/components/parameters/mosaicId'
@@ -653,7 +650,7 @@ paths:
       tags:
         - Metadata routes
       summary: Get namespace metadata
-      description: Returns the namespace metadata given a namespace id and a key
+      description: Returns the namespace metadata given a namespace id and a key.
       operationId: getNamespaceMetadataByKey
       parameters:
         - $ref: '#/components/parameters/namespaceId'
@@ -674,7 +671,7 @@ paths:
       tags:
         - Metadata routes
       summary: Get account metadata
-      description: 'Returns the account metadata given an account id, a key, and a sender'
+      description: 'Returns the account metadata given an account id, a key, and a sender.'
       operationId: getAccountMetadataByKeyAndSender
       parameters:
         - $ref: '#/components/parameters/accountId'
@@ -696,7 +693,7 @@ paths:
       tags:
         - Metadata routes
       summary: Get mosaic metadata
-      description: 'Returns the mosaic metadata given a mosaic id, a key, and a sender'
+      description: 'Returns the mosaic metadata given a mosaic id, a key, and a sender.'
       operationId: getMosaicMetadataByKeyAndSender
       parameters:
         - $ref: '#/components/parameters/mosaicId'
@@ -718,7 +715,7 @@ paths:
       tags:
         - Metadata routes
       summary: Get namespace metadata
-      description: 'Returns the namespace metadata given a namespace id, a key, and a sender'
+      description: 'Returns the namespace metadata given a namespace id, a key, and a sender.'
       operationId: getNamespaceMetadataByKeyAndSender
       parameters:
         - $ref: '#/components/parameters/namespaceId'
@@ -1011,11 +1008,10 @@ paths:
         - Receipt routes
       summary: Get the merkle path for a given a receipt statement hash and block
       description: |
-        Returns the merkle path for a receipt statement or resolution linked to a
-        block. The path is the complementary data needed to calculate the merkle
-        root. A client can compare if the calculated root equals the one
-        recorded in the block header, verifying that the receipt was linked with
-        the block.
+        Returns the merkle path for a receipt statement or resolution linked to a block.
+        The path is the complementary data needed to calculate the merkle root.
+        A client can compare if the calculated root equals the one recorded in the block header,
+        verifying that the receipt was linked with the block.
       operationId: getMerkleReceipts
       parameters:
         - $ref: '#/components/parameters/height'
@@ -1036,8 +1032,7 @@ paths:
       tags:
         - Restriction Account routes
       summary: Get the account restrictions
-      description: |
-        Returns the account restrictions for a given account.
+      description: Returns the account restrictions for a given account.
       operationId: getAccountRestrictions
       parameters:
         - $ref: '#/components/parameters/accountId'
@@ -1180,7 +1175,9 @@ components:
     height:
       name: height
       in: path
-      description: 'Block height. If height -1 is not a multiple of the limit provided, the inferior closest multiple + 1 is used instead.'
+      description: |
+        Block height.
+        If height -1 is not a multiple of the limit provided, the inferior closest multiple + 1 is used instead.
       required: true
       schema:
         $ref: '#/components/schemas/Height'
@@ -1427,7 +1424,7 @@ components:
       format: hex
       description: |
         Mosaic identifier. If the most significant bit of byte 0 is set, a namespaceId (alias)
-        is used instead of the real  mosaic identifier.
+        is used instead of the real mosaic identifier.
       example: 85BBEA6CC462B244
     UnresolvedMosaic:
       type: object
@@ -1485,9 +1482,8 @@ components:
         mosaics:
           type: array
           description: |
-            Mosaic units owned. The amount is represented in
-            absolute amount. Thus a balance of 123456789 for a mosaic with
-            divisibility 6 (absolute) means the account owns 123.456789.
+            Mosaic units owned. The amount is represented in absolute amount.
+            Thus a balance of 123456789 for a mosaic with divisibility 6 (absolute) means the account owns 123.456789.
           items:
             $ref: '#/components/schemas/Mosaic'
         importance:
@@ -2499,17 +2495,15 @@ components:
           type: integer
           format: int32
           description: |
-            Number of signatures needed to remove a cosignatory. If we are
-            modifying an existing multisig account, this indicates the relative
-            change of the minimum cosignatories.
+            Number of signatures needed to remove a cosignatory.
+            If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories.
           example: 1
         minApprovalDelta:
           type: integer
           format: int32
           description: |
-            Number of signatures needed to approve a transaction. If we are
-            modifying an existing multisig account, this indicates the relative
-            change of the minimum cosignatories.
+            Number of signatures needed to approve a transaction.
+            If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories.
           example: 1
         publicKeyAdditions:
           type: array
@@ -2975,12 +2969,17 @@ components:
             - $ref: '#/components/schemas/UnresolvedAddress'
         resolutionEntries:
           type: array
-          description: Array of resolution entries linked to the unresolved namespaceId. It is an array instead of a single resolution entry since within one block the resolution might change for different sources due to alias related transactions.
+          description: |
+            Array of resolution entries linked to the unresolved namespaceId.
+            It is an array instead of a single resolution entry since
+            within one block the resolution might change for different sources due to alias related transactions.
           items:
             $ref: '#/components/schemas/ResolutionEntryDTO'
     ResolutionStatementDTO:
       type: object
-      description: A resolution statement keeps the relation between a namespace alias used in a transaction and the real address or mosaicId.
+      description: |
+        A resolution statement keeps the relation between a namespace alias used in a transaction
+        and the real address or mosaicId.
       required:
         - statement
       properties:
@@ -3001,7 +3000,9 @@ components:
         secondaryId:
           type: integer
           format: int32
-          description: 'Transaction index inside within the aggregate transaction. If the transaction is not an inner transaction, then the secondary id is set to 0.'
+          description: |
+            Transaction index inside within the aggregate transaction.
+            If the transaction is not an inner transaction, then the secondary id is set to 0.
           example: 0
     StatementsDTO:
       type: object
@@ -3430,7 +3431,8 @@ components:
           $ref: '#/components/schemas/UnresolvedAddress'
         mosaics:
           type: array
-          description: 'Array of mosaics sent to the recipient. If the most significant bit of byte 0 is set, a namespaceId (alias) is used instead of a instead of a mosaicId corresponds to a mosaicId.'
+          description: |
+            Array of mosaics sent to the recipient.
           items:
             $ref: '#/components/schemas/UnresolvedMosaic'
         message:
@@ -3492,7 +3494,7 @@ components:
       properties:
         transactionIds:
           type: array
-          description: Array of transaction ids.
+          description: Array of transaction identifiers.
           items:
             type: string
           example:
