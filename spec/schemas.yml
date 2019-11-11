@@ -41,6 +41,8 @@ UnresolvedMosaicId:
   "$ref": "./types/UnresolvedMosaicId.yml"
 UnresolvedMosaic:
   "$ref": "./types/UnresolvedMosaic.yml"
+RestrictionValue:
+  "$ref": "./types/RestrictionValue.yml"
 
 # Core - Account
 AccountTypeEnum:

@@ -11,10 +11,8 @@ properties:
   restrictionKey:
     $ref: "../../../types/MosaicRestrictionKey.yml"
   previousRestrictionValue:
-    type: string
-    description: Previous restriction value.
+    $ref: "../../../types/RestrictionValue.yml"
   newRestrictionValue:
-    type: string
-    description: New restriction value.
+    $ref: "../../../types/RestrictionValue.yml"
   targetAddress:
     $ref: "../../../types/UnresolvedAddress.yml"
