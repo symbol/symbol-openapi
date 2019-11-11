@@ -1,6 +1,6 @@
 tags:
-  - Account routes
-summary:  Get readable names for a set of accountIds
+  - Namespace routes
+summary: Get readable names for a set of accountIds
 description: Returns friendly names for accounts.
 operationId: getAccountsNames
 requestBody:
