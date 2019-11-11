@@ -1,5 +1,7 @@
 type: object
 allOf:
+  - $ref: "../../entity/schemas/VerifiableEntityDTO.yml"
+  - $ref: "../../entity/schemas/EntityDTO.yml"
   - type: object
     required:
       - height

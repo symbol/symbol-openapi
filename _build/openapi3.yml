@@ -1519,6 +1519,8 @@ components:
     BlockDTO:
       type: object
       allOf:
+        - $ref: '#/components/schemas/VerifiableEntityDTO'
+        - $ref: '#/components/schemas/EntityDTO'
         - type: object
           required:
             - height
