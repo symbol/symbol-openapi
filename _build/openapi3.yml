@@ -1436,6 +1436,10 @@ components:
           $ref: '#/components/schemas/UnresolvedMosaicId'
         amount:
           $ref: '#/components/schemas/Amount'
+    RestrictionValue:
+      type: string
+      description: A value in a restriction transaction.
+      example: 1000
     AccountTypeEnum:
       type: integer
       format: int32
@@ -3298,11 +3302,9 @@ components:
         restrictionKey:
           $ref: '#/components/schemas/MosaicRestrictionKey'
         previousRestrictionValue:
-          type: string
-          description: Previous restriction value.
+          $ref: '#/components/schemas/RestrictionValue'
         newRestrictionValue:
-          type: string
-          description: New restriction value.
+          $ref: '#/components/schemas/RestrictionValue'
         targetAddress:
           $ref: '#/components/schemas/UnresolvedAddress'
     MosaicAddressRestrictionTransactionDTO:
@@ -3338,8 +3340,7 @@ components:
         referenceMosaicId:
           $ref: '#/components/schemas/MosaicId'
         restrictionValue:
-          type: string
-          description: Restriction value.
+          $ref: '#/components/schemas/RestrictionValue'
         restrictionType:
           $ref: '#/components/schemas/MosaicRestrictionTypeEnum'
     MosaicGlobalRestrictionEntryWrapperDTO:
@@ -3378,11 +3379,9 @@ components:
         restrictionKey:
           $ref: '#/components/schemas/MosaicRestrictionKey'
         previousRestrictionValue:
-          type: string
-          description: Previous restriction value.
+          $ref: '#/components/schemas/RestrictionValue'
         newRestrictionValue:
-          type: string
-          description: New restriction value.
+          $ref: '#/components/schemas/RestrictionValue'
         previousRestrictionType:
           $ref: '#/components/schemas/MosaicRestrictionTypeEnum'
         newRestrictionType:
