@@ -48,7 +48,7 @@ paths:
         - Account routes
       summary: Get accounts information
       description: Returns the account information for an array of accounts.
-      operationId: postAccountsInfo
+      operationId: getAccountsInfo
       requestBody:
         $ref: '#/components/requestBodies/accountIds'
       responses:
@@ -413,7 +413,7 @@ paths:
         - Transaction routes
       summary: Get transactions information
       description: Returns transactions information for a given array of transactionIds.
-      operationId: postTransactions
+      operationId: getTransactions
       requestBody:
         $ref: '#/components/requestBodies/transactionIds'
       responses:
@@ -437,7 +437,7 @@ paths:
       description: |
         Announces a transaction to the network.
         We recommended to use the NEM2-SDK to announce transactions as they should be serialized.
-      operationId: putTransaction
+      operationId: announceTransaction
       requestBody:
         $ref: '#/components/requestBodies/transactionPayload'
       responses:
@@ -477,7 +477,7 @@ paths:
         - Transaction routes
       summary: Get transactions status
       description: Returns an array of transaction statuses for a given array of transaction hashes.
-      operationId: postTransactionsStatuses
+      operationId: getTransactionsStatuses
       requestBody:
         $ref: '#/components/requestBodies/transactionHashes'
       responses:
@@ -500,7 +500,7 @@ paths:
         - Aggregate routes
       summary: Announce an aggregate bonded transaction
       description: Announces an aggregate bonded transaction to the network.
-      operationId: putPartialTransaction
+      operationId: announcePartialTransaction
       requestBody:
         $ref: '#/components/requestBodies/transactionPayload'
       responses:
@@ -520,7 +520,7 @@ paths:
         - Aggregate routes
       summary: Announce a cosignature transaction
       description: Announces a cosignature transaction to the network.
-      operationId: putCosignatureTransaction
+      operationId: announceCosignatureTransaction
       requestBody:
         $ref: '#/components/requestBodies/cosignature'
       responses:
@@ -758,7 +758,7 @@ paths:
         - Mosaic routes
       summary: Get mosaics information for an array of mosaics
       description: Gets an array of mosaic definition.
-      operationId: postMosaics
+      operationId: getMosaics
       requestBody:
         $ref: '#/components/requestBodies/mosaicIds'
       responses:
@@ -801,7 +801,7 @@ paths:
         - Mosaic routes
       summary: Get mosaics created for given array of addresses
       description: Gets mosaics created for a given array of addresses.
-      operationId: postMosaicsFromAccounts
+      operationId: getMosaicsFromAccounts
       requestBody:
         $ref: '#/components/requestBodies/accountIds'
       responses:
@@ -905,7 +905,7 @@ paths:
         - Namespace routes
       summary: Get namespaces for given array of addresses
       description: Gets namespaces for a given array of addresses.
-      operationId: postNamespacesFromAccounts
+      operationId: getNamespacesFromAccounts
       requestBody:
         $ref: '#/components/requestBodies/accountIds'
       responses:
@@ -925,7 +925,7 @@ paths:
         - Account routes
       summary: Get readable names for a set of accountIds
       description: Returns friendly names for accounts.
-      operationId: postAccountsNames
+      operationId: getAccountsNames
       requestBody:
         $ref: '#/components/requestBodies/accountIds'
       responses:
@@ -945,7 +945,7 @@ paths:
         - Namespace routes
       summary: Get readable names for a set of mosaics
       description: Returns friendly names for mosaics.
-      operationId: postMosaicsNames
+      operationId: getMosaicsNames
       requestBody:
         $ref: '#/components/requestBodies/mosaicIds'
       responses:
@@ -965,7 +965,7 @@ paths:
         - Namespace routes
       summary: Get readable names for a set of namespaces
       description: Returns friendly names for namespaces.
-      operationId: postNamespacesNames
+      operationId: getNamespacesNames
       requestBody:
         $ref: '#/components/requestBodies/namespaceIds'
       responses:
@@ -1053,7 +1053,7 @@ paths:
         - Restriction Account routes
       summary: Get account restrictions for given array of addresses
       description: Returns the account restrictions for a given array of addresses.
-      operationId: postAccountRestrictionsFromAccounts
+      operationId: getAccountRestrictionsFromAccounts
       requestBody:
         $ref: '#/components/requestBodies/accountIds'
       responses:
@@ -1095,7 +1095,7 @@ paths:
         - Restriction Mosaic routes
       summary: Get mosaic address restrictions for a given mosaic and account identifiers array.
       description: Get mosaic address restrictions.
-      operationId: postMosaicAddressRestrictions
+      operationId: getMosaicAddressRestrictions
       parameters:
         - $ref: '#/components/parameters/mosaicId'
       requestBody:
@@ -1141,7 +1141,7 @@ paths:
         - Restriction Mosaic routes
       summary: Get mosaic global restrictions for an array of mosaics.
       description: Get mosaic global restrictions.
-      operationId: postMosaicGlobalRestrictions
+      operationId: getMosaicGlobalRestrictions
       requestBody:
         $ref: '#/components/requestBodies/mosaicIds'
       responses:

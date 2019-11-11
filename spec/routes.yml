@@ -4,7 +4,7 @@
     $ref: "./core/account/routes/getAccountInfo.yml"
 /account:
   post:
-    $ref: "./core/account/routes/postAccountsInfo.yml"
+    $ref: "./core/account/routes/getAccountsInfo.yml"
 "/account/{accountId}/transactions":
   get:
     $ref: "./core/account/routes/getAccountTransactions.yml"
@@ -70,23 +70,23 @@
     $ref: "./core/transaction/routes/getTransaction.yml"
 /transaction:
   post:
-    $ref: "./core/transaction/routes/postTransactions.yml"
+    $ref: "./core/transaction/routes/getTransactions.yml"
   put:
-    $ref: "./core/transaction/routes/putTransaction.yml"
+    $ref: "./core/transaction/routes/announceTransaction.yml"
 "/transaction/{hash}/status":
   get:
     $ref: "./core/transaction/routes/getTransactionStatus.yml"
 /transaction/statuses:
   post:
-    $ref: "./core/transaction/routes/postTransactionStatuses.yml"
+    $ref: "./core/transaction/routes/getTransactionStatuses.yml"
 
 # Plugin - Aggregate
 /transaction/partial:
   put:
-    $ref: "./plugins/aggregate/routes/putPartialTransaction.yml"
+    $ref: "./plugins/aggregate/routes/announcePartialTransaction.yml"
 /transaction/cosignature:
   put:
-    $ref: "./plugins/aggregate/routes/putCosignatureTransaction.yml"
+    $ref: "./plugins/aggregate/routes/announceCosignatureTransaction.yml"
 
 # Plugin - Metadata
 "/metadata/account/{accountId}":
@@ -123,13 +123,13 @@
     $ref: "./plugins/mosaic/routes/getMosaic.yml"
 /mosaic:
   post:
-    $ref: "./plugins/mosaic/routes/postMosaics.yml"
+    $ref: "./plugins/mosaic/routes/getMosaics.yml"
 "/account/{accountId}/mosaics":
   get:
     $ref: "./plugins/mosaic/routes/getMosaicsFromAccount.yml"
 /account/mosaics:
   post:
-    $ref: "./plugins/mosaic/routes/postMosaicsFromAccounts.yml"
+    $ref: "./plugins/mosaic/routes/getMosaicsFromAccounts.yml"
 
 # Plugin - Multisig
 "/account/{accountId}/multisig":
@@ -148,16 +148,16 @@
     $ref: "./plugins/namespace/routes/getNamespacesFromAccount.yml"
 /account/namespaces:
   post:
-    $ref: "./plugins/namespace/routes/postNamespacesFromAccounts.yml"
+    $ref: "./plugins/namespace/routes/getNamespacesFromAccounts.yml"
 /account/names:
   post:
-    $ref: "./plugins/namespace/routes/postAccountsNames.yml"
+    $ref: "./plugins/namespace/routes/getAccountsNames.yml"
 /mosaic/names:
   post:
-    $ref: "./plugins/namespace/routes/postMosaicsNames.yml"
+    $ref: "./plugins/namespace/routes/getMosaicsNames.yml"
 /namespace/names:
   post:
-    $ref: "./plugins/namespace/routes/postNamespacesNames.yml"
+    $ref: "./plugins/namespace/routes/getNamespacesNames.yml"
 
 # Plugin - Receipt
 "/block/{height}/receipts":
@@ -173,17 +173,17 @@
     $ref: "./plugins/restriction_account/routes/getAccountRestrictions.yml"
 /restrictions/account:
   post:
-    $ref: "./plugins/restriction_account/routes/postAccountRestrictionsFromAccounts.yml"
+    $ref: "./plugins/restriction_account/routes/getAccountRestrictionsFromAccounts.yml"
 
 # Plugin - RestrictionMosaic
 "/restrictions/mosaic/{mosaicId}":
   get:
     $ref: "./plugins/restriction_mosaic/routes/getMosaicGlobalRestriction.yml"
   post:
-    $ref: "./plugins/restriction_mosaic/routes/postMosaicAddressRestrictions.yml"
+    $ref: "./plugins/restriction_mosaic/routes/getMosaicAddressRestrictions.yml"
 "/restrictions/mosaic/{mosaicId}/address/{accountId}":
   get:
     $ref: "./plugins/restriction_mosaic/routes/getMosaicAddressRestriction.yml"
 /restrictions/mosaic:
   post:
-    $ref: "./plugins/restriction_mosaic/routes/postMosaicGlobalRestrictions.yml"
+    $ref: "./plugins/restriction_mosaic/routes/getMosaicGlobalRestrictions.yml"

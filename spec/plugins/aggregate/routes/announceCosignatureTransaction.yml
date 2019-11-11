@@ -2,7 +2,7 @@ tags:
   - Aggregate routes
 summary: Announce a cosignature transaction
 description: Announces a cosignature transaction to the network.
-operationId: putCosignatureTransaction
+operationId: announceCosignatureTransaction
 requestBody:
   $ref: "../../../request_bodies/cosignature.yml"
 responses:

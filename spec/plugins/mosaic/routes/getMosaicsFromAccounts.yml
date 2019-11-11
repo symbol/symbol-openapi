@@ -2,7 +2,7 @@ tags:
   - Mosaic routes
 summary: Get mosaics created for given array of addresses
 description: Gets mosaics created for a given array of addresses.
-operationId: postMosaicsFromAccounts
+operationId: getMosaicsFromAccounts
 requestBody:
   $ref: "../../../request_bodies/accountIds.yml"
 responses:

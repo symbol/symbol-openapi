@@ -1,8 +1,8 @@
 tags:
   - Account routes
-summary:  Get readable names for a set of accountIds
-description: Returns friendly names for accounts.
-operationId: postAccountsNames
+summary: Get accounts information
+description: Returns the account information for an array of accounts.
+operationId: getAccountsInfo
 requestBody:
   $ref: "../../../request_bodies/accountIds.yml"
 responses:
@@ -11,7 +11,10 @@ responses:
     content:
       application/json:
         schema:
-          $ref: "../schemas/AccountsNamesDTO.yml"
+          type: array
+          description: Array of accounts information.
+          items:
+            $ref: "../schemas/AccountInfoDTO.yml"
   "400":
     $ref : "../../../responses/InvalidContent.yml"
   "409":
