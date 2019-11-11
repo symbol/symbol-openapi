@@ -2,7 +2,7 @@ tags:
   - Aggregate routes
 summary: Announce an aggregate bonded transaction
 description: Announces an aggregate bonded transaction to the network.
-operationId: putPartialTransaction
+operationId: announcePartialTransaction
 requestBody:
   $ref: "../../../request_bodies/transactionPayload.yml"
 responses:

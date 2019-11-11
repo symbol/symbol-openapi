@@ -2,7 +2,7 @@ tags:
   - Restriction Account routes
 summary: Get account restrictions for given array of addresses
 description: Returns the account restrictions for a given array of addresses.
-operationId: postAccountRestrictionsFromAccounts
+operationId: getAccountRestrictionsFromAccounts
 requestBody:
   $ref: "../../../request_bodies/accountIds.yml"
 responses:

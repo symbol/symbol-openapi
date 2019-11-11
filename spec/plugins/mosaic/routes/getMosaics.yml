@@ -1,8 +1,8 @@
 tags:
-  - Restriction Mosaic routes
-summary: Get mosaic global restrictions for an array of mosaics.
-description: Get mosaic global restrictions.
-operationId: postMosaicGlobalRestrictions
+  - Mosaic routes
+summary: Get mosaics information for an array of mosaics
+description: Gets an array of mosaic definition.
+operationId: getMosaics
 requestBody:
   $ref: "../../../request_bodies/mosaicIds.yml"
 responses:
@@ -12,9 +12,9 @@ responses:
       application/json:
         schema:
           type: array
-          description: Array of mosaics global restrictions.
+          description: Array of mosaics information.
           items:
-            $ref: "../schemas/MosaicGlobalRestrictionDTO.yml"
+            $ref: "../schemas/MosaicInfoDTO.yml"
   "400":
     $ref : "../../../responses/InvalidContent.yml"
   "409":
