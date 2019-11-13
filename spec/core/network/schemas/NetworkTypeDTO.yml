@@ -4,7 +4,9 @@ required:
   - description
 properties:
   name:
-    $ref: "./NetworkTypeNameEnum.yml"
+    type: string
+    description: Network name.
+    example: mijinTest
   description:
     type: string
     description: A short text describing the network.

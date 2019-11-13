@@ -89,8 +89,6 @@ VerifiableEntityDTO:
   "$ref": "./core/entity/schemas/VerifiableEntityDTO.yml"
 
 # Core - Network
-NetworkTypeNameEnum:
-  "$ref": "./core/network/schemas/NetworkTypeNameEnum.yml"
 NetworkTypeDTO:
   "$ref": "./core/network/schemas/NetworkTypeDTO.yml"
 

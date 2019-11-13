@@ -7,7 +7,6 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 tags:
   - name: Account routes
-  - name: Aggregate routes
   - name: Block routes
   - name: Chain routes
   - name: Diagnostic routes
@@ -497,7 +496,7 @@ paths:
   /transaction/partial:
     put:
       tags:
-        - Aggregate routes
+        - Transaction routes
       summary: Announce an aggregate bonded transaction
       description: Announces an aggregate bonded transaction to the network.
       operationId: announcePartialTransaction
@@ -517,7 +516,7 @@ paths:
   /transaction/cosignature:
     put:
       tags:
-        - Aggregate routes
+        - Transaction routes
       summary: Announce a cosignature transaction
       description: Announces a cosignature transaction to the network.
       operationId: announceCosignatureTransaction
@@ -922,7 +921,7 @@ paths:
   /account/names:
     post:
       tags:
-        - Account routes
+        - Namespace routes
       summary: Get readable names for a set of accountIds
       description: Returns friendly names for accounts.
       operationId: getAccountsNames
@@ -1710,15 +1709,6 @@ components:
       properties:
         signature:
           $ref: '#/components/schemas/Signature'
-    NetworkTypeNameEnum:
-      type: string
-      example: mijinTest
-      enum:
-        - mijin
-        - mijinTest
-        - public
-        - publicTest
-      description: Network name.
     NetworkTypeDTO:
       type: object
       required:
@@ -1726,7 +1716,9 @@ components:
         - description
       properties:
         name:
-          $ref: '#/components/schemas/NetworkTypeNameEnum'
+          type: string
+          description: Network name.
+          example: mijinTest
         description:
           type: string
           description: A short text describing the network.
