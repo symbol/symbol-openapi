@@ -1,5 +1,4 @@
 - name: Account routes
-- name: Aggregate routes
 - name: Block routes
 - name: Chain routes
 - name: Diagnostic routes
