@@ -1744,16 +1744,23 @@ components:
     NodeInfoDTO:
       type: object
       required:
+        - version
         - publicKey
+        - roles
         - port
         - networkIdentifier
-        - version
-        - roles
-        - host
         - friendlyName
+        - host
       properties:
+        version:
+          type: integer
+          description: Version of the application.
+          format: int32
+          example: 0
         publicKey:
           $ref: '#/components/schemas/PublicKey'
+        roles:
+          $ref: '#/components/schemas/RolesTypeEnum'
         port:
           type: integer
           description: Port used for the communication.
@@ -1763,21 +1770,14 @@ components:
           type: integer
           format: int32
           example: 144
-        version:
-          type: integer
-          description: Version of the application.
-          format: int32
-          example: 0
-        roles:
-          $ref: '#/components/schemas/RolesTypeEnum'
-        host:
-          type: string
-          description: Node IP address.
-          example: 127.0.0.1
         friendlyName:
           type: string
           description: Node friendly name.
           example: api-node-0
+        host:
+          type: string
+          description: Node IP address.
+          example: 127.0.0.1
     NodeTimeDTO:
       type: object
       required:
@@ -3177,7 +3177,7 @@ components:
         - restrictionType
         - values
       properties:
-        restrictionType:
+        restrictionFlags:
           $ref: '#/components/schemas/AccountRestrictionFlagsEnum'
         values:
           type: array

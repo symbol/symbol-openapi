@@ -3,7 +3,7 @@ required:
   - restrictionType
   - values
 properties:
-  restrictionType:
+  restrictionFlags:
     $ref: "./AccountRestrictionFlagsEnum.yml"
   values:
     type: array
