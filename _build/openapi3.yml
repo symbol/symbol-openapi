@@ -3080,11 +3080,11 @@ components:
     AccountAddressRestrictionTransactionBodyDTO:
       type: object
       required:
-        - restrictionType
+        - restrictionFlags
         - restrictionAdditions
         - restrictionDeletions
       properties:
-        restrictionType:
+        restrictionFlags:
           $ref: '#/components/schemas/AccountRestrictionFlagsEnum'
         restrictionAdditions:
           type: array
@@ -3105,11 +3105,11 @@ components:
     AccountMosaicRestrictionTransactionBodyDTO:
       type: object
       required:
-        - restrictionType
+        - restrictionFlags
         - restrictionAdditions
         - restrictionDeletions
       properties:
-        restrictionType:
+        restrictionFlags:
           $ref: '#/components/schemas/AccountRestrictionFlagsEnum'
         restrictionAdditions:
           type: array
@@ -3130,11 +3130,11 @@ components:
     AccountOperationRestrictionTransactionBodyDTO:
       type: object
       required:
-        - restrictionType
+        - restrictionFlags
         - restrictionAdditions
         - restrictionDeletions
       properties:
-        restrictionType:
+        restrictionFlags:
           $ref: '#/components/schemas/AccountRestrictionFlagsEnum'
         restrictionAdditions:
           type: array
