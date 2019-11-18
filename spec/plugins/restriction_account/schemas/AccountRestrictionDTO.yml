@@ -1,6 +1,6 @@
 type: object
 required:
-  - restrictionType
+  - restrictionFlags
   - values
 properties:
   restrictionFlags:
