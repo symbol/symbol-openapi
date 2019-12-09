@@ -89,6 +89,8 @@ VerifiableEntityDTO:
   "$ref": "./core/entity/schemas/VerifiableEntityDTO.yml"
 
 # Core - Network
+NetworkFeesDTO:
+  "$ref": "./core/network/schemas/NetworkFeesDTO.yml"
 NetworkTypeDTO:
   "$ref": "./core/network/schemas/NetworkTypeDTO.yml"
 
