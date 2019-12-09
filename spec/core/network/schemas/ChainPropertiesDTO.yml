@@ -1,0 +1,93 @@
+type: object
+description: Chain related configuration properties.
+properties:
+  enableVerifiableState:
+    type: boolean
+    description: Set to true if block chain should calculate state hashes so that state is fully verifiable at each block.
+    example: true
+  enableVerifiableReceipts:
+    type: boolean
+    description: Set to true if block chain should calculate receipts so that state changes are fully verifiable at each block.
+    example: true
+  currencyMosaicId:
+    $ref: "../../../types/MosaicId.yml"
+    description: Mosaic id used as primary chain currency.
+    example: 0x0DC67FBE1CAD29E3
+  harvestingMosaicId:
+    $ref: "../../../types/MosaicId.yml"
+    description: Mosaic id used to provide harvesting ability.
+    example: 26514E2A1EF33824
+  blockGenerationTargetTime:
+    type: string # utils::TimeSpan
+    description: Targeted time between blocks.
+    example: 15s
+  blockTimeSmoothingFactor:
+    type: integer
+    format: int64 # uint32
+    description: A higher value makes the network more biased.
+    example: 3000
+  importanceGrouping:
+    type: string # uint64
+    description: Number of blocks that should be treated as a group for importance purposes.
+    example: 39
+  importanceActivityPercentage:
+    type: integer
+    format: int32
+    description: Percentage of importance resulting from fee generation and beneficiary usage.
+    example: 5
+  maxRollbackBlocks:
+    type: integer
+    format: int64 # uint32
+    description: Maximum number of blocks that can be rolled back.
+    example: 40
+  maxDifficultyBlocks:
+    type: integer
+    format: int64 # uint32
+    description: Maximum number of blocks to use in a difficulty calculation.
+    example: 60
+  defaultDynamicFeeMultiplier:
+    type: string # BlockFeeMultiplier
+    description: Default multiplier to use for dynamic fees.
+    example: 10000
+  maxTransactionLifetime:
+    type: string #utils::TimeSpan
+    description: Maximum lifetime a transaction can have before it expires.
+    example: 24h
+  maxBlockFutureTime:
+    type: string # utils::TimeSpan
+    description: Maximum future time of a block that can be accepted.
+    example: 500ms
+  initialCurrencyAtomicUnits:
+    $ref: "../../../types/Amount.yml"
+    description: Initial currency atomic units available in the network.
+    example: 8998999998000000
+  maxMosaicAtomicUnits:
+    $ref: "../../../types/Amount.yml"
+    description: Maximum atomic units (total-supply * 10 ^ divisibility) of a mosaic allowed in the network.
+    example: 9000000000000000
+  totalChainImportance:
+    $ref: "../../../types/Importance.yml"
+    description: Total whole importance units available in the network.
+    example: 15000000
+  minHarvesterBalance:
+    $ref: "../../../types/Amount.yml"
+    description: Minimum number of harvesting mosaic atomic units needed for an account to be eligible for harvesting.
+    example: 500
+  maxHarvesterBalance:
+    $ref: "../../../types/Amount.yml"
+    description: Maximum number of harvesting mosaic atomic units needed for an account to be eligible for harvesting.
+    example: 4000000
+  harvestBeneficiaryPercentage:
+    type: integer
+    description: Percentage of the harvested fee that is collected by the beneficiary account.
+    example: 10
+  blockPruneInterval:
+    type: integer
+    format: int64 # uint32_t
+    description: Number of blocks between cache pruning.
+    example: 360
+  maxTransactionsPerBlock:
+    type: integer
+    format: int64 # uint32_t
+    description: Maximum number of transactions per block.
+    example: 200000

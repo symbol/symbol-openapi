@@ -1,0 +1,12 @@
+tags:
+  - Network routes
+summary: Get the network properties
+description: Returns the configuration from the config-network.properties file.
+operationId: getNetworkProperties
+responses:
+  "200":
+    description: success
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/NetworkConfigurationDTO.yml"

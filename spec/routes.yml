@@ -56,6 +56,10 @@
   get:
     $ref: "./core/network/routes/getNetworkType.yml"
 
+/network/properties:
+  get:
+    $ref: "./core/network/routes/getNetworkProperties.yml"
+
 # Core - Node
 /node/info:
   get:
