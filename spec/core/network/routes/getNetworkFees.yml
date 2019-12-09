@@ -1,0 +1,12 @@
+tags:
+  - Network routes
+summary: Get current fees information
+description: Returns the fee multiplier and effective rental fees over the last maxRollBackBlocks.
+operationId: getNetworkFees
+responses:
+  "200":
+    description: success
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/NetworkFeesDTO.yml"
