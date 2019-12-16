@@ -4,7 +4,7 @@ required:
 properties:
   group:
     type: string
-  status:
+  code:
     type: string
   hash:
     $ref: "../../../types/Hash256.yml"
