@@ -1,5 +1,6 @@
 name: state
 in: path
 description: State packet type.
+required: true
 schema:
   $ref: "../core/block/schemas/StatePacketTypeEnum.yml"
