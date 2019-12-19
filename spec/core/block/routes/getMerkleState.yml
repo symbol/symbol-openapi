@@ -1,0 +1,23 @@
+tags:
+  - Block routes
+summary: Get the merkle path for a given state packet type and state entry hash
+description: |
+  Returns the merkle path if the state entry hash belongs to the latest state packet repository by type.
+  The path is the complementary data needed to calculate the merkle patricia tree.
+  A client can compare if the calculated root equals "stateHash" recorded in the
+  block header.
+operationId: getMerkleState
+parameters:
+  - $ref: "../../../parameters/statePacketType.yml"
+  - $ref: "../../../parameters/stateHash.yml"
+responses:
+  "200":
+    description: success
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/StateTreeDTO.yml"
+  "404":
+    $ref: "../../../responses/ResourceNotFound.yml"
+  "409":
+    $ref: "../../../responses/InvalidArgument.yml"

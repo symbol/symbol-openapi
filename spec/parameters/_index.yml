@@ -22,6 +22,10 @@ publicKey:
   $ref: './publicKey.yml'
 receiptHash:
   $ref: './receiptHash.yml'
+stateHash:
+  $ref: './stateHash.yml'
+statePacketType:
+  $ref: './statePacketType.yml'
 transactionHash:
   $ref: './transactionHash.yml'
 transactionId:

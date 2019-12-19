@@ -1,0 +1,8 @@
+type: object
+required:
+  - tree
+properties:
+  tree:
+    type: array
+    items:
+      $ref: "../../../types/Hash256.yml"

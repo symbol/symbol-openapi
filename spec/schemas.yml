@@ -65,6 +65,10 @@ MerklePathItemDTO:
   "$ref": "./core/block/schemas/MerklePathItemDTO.yml"
 MerkleProofInfoDTO:
   "$ref": "./core/block/schemas/MerkleProofInfoDTO.yml"
+StatePacketTypeEnum:
+  "$ref": "./core/block/schemas/StatePacketTypeEnum.yml"
+StateTreeDTO:
+  "$ref": "./core/block/schemas/StateTreeDTO.yml"
 
 # Core - Chain
 ChainScoreDTO:
