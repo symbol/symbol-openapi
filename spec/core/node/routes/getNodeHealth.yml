@@ -5,14 +5,14 @@ description: Supplies information regarding the connection and services status.
 operationId: getNodeHealth
 responses:
   "200":
-    description: Both apiNode and database services are reachable from rest server.
+    description: Both API node and database services are reachable from REST server.
     content:
       application/json:
         schema:
-          $ref: "../schemas/NodeHealthDTO.yml"
+          $ref: "../schemas/NodeHealthInfoDTO.yml"
   "503":
-    description: Either apiNode or database service is unavailable or unreachable from rest server.
+    description: Either API node or database service is unavailable or unreachable from REST server.
     content:
       application/json:
         schema:
-          $ref: "../schemas/NodeHealthDTO.yml"
+          $ref: "../schemas/NodeHealthInfoDTO.yml"

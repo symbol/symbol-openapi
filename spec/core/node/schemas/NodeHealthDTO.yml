@@ -1,6 +1,11 @@
 type: object
 required:
-  - status
+  - apiNode
+  - db
 properties:
-  status:
-    $ref: "./NodeHealthStatus.yml"
+  apiNode:
+    $ref: "./NodeStatusEnum.yml"
+    description: API node service status.
+  db:
+    $ref: "./NodeStatusEnum.yml"
+    description: MongoDB service status.
