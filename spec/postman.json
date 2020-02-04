@@ -4041,7 +4041,7 @@
         },
         {
             "id": "a133e710-bafb-4f38-8109-7d910f76044e",
-            "name": "diagnostic",
+            "name": "node",
             "item": [
                 {
                     "id": "9948bed9-e613-4010-a74d-d78abc038f9a",
@@ -4049,12 +4049,12 @@
                     "request": {
                         "name": "Get the storage information of the node",
                         "description": {
-                            "content": "Returns diagnostic information about the node storage.",
+                            "content": "Returns node information about the storage.",
                             "type": "text/plain"
                         },
                         "url": {
                             "path": [
-                                "diagnostic",
+                                "node",
                                 "storage"
                             ],
                             "host": [
@@ -4075,7 +4075,7 @@
                             "originalRequest": {
                                 "url": {
                                     "path": [
-                                        "diagnostic",
+                                        "node",
                                         "storage"
                                     ],
                                     "host": [
@@ -4113,7 +4113,7 @@
                         },
                         "url": {
                             "path": [
-                                "diagnostic",
+                                "node",
                                 "server"
                             ],
                             "host": [
@@ -4134,7 +4134,7 @@
                             "originalRequest": {
                                 "url": {
                                     "path": [
-                                        "diagnostic",
+                                        "node",
                                         "server"
                                     ],
                                     "host": [
