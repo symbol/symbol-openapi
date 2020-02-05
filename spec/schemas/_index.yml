@@ -17,14 +17,16 @@ Importance:
   "$ref": "./Importance.yml"
 MetadataKey:
   "$ref": "./MetadataKey.yml"
+MetadataValue:
+  "$ref": "./MetadataValue.yml"
 ModelError:
   "$ref": "./ModelError.yml"
 MosaicId:
   "$ref": "./MosaicId.yml"
 Mosaic:
   "$ref": "./Mosaic.yml"
-MosaicRestrictionKey:
-  "$ref": "./MosaicRestrictionKey.yml"
+RestrictionKey:
+  "$ref": "./RestrictionKey.yml"
 NamespaceId:
   "$ref": "./NamespaceId.yml"
 PublicKey:

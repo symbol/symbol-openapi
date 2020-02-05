@@ -13,7 +13,7 @@ properties:
   referenceMosaicId:
     $ref: "../../../schemas/UnresolvedMosaicId.yml"
   restrictionKey:
-    $ref: "../../../schemas/MosaicRestrictionKey.yml"
+    $ref: "../../../schemas/RestrictionKey.yml"
   previousRestrictionValue:
     $ref: "../../../schemas/RestrictionValue.yml"
   newRestrictionValue:
