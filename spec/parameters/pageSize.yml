@@ -1,6 +1,6 @@
 name: pageSize
 in: query
-description: Number of transactions to return for each request.
+description: Number of elements to return for each request.
 schema:
   type: integer
   format: int32

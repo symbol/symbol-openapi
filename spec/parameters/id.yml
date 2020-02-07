@@ -1,0 +1,5 @@
+name: id
+in: query
+description: Identifier up to which elements are returned.
+schema:
+  type: string

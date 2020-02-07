@@ -6,7 +6,7 @@ operationId: getAccountConfirmedTransactions
 parameters:
   - $ref: "../../../parameters/accountId.yml"
   - $ref: "../../../parameters/pageSize.yml"
-  - $ref: "../../../parameters/transactionIdLimit.yml"
+  - $ref: "../../../parameters/id.yml"
   - $ref: "../../../parameters/ordering.yml"
   - $ref: "../../../parameters/transactionType.yml"
 responses:

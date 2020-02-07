@@ -1,10 +1,9 @@
 tags:
-  - Metadata routes
-summary: Get account metadata
-description: Returns the account metadata given an account id.
-operationId: getAccountMetadata
+  - Account routes
+summary: Get harvested blocks
+description: Gets an array of blocks where the account is the signer.
+operationId: getHarvestedBlocks
 parameters:
-  - $ref: "../../../parameters/accountId.yml"
   - $ref: "../../../parameters/pageSize.yml"
   - $ref: "../../../parameters/id.yml"
   - $ref: "../../../parameters/ordering.yml"
@@ -14,8 +13,9 @@ responses:
     content:
       application/json:
         schema:
-          $ref: "../schemas/MetadataEntriesDTO.yml"
-  "404":
-    $ref: "../../../responses/ResourceNotFound.yml"
+          type: array
+          description: Array of blocks information.
+          items:
+            $ref: "../../block/schemas/BlockInfoDTO.yml"
   "409":
     $ref: "../../../responses/InvalidArgument.yml"

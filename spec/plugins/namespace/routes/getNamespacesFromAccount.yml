@@ -6,7 +6,7 @@ operationId: getNamespacesFromAccount
 parameters:
   - $ref: "../../../parameters/accountId.yml"
   - $ref: "../../../parameters/pageSize.yml"
-  - $ref: "../../../parameters/namespaceIdLimit.yml"
+  - $ref: "../../../parameters/id.yml"
 responses:
   "200":
     description: success

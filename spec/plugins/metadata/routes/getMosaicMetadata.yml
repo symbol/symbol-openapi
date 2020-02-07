@@ -6,7 +6,7 @@ operationId: getMosaicMetadata
 parameters:
   - $ref: "../../../parameters/mosaicId.yml"
   - $ref: "../../../parameters/pageSize.yml"
-  - $ref: "../../../parameters/metadataIdLimit.yml"
+  - $ref: "../../../parameters/id.yml"
   - $ref: "../../../parameters/ordering.yml"
 responses:
   "200":

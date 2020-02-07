@@ -20,6 +20,12 @@
 "/account/{accountId}/transactions/partial":
   get:
     $ref: "./core/account/routes/getAccountPartialTransactions.yml"
+"/account/{accountId}/harvest":
+  get:
+    $ref: "./core/account/routes/getHarvestedBlocks.yml"
+"/account/{accountId}/beneficiary":
+  get:
+    $ref: "./core/account/routes/getBeneficiaryBlocks.yml"
 
 # Core - Block
 "/block/{height}":
