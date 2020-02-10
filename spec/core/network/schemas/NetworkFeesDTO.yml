@@ -16,10 +16,10 @@ properties:
     description: Median fee multiplier over the last "transactionFeesBlocks".
     example: 1
   highestFeeMultiplier:
-    $ref: "../../../types/BlockFeeMultiplier.yml"
+    $ref: "../../../schemas/BlockFeeMultiplier.yml"
     description: Highest fee multiplier over the last "transactionFeesBlocks".
     example: 2
   lowestFeeMultiplier:
-    $ref: "../../../types/BlockFeeMultiplier.yml"
+    $ref: "../../../schemas/BlockFeeMultiplier.yml"
     description: Lowest fee multiplier over the last "transactionFeesBlocks"".
     example: 0
