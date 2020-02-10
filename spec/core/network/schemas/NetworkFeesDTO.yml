@@ -4,9 +4,6 @@ required:
   - medianFeeMultiplier
   - highestFeeMultiplier
   - lowestFeeMultiplier
-  - effectiveRootNamespaceRentalFeePerBlock
-  - effectiveChildNamespaceRentalFee
-  - effectiveMosaicRentalFee
 properties:
   averageFeeMultiplier:
     type: number
@@ -25,16 +22,4 @@ properties:
   lowestFeeMultiplier:
     $ref: "../../../types/BlockFeeMultiplier.yml"
     description: Lowest fee multiplier over the last maxRollbackBlocks.
-    example: 0
-  effectiveRootNamespaceRentalFeePerBlock:
-    $ref: "../../../types/Amount.yml"
-    description: Effective rental fee to register/extend a namespace per block expressed as an absolute amount.
-    example: 0
-  effectiveChildNamespaceRentalFee:
-    $ref: "../../../types/Amount.yml"
-    description: Effective rental fee to create a subnamespace expressed as an absolute amount.
-    example: 0
-  effectiveMosaicRentalFee:
-    $ref: "../../../types/Amount.yml"
-    description: Effective rental fee to create a mosaic expressed as an absolute amount.
     example: 0
