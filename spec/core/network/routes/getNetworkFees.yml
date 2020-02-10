@@ -1,7 +1,9 @@
 tags:
   - Network routes
-summary: Get current fees information
-description: Returns the fee multiplier and effective rental fees over the last maxRollBackBlocks.
+summary: Get transaction fees information
+description: |
+  Returns information about the average, median, highest and lower fee multiplier over the last "transactionFeesBlocks".
+  The setting "transactionFeesBlocks" is adjustable via a configuration file (rest/resources/rest.json) per REST instance.
 operationId: getNetworkFees
 responses:
   "200":
