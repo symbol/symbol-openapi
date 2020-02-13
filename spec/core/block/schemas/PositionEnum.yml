@@ -1,0 +1,9 @@
+type: integer
+format: int32
+enum:
+  - 1
+  - 2
+description: |
+  Position relative to the proofHash being evaluated:
+  * 1 - Left.
+  * 2 - Right.
