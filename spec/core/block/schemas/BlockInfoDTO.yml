@@ -3,6 +3,9 @@ required:
   - meta
   - block
 properties:
+  id:
+    type: string
+    description: Block identifier within the node's database
   meta:
     $ref: "./BlockMetaDTO.yml"
   block:

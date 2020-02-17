@@ -18,4 +18,4 @@ properties:
     description: Transaction index within the block.
   id:
     type: string
-    description: Identifier of the transaciton
+    description: Transaction identifier within the node's database

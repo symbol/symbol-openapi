@@ -1,5 +1,11 @@
 name: id
 in: query
-description: Identifier up to which elements are returned.
+description: |
+  The identifier up to which elements are returned.
+  If the ordering parameter is set to -id, the elements returned precede the identifier.
+  Otherwise, newer elements with respect to the id are returned.
 schema:
   type: string
+
+
+
