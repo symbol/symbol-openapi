@@ -7,10 +7,10 @@ description: |
 
   Steps to calculate the merkle root:
   1. proofHash = hash (leaf).
-  2. Contatentate and hash the first unprocessed item from the merklePath list:
+  2. Contatentate proofHash with the first unprocessed item from the merklePath list as follows:
   * a) If item.position == left -> proofHash = sha_256(item.hash + proofHash).
   * b) If item.position == right -> proofHash = sha_256(proofHash+ item.hash).
-  3. Repeat 2. for every item in the merkle_path list.
+  3. Repeat 2. for every item in the merklePath list.
   4. Compare if the calculated proofHash equals the one recorded in the
   block header (block.receiptsHash) to verify if the statement was linked with the block.
 operationId: getMerkleReceipts
