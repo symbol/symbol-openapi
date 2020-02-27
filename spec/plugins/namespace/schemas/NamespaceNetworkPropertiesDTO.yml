@@ -3,15 +3,15 @@ properties:
   maxNameSize:
     type: string
     description: Maximum namespace name size.
-    example: 64
+    example: "64"
   maxChildNamespaces:
     type: string
     description: Maximum number of children for a root namespace.
-    example: 500
+    example: "500"
   maxNamespaceDepth:
     type: string
     description: Maximum namespace depth.
-    example: 3
+    example: "3"
   minNamespaceDuration:
     type: string # utils::BlockSpan
     description: Minimum namespace duration.
@@ -35,8 +35,8 @@ properties:
   rootNamespaceRentalFeePerBlock:
     $ref: "../../../schemas/Amount.yml"
     description: Root namespace rental fee per block.
-    example: 1
+    example: "1"
   childNamespaceRentalFee:
     $ref: "../../../schemas/Amount.yml"
     description: Child namespace rental fee.
-    example: 100
+    example: "100"

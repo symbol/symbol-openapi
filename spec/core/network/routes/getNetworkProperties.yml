@@ -1,7 +1,10 @@
 tags:
   - Network routes
 summary: Get the network properties
-description: Returns the configuration from the config-network.properties file.
+description: |
+  Returns the content from a config-network.properties file.
+  The setting "network.propertiesFilePath" defines where the properties file is located.
+  This is adjustable via a configuration file (rest/resources/rest.json) per REST instance.
 operationId: getNetworkProperties
 responses:
   "200":
@@ -10,3 +13,5 @@ responses:
       application/json:
         schema:
           $ref: "../schemas/NetworkConfigurationDTO.yml"
+  "409":
+    $ref : "../../../responses/InvalidArgument.yml"

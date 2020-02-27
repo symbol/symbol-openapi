@@ -10,13 +10,13 @@ properties:
     description: Set to true if block chain should calculate receipts so that state changes are fully verifiable at each block.
     example: true
   currencyMosaicId:
-    $ref: "../../../schemas/MosaicId.yml"
+    type: string
     description: Mosaic id used as primary chain currency.
-    example: 0x0DC67FBE1CAD29E3
+    example: 0x621E'C5B4'0385'6FC2
   harvestingMosaicId:
-    $ref: "../../../schemas/MosaicId.yml"
+    type: string
     description: Mosaic id used to provide harvesting ability.
-    example: 26514E2A1EF33824
+    example: 0x4291'ED23'000A'037A
   blockGenerationTargetTime:
     type: string # utils::TimeSpan
     description: Targeted time between blocks.
@@ -24,27 +24,27 @@ properties:
   blockTimeSmoothingFactor:
     type: string # uint32
     description: A higher value makes the network more biased.
-    example: 3000
+    example: "3000"
   importanceGrouping:
     type: string # uint64
     description: Number of blocks that should be treated as a group for importance purposes.
-    example: 39
+    example: "39"
   importanceActivityPercentage:
     type: string
     description: Percentage of importance resulting from fee generation and beneficiary usage.
-    example: 5
+    example: "5"
   maxRollbackBlocks:
     type: string # uint32
     description: Maximum number of blocks that can be rolled back.
-    example: 40
+    example: "40"
   maxDifficultyBlocks:
     type: string # uint32
     description: Maximum number of blocks to use in a difficulty calculation.
-    example: 60
+    example: "60"
   defaultDynamicFeeMultiplier:
     type: string # BlockFeeMultiplier
     description: Default multiplier to use for dynamic fees.
-    example: 10000
+    example: "10000"
   maxTransactionLifetime:
     type: string #utils::TimeSpan
     description: Maximum lifetime a transaction can have before it expires.
@@ -56,32 +56,32 @@ properties:
   initialCurrencyAtomicUnits:
     $ref: "../../../schemas/Amount.yml"
     description: Initial currency atomic units available in the network.
-    example: 8998999998000000
+    example: "8998999998000000"
   maxMosaicAtomicUnits:
     $ref: "../../../schemas/Amount.yml"
     description: Maximum atomic units (total-supply * 10 ^ divisibility) of a mosaic allowed in the network.
-    example: 9000000000000000
+    example: "9000000000000000"
   totalChainImportance:
     $ref: "../../../schemas/Importance.yml"
     description: Total whole importance units available in the network.
-    example: 15000000
+    example: "15000000"
   minHarvesterBalance:
     $ref: "../../../schemas/Amount.yml"
     description: Minimum number of harvesting mosaic atomic units needed for an account to be eligible for harvesting.
-    example: 500
+    example: "500"
   maxHarvesterBalance:
     $ref: "../../../schemas/Amount.yml"
     description: Maximum number of harvesting mosaic atomic units needed for an account to be eligible for harvesting.
-    example: 4000000
+    example: "4000000"
   harvestBeneficiaryPercentage:
     type: string
     description: Percentage of the harvested fee that is collected by the beneficiary account.
-    example: 10
+    example: "10"
   blockPruneInterval:
     type: string # uint32
     description: Number of blocks between cache pruning.
-    example: 360
+    example: "360"
   maxTransactionsPerBlock:
     type: string # uint32
     description: Maximum number of transactions per block.
-    example: 200000
+    example: "200000"

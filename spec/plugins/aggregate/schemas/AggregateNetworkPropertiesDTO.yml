@@ -3,11 +3,11 @@ properties:
   maxTransactionsPerAggregate:
     type: string # uint32
     description: Maximum number of transactions per aggregate.
-    example: 1000
+    example: "1000"
   maxCosignaturesPerAggregate:
     type: string
     description: Maximum number of cosignatures per aggregate.
-    example: 15
+    example: "15"
   enableStrictCosignatureCheck:
     type: boolean
     description: Set to true if cosignatures must exactly match component signers. Set to false if cosignatures should be validated externally.

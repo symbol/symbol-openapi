@@ -3,7 +3,7 @@ properties:
   maxMosaicsPerAccount:
     type: string
     description: Maximum number of mosaics that an account can own.
-    example: 10000
+    example: "10000"
   maxMosaicDuration:
     type: string # utils::BlockSpan
     description: Maximum mosaic duration.
@@ -11,7 +11,7 @@ properties:
   maxMosaicDivisibility:
     type: string
     description: Maximum mosaic divisibility.
-    example: 6
+    example: "6"
   mosaicRentalFeeSinkPublicKey:
     $ref: "../../../schemas/PublicKey.yml"
     description: Public key of the mosaic rental fee sink account.
@@ -19,4 +19,4 @@ properties:
   mosaicRentalFee:
     $ref: "../../../schemas/Amount.yml"
     description: Mosaic rental fee.
-    example: 500
+    example: "500"

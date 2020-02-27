@@ -3,4 +3,4 @@ properties:
   maxMosaicRestrictionValues:
     type: string
     description: Maximum number of mosaic restriction values.
-    example: 20
+    example: "20"
