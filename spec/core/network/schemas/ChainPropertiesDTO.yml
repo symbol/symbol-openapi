@@ -22,8 +22,7 @@ properties:
     description: Targeted time between blocks.
     example: 15s
   blockTimeSmoothingFactor:
-    type: integer
-    format: int64 # uint32
+    type: string # uint32
     description: A higher value makes the network more biased.
     example: 3000
   importanceGrouping:
@@ -31,18 +30,15 @@ properties:
     description: Number of blocks that should be treated as a group for importance purposes.
     example: 39
   importanceActivityPercentage:
-    type: integer
-    format: int32
+    type: string
     description: Percentage of importance resulting from fee generation and beneficiary usage.
     example: 5
   maxRollbackBlocks:
-    type: integer
-    format: int64 # uint32
+    type: string # uint32
     description: Maximum number of blocks that can be rolled back.
     example: 40
   maxDifficultyBlocks:
-    type: integer
-    format: int64 # uint32
+    type: string # uint32
     description: Maximum number of blocks to use in a difficulty calculation.
     example: 60
   defaultDynamicFeeMultiplier:
@@ -78,16 +74,14 @@ properties:
     description: Maximum number of harvesting mosaic atomic units needed for an account to be eligible for harvesting.
     example: 4000000
   harvestBeneficiaryPercentage:
-    type: integer
+    type: string
     description: Percentage of the harvested fee that is collected by the beneficiary account.
     example: 10
   blockPruneInterval:
-    type: integer
-    format: int64 # uint32_t
+    type: string # uint32
     description: Number of blocks between cache pruning.
     example: 360
   maxTransactionsPerBlock:
-    type: integer
-    format: int64 # uint32_t
+    type: string # uint32
     description: Maximum number of transactions per block.
     example: 200000

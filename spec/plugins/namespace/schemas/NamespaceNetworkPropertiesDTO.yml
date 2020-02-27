@@ -1,15 +1,15 @@
 type: object
 properties:
   maxNameSize:
-    type: integer
+    type: string
     description: Maximum namespace name size.
     example: 64
   maxChildNamespaces:
-    type: integer
+    type: string
     description: Maximum number of children for a root namespace.
     example: 500
   maxNamespaceDepth:
-    type: integer
+    type: string
     description: Maximum namespace depth.
     example: 3
   minNamespaceDuration:

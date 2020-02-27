@@ -1,12 +1,11 @@
 type: object
 properties:
   maxTransactionsPerAggregate:
-    type: integer
-    format: int64 # uint32
+    type: string # uint32
     description: Maximum number of transactions per aggregate.
     example: 1000
   maxCosignaturesPerAggregate:
-    type: integer
+    type: string
     description: Maximum number of cosignatures per aggregate.
     example: 15
   enableStrictCosignatureCheck:

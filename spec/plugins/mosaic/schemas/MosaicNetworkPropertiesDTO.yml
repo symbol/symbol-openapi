@@ -1,7 +1,7 @@
 type: object
 properties:
   maxMosaicsPerAccount:
-    type: integer
+    type: string
     description: Maximum number of mosaics that an account can own.
     example: 10000
   maxMosaicDuration:
@@ -9,7 +9,7 @@ properties:
     description: Maximum mosaic duration.
     example: 3650d
   maxMosaicDivisibility:
-    type: integer
+    type: string
     description: Maximum mosaic divisibility.
     example: 6
   mosaicRentalFeeSinkPublicKey:

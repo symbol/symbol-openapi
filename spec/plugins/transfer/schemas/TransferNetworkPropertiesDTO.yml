@@ -1,6 +1,6 @@
 type: object
 properties:
   maxMessageSize:
-    type: integer
+    type: string
     description: Maximum transaction message size.
     example: 1024

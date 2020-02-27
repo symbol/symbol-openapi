@@ -1,16 +1,14 @@
 type: object
 properties:
   maxMultisigDepth:
-    type: integer
+    type: string
     description: Maximum number of multisig levels.
     example: 3
   maxCosignatoriesPerAccount:
-    type: integer
-    format: int64 # uint32
+    type: string  # uint32
     description: Maximum number of cosignatories per account.
     example: 10
   maxCosignedAccountsPerAccount:
-    type: integer
-    format: int64 # uint32
+    type: string  # uint32
     description: Maximum number of accounts a single account can cosign.
     example: 5

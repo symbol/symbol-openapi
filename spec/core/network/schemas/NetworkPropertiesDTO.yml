@@ -6,8 +6,7 @@ properties:
     description: Network identifier.
     example: mijin-test
   nodeEqualityStrategy:
-    type: string # NodeIdentityEqualityStrategy
-    description: Node equality strategy.
+    $ref: "./NodeIdentityEqualityStrategy.yml"
     example: host
   publicKey:
     $ref: "../../../schemas/PublicKey.yml"

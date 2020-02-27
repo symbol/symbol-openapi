@@ -77,16 +77,18 @@ HeightInfoDTO:
   "$ref": "../core/chain/schemas/HeightInfoDTO.yml"
 
 # Core - Entity
-NetworkFeesDTO:
-  "$ref": "../core/network/schemas/NetworkFeesDTO.yml"
 NetworkTypeEnum:
   "$ref": "../core/entity/schemas/NetworkTypeEnum.yml"
+NetworkFeesDTO:
+  "$ref": "../core/network/schemas/NetworkFeesDTO.yml"
 EntityDTO:
   "$ref": "../core/entity/schemas/EntityDTO.yml"
 VerifiableEntityDTO:
   "$ref": "../core/entity/schemas/VerifiableEntityDTO.yml"
 
 # Core - Network
+NodeIdentityEqualityStrategy:
+  "$ref": "../core/network/schemas/NodeIdentityEqualityStrategy.yml"
 NetworkTypeDTO:
   "$ref": "../core/network/schemas/NetworkTypeDTO.yml"
 ChainPropertiesDTO:
