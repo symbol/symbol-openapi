@@ -3,7 +3,7 @@ properties:
   maxTransactionsPerAggregate:
     type: string # uint32
     description: Maximum number of transactions per aggregate.
-    example: "1000"
+    example: 1'000
   maxCosignaturesPerAggregate:
     type: string
     description: Maximum number of cosignatures per aggregate.
