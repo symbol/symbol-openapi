@@ -1,8 +1,23 @@
-# nem2-openapi
+# symbol-openapi
 
-[![Build Status](https://travis-ci.org/nemtech/nem2-openapi.svg?branch=master)](https://travis-ci.org/nemtech/nem2-openapi)
+[![Build Status](https://travis-ci.org/nemtech/symbol-openapi.svg?branch=master)](https://travis-ci.org/nemtech/symbol-openapi)
 
 OpenAPI specification for catapult-rest.
+
+## Commands
+
+Compile the specification into a single file.
+The generated output is saved under ``_build`` directory.
+
+```
+npm run build
+```
+
+Test if the specification is valid. 
+
+```
+npm run test
+```
 
 ## Contributing
 

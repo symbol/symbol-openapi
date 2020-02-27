@@ -13,10 +13,10 @@ properties:
     description: Maximum mosaic divisibility.
     example: 6
   mosaicRentalFeeSinkPublicKey:
-    $ref: "../../../types/PublicKey.yml"
+    $ref: "../../../schemas/PublicKey.yml"
     description: Public key of the mosaic rental fee sink account.
     example: 53E140B5947F104CABC2D6FE8BAEDBC30EF9A0609C717D9613DE593EC2A266D3
   mosaicRentalFee:
-    $ref: "../../../types/Amount.yml"
+    $ref: "../../../schemas/Amount.yml"
     description: Mosaic rental fee.
     example: 500

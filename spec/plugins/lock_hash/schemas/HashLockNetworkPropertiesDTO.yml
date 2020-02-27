@@ -1,7 +1,7 @@
 type: object
 properties:
   lockedFundsPerAggregate:
-    $ref: "../../../types/Amount.yml"
+    $ref: "../../../schemas/Amount.yml"
     description: Amount that has to be locked per aggregate in partial cache.
     example: 10000000
   maxHashLockDuration:

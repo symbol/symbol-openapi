@@ -10,11 +10,11 @@ properties:
     description: Set to true if block chain should calculate receipts so that state changes are fully verifiable at each block.
     example: true
   currencyMosaicId:
-    $ref: "../../../types/MosaicId.yml"
+    $ref: "../../../schemas/MosaicId.yml"
     description: Mosaic id used as primary chain currency.
     example: 0x0DC67FBE1CAD29E3
   harvestingMosaicId:
-    $ref: "../../../types/MosaicId.yml"
+    $ref: "../../../schemas/MosaicId.yml"
     description: Mosaic id used to provide harvesting ability.
     example: 26514E2A1EF33824
   blockGenerationTargetTime:
@@ -58,23 +58,23 @@ properties:
     description: Maximum future time of a block that can be accepted.
     example: 500ms
   initialCurrencyAtomicUnits:
-    $ref: "../../../types/Amount.yml"
+    $ref: "../../../schemas/Amount.yml"
     description: Initial currency atomic units available in the network.
     example: 8998999998000000
   maxMosaicAtomicUnits:
-    $ref: "../../../types/Amount.yml"
+    $ref: "../../../schemas/Amount.yml"
     description: Maximum atomic units (total-supply * 10 ^ divisibility) of a mosaic allowed in the network.
     example: 9000000000000000
   totalChainImportance:
-    $ref: "../../../types/Importance.yml"
+    $ref: "../../../schemas/Importance.yml"
     description: Total whole importance units available in the network.
     example: 15000000
   minHarvesterBalance:
-    $ref: "../../../types/Amount.yml"
+    $ref: "../../../schemas/Amount.yml"
     description: Minimum number of harvesting mosaic atomic units needed for an account to be eligible for harvesting.
     example: 500
   maxHarvesterBalance:
-    $ref: "../../../types/Amount.yml"
+    $ref: "../../../schemas/Amount.yml"
     description: Maximum number of harvesting mosaic atomic units needed for an account to be eligible for harvesting.
     example: 4000000
   harvestBeneficiaryPercentage:

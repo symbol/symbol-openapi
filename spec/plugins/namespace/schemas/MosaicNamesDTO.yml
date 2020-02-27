@@ -4,11 +4,11 @@ required:
   - names
 properties:
   mosaicId:
-    $ref: "../../../types/MosaicId.yml"
+    $ref: "../../../schemas/MosaicId.yml"
   names:
     type: array
     description: Mosaic linked namespace names.
     example:
-      - cat.currency
+      - symbol.xym
     items:
       type: string
