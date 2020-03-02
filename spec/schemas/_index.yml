@@ -77,8 +77,10 @@ HeightInfoDTO:
   "$ref": "../core/chain/schemas/HeightInfoDTO.yml"
 
 # Core - Entity
-NetworkFeesDTO:
-  "$ref": "../core/network/schemas/NetworkFeesDTO.yml"
+RentalFeesDTO:
+  "$ref": "../core/network/schemas/RentalFeesDTO.yml"
+TransactionFeesDTO:
+  "$ref": "../core/network/schemas/TransactionFeesDTO.yml"
 NetworkTypeEnum:
   "$ref": "../core/entity/schemas/NetworkTypeEnum.yml"
 EntityDTO:
