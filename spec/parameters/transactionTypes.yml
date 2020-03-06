@@ -2,7 +2,7 @@ name: type
 in: query
 description: Transaction types to filter by, separated by commas.
 style: form
-explode: false
+explode: true
 schema:
   type: array
   items:
