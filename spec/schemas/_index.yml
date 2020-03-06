@@ -89,8 +89,18 @@ VerifiableEntityDTO:
   "$ref": "../core/entity/schemas/VerifiableEntityDTO.yml"
 
 # Core - Network
+NodeIdentityEqualityStrategy:
+  "$ref": "../core/network/schemas/NodeIdentityEqualityStrategy.yml"
 NetworkTypeDTO:
   "$ref": "../core/network/schemas/NetworkTypeDTO.yml"
+ChainPropertiesDTO:
+  "$ref": "../core/network/schemas/ChainPropertiesDTO.yml"
+NetworkConfigurationDTO:
+  "$ref": "../core/network/schemas/NetworkConfigurationDTO.yml"
+NetworkPropertiesDTO:
+  "$ref": "../core/network/schemas/NetworkPropertiesDTO.yml"
+PluginsPropertiesDTO:
+  "$ref": "../core/network/schemas/PluginsPropertiesDTO.yml"
 
 # Core - Node
 NodeStatusEnum:
@@ -143,6 +153,8 @@ TransactionStatusDTO:
 # Plugin - AccountLink
 AccountLinkActionEnum:
   "$ref": "../plugins/account_link/schemas/AccountLinkActionEnum.yml"
+AccountLinkNetworkPropertiesDTO:
+  "$ref": "../plugins/account_link/schemas/AccountLinkNetworkPropertiesDTO.yml"
 AccountLinkTransactionBodyDTO:
   "$ref": "../plugins/account_link/schemas/AccountLinkTransactionBodyDTO.yml"
 AccountLinkTransactionDTO:
@@ -151,6 +163,8 @@ EmbeddedAccountLinkTransactionDTO:
   "$ref": "../plugins/account_link/schemas/EmbeddedAccountLinkTransactionDTO.yml"
 
 # Plugin - Aggregate
+AggregateNetworkPropertiesDTO:
+  "$ref": "../plugins/aggregate/schemas/AggregateNetworkPropertiesDTO.yml"
 AggregateTransactionBodyDTO:
   "$ref": "../plugins/aggregate/schemas/AggregateTransactionBodyDTO.yml"
 AggregateTransactionDTO:
@@ -165,6 +179,8 @@ HashLockTransactionBodyDTO:
   "$ref": "../plugins/lock_hash/schemas/HashLockTransactionBodyDTO.yml"
 HashLockTransactionDTO:
   "$ref": "../plugins/lock_hash/schemas/HashLockTransactionDTO.yml"
+HashLockNetworkPropertiesDTO:
+  "$ref": "../plugins/lock_hash/schemas/HashLockNetworkPropertiesDTO.yml"
 
 # Plugin - LockSecret
 LockHashAlgorithmEnum:
@@ -173,6 +189,8 @@ EmbeddedSecretLockTransactionDTO:
   "$ref": "../plugins/lock_secret/schemas/EmbeddedSecretLockTransactionDTO.yml"
 EmbeddedSecretProofTransactionDTO:
   "$ref": "../plugins/lock_secret/schemas/EmbeddedSecretProofTransactionDTO.yml"
+SecretLockNetworkPropertiesDTO:
+  "$ref": "../plugins/lock_secret/schemas/SecretLockNetworkPropertiesDTO.yml"
 SecretLockTransactionBodyDTO:
   "$ref": "../plugins/lock_secret/schemas/SecretLockTransactionBodyDTO.yml"
 SecretLockTransactionDTO:
@@ -201,6 +219,8 @@ MetadataEntriesDTO:
   "$ref": "../plugins/metadata/schemas/MetadataEntriesDTO.yml"
 MetadataEntryDTO:
   "$ref": "../plugins/metadata/schemas/MetadataEntryDTO.yml"
+MetadataNetworkPropertiesDTO:
+  "$ref": "../plugins/metadata/schemas/MetadataNetworkPropertiesDTO.yml"
 MosaicMetadataTransactionBodyDTO:
   "$ref": "../plugins/metadata/schemas/MosaicMetadataTransactionBodyDTO.yml"
 MosaicMetadataTransactionDTO:
@@ -227,6 +247,8 @@ MosaicDTO:
   "$ref": "../plugins/mosaic/schemas/MosaicDTO.yml"
 MosaicInfoDTO:
   "$ref": "../plugins/mosaic/schemas/MosaicInfoDTO.yml"
+MosaicNetworkPropertiesDTO:
+  "$ref": "../plugins/mosaic/schemas/MosaicNetworkPropertiesDTO.yml"
 MosaicsInfoDTO:
   "$ref": "../plugins/mosaic/schemas/MosaicsInfoDTO.yml"
 MosaicSupplyChangeTransactionBodyDTO:
@@ -247,6 +269,8 @@ MultisigAccountModificationTransactionDTO:
   "$ref": "../plugins/multisig/schemas/MultisigAccountModificationTransactionDTO.yml"
 MultisigDTO:
   "$ref": "../plugins/multisig/schemas/MultisigDTO.yml"
+MultisigNetworkPropertiesDTO:
+  "$ref": "../plugins/multisig/schemas/MultisigNetworkPropertiesDTO.yml"
 
 # Plugin - Namespace
 AliasActionEnum:
@@ -287,6 +311,8 @@ NamespaceDTO:
   "$ref": "../plugins/namespace/schemas/NamespaceDTO.yml"
 NamespaceNameDTO:
   "$ref": "../plugins/namespace/schemas/NamespaceNameDTO.yml"
+NamespaceNetworkPropertiesDTO:
+  "$ref": "../plugins/namespace/schemas/NamespaceNetworkPropertiesDTO.yml"
 NamespaceRegistrationTransactionBodyDTO:
   "$ref": "../plugins/namespace/schemas/NamespaceRegistrationTransactionBodyDTO.yml"
 NamespaceRegistrationTransactionDTO:
@@ -345,6 +371,8 @@ AccountRestrictionsDTO:
   "$ref": "../plugins/restriction_account/schemas/AccountRestrictionsDTO.yml"
 AccountRestrictionDTO:
   "$ref": "../plugins/restriction_account/schemas/AccountRestrictionDTO.yml"
+AccountRestrictionNetworkPropertiesDTO:
+  "$ref": "../plugins/restriction_account/schemas/AccountRestrictionNetworkPropertiesDTO.yml"
 EmbeddedAccountAddressRestrictionTransactionDTO:
   "$ref": "../plugins/restriction_account/schemas/EmbeddedAccountAddressRestrictionTransactionDTO.yml"
 EmbeddedAccountMosaicRestrictionTransactionDTO:
@@ -383,6 +411,8 @@ MosaicGlobalRestrictionTransactionBodyDTO:
   "$ref": "../plugins/restriction_mosaic/schemas/MosaicGlobalRestrictionTransactionBodyDTO.yml"
 MosaicGlobalRestrictionTransactionDTO:
   "$ref": "../plugins/restriction_mosaic/schemas/MosaicGlobalRestrictionTransactionDTO.yml"
+MosaicRestrictionNetworkPropertiesDTO:
+  "$ref": "../plugins/restriction_mosaic/schemas/MosaicRestrictionNetworkPropertiesDTO.yml"
 
 # Plugin - Transfer
 MessageTypeEnum:
@@ -391,6 +421,8 @@ EmbeddedTransferTransactionDTO:
   "$ref": "../plugins/transfer/schemas/EmbeddedTransferTransactionDTO.yml"
 MessageDTO:
   "$ref": "../plugins/transfer/schemas/MessageDTO.yml"
+TransferNetworkPropertiesDTO:
+  "$ref": "../plugins/transfer/schemas/TransferNetworkPropertiesDTO.yml"
 TransferTransactionBodyDTO:
   "$ref": "../plugins/transfer/schemas/TransferTransactionBodyDTO.yml"
 TransferTransactionDTO:
