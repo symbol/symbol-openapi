@@ -19,9 +19,6 @@ responses:
     content:
       application/json:
         schema:
-          type: array
-          description: Array of confirmed transactions.
-          items:
-            $ref: "../../transaction/schemas/TransactionInfoDTO.yml"
+          $ref: "../../transaction/schemas/TransactionsDTO.yml"
   "409":
     $ref : "../../../responses/InvalidArgument.yml"

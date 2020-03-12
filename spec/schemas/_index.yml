@@ -29,6 +29,8 @@ RestrictionKey:
   "$ref": "./RestrictionKey.yml"
 NamespaceId:
   "$ref": "./NamespaceId.yml"
+Pagination:
+  "$ref": "./Pagination.yml"
 PublicKey:
   "$ref": "./PublicKey.yml"
 Score:
@@ -125,6 +127,8 @@ StorageInfoDTO:
   "$ref": "../core/node/schemas/StorageInfoDTO.yml"
 
 # Core - Transaction
+TransactionDirectionEnum:
+  "$ref": "../core/transaction/schemas/TransactionDirectionEnum.yml"
 TransactionStateTypeEnum:
   "$ref": "../core/transaction/schemas/TransactionStateTypeEnum.yml"
 TransactionStatusTypeEnum:
@@ -139,6 +143,8 @@ EmbeddedTransactionInfoDTO:
   "$ref": "../core/transaction/schemas/EmbeddedTransactionInfoDTO.yml"
 EmbeddedTransactionMetaDTO:
   "$ref": "../core/transaction/schemas/EmbeddedTransactionMetaDTO.yml"
+TransactionsDTO:
+  "$ref": "../core/transaction/schemas/TransactionsDTO.yml"
 TransactionBodyDTO:
   "$ref": "../core/transaction/schemas/TransactionBodyDTO.yml"
 TransactionDTO:

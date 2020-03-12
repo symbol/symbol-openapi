@@ -1,0 +1,11 @@
+type: object
+required:
+  - data
+properties:
+  data:
+    type: array
+    description: Array of confirmed transactions.
+    items:
+      $ref: "../../transaction/schemas/TransactionInfoDTO.yml"
+  pagination:
+    $ref: "../../../schemas/Pagination.yml"

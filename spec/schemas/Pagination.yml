@@ -1,0 +1,12 @@
+type: object
+required:
+  - page
+  - pageSize
+  - totalCount
+properties:
+  page:
+    type: integer
+  pageSize:
+    type: integer
+  totalCount:
+    type: integer
