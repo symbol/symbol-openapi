@@ -8,5 +8,7 @@ properties:
     type: integer
   pageSize:
     type: integer
-  totalCount:
+  totalElements:
+    type: integer
+  totalPages:
     type: integer
