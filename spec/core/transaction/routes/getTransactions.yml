@@ -2,7 +2,7 @@ tags:
   - Transaction routes
 summary: Get transactions
 description: Gets an array of transactions.
-operationId: getAccountConfirmedTransactions
+operationId: getTransactions
 parameters:
   - $ref: "../../../parameters/query/address.yml"
   - $ref: "../../../parameters/query/block.yml"
