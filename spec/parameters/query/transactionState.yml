@@ -1,0 +1,7 @@
+name: state
+in: query
+description: |
+  Transaction state.
+schema:
+  $ref: "../../core/transaction/schemas/TransactionStateTypeEnum.yml"
+  default: confirmed

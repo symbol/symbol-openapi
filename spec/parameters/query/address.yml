@@ -1,0 +1,5 @@
+name: address
+in: query
+description: Account address.
+schema:
+  $ref: "../../schemas/AddressBase32.yml"

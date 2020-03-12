@@ -1,0 +1,6 @@
+name: block
+in: query
+description: Block height.
+schema:
+  $ref: "../../schemas/Height.yml"
+

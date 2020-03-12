@@ -1,10 +1,18 @@
 tags:
   - Transaction routes
-summary: Get transactions information
-description: Returns transactions information for a given array of transactionIds.
-operationId: getTransactions
-requestBody:
-  $ref: "../../../request_bodies/transactionIds.yml"
+summary: Get transactions
+description: Gets an array of transactions.
+operationId: getAccountConfirmedTransactions
+parameters:
+  - $ref: "../../../parameters/query/address.yml"
+  - $ref: "../../../parameters/query/block.yml"
+  - $ref: "../../../parameters/query/pageSize.yml"
+  - $ref: "../../../parameters/query/page.yml"
+  - $ref: "../../../parameters/query/offset.yml"
+  - $ref: "../../../parameters/query/transactionDirection.yml"
+  - $ref: "../../../parameters/query/transactionState.yml"
+  - $ref: "../../../parameters/query/order.yml"
+  - $ref: "../../../parameters/query/transactionTypes.yml"
 responses:
   "200":
     description: success
@@ -12,10 +20,8 @@ responses:
       application/json:
         schema:
           type: array
-          description: Array of transactions information.
+          description: Array of confirmed transactions.
           items:
-            $ref: "../schemas/TransactionInfoDTO.yml"
-  "400":
-    $ref: "../../../responses/InvalidContent.yml"
+            $ref: "../../transaction/schemas/TransactionInfoDTO.yml"
   "409":
-    $ref: "../../../responses/InvalidArgument.yml"
+    $ref : "../../../responses/InvalidArgument.yml"

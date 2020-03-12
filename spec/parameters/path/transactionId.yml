@@ -1,0 +1,7 @@
+name: offset
+in: path
+description: Record id at which to start pagination.
+required: true
+schema:
+  type: string
+
