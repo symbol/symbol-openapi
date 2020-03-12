@@ -32,11 +32,13 @@ offset:
   $ref: './query/offset.yml'
 order:
   $ref: './query/order.yml'
+page:
+  $ref: './query/page.yml'
 pageSize:
   $ref: './query/pageSize.yml'
 transactionDirection:
   $ref: './query/transactionDirection.yml'
 transactionState:
-  $ref: './query/transactionDirection.yml'
+  $ref: './query/transactionState.yml'
 transactionType:
   $ref: './query/transactionTypes.yml'
