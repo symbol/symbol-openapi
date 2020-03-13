@@ -1,6 +1,5 @@
-name: page
+name: pageNumber
 in: query
-description: Page number.
 schema:
   type: integer
   minimum: 1

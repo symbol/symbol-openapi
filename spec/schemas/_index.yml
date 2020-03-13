@@ -31,6 +31,8 @@ RestrictionKey:
   "$ref": "./RestrictionKey.yml"
 NamespaceId:
   "$ref": "./NamespaceId.yml"
+Order:
+  "$ref": "./Order.yml"
 Pagination:
   "$ref": "./Pagination.yml"
 PublicKey:
@@ -133,6 +135,8 @@ TransactionDirectionEnum:
   "$ref": "../core/transaction/schemas/TransactionDirectionEnum.yml"
 TransactionStateTypeEnum:
   "$ref": "../core/transaction/schemas/TransactionStateTypeEnum.yml"
+TransactionOrderByEnum:
+  "$ref": "../core/transaction/schemas/TransactionOrderByEnum.yml"
 TransactionStatusTypeEnum:
   "$ref": "../core/transaction/schemas/TransactionStatusTypeEnum.yml"
 TransactionTypeEnum:
@@ -145,8 +149,8 @@ EmbeddedTransactionInfoDTO:
   "$ref": "../core/transaction/schemas/EmbeddedTransactionInfoDTO.yml"
 EmbeddedTransactionMetaDTO:
   "$ref": "../core/transaction/schemas/EmbeddedTransactionMetaDTO.yml"
-TransactionsDTO:
-  "$ref": "../core/transaction/schemas/TransactionsDTO.yml"
+TransactionPage:
+  "$ref": "../core/transaction/schemas/TransactionPage.yml"
 TransactionBodyDTO:
   "$ref": "../core/transaction/schemas/TransactionBodyDTO.yml"
 TransactionDTO:

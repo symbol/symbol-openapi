@@ -2,16 +2,17 @@ tags:
   - Transaction routes
 summary: Get transactions
 description: Gets an array of transactions.
-operationId: getTransactions
+operationId: searchTransactions
 parameters:
   - $ref: "../../../parameters/query/address.yml"
   - $ref: "../../../parameters/query/block.yml"
   - $ref: "../../../parameters/query/pageSize.yml"
-  - $ref: "../../../parameters/query/page.yml"
+  - $ref: "../../../parameters/query/pageNumber.yml"
   - $ref: "../../../parameters/query/offset.yml"
   - $ref: "../../../parameters/query/transactionDirection.yml"
   - $ref: "../../../parameters/query/transactionState.yml"
   - $ref: "../../../parameters/query/order.yml"
+  - $ref: "../../../parameters/query/transactionOrderBy.yml"
   - $ref: "../../../parameters/query/transactionTypes.yml"
 responses:
   "200":
@@ -19,6 +20,6 @@ responses:
     content:
       application/json:
         schema:
-          $ref: "../../transaction/schemas/TransactionsDTO.yml"
+          $ref: "../../transaction/schemas/TransactionPage.yml"
   "409":
     $ref : "../../../responses/InvalidArgument.yml"

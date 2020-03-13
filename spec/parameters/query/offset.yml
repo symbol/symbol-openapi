@@ -1,5 +1,6 @@
-name: id
-in: query
-description: Transaction identifier up to which transactions are returned.
+name: offset
+in: path
+description: Entry id at which to start pagination.
+required: true
 schema:
   type: string

@@ -61,9 +61,9 @@
     $ref: "./core/node/routes/getServerInfo.yml"
 
 # Core - Transaction
-"/transactions/":
+"/transactions":
   get:
-    $ref: "./core/transaction/routes/getTransactions.yml"
+    $ref: "./core/transaction/routes/searchTransactions.yml"
 "/transaction/{transactionId}":
   get:
     $ref: "./core/transaction/routes/getTransaction.yml"

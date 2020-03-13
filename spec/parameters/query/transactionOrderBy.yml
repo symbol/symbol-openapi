@@ -1,0 +1,5 @@
+name: orderBy
+in: query
+schema:
+  $ref: "../../core/transaction/schemas/TransactionOrderByEnum.yml"
+

@@ -1,6 +1,6 @@
-name: offset
+name: transactionId
 in: path
-description: Record id at which to start pagination.
+description: Transaction id or hash.
 required: true
 schema:
   type: string

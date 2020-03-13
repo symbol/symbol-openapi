@@ -1,10 +1,5 @@
 name: order
 in: query
-description: |
-  Order criteria:
-  * -id - Descending order by id.
-  * id - Ascending order by id.
 schema:
-  type: string
-  default: -id
+  $ref: "../../schemas/Order.yml"
 
