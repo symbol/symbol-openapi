@@ -40,7 +40,7 @@ transactionDirection:
   $ref: './query/transactionDirection.yml'
 transactionOrderBy:
   $ref: './query/transactionOrderBy.yml'
-transactionState:
-  $ref: './query/transactionState.yml'
+group:
+  $ref: './query/group.yml'
 transactionType:
   $ref: './query/transactionTypes.yml'

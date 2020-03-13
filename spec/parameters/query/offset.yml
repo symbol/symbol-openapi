@@ -1,6 +1,5 @@
 name: offset
-in: path
+in: query
 description: Entry id at which to start pagination.
-required: true
 schema:
   type: string

@@ -133,12 +133,14 @@ StorageInfoDTO:
 # Core - Transaction
 TransactionDirectionEnum:
   "$ref": "../core/transaction/schemas/TransactionDirectionEnum.yml"
-TransactionStateTypeEnum:
-  "$ref": "../core/transaction/schemas/TransactionStateTypeEnum.yml"
+TransactionGroupEnum:
+  "$ref": "../core/transaction/schemas/TransactionGroupEnum.yml"
+TransactionGroupSubsetEnum:
+  "$ref": "../core/transaction/schemas/TransactionGroupSubsetEnum.yml"
 TransactionOrderByEnum:
   "$ref": "../core/transaction/schemas/TransactionOrderByEnum.yml"
-TransactionStatusTypeEnum:
-  "$ref": "../core/transaction/schemas/TransactionStatusTypeEnum.yml"
+TransactionStatusEnum:
+  "$ref": "../core/transaction/schemas/TransactionStatusEnum.yml"
 TransactionTypeEnum:
   "$ref": "../core/transaction/schemas/TransactionTypeEnum.yml"
 AnnounceTransactionInfoDTO:
