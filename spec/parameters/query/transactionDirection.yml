@@ -3,4 +3,3 @@ in: query
 description: Transaction direction.
 schema:
   $ref: "../../core/transaction/schemas/TransactionDirectionEnum.yml"
-  default : all
