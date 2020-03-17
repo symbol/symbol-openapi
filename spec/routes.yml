@@ -61,29 +61,28 @@
     $ref: "./core/node/routes/getServerInfo.yml"
 
 # Core - Transaction
-"/transactions":
+/transactions:
   get:
     $ref: "./core/transaction/routes/searchTransactions.yml"
-"/transaction/{transactionId}":
-  get:
-    $ref: "./core/transaction/routes/getTransaction.yml"
-/transaction:
   post:
     $ref: "./core/transaction/routes/getTransactionsById.yml"
   put:
     $ref: "./core/transaction/routes/announceTransaction.yml"
-"/transaction/{hash}/status":
+"/transactions/{transactionId}":
+  get:
+    $ref: "./core/transaction/routes/getTransaction.yml"
+"/transactions/{hash}/status":
   get:
     $ref: "./core/transaction/routes/getTransactionStatus.yml"
-/transaction/statuses:
+/transactions/statuses:
   post:
     $ref: "./core/transaction/routes/getTransactionStatuses.yml"
 
 # Plugin - Aggregate
-/transaction/partial:
+/transactions/partial:
   put:
     $ref: "./plugins/aggregate/routes/announcePartialTransaction.yml"
-/transaction/cosignature:
+/transactions/cosignature:
   put:
     $ref: "./plugins/aggregate/routes/announceCosignatureTransaction.yml"
 
