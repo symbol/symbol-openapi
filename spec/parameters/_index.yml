@@ -38,8 +38,6 @@ pageSize:
   $ref: './query/pageSize.yml'
 transactionDirection:
   $ref: './query/transactionDirection.yml'
-transactionOrderBy:
-  $ref: './query/transactionOrderBy.yml'
 group:
   $ref: './query/group.yml'
 transactionType:

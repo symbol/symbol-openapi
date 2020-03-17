@@ -12,7 +12,6 @@ parameters:
   - $ref: "../../../parameters/query/transactionDirection.yml"
   - $ref: "../../../parameters/query/group.yml"
   - $ref: "../../../parameters/query/order.yml"
-  - $ref: "../../../parameters/query/transactionOrderBy.yml"
   - $ref: "../../../parameters/query/transactionTypes.yml"
 responses:
   "200":

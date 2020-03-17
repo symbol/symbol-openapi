@@ -1,4 +1,7 @@
 type: string
+description: |
+  Order (ascending or descending) based on the collection property set on the param ``orderBy``.
+  If the request does specify the property, REST returns the collection ordered by id.
 enum:
   - asc
   - desc

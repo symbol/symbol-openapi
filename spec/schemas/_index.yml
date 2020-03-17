@@ -137,8 +137,6 @@ TransactionGroupEnum:
   "$ref": "../core/transaction/schemas/TransactionGroupEnum.yml"
 TransactionGroupSubsetEnum:
   "$ref": "../core/transaction/schemas/TransactionGroupSubsetEnum.yml"
-TransactionOrderByEnum:
-  "$ref": "../core/transaction/schemas/TransactionOrderByEnum.yml"
 TransactionStatusEnum:
   "$ref": "../core/transaction/schemas/TransactionStatusEnum.yml"
 TransactionTypeEnum:
