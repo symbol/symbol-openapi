@@ -161,7 +161,7 @@
 "/blocks/{height}/receipts":
   get:
     $ref: "./plugins/receipt/routes/getBlockReceipts.yml"
-"/blocks/{height}/receipt/{hash}/merkle":
+"/blocks/{height}/receipts/{hash}/merkle":
   get:
     $ref: "./plugins/receipt/routes/getMerkleReceipts.yml"
 
