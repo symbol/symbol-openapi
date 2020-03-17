@@ -1,10 +1,13 @@
 # Core - Account
-"/account/{accountId}":
+"/accounts":
   get:
-    $ref: "./core/account/routes/getAccountInfo.yml"
-/account:
+    $ref: "./core/account/routes/searchAccounts.yml"
   post:
     $ref: "./core/account/routes/getAccountsInfo.yml"
+
+"/accounts/{accountId}":
+  get:
+    $ref: "./core/account/routes/getAccountInfo.yml"
 
 # Core - Block
 "/block/{height}":
@@ -87,7 +90,7 @@
     $ref: "./plugins/aggregate/routes/announceCosignatureTransaction.yml"
 
 # Plugin - Metadata
-"/metadata/account/{accountId}":
+"/metadata/accounts/{accountId}":
   get:
     $ref: "./plugins/metadata/routes/getAccountMetadata.yml"
 "/metadata/mosaic/{mosaicId}":
@@ -96,7 +99,7 @@
 "/metadata/namespace/{namespaceId}":
   get:
     $ref: "./plugins/metadata/routes/getNamespaceMetadata.yml"
-"/metadata/account/{accountId}/key/{key}":
+"/metadata/accounts/{accountId}/key/{key}":
   get:
     $ref: "./plugins/metadata/routes/getAccountMetadataByKey.yml"
 "/metadata/mosaic/{mosaicId}/key/{key}":
@@ -105,7 +108,7 @@
 "/metadata/namespace/{namespaceId}/key/{key}":
   get:
     $ref: "./plugins/metadata/routes/getNamespaceMetadataByKey.yml"
-"/metadata/account/{accountId}/key/{key}/sender/{publicKey}":
+"/metadata/accounts/{accountId}/key/{key}/sender/{publicKey}":
   get:
     $ref: "./plugins/metadata/routes/getAccountMetadataByKeyAndSender.yml"
 "/metadata/mosaic/{mosaicId}/key/{key}/sender/{publicKey}":
@@ -122,18 +125,18 @@
 /mosaic:
   post:
     $ref: "./plugins/mosaic/routes/getMosaics.yml"
-"/account/{accountId}/mosaics":
+"/accounts/{accountId}/mosaics":
   get:
     $ref: "./plugins/mosaic/routes/getMosaicsFromAccount.yml"
-/account/mosaics:
+/accounts/mosaics:
   post:
     $ref: "./plugins/mosaic/routes/getMosaicsFromAccounts.yml"
 
 # Plugin - Multisig
-"/account/{accountId}/multisig":
+"/accounts/{accountId}/multisig":
   get:
     $ref: "./plugins/multisig/routes/getAccountMultisig.yml"
-"/account/{accountId}/multisig/graph":
+"/accounts/{accountId}/multisig/graph":
   get:
     $ref: "./plugins/multisig/routes/getAccountMultisigGraph.yml"
 
@@ -141,13 +144,13 @@
 "/namespace/{namespaceId}":
   get:
     $ref: "./plugins/namespace/routes/getNamespace.yml"
-"/account/{accountId}/namespaces":
+"/accounts/{accountId}/namespaces":
   get:
     $ref: "./plugins/namespace/routes/getNamespacesFromAccount.yml"
-/account/namespaces:
+/accounts/namespaces:
   post:
     $ref: "./plugins/namespace/routes/getNamespacesFromAccounts.yml"
-/account/names:
+/accounts/names:
   post:
     $ref: "./plugins/namespace/routes/getAccountsNames.yml"
 /mosaic/names:
@@ -166,10 +169,10 @@
     $ref: "./plugins/receipt/routes/getMerkleReceipts.yml"
 
 # Plugin - RestrictionAccount
-"/restrictions/account/{accountId}":
+"/restrictions/accounts/{accountId}":
   get:
     $ref: "./plugins/restriction_account/routes/getAccountRestrictions.yml"
-/restrictions/account:
+/restrictions/accounts:
   post:
     $ref: "./plugins/restriction_account/routes/getAccountRestrictionsFromAccounts.yml"
 
