@@ -22,6 +22,8 @@ transactionId:
 # query
 address:
   $ref: './query/address.yml'
+beneficiaryPublicKey:
+  $ref: './query/beneficiaryPublicKey.yml'
 block:
   $ref: './query/block.yml'
 metadataIdLimit:
@@ -32,12 +34,16 @@ offset:
   $ref: './query/offset.yml'
 order:
   $ref: './query/order.yml'
+orderByBlock:
+  $ref: './query/orderByBlock.yml'
 pageNumber:
   $ref: './query/pageNumber.yml'
 pageSize:
   $ref: './query/pageSize.yml'
 transactionDirection:
   $ref: './query/transactionDirection.yml'
+signerPublicKey:
+  $ref: './query/signerPublicKey.yml'
 group:
   $ref: './query/group.yml'
 transactionType:

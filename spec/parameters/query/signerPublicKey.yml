@@ -1,0 +1,4 @@
+name: signerPublicKey
+in: query
+schema:
+  $ref: "../../schemas/PublicKey.yml"

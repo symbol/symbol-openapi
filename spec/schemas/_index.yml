@@ -63,6 +63,8 @@ ActivityBucketDTO:
   "$ref": "../core/account/schemas/ActivityBucketDTO.yml"
 
 # Core - Block
+BlockOrderByEnum:
+  "$ref": "../core/block/schemas/BlockOrderByEnum.yml"
 PositionEnum:
   "$ref": "../core/block/schemas/PositionEnum.yml"
 BlockDTO:
@@ -71,6 +73,8 @@ BlockInfoDTO:
   "$ref": "../core/block/schemas/BlockInfoDTO.yml"
 BlockMetaDTO:
   "$ref": "../core/block/schemas/BlockMetaDTO.yml"
+BlockPage:
+  "$ref": "../core/block/schemas/BlockPage.yml"
 MerklePathItemDTO:
   "$ref": "../core/block/schemas/MerklePathItemDTO.yml"
 MerkleProofInfoDTO:

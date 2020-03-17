@@ -2,4 +2,3 @@ name: order
 in: query
 schema:
   $ref: "../../schemas/Order.yml"
-
