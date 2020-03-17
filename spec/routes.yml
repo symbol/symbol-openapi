@@ -7,7 +7,7 @@
     $ref: "./core/account/routes/getAccountsInfo.yml"
 
 # Core - Block
-"/blocks/":
+"/blocks":
   get:
     $ref: "./core/block/routes/searchBlocks.yml"
 "/blocks/{height}":
