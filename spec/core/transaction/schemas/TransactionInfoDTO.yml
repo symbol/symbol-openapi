@@ -6,7 +6,7 @@ required:
 properties:
   id:
     type: string
-    description: Identifier of the transaciton
+    description: Internal resource identifier.
   meta:
     $ref: "./TransactionMetaDTO.yml"
   transaction:

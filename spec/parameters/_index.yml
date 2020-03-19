@@ -24,12 +24,8 @@ address:
   $ref: './query/address.yml'
 block:
   $ref: './query/block.yml'
-metadataIdLimit:
-  $ref: './query/metadataIdLimit.yml'
 mosaic:
   $ref: './query/mosaicId.yml'
-namespaceIdLimit:
-  $ref: './query/namespaceIdLimit.yml'
 offset:
   $ref: './query/offset.yml'
 order:
@@ -44,5 +40,7 @@ transactionDirection:
   $ref: './query/transactionDirection.yml'
 group:
   $ref: './query/group.yml'
+id:
+  $ref: './query/id.yml'
 transactionType:
   $ref: './query/transactionTypes.yml'
