@@ -2,4 +2,4 @@ type: string
 enum:
   - id
   - importance
-  - balance[mosaicId]
+  - balance

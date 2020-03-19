@@ -26,6 +26,8 @@ block:
   $ref: './query/block.yml'
 metadataIdLimit:
   $ref: './query/metadataIdLimit.yml'
+mosaic:
+  $ref: './query/mosaicId.yml'
 namespaceIdLimit:
   $ref: './query/namespaceIdLimit.yml'
 offset:

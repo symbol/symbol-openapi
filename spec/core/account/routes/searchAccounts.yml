@@ -10,6 +10,7 @@ parameters:
   - $ref: "../../../parameters/query/offset.yml"
   - $ref: "../../../parameters/query/order.yml"
   - $ref: "../../../parameters/query/orderByAccount.yml"
+  - $ref: "../../../parameters/query/mosaicId.yml"
 responses:
   "200":
     description: success

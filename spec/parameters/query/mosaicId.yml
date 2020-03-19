@@ -1,0 +1,6 @@
+name: mosaicId
+in: query
+description: Mosaic identifier.
+schema:
+  $ref: "../../schemas/MosaicId.yml"
+
