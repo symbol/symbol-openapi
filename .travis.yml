@@ -9,7 +9,8 @@ before_script:
   - npm install -g openapi-to-postmanv2
   - npm install -g yaml-cli
 script:
-  - npm run build
+  - npm run docs:travis
+  - npm run build:travis
   - npm run postman
   - npm test
 deploy:
