@@ -6,8 +6,7 @@
   "scripts": {
     "test": "swagger-cli validate _build/openapi3.yml",
     "build": "swagger-cli bundle ./spec/openapi.yml --outfile _build/openapi3.yml --type yaml",
-    "docs:travis": "mkdir _build/$npm_package_version && mv _build/index.html _build/.nojekyll _build/$npm_package_version/",
-    "build:travis": "swagger-cli bundle ./spec/openapi.yml -o _build/$npm_package_version/openapi3.yml -t yaml",
+    "docs:travis": "_build/$npm_package_version && cp _build/{template/.,openapi3.yaml,postman.json} _build/$npm_package_version",
     "postman": "openapi2postmanv2 -s _build/openapi3.yml -o _build/postman.json -p",
     "version": "echo $npm_package_version"
   },
