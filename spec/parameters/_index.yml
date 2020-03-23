@@ -24,10 +24,6 @@ addressQuery:
   $ref: './query/address.yml'
 beneficiaryPublicKeyQuery:
   $ref: './query/beneficiaryPublicKey.yml'
-metadataIdLimitQuery:
-  $ref: './query/metadataIdLimit.yml'
-namespaceIdLimitQuery:
-  $ref: './query/namespaceIdLimit.yml'
 groupQuery:
   $ref: './query/group.yml'
 heightQuery:
