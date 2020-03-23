@@ -36,7 +36,9 @@ pageNumberQuery:
   $ref: './query/pageNumber.yml'
 pageSizeQuery:
   $ref: './query/pageSize.yml'
-transactionDirectionQuery:
-  $ref: './query/transactionDirection.yml'
+recipientAddressQuery:
+  $ref: './query/recipientAddress.yml'
+signerPublicKeyQuery:
+  $ref: './query/signerPublicKey.yml'
 transactionTypeQuery:
   $ref: './query/transactionTypes.yml'
