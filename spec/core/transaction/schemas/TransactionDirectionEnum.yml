@@ -1,4 +1,0 @@
-type: string
-enum:
-  - incoming
-  - outgoing

@@ -135,8 +135,6 @@ StorageInfoDTO:
   "$ref": "../core/node/schemas/StorageInfoDTO.yml"
 
 # Core - Transaction
-TransactionDirectionEnum:
-  "$ref": "../core/transaction/schemas/TransactionDirectionEnum.yml"
 TransactionGroupEnum:
   "$ref": "../core/transaction/schemas/TransactionGroupEnum.yml"
 TransactionGroupSubsetEnum:

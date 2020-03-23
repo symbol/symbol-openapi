@@ -1,4 +1,4 @@
-name: block
+name: height
 in: query
 description: Block height.
 schema:
