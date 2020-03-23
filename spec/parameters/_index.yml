@@ -1,50 +1,52 @@
 # path
-accountId:
+accountIdPath:
   $ref: './path/accountId.yml'
-height:
+heightPath:
   $ref: './path/height.yml'
-limit:
+limitPath:
   $ref: './path/limit.yml'
-metadataKey:
+metadataKeyPath:
   $ref: './path/metadataKey.yml'
-mosaicId:
+mosaicIdPath:
   $ref: './path/mosaicId.yml'
-namespaceId:
+namespaceIdPath:
   $ref: './path/namespaceId.yml'
-publicKey:
+publicKeyPath:
   $ref: './path/publicKey.yml'
-receiptHash:
+receiptHashPath:
   $ref: './path/receiptHash.yml'
-transactionHash:
+transactionHashPath:
   $ref: './path/transactionHash.yml'
-transactionId:
+transactionIdPath:
   $ref: './path/transactionId.yml'
 # query
-address:
+addressQuery:
   $ref: './query/address.yml'
-beneficiaryPublicKey:
+beneficiaryPublicKeyQuery:
   $ref: './query/beneficiaryPublicKey.yml'
-block:
-  $ref: './query/block.yml'
-metadataIdLimit:
+metadataIdLimitQuery:
   $ref: './query/metadataIdLimit.yml'
-namespaceIdLimit:
+namespaceIdLimitQuery:
   $ref: './query/namespaceIdLimit.yml'
-offset:
-  $ref: './query/offset.yml'
-order:
-  $ref: './query/order.yml'
-orderByBlock:
-  $ref: './query/orderByBlock.yml'
-pageNumber:
-  $ref: './query/pageNumber.yml'
-pageSize:
-  $ref: './query/pageSize.yml'
-transactionDirection:
-  $ref: './query/transactionDirection.yml'
-signerPublicKey:
-  $ref: './query/signerPublicKey.yml'
-group:
+groupQuery:
   $ref: './query/group.yml'
-transactionType:
+heightQuery:
+  $ref: './query/height.yml'
+idQuery:
+  $ref: './query/id.yml'
+offsetQuery:
+  $ref: './query/offset.yml'
+orderQuery:
+  $ref: './query/order.yml'
+orderByBlockQuery:
+  $ref: './query/orderByBlock.yml'
+pageNumberQuery:
+  $ref: './query/pageNumber.yml'
+pageSizeQuery:
+  $ref: './query/pageSize.yml'
+recipientAddressQuery:
+  $ref: './query/recipientAddress.yml'
+signerPublicKeyQuery:
+  $ref: './query/signerPublicKey.yml'
+transactionTypeQuery:
   $ref: './query/transactionTypes.yml'

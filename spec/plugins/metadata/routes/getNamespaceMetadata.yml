@@ -6,7 +6,7 @@ operationId: getNamespaceMetadata
 parameters:
   - $ref: "../../../parameters/path/namespaceId.yml"
   - $ref: "../../../parameters/query/pageSize.yml"
-  - $ref: "../../../parameters/query/metadataIdLimit.yml"
+  - $ref: "../../../parameters/query/id.yml"
   - $ref: "../../../parameters/query/order.yml"
 responses:
   "200":
