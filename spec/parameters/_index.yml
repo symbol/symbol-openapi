@@ -34,7 +34,7 @@ offsetQuery:
   $ref: './query/offset.yml'
 orderQuery:
   $ref: './query/order.yml'
-orderByAccount:
+orderByAccountQuery:
   $ref: './query/orderByAccount.yml'
 pageNumberQuery:
   $ref: './query/pageNumber.yml'
