@@ -22,22 +22,30 @@ transactionIdPath:
 # query
 addressQuery:
   $ref: './query/address.yml'
+aliasTypeQuery:
+  $ref: './query/aliasType.yml'
 groupQuery:
   $ref: './query/group.yml'
 heightQuery:
   $ref: './query/height.yml'
 idQuery:
   $ref: './query/id.yml'
+level0Query:
+  $ref: './query/level0.yml'
 offsetQuery:
   $ref: './query/offset.yml'
 orderQuery:
   $ref: './query/order.yml'
+ownerAddressQuery:
+  $ref: './query/ownerAddress.yml'
 pageNumberQuery:
   $ref: './query/pageNumber.yml'
 pageSizeQuery:
   $ref: './query/pageSize.yml'
 recipientAddressQuery:
   $ref: './query/recipientAddress.yml'
+registrationTypeQuery:
+  $ref: './query/registrationType.yml'
 signerPublicKeyQuery:
   $ref: './query/signerPublicKey.yml'
 transactionTypeQuery:

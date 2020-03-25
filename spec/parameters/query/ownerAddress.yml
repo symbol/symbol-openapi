@@ -1,0 +1,5 @@
+name: ownerAddress
+in: query
+description: Owner address.
+schema:
+  $ref: "../../schemas/AddressBase32.yml"

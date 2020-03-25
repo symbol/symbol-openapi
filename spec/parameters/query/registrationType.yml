@@ -1,0 +1,5 @@
+name: registrationType
+in: query
+description: Registration type.
+schema:
+  $ref: "../../plugins/namespace/schemas/NamespaceRegistrationTypeEnum.yml"
