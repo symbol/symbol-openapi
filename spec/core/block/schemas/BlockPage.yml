@@ -6,6 +6,6 @@ properties:
     type: array
     description: Array of blocks.
     items:
-      $ref: "../../block/schemas/BlockInfoDTO.yml"
+      $ref: "./BlockInfoDTO.yml"
   pagination:
     $ref: "../../../schemas/Pagination.yml"
