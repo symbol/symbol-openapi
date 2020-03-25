@@ -158,10 +158,10 @@
     $ref: "./plugins/namespace/routes/getNamespacesNames.yml"
 
 # Plugin - Receipt
-"/blocks/{height}/receipts":
+"/block/{height}/receipts":
   get:
     $ref: "./plugins/receipt/routes/getBlockReceipts.yml"
-"/blocks/{height}/receipts/{hash}/merkle":
+"/block/{height}/receipt/{hash}/merkle":
   get:
     $ref: "./plugins/receipt/routes/getMerkleReceipts.yml"
 
