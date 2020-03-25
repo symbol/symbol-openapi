@@ -17,6 +17,6 @@ responses:
     content:
       application/json:
         schema:
-          $ref: "../../account/schemas/AccountPage.yml"
+          $ref: "../schemas/AccountPage.yml"
   "409":
     $ref : "../../../responses/InvalidArgument.yml"
