@@ -6,6 +6,6 @@ properties:
     type: array
     description: Array of transactions.
     items:
-      $ref: "../../transaction/schemas/TransactionInfoDTO.yml"
+      $ref: "./TransactionInfoDTO.yml"
   pagination:
     $ref: "../../../schemas/Pagination.yml"

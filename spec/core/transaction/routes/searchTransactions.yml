@@ -20,6 +20,6 @@ responses:
     content:
       application/json:
         schema:
-          $ref: "../../transaction/schemas/TransactionPage.yml"
+          $ref: "../schemas/TransactionPage.yml"
   "409":
     $ref : "../../../responses/InvalidArgument.yml"
