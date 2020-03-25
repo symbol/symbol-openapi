@@ -259,8 +259,8 @@ MosaicInfoDTO:
   "$ref": "../plugins/mosaic/schemas/MosaicInfoDTO.yml"
 MosaicNetworkPropertiesDTO:
   "$ref": "../plugins/mosaic/schemas/MosaicNetworkPropertiesDTO.yml"
-MosaicsInfoDTO:
-  "$ref": "../plugins/mosaic/schemas/MosaicsInfoDTO.yml"
+MosaicPage:
+  "$ref": "../plugins/mosaic/schemas/MosaicPage.yml"
 MosaicSupplyChangeTransactionBodyDTO:
   "$ref": "../plugins/mosaic/schemas/MosaicSupplyChangeTransactionBodyDTO.yml"
 MosaicSupplyChangeTransactionDTO:

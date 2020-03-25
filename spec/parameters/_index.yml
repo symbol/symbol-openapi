@@ -32,6 +32,8 @@ offsetQuery:
   $ref: './query/offset.yml'
 orderQuery:
   $ref: './query/order.yml'
+ownerAddressQuery:
+  $ref: './query/ownerAddress.yml'
 pageNumberQuery:
   $ref: './query/pageNumber.yml'
 pageSizeQuery:
