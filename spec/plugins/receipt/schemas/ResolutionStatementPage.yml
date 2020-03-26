@@ -1,0 +1,11 @@
+type: object
+required:
+  - data
+properties:
+  data:
+    type: array
+    description: Array of transaction address resolution statements.
+    items:
+      $ref: "./ResolutionStatementInfoDTO.yml"
+  pagination:
+    $ref: "../../../schemas/Pagination.yml"

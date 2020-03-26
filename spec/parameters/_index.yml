@@ -22,6 +22,8 @@ transactionIdPath:
 # query
 addressQuery:
   $ref: './query/address.yml'
+artifactIdQuery:
+  $ref: './query/artifactId.yml'
 groupQuery:
   $ref: './query/group.yml'
 heightQuery:
@@ -36,8 +38,12 @@ pageNumberQuery:
   $ref: './query/pageNumber.yml'
 pageSizeQuery:
   $ref: './query/pageSize.yml'
+receiptTypeQuery:
+  $ref: './query/receiptType.yml'
 recipientAddressQuery:
   $ref: './query/recipientAddress.yml'
+senderPublicKey:
+  $ref: './query/senderPublicKey.yml'
 signerPublicKeyQuery:
   $ref: './query/signerPublicKey.yml'
 transactionTypeQuery:

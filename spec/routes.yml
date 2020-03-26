@@ -158,10 +158,16 @@
     $ref: "./plugins/namespace/routes/getNamespacesNames.yml"
 
 # Plugin - Receipt
-"/block/{height}/receipts":
+"/statements/transaction":
   get:
-    $ref: "./plugins/receipt/routes/getBlockReceipts.yml"
-"/block/{height}/receipt/{hash}/merkle":
+    $ref: "./plugins/receipt/routes/searchTransactionStatements.yml"
+"/statements/resolutions/address":
+  get:
+    $ref: "./plugins/receipt/routes/searchAddressResolutionStatements.yml"
+"/statements/resolutions/mosaic":
+  get:
+    $ref: "./plugins/receipt/routes/searchMosaicResolutionStatements.yml"
+"/blocks/{height}/statements/{hash}/merkle":
   get:
     $ref: "./plugins/receipt/routes/getMerkleReceipts.yml"
 
