@@ -4,7 +4,22 @@
 
 OpenAPI specification for catapult-rest.
 
+## Installation
+
+1. Clone the ``symbol-open-api`` repository.
+```
+git clone https://github.com/nemtech/symbol-openapi.git
+```
+
+2. Install ``swagger-cli`` globally.
+
+```
+npm install -g @apidevtools/swagger-cli
+```
+
 ## Commands
+
+### Build
 
 Compile the specification into a single file.
 The generated output is saved under ``_build`` directory.
@@ -12,6 +27,8 @@ The generated output is saved under ``_build`` directory.
 ```
 npm run build
 ```
+
+### Test
 
 Test if the specification is valid. 
 
