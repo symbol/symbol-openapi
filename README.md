@@ -4,6 +4,10 @@
 
 OpenAPI specification for catapult-rest.
 
+## Requirements
+
+* Node.js 12 LTS
+
 ## Installation
 
 1. Clone the ``symbol-open-api`` repository.
