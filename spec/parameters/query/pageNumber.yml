@@ -1,5 +1,6 @@
 name: pageNumber
 in: query
+description: Filter by page number.
 schema:
   type: integer
   minimum: 1
