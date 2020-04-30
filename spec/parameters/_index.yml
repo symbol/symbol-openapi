@@ -20,11 +20,27 @@ transactionHashPath:
 transactionIdPath:
   $ref: './path/transactionId.yml'
 # query
+addressQuery:
+  $ref: './query/address.yml'
+embedded:
+  $ref: './query/embedded.yml'
+groupQuery:
+  $ref: './query/group.yml'
+heightQuery:
+  $ref: './query/height.yml'
 idQuery:
   $ref: './query/id.yml'
-orderingQuery:
-  $ref: './query/ordering.yml'
+offsetQuery:
+  $ref: './query/offset.yml'
+orderQuery:
+  $ref: './query/order.yml'
+pageNumberQuery:
+  $ref: './query/pageNumber.yml'
 pageSizeQuery:
   $ref: './query/pageSize.yml'
+recipientAddressQuery:
+  $ref: './query/recipientAddress.yml'
+signerPublicKeyQuery:
+  $ref: './query/signerPublicKey.yml'
 transactionTypeQuery:
   $ref: './query/transactionTypes.yml'
