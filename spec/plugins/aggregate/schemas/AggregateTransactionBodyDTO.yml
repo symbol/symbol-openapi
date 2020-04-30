@@ -10,4 +10,3 @@ properties:
     description: Array of transaction cosignatures.
     items:
       $ref: "./CosignatureDTO.yml"
-  
