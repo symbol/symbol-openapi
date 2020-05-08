@@ -1463,6 +1463,15 @@ components:
       type: string
       description: Probability of an account to harvest the next block.
       example: 0
+    LinkActionEnum:
+      type: integer
+      enum:
+        - 0
+        - 1
+      description: |
+        Type of action:
+        * 0 - Unlink.
+        * 1 - Link.
     MetadataKey:
       type: string
       format: hex
@@ -1512,6 +1521,21 @@ components:
       format: hex
       description: Public key.
       example: AC1A6E1D8DE5B17D2C6B1293F1CAD3829EEACF38D09311BB3C8E5A880092DE26
+    ProofGamma:
+      type: string
+      format: hex
+      description: Proof gamma.
+      example: AC1A6E1D8DE5B17D2C6B1293F1CAD3829EEACF38D09311BB3C8E5A880092DE26
+    ProofScalar:
+      type: string
+      format: hex
+      description: Proof scalar.
+      example: AC1A6E1D8DE5B17D2C6B1293F1CAD3829EEACF38D09311BB3C8E5A880092DE26
+    ProofVerificationHash:
+      type: string
+      format: hex
+      description: 16 bytes proof verification hash.
+      example: AC1A6E1D8DE5B17D2C6B1293F1CAD382
     Score:
       type: string
       description: |
@@ -1549,6 +1573,11 @@ components:
           $ref: '#/components/schemas/UnresolvedMosaicId'
         amount:
           $ref: '#/components/schemas/Amount'
+    VotingKey:
+      type: string
+      format: hex
+      description: 48 bytes voting key.
+      example: AC1A6E1D8DE5B17D2C6B1293F1CAD3829EEACF38D09311BB3C8E5A880092DE26AC1A6E1D8DE5B17D2C6B1293F1CAD382
     RestrictionValue:
       type: string
       description: Restriction value.
@@ -1573,7 +1602,9 @@ components:
         - publicKey
         - publicKeyHeight
         - accountType
-        - linkedAccountKey
+        - linkedPublicKey
+        - vrfPublicKey
+        - votingPublicKey
         - activityBuckets
         - mosaics
         - importance
@@ -1589,8 +1620,12 @@ components:
           $ref: '#/components/schemas/Height'
         accountType:
           $ref: '#/components/schemas/AccountTypeEnum'
-        linkedAccountKey:
+        linkedPublicKey:
           $ref: '#/components/schemas/PublicKey'
+        vrfPublicKey:
+          $ref: '#/components/schemas/PublicKey'
+        votingPublicKey:
+          $ref: '#/components/schemas/VotingKey'
         activityBuckets:
           type: array
           items:
@@ -1650,6 +1685,9 @@ components:
             - height
             - timestamp
             - difficulty
+            - proofGamma
+            - proofVerificationHash
+            - proofScalar
             - previousBlockHash
             - transactionsHash
             - receiptsHash
@@ -1663,6 +1701,12 @@ components:
               $ref: '#/components/schemas/Timestamp'
             difficulty:
               $ref: '#/components/schemas/Difficulty'
+            proofGamma:
+              $ref: '#/components/schemas/ProofGamma'
+            proofVerificationHash:
+              $ref: '#/components/schemas/ProofVerificationHash'
+            proofScalar:
+              $ref: '#/components/schemas/ProofScalar'
             previousBlockHash:
               $ref: '#/components/schemas/Hash256'
             transactionsHash:
@@ -2459,6 +2503,9 @@ components:
         - 16721
         - 16977
         - 16724
+        - 16963
+        - 16707
+        - 16972
       description: |
         Type of transaction:
         * 0x414C (16716 decimal) - AccountLinkTransaction.
@@ -2482,6 +2529,9 @@ components:
         * 0x4151 (16721 decimal) - MosaicGlobalRestrictionTransaction.
         * 0x4251 (16977 decimal) - MosaicAddressRestrictionTransaction.
         * 0x4154 (16724 decimal) - TransferTransaction.
+        * 0x4243 (16963 decimal) - VrfKeyLinkTransaction.
+        * 0x4143 (16707 decimal) - VotingKeyLinkTransaction.
+        * 0x424c (16972 decimal) - NodeKeyLinkTransaction.
     AnnounceTransactionInfoDTO:
       type: object
       required:
@@ -2522,6 +2572,9 @@ components:
             - $ref: '#/components/schemas/EmbeddedMosaicGlobalRestrictionTransactionDTO'
             - $ref: '#/components/schemas/EmbeddedMosaicAddressRestrictionTransactionDTO'
             - $ref: '#/components/schemas/EmbeddedTransferTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedVrfKeyLinkTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedVotingKeyLinkTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedNodeKeyLinkTransactionDTO'
     EmbeddedTransactionMetaDTO:
       type: object
       required:
@@ -2590,6 +2643,9 @@ components:
             - $ref: '#/components/schemas/MosaicGlobalRestrictionTransactionDTO'
             - $ref: '#/components/schemas/MosaicAddressRestrictionTransactionDTO'
             - $ref: '#/components/schemas/TransferTransactionDTO'
+            - $ref: '#/components/schemas/VrfKeyLinkTransactionDTO'
+            - $ref: '#/components/schemas/VotingKeyLinkTransactionDTO'
+            - $ref: '#/components/schemas/NodeKeyLinkTransactionDTO'
     TransactionMetaDTO:
       type: object
       required:
@@ -2628,15 +2684,6 @@ components:
           $ref: '#/components/schemas/BlockDuration'
         height:
           $ref: '#/components/schemas/Height'
-    AccountLinkActionEnum:
-      type: integer
-      enum:
-        - 0
-        - 1
-      description: |
-        Type of action:
-        * 0 - Unlink.
-        * 1 - Link.
     AccountLinkNetworkPropertiesDTO:
       type: object
       properties:
@@ -2652,7 +2699,7 @@ components:
         remotePublicKey:
           $ref: '#/components/schemas/PublicKey'
         linkAction:
-          $ref: '#/components/schemas/AccountLinkActionEnum'
+          $ref: '#/components/schemas/LinkActionEnum'
     AccountLinkTransactionDTO:
       type: object
       description: Delegates the account importance score to a proxy account.
@@ -2664,6 +2711,33 @@ components:
       allOf:
         - $ref: '#/components/schemas/EmbeddedTransactionDTO'
         - $ref: '#/components/schemas/AccountLinkTransactionBodyDTO'
+    NodeKeyLinkNetworkPropertiesDTO:
+      type: object
+      properties:
+        dummy:
+          type: string
+          description: to trigger plugin load
+    NodeKeyLinkTransactionBodyDTO:
+      type: object
+      required:
+        - linkedPublicKey
+        - linkAction
+      properties:
+        linkedPublicKey:
+          $ref: '#/components/schemas/PublicKey'
+        linkAction:
+          $ref: '#/components/schemas/LinkActionEnum'
+    NodeKeyLinkTransactionDTO:
+      type: object
+      description: Node key link transaction.
+      allOf:
+        - $ref: '#/components/schemas/TransactionDTO'
+        - $ref: '#/components/schemas/NodeKeyLinkTransactionBodyDTO'
+    EmbeddedNodeKeyLinkTransactionDTO:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/EmbeddedTransactionDTO'
+        - $ref: '#/components/schemas/NodeKeyLinkTransactionBodyDTO'
     AggregateNetworkPropertiesDTO:
       type: object
       properties:
@@ -2722,6 +2796,60 @@ components:
           properties:
             signerPublicKey:
               $ref: '#/components/schemas/PublicKey'
+    VrfKeyLinkNetworkPropertiesDTO:
+      type: object
+      properties:
+        dummy:
+          type: string
+          description: to trigger plugin load
+    VrfKeyLinkTransactionBodyDTO:
+      type: object
+      required:
+        - linkedPublicKey
+        - linkAction
+      properties:
+        linkedPublicKey:
+          $ref: '#/components/schemas/PublicKey'
+        linkAction:
+          $ref: '#/components/schemas/LinkActionEnum'
+    VrfKeyLinkTransactionDTO:
+      type: object
+      description: Vrf key link transaction.
+      allOf:
+        - $ref: '#/components/schemas/TransactionDTO'
+        - $ref: '#/components/schemas/VrfKeyLinkTransactionBodyDTO'
+    EmbeddedVrfKeyLinkTransactionDTO:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/EmbeddedTransactionDTO'
+        - $ref: '#/components/schemas/VrfKeyLinkTransactionBodyDTO'
+    VotingKeyLinkNetworkPropertiesDTO:
+      type: object
+      properties:
+        dummy:
+          type: string
+          description: to trigger plugin load
+    VotingKeyLinkTransactionBodyDTO:
+      type: object
+      required:
+        - linkedPublicKey
+        - linkAction
+      properties:
+        linkedPublicKey:
+          $ref: '#/components/schemas/VotingKey'
+        linkAction:
+          $ref: '#/components/schemas/LinkActionEnum'
+    VotingKeyLinkTransactionDTO:
+      type: object
+      description: Voting key link transaction.
+      allOf:
+        - $ref: '#/components/schemas/TransactionDTO'
+        - $ref: '#/components/schemas/VotingKeyLinkTransactionBodyDTO'
+    EmbeddedVotingKeyLinkTransactionDTO:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/EmbeddedTransactionDTO'
+        - $ref: '#/components/schemas/VotingKeyLinkTransactionBodyDTO'
     EmbeddedHashLockTransactionDTO:
       type: object
       allOf:
