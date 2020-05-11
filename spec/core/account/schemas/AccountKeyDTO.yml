@@ -5,5 +5,5 @@ required:
 properties:
   keyType:
     $ref: "./KeyTypeEnum.yml"
-  message:
-    key: string
+  key:
+    type: string

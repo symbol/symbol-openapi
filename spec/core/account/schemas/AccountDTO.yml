@@ -25,10 +25,6 @@ properties:
     type: array
     items:
       $ref: "./AccountKeyDTO.yml"
-  vrfPublicKey:
-    $ref: "../../../schemas/PublicKey.yml"
-  votingPublicKey:
-    $ref: "../../../schemas/VotingKey.yml"
   activityBuckets:
     type: array
     items:
