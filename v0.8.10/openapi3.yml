@@ -1602,9 +1602,7 @@ components:
         - publicKey
         - publicKeyHeight
         - accountType
-        - linkedPublicKey
-        - vrfPublicKey
-        - votingPublicKey
+        - supplementalAccountKeys
         - activityBuckets
         - mosaics
         - importance
@@ -1620,12 +1618,10 @@ components:
           $ref: '#/components/schemas/Height'
         accountType:
           $ref: '#/components/schemas/AccountTypeEnum'
-        linkedPublicKey:
-          $ref: '#/components/schemas/PublicKey'
-        vrfPublicKey:
-          $ref: '#/components/schemas/PublicKey'
-        votingPublicKey:
-          $ref: '#/components/schemas/VotingKey'
+        supplementalAccountKeys:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountKeyDTO'
         activityBuckets:
           type: array
           items:
@@ -1669,6 +1665,33 @@ components:
         rawScore:
           $ref: '#/components/schemas/Importance'
           description: Importance score for this bucket. This is taken into account to calculate the latest account importance.
+    AccountKeyDTO:
+      type: object
+      required:
+        - keyType
+        - key
+      properties:
+        keyType:
+          $ref: '#/components/schemas/KeyTypeEnum'
+        key:
+          type: string
+    KeyTypeEnum:
+      type: integer
+      enum:
+        - 0
+        - 1
+        - 2
+        - 4
+        - 8
+        - 15
+      description: |
+        Type of account key:
+        * 0 - Unset.
+        * 1 - Linked.
+        * 2 - VRF.
+        * 4 - Voting.
+        * 8 - Node.
+        * 15 - All.
     PositionEnum:
       type: string
       enum:
