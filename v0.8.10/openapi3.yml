@@ -2041,7 +2041,7 @@ components:
       description: Plugin related configuration properties.
       properties:
         accountlink:
-          $ref: '#/components/schemas/AccountLinkNetworkPropertiesDTO'
+          $ref: '#/components/schemas/AccountKeyLinkNetworkPropertiesDTO'
         aggregate:
           $ref: '#/components/schemas/AggregateNetworkPropertiesDTO'
         lockhash:
@@ -2531,7 +2531,7 @@ components:
         - 16972
       description: |
         Type of transaction:
-        * 0x414C (16716 decimal) - AccountLinkTransaction.
+        * 0x414C (16716 decimal) - AccountKeyLinkTransaction.
         * 0x4141 (16705 decimal) - AggregateCompleteTransaction.
         * 0x4241 (16961 decimal) - AggregateBondedTransaction.
         * 0x414D (16717 decimal) - MosaicDefinitionTransaction.
@@ -2576,7 +2576,7 @@ components:
           $ref: '#/components/schemas/EmbeddedTransactionMetaDTO'
         transaction:
           anyOf:
-            - $ref: '#/components/schemas/EmbeddedAccountLinkTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedAccountKeyLinkTransactionDTO'
             - $ref: '#/components/schemas/EmbeddedHashLockTransactionDTO'
             - $ref: '#/components/schemas/EmbeddedSecretLockTransactionDTO'
             - $ref: '#/components/schemas/EmbeddedSecretProofTransactionDTO'
@@ -2646,7 +2646,7 @@ components:
           $ref: '#/components/schemas/TransactionMetaDTO'
         transaction:
           anyOf:
-            - $ref: '#/components/schemas/AccountLinkTransactionDTO'
+            - $ref: '#/components/schemas/AccountKeyLinkTransactionDTO'
             - $ref: '#/components/schemas/AggregateTransactionDTO'
             - $ref: '#/components/schemas/HashLockTransactionDTO'
             - $ref: '#/components/schemas/SecretLockTransactionDTO'
@@ -2707,13 +2707,13 @@ components:
           $ref: '#/components/schemas/BlockDuration'
         height:
           $ref: '#/components/schemas/Height'
-    AccountLinkNetworkPropertiesDTO:
+    AccountKeyLinkNetworkPropertiesDTO:
       type: object
       properties:
         dummy:
           type: string
           description: to trigger plugin load
-    AccountLinkTransactionBodyDTO:
+    AccountKeyLinkTransactionBodyDTO:
       type: object
       required:
         - remotePublicKey
@@ -2723,17 +2723,17 @@ components:
           $ref: '#/components/schemas/PublicKey'
         linkAction:
           $ref: '#/components/schemas/LinkActionEnum'
-    AccountLinkTransactionDTO:
+    AccountKeyLinkTransactionDTO:
       type: object
       description: Delegates the account importance score to a proxy account.
       allOf:
         - $ref: '#/components/schemas/TransactionDTO'
-        - $ref: '#/components/schemas/AccountLinkTransactionBodyDTO'
-    EmbeddedAccountLinkTransactionDTO:
+        - $ref: '#/components/schemas/AccountKeyLinkTransactionBodyDTO'
+    EmbeddedAccountKeyLinkTransactionDTO:
       type: object
       allOf:
         - $ref: '#/components/schemas/EmbeddedTransactionDTO'
-        - $ref: '#/components/schemas/AccountLinkTransactionBodyDTO'
+        - $ref: '#/components/schemas/AccountKeyLinkTransactionBodyDTO'
     NodeKeyLinkNetworkPropertiesDTO:
       type: object
       properties:
