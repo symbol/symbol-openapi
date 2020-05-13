@@ -1935,11 +1935,15 @@ components:
         blockGenerationTargetTime:
           type: string
           description: Targeted time between blocks.
-          example: 15s
+          example: 30s
         blockTimeSmoothingFactor:
           type: string
           description: A higher value makes the network more biased.
           example: '3000'
+        blockFinalizationInterval:
+          type: string
+          description: Number of blocks between successive finalization attempts.
+          example: 30
         importanceGrouping:
           type: string
           description: Number of blocks that should be treated as a group for importance purposes.
@@ -1988,6 +1992,10 @@ components:
           type: string
           description: Maximum number of harvesting mosaic atomic units needed for an account to be eligible for harvesting.
           example: 4'000'000
+        minVoterBalance:
+          type: string
+          description: Minimum number of harvesting mosaic atomic units needed for an account to be eligible for voting.
+          example: 50'000
         harvestBeneficiaryPercentage:
           type: string
           description: Percentage of the harvested fee that is collected by the beneficiary account.
