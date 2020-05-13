@@ -22,6 +22,8 @@ transactionIdPath:
 # query
 addressQuery:
   $ref: './query/address.yml'
+embedded:
+  $ref: './query/embedded.yml'
 groupQuery:
   $ref: './query/group.yml'
 heightQuery:
