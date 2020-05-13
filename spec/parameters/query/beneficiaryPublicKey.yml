@@ -1,4 +1,5 @@
 name: beneficiaryPublicKey
+description: Filters by beneficiary public key.
 in: query
 schema:
   $ref: "../../schemas/PublicKey.yml"
