@@ -24,6 +24,8 @@ addressQuery:
   $ref: './query/address.yml'
 mosaicIdQuery:
   $ref: './query/mosaicId.yml'
+embedded:
+  $ref: './query/embedded.yml'
 groupQuery:
   $ref: './query/group.yml'
 heightQuery:

@@ -12,7 +12,7 @@ properties:
   transaction:
     anyOf:
       - $ref: "../../../plugins/account_link/schemas/AccountLinkTransactionDTO.yml"
-      - $ref: "../../../plugins/aggregate/schemas/AggregateTransactionDTO.yml"
+      - $ref: "../../../plugins/aggregate/schemas/AggregateTransactionExtendedDTO.yml"
       - $ref: "../../../plugins/lock_hash/schemas/HashLockTransactionDTO.yml"
       - $ref: "../../../plugins/lock_secret/schemas/SecretLockTransactionDTO.yml"
       - $ref: "../../../plugins/lock_secret/schemas/SecretProofTransactionDTO.yml"
