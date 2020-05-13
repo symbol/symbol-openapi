@@ -1,7 +1,7 @@
 type: object
 description: Plugin related configuration properties.
 properties:
-  accountkeylink:
+  accountlink:
     $ref: "../../../plugins/account_link/schemas/AccountKeyLinkNetworkPropertiesDTO.yml"
   aggregate:
     $ref: "../../../plugins/aggregate/schemas/AggregateNetworkPropertiesDTO.yml"
