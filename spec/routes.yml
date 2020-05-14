@@ -147,10 +147,10 @@
 /namespaces/names:
   post:
     $ref: "./plugins/namespace/routes/getNamespacesNames.yml"
-/namespaces/accounts/names:
+/namespaces/account/names:
   post:
     $ref: "./plugins/namespace/routes/getAccountsNames.yml"
-/namespaces/mosaics/names:
+/namespaces/mosaic/names:
   post:
     $ref: "./plugins/namespace/routes/getMosaicsNames.yml"
 
