@@ -24,6 +24,8 @@ addressQuery:
   $ref: './query/address.yml'
 aliasTypeQuery:
   $ref: './query/aliasType.yml'
+embedded:
+  $ref: './query/embedded.yml'
 groupQuery:
   $ref: './query/group.yml'
 heightQuery:

@@ -4,7 +4,7 @@ set -e
 if [ "$TRAVIS_BRANCH" = "$RELEASE_BRANCH" ]; then
 
   REMOTE_NAME="origin"
-  POST_RELEASE_BRANCH="post-$RELEASE_BRANCH"
+  POST_RELEASE_BRANCH="$POST_RELEASE_BRANCH"
 
   git remote rm $REMOTE_NAME
 
@@ -27,7 +27,7 @@ if [ "$TRAVIS_BRANCH" = "$RELEASE_BRANCH" ]; then
   echo "Creating tag v$CURRENT_VERSION"
   git tag -fa "v$CURRENT_VERSION" -m "Releasing version $CURRENT_VERSION"
 
-  echo "Increasing openapi version"
+  echo "Increasing OpenAPI version"
   npm version patch -m "Increasing version to %s" --git-tag-version false
 
   CURRENT_VERSION=$(npm run version --silent)
@@ -36,7 +36,7 @@ if [ "$TRAVIS_BRANCH" = "$RELEASE_BRANCH" ]; then
   echo "$CURRENT_VERSION"
   echo ""
 
-  yaml set spec/info.yml version $CURRENT_VERSION
+  yaml set spec/info.yml version $CURRENT_VERSION > spec/info.yml
 
   git add .
   git commit -m "Creating new version $CURRENT_VERSION"

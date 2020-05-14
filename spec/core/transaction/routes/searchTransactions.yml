@@ -2,6 +2,7 @@ tags:
   - Transaction routes
 summary: Get transactions
 description: Gets an array of transactions.
+description: Returns an array of transactions.
 operationId: searchTransactions
 parameters:
   - $ref: "../../../parameters/query/address.yml"
@@ -14,6 +15,7 @@ parameters:
   - $ref: "../../../parameters/query/group.yml"
   - $ref: "../../../parameters/query/order.yml"
   - $ref: "../../../parameters/query/transactionTypes.yml"
+  - $ref: "../../../parameters/query/embedded.yml"
 responses:
   "200":
     description: success
