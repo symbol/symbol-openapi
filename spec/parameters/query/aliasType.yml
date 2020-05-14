@@ -1,5 +1,5 @@
 name: aliasType
 in: query
-description: Alias type.
+description: Filter by alias type.
 schema:
   $ref: "../../plugins/namespace/schemas/AliasTypeEnum.yml"
