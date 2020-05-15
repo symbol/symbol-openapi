@@ -22,6 +22,8 @@ transactionIdPath:
 # query
 addressQuery:
   $ref: './query/address.yml'
+beneficiaryPublicKeyQuery:
+  $ref: './query/beneficiaryPublicKey.yml'
 embedded:
   $ref: './query/embedded.yml'
 groupQuery:
@@ -34,6 +36,8 @@ offsetQuery:
   $ref: './query/offset.yml'
 orderQuery:
   $ref: './query/order.yml'
+orderByBlockQuery:
+  $ref: './query/orderByBlock.yml'
 pageNumberQuery:
   $ref: './query/pageNumber.yml'
 pageSizeQuery:
