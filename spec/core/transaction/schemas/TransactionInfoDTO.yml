@@ -11,7 +11,7 @@ properties:
     $ref: "./TransactionMetaDTO.yml"
   transaction:
     anyOf:
-      - $ref: "../../../plugins/account_link/schemas/AccountLinkTransactionDTO.yml"
+      - $ref: "../../../plugins/account_link/schemas/AccountKeyLinkTransactionDTO.yml"
       - $ref: "../../../plugins/aggregate/schemas/AggregateTransactionExtendedDTO.yml"
       - $ref: "../../../plugins/lock_hash/schemas/HashLockTransactionDTO.yml"
       - $ref: "../../../plugins/lock_secret/schemas/SecretLockTransactionDTO.yml"
@@ -31,3 +31,6 @@ properties:
       - $ref: "../../../plugins/restriction_mosaic/schemas/MosaicGlobalRestrictionTransactionDTO.yml"
       - $ref: "../../../plugins/restriction_mosaic/schemas/MosaicAddressRestrictionTransactionDTO.yml"
       - $ref: "../../../plugins/transfer/schemas/TransferTransactionDTO.yml"
+      - $ref: "../../../plugins/coresystem/schemas/VrfKeyLinkTransactionDTO.yml"
+      - $ref: "../../../plugins/coresystem/schemas/VotingKeyLinkTransactionDTO.yml"
+      - $ref: "../../../plugins/account_link/schemas/NodeKeyLinkTransactionDTO.yml"

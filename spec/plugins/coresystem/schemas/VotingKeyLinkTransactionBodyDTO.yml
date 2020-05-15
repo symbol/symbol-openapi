@@ -1,0 +1,9 @@
+type: object
+required:
+  - linkedPublicKey
+  - linkAction
+properties:
+  linkedPublicKey:
+    $ref: "../../../schemas/VotingKey.yml"
+  linkAction:
+    $ref: "../../../schemas/LinkActionEnum.yml"
