@@ -2126,7 +2126,7 @@ components:
       required:
         - version
         - publicKey
-        - networkGenerationHash
+        - networkGenerationHashSeed
         - roles
         - port
         - networkIdentifier
@@ -2139,7 +2139,7 @@ components:
           example: 0
         publicKey:
           $ref: '#/components/schemas/PublicKey'
-        networkGenerationHash:
+        networkGenerationHashSeed:
           $ref: '#/components/schemas/Hash256'
         roles:
           $ref: '#/components/schemas/RolesTypeEnum'
@@ -3224,6 +3224,7 @@ components:
           $ref: '#/components/schemas/BlockDuration'
         nonce:
           type: integer
+          format: int64
           description: Random nonce used to generate the mosaic id.
           example: 0
         flags:
