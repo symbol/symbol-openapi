@@ -24,6 +24,8 @@ addressQuery:
   $ref: './query/address.yml'
 mosaicIdQuery:
   $ref: './query/mosaicId.yml'
+beneficiaryPublicKeyQuery:
+  $ref: './query/beneficiaryPublicKey.yml'
 embedded:
   $ref: './query/embedded.yml'
 groupQuery:
@@ -38,6 +40,8 @@ orderQuery:
   $ref: './query/order.yml'
 orderByAccountQuery:
   $ref: './query/orderByAccount.yml'
+orderByBlockQuery:
+  $ref: './query/orderByBlock.yml'
 pageNumberQuery:
   $ref: './query/pageNumber.yml'
 pageSizeQuery:

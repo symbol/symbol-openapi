@@ -1,0 +1,9 @@
+type: object
+required:
+  - remotePublicKey
+  - linkAction
+properties:
+  remotePublicKey:
+    $ref: "../../../schemas/PublicKey.yml"
+  linkAction:
+    $ref: "../../../schemas/LinkActionEnum.yml"
