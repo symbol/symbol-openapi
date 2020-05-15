@@ -11,7 +11,8 @@ properties:
   duration:
     $ref: "../../../schemas/BlockDuration.yml"
   nonce:
-    type: int64
+    type: integer
+    format: int64
     description: Random nonce used to generate the mosaic id.
     example: 0
   flags:
