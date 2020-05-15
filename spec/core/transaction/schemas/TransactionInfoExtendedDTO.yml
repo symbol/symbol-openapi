@@ -12,7 +12,7 @@ properties:
   transaction:
     anyOf:
       - $ref: "../../../plugins/account_link/schemas/AccountKeyLinkTransactionDTO.yml"
-      - $ref: "../../../plugins/account_link/schemas/EmbeddedAccountLinkTransactionDTO.yml"
+      - $ref: "../../../plugins/account_link/schemas/EmbeddedAccountKeyLinkTransactionDTO.yml"
       - $ref: "../../../plugins/account_link/schemas/NodeKeyLinkTransactionDTO.yml"
       - $ref: "../../../plugins/account_link/schemas/EmbeddedNodeKeyLinkTransactionDTO.yml"
       - $ref: "../../../plugins/coresystem/schemas/VrfKeyLinkTransactionDTO.yml"
