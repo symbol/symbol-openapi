@@ -2,7 +2,7 @@ openapi: 3.0.2
 info:
   version: 0.8.10
   title: Catapult REST Endpoints
-  description: OpenAPI Specification of catapult-rest 1.0.20.22
+  description: OpenAPI Specification of catapult-rest 1.0.20.34
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
@@ -1524,18 +1524,18 @@ components:
     ProofGamma:
       type: string
       format: hex
-      description: Proof gamma.
-      example: AC1A6E1D8DE5B17D2C6B1293F1CAD3829EEACF38D09311BB3C8E5A880092DE26
+      description: 32-bytes VRF proof gamma.
+      example: 8D49594A96C31EC6C64305FB2CCB47AA7A4AC0A4F614442BB3684D2BF41F274E
     ProofScalar:
       type: string
       format: hex
-      description: Proof scalar.
-      example: AC1A6E1D8DE5B17D2C6B1293F1CAD3829EEACF38D09311BB3C8E5A880092DE26
+      description: 32-bytes VRF proof scalar.
+      example: 480175C83739B22C53EAECAA7E7F3B245F1DFAFA6B3AE5C1D0129502FCBAAD0C
     ProofVerificationHash:
       type: string
       format: hex
-      description: 16 bytes proof verification hash.
-      example: AC1A6E1D8DE5B17D2C6B1293F1CAD382
+      description: 16-bytes VRF proof verification hash.
+      example: 82FB583BFE3EE78805784D078F2547AE
     Score:
       type: string
       description: |
@@ -1576,8 +1576,8 @@ components:
     VotingKey:
       type: string
       format: hex
-      description: 48 bytes voting key.
-      example: AC1A6E1D8DE5B17D2C6B1293F1CAD3829EEACF38D09311BB3C8E5A880092DE26AC1A6E1D8DE5B17D2C6B1293F1CAD382
+      description: 48 bytes voting public key.
+      example: 4EDDA97C991A0BF44E0570B0BA0E0F7F1CE821A799726888734F28DDCCE8C5911F82C8663A2CB9C2215A28BD6A2E1F4D
     RestrictionValue:
       type: string
       description: Restriction value.
@@ -2522,6 +2522,9 @@ components:
       type: integer
       enum:
         - 16716
+        - 16963
+        - 16707
+        - 16972
         - 16705
         - 16961
         - 16717
@@ -2542,12 +2545,12 @@ components:
         - 16721
         - 16977
         - 16724
-        - 16963
-        - 16707
-        - 16972
       description: |
         Type of transaction:
         * 0x414C (16716 decimal) - AccountKeyLinkTransaction.
+        * 0x4243 (16963 decimal) - VrfKeyLinkTransaction.
+        * 0x4143 (16707 decimal) - VotingKeyLinkTransaction.
+        * 0x424C (16972 decimal) - NodeKeyLinkTransaction.
         * 0x4141 (16705 decimal) - AggregateCompleteTransaction.
         * 0x4241 (16961 decimal) - AggregateBondedTransaction.
         * 0x414D (16717 decimal) - MosaicDefinitionTransaction.
@@ -2568,9 +2571,6 @@ components:
         * 0x4151 (16721 decimal) - MosaicGlobalRestrictionTransaction.
         * 0x4251 (16977 decimal) - MosaicAddressRestrictionTransaction.
         * 0x4154 (16724 decimal) - TransferTransaction.
-        * 0x4243 (16963 decimal) - VrfKeyLinkTransaction.
-        * 0x4143 (16707 decimal) - VotingKeyLinkTransaction.
-        * 0x424c (16972 decimal) - NodeKeyLinkTransaction.
     AnnounceTransactionInfoDTO:
       type: object
       required:
@@ -2593,6 +2593,9 @@ components:
         transaction:
           anyOf:
             - $ref: '#/components/schemas/EmbeddedAccountKeyLinkTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedNodeKeyLinkTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedVrfKeyLinkTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedVotingKeyLinkTransactionDTO'
             - $ref: '#/components/schemas/EmbeddedHashLockTransactionDTO'
             - $ref: '#/components/schemas/EmbeddedSecretLockTransactionDTO'
             - $ref: '#/components/schemas/EmbeddedSecretProofTransactionDTO'
@@ -2611,9 +2614,6 @@ components:
             - $ref: '#/components/schemas/EmbeddedMosaicGlobalRestrictionTransactionDTO'
             - $ref: '#/components/schemas/EmbeddedMosaicAddressRestrictionTransactionDTO'
             - $ref: '#/components/schemas/EmbeddedTransferTransactionDTO'
-            - $ref: '#/components/schemas/EmbeddedVrfKeyLinkTransactionDTO'
-            - $ref: '#/components/schemas/EmbeddedVotingKeyLinkTransactionDTO'
-            - $ref: '#/components/schemas/EmbeddedNodeKeyLinkTransactionDTO'
     EmbeddedTransactionMetaDTO:
       type: object
       required:
@@ -2663,6 +2663,9 @@ components:
         transaction:
           anyOf:
             - $ref: '#/components/schemas/AccountKeyLinkTransactionDTO'
+            - $ref: '#/components/schemas/NodeKeyLinkTransactionDTO'
+            - $ref: '#/components/schemas/VrfKeyLinkTransactionDTO'
+            - $ref: '#/components/schemas/VotingKeyLinkTransactionDTO'
             - $ref: '#/components/schemas/AggregateTransactionDTO'
             - $ref: '#/components/schemas/HashLockTransactionDTO'
             - $ref: '#/components/schemas/SecretLockTransactionDTO'
@@ -2682,9 +2685,6 @@ components:
             - $ref: '#/components/schemas/MosaicGlobalRestrictionTransactionDTO'
             - $ref: '#/components/schemas/MosaicAddressRestrictionTransactionDTO'
             - $ref: '#/components/schemas/TransferTransactionDTO'
-            - $ref: '#/components/schemas/VrfKeyLinkTransactionDTO'
-            - $ref: '#/components/schemas/VotingKeyLinkTransactionDTO'
-            - $ref: '#/components/schemas/NodeKeyLinkTransactionDTO'
     TransactionMetaDTO:
       type: object
       required:
@@ -2741,7 +2741,9 @@ components:
           $ref: '#/components/schemas/LinkActionEnum'
     AccountKeyLinkTransactionDTO:
       type: object
-      description: Delegates the account importance score to a proxy account.
+      description: |
+        Transaction to delegate the account importance score to a proxy account.
+        Required for all accounts willing to activate delegated harvesting.
       allOf:
         - $ref: '#/components/schemas/TransactionDTO'
         - $ref: '#/components/schemas/AccountKeyLinkTransactionBodyDTO'
@@ -2768,7 +2770,10 @@ components:
           $ref: '#/components/schemas/LinkActionEnum'
     NodeKeyLinkTransactionDTO:
       type: object
-      description: Node key link transaction.
+      description: |
+        Transaction to link a public key to an account.
+        TLS uses the linked public key to create sessions.
+        Required for node operators. 
       allOf:
         - $ref: '#/components/schemas/TransactionDTO'
         - $ref: '#/components/schemas/NodeKeyLinkTransactionBodyDTO'
@@ -2853,7 +2858,10 @@ components:
           $ref: '#/components/schemas/LinkActionEnum'
     VrfKeyLinkTransactionDTO:
       type: object
-      description: Vrf key link transaction.
+      description: |
+        Transaction to link an account with a VRF public key.
+        The key is used to randomize block production and leader/participant selection.
+        Required for all harvesting eligible accounts.
       allOf:
         - $ref: '#/components/schemas/TransactionDTO'
         - $ref: '#/components/schemas/VrfKeyLinkTransactionBodyDTO'
@@ -2880,7 +2888,9 @@ components:
           $ref: '#/components/schemas/LinkActionEnum'
     VotingKeyLinkTransactionDTO:
       type: object
-      description: Voting key link transaction.
+      description: |
+        Transaction to associate a BLS public key with an account.
+        Required for node operators willing to vote finalized blocks.
       allOf:
         - $ref: '#/components/schemas/TransactionDTO'
         - $ref: '#/components/schemas/VotingKeyLinkTransactionBodyDTO'
