@@ -1,6 +1,6 @@
 type: object
 required:
-  - remotePublicKey
+  - linkedPublicKey
   - linkAction
 properties:
   remotePublicKey:
