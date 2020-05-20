@@ -2732,10 +2732,10 @@ components:
     AccountKeyLinkTransactionBodyDTO:
       type: object
       required:
-        - remotePublicKey
+        - linkedPublicKey
         - linkAction
       properties:
-        remotePublicKey:
+        linkedPublicKey:
           $ref: '#/components/schemas/PublicKey'
         linkAction:
           $ref: '#/components/schemas/LinkActionEnum'
