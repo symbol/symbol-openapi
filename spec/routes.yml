@@ -116,18 +116,14 @@
     $ref: "./plugins/metadata/routes/getNamespaceMetadataByKeyAndSender.yml"
 
 # Plugin - Mosaic
-"/mosaic/{mosaicId}":
+"/mosaics/{mosaicId}":
   get:
     $ref: "./plugins/mosaic/routes/getMosaic.yml"
-/mosaic:
+/mosaics:
+  get:
+    $ref: "./plugins/mosaic/routes/searchMosaics.yml"
   post:
     $ref: "./plugins/mosaic/routes/getMosaics.yml"
-"/account/{accountId}/mosaics":
-  get:
-    $ref: "./plugins/mosaic/routes/getMosaicsFromAccount.yml"
-/account/mosaics:
-  post:
-    $ref: "./plugins/mosaic/routes/getMosaicsFromAccounts.yml"
 
 # Plugin - Multisig
 "/account/{accountId}/multisig":

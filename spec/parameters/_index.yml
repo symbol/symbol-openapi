@@ -36,6 +36,8 @@ offsetQuery:
   $ref: './query/offset.yml'
 orderQuery:
   $ref: './query/order.yml'
+ownerAddressQuery:
+  $ref: './query/ownerAddress.yml'
 orderByBlockQuery:
   $ref: './query/orderByBlock.yml'
 pageNumberQuery:
