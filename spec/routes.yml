@@ -7,13 +7,13 @@
     $ref: "./core/account/routes/getAccountsInfo.yml"
 
 # Core - Block
-"/block/{height}":
+"/blocks":
+  get:
+    $ref: "./core/block/routes/searchBlocks.yml"
+"/blocks/{height}":
   get:
     $ref: "./core/block/routes/getBlockByHeight.yml"
-"/blocks/{height}/limit/{limit}":
-  get:
-    $ref: "./core/block/routes/getBlocksByHeightWithLimit.yml"
-"/block/{height}/transaction/{hash}/merkle":
+"/blocks/{height}/transactions/{hash}/merkle":
   get:
     $ref: "./core/block/routes/getMerkleTransaction.yml"
 

@@ -1,12 +1,11 @@
 type: object
 required:
   - data
-  - pagination
 properties:
   data:
     type: array
-    description: Array of transactions.
+    description: Array of blocks.
     items:
-      $ref: "./TransactionInfoExtendedDTO.yml"
+      $ref: "./BlockInfoDTO.yml"
   pagination:
     $ref: "../../../schemas/Pagination.yml"

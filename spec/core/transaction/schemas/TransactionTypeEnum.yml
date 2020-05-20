@@ -1,6 +1,9 @@
 type: integer
 enum:
   - 16716
+  - 16963
+  - 16707
+  - 16972
   - 16705
   - 16961
   - 16717
@@ -23,7 +26,10 @@ enum:
   - 16724
 description: |
   Type of transaction:
-  * 0x414C (16716 decimal) - AccountLinkTransaction.
+  * 0x414C (16716 decimal) - AccountKeyLinkTransaction.
+  * 0x4243 (16963 decimal) - VrfKeyLinkTransaction.
+  * 0x4143 (16707 decimal) - VotingKeyLinkTransaction.
+  * 0x424C (16972 decimal) - NodeKeyLinkTransaction.
   * 0x4141 (16705 decimal) - AggregateCompleteTransaction.
   * 0x4241 (16961 decimal) - AggregateBondedTransaction.
   * 0x414D (16717 decimal) - MosaicDefinitionTransaction.
