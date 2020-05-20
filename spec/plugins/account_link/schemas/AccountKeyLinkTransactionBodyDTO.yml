@@ -3,7 +3,7 @@ required:
   - linkedPublicKey
   - linkAction
 properties:
-  remotePublicKey:
+  linkedPublicKey:
     $ref: "../../../schemas/PublicKey.yml"
   linkAction:
     $ref: "../../../schemas/LinkActionEnum.yml"
