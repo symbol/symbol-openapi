@@ -7,12 +7,12 @@
     $ref: "./core/account/routes/getAccountsInfo.yml"
 
 # Core - Block
-"/block/{height}":
+"/blocks":
+  get:
+      $ref: "./core/block/routes/searchBlocks.yml"
+"/blocks/{height}":
   get:
     $ref: "./core/block/routes/getBlockByHeight.yml"
-"/blocks/{height}/limit/{limit}":
-  get:
-    $ref: "./core/block/routes/getBlocksByHeightWithLimit.yml"
 "/block/{height}/transaction/{hash}/merkle":
   get:
     $ref: "./core/block/routes/getMerkleTransaction.yml"
@@ -116,18 +116,14 @@
     $ref: "./plugins/metadata/routes/getNamespaceMetadataByKeyAndSender.yml"
 
 # Plugin - Mosaic
-"/mosaic/{mosaicId}":
+"/mosaics/{mosaicId}":
   get:
     $ref: "./plugins/mosaic/routes/getMosaic.yml"
-/mosaic:
+/mosaics:
+  get:
+    $ref: "./plugins/mosaic/routes/searchMosaics.yml"
   post:
     $ref: "./plugins/mosaic/routes/getMosaics.yml"
-"/account/{accountId}/mosaics":
-  get:
-    $ref: "./plugins/mosaic/routes/getMosaicsFromAccount.yml"
-/account/mosaics:
-  post:
-    $ref: "./plugins/mosaic/routes/getMosaicsFromAccounts.yml"
 
 # Plugin - Multisig
 "/account/{accountId}/multisig":

@@ -1,0 +1,4 @@
+type: string
+format: hex
+description: 16-bytes VRF proof verification hash.
+example: 82FB583BFE3EE78805784D078F2547AE

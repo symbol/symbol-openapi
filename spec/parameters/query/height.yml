@@ -1,6 +1,6 @@
 name: height
 in: query
-description: Block height.
+description: Filter by block height.
 schema:
   $ref: "../../schemas/Height.yml"
 
