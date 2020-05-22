@@ -1,0 +1,5 @@
+name: senderPublickey
+in: query
+description: Fiter by public key of the account sending the metadata entry.
+schema:
+  $ref: "../../schemas/PublicKey.yml"

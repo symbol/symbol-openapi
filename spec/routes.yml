@@ -87,33 +87,9 @@
     $ref: "./plugins/aggregate/routes/announceCosignatureTransaction.yml"
 
 # Plugin - Metadata
-"/metadata/account/{accountId}":
+"/metadata":
   get:
-    $ref: "./plugins/metadata/routes/getAccountMetadata.yml"
-"/metadata/mosaic/{mosaicId}":
-  get:
-    $ref: "./plugins/metadata/routes/getMosaicMetadata.yml"
-"/metadata/namespace/{namespaceId}":
-  get:
-    $ref: "./plugins/metadata/routes/getNamespaceMetadata.yml"
-"/metadata/account/{accountId}/key/{key}":
-  get:
-    $ref: "./plugins/metadata/routes/getAccountMetadataByKey.yml"
-"/metadata/mosaic/{mosaicId}/key/{key}":
-  get:
-    $ref: "./plugins/metadata/routes/getMosaicMetadataByKey.yml"
-"/metadata/namespace/{namespaceId}/key/{key}":
-  get:
-    $ref: "./plugins/metadata/routes/getNamespaceMetadataByKey.yml"
-"/metadata/account/{accountId}/key/{key}/sender/{publicKey}":
-  get:
-    $ref: "./plugins/metadata/routes/getAccountMetadataByKeyAndSender.yml"
-"/metadata/mosaic/{mosaicId}/key/{key}/sender/{publicKey}":
-  get:
-    $ref: "./plugins/metadata/routes/getMosaicMetadataByKeyAndSender.yml"
-"/metadata/namespace/{namespaceId}/key/{key}/sender/{publicKey}":
-  get:
-    $ref: "./plugins/metadata/routes/getNamespaceMetadataByKeyAndSender.yml"
+    $ref: "./plugins/metadata/routes/searchMetadataEntries.yml"
 
 # Plugin - Mosaic
 "/mosaics/{mosaicId}":

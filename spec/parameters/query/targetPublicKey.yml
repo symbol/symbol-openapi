@@ -1,0 +1,5 @@
+name: targetPublickey
+in: query
+description: Filter by public key of the account receiving the metadata entry.
+schema:
+  $ref: "../../schemas/PublicKey.yml"

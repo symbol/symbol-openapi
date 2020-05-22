@@ -5,8 +5,6 @@ heightPath:
   $ref: './path/height.yml'
 limitPath:
   $ref: './path/limit.yml'
-metadataKeyPath:
-  $ref: './path/metadataKey.yml'
 mosaicIdPath:
   $ref: './path/mosaicId.yml'
 namespaceIdPath:
@@ -32,6 +30,8 @@ heightQuery:
   $ref: './query/height.yml'
 idQuery:
   $ref: './query/id.yml'
+metadataType:
+  $ref: './query/metadataType.yml'
 offsetQuery:
   $ref: './query/offset.yml'
 orderQuery:
@@ -46,7 +46,16 @@ pageSizeQuery:
   $ref: './query/pageSize.yml'
 recipientAddressQuery:
   $ref: './query/recipientAddress.yml'
+scopedMetadataKeyQuery:
+  $ref: './query/scopedMetadataKey.yml'
+senderPublicKeyQuery:
+  $ref: './query/senderPublicKey.yml'
 signerPublicKeyQuery:
   $ref: './query/signerPublicKey.yml'
+targetIdQuery:
+  $ref: './query/targetId.yml'
+targetPublicKeyQuery:
+  $ref: './query/targetPublicKey.yml'
 transactionTypeQuery:
   $ref: './query/transactionTypes.yml'
+

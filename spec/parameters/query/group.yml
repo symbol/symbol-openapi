@@ -1,5 +1,6 @@
 name: group
 in: query
+description: Filter by transaction group.
 schema:
   $ref: "../../core/transaction/schemas/TransactionGroupSubsetEnum.yml"
   default: confirmed
