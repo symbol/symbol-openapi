@@ -64,137 +64,31 @@ paths:
           $ref: '#/components/responses/InvalidContent'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  '/account/{accountId}/transactions':
+  /blocks:
     get:
       tags:
-        - Account routes
-      summary: Get confirmed transactions
-      description: Gets an array of transactions for which an account is the sender or receiver.
-      operationId: getAccountConfirmedTransactions
+        - Block routes
+      summary: Get blocks
+      description: Gets an array of bocks.
+      operationId: searchBlocks
       parameters:
-        - $ref: '#/components/parameters/accountIdPath'
+        - $ref: '#/components/parameters/signerPublicKeyQuery'
+        - $ref: '#/components/parameters/beneficiaryPublicKeyQuery'
         - $ref: '#/components/parameters/pageSizeQuery'
-        - $ref: '#/components/parameters/idQuery'
-        - $ref: '#/components/parameters/orderingQuery'
-        - $ref: '#/components/parameters/transactionTypeQuery'
+        - $ref: '#/components/parameters/pageNumberQuery'
+        - $ref: '#/components/parameters/offsetQuery'
+        - $ref: '#/components/parameters/orderQuery'
+        - $ref: '#/components/parameters/orderByBlockQuery'
       responses:
         '200':
           description: success
           content:
             application/json:
               schema:
-                type: array
-                description: Array of confirmed transactions.
-                items:
-                  $ref: '#/components/schemas/TransactionInfoDTO'
+                $ref: '#/components/schemas/BlockPage'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  '/account/{accountId}/transactions/incoming':
-    get:
-      tags:
-        - Account routes
-      summary: Get incoming transactions
-      description: |
-        Gets an array of incoming transactions. A transaction is said to be incoming with respect to an account
-        if the account is the recipient of the transaction.
-      operationId: getAccountIncomingTransactions
-      parameters:
-        - $ref: '#/components/parameters/accountIdPath'
-        - $ref: '#/components/parameters/pageSizeQuery'
-        - $ref: '#/components/parameters/idQuery'
-        - $ref: '#/components/parameters/orderingQuery'
-        - $ref: '#/components/parameters/transactionTypeQuery'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                type: array
-                description: Array of incoming transactions.
-                items:
-                  $ref: '#/components/schemas/TransactionInfoDTO'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  '/account/{accountId}/transactions/outgoing':
-    get:
-      tags:
-        - Account routes
-      summary: Get outgoing transactions
-      description: |
-        Gets an array of outgoing transactions. A transaction is said to be outgoing with respect to an account
-        if the account is the sender of the transaction.
-      operationId: getAccountOutgoingTransactions
-      parameters:
-        - $ref: '#/components/parameters/accountIdPath'
-        - $ref: '#/components/parameters/pageSizeQuery'
-        - $ref: '#/components/parameters/idQuery'
-        - $ref: '#/components/parameters/orderingQuery'
-        - $ref: '#/components/parameters/transactionTypeQuery'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                type: array
-                description: Array of outgoing transactions.
-                items:
-                  $ref: '#/components/schemas/TransactionInfoDTO'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  '/account/{accountId}/transactions/unconfirmed':
-    get:
-      tags:
-        - Account routes
-      summary: Get unconfirmed transactions
-      description: Gets the array of transactions not included in a block where an account is the sender or receiver.
-      operationId: getAccountUnconfirmedTransactions
-      parameters:
-        - $ref: '#/components/parameters/accountIdPath'
-        - $ref: '#/components/parameters/pageSizeQuery'
-        - $ref: '#/components/parameters/idQuery'
-        - $ref: '#/components/parameters/orderingQuery'
-        - $ref: '#/components/parameters/transactionTypeQuery'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                type: array
-                description: Array of unconfirmed transactions.
-                items:
-                  $ref: '#/components/schemas/TransactionInfoDTO'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  '/account/{accountId}/transactions/partial':
-    get:
-      tags:
-        - Account routes
-      summary: Get aggregate bonded transactions information
-      description: |
-        Gets an array of aggregate bonded transactions where the account is the sender, recipient, or requires to cosign the transaction.
-      operationId: getAccountPartialTransactions
-      parameters:
-        - $ref: '#/components/parameters/accountIdPath'
-        - $ref: '#/components/parameters/pageSizeQuery'
-        - $ref: '#/components/parameters/idQuery'
-        - $ref: '#/components/parameters/orderingQuery'
-        - $ref: '#/components/parameters/transactionTypeQuery'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                type: array
-                description: Array of aggregate bonded transactions.
-                items:
-                  $ref: '#/components/schemas/TransactionInfoDTO'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  '/block/{height}':
+  '/blocks/{height}':
     get:
       tags:
         - Block routes
@@ -214,54 +108,7 @@ paths:
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  '/blocks/{height}/limit/{limit}':
-    get:
-      tags:
-        - Block routes
-      summary: Get blocks information
-      description: Gets up to limit number of blocks after given block height.
-      operationId: getBlocksByHeightWithLimit
-      parameters:
-        - $ref: '#/components/parameters/heightPath'
-        - $ref: '#/components/parameters/limitPath'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                type: array
-                description: Array of blocks information.
-                items:
-                  $ref: '#/components/schemas/BlockInfoDTO'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  '/block/{height}/transactions':
-    get:
-      tags:
-        - Block routes
-      summary: Get transactions from a block
-      description: Returns an array of transactions included in a block for a given block height.
-      operationId: getBlockTransactions
-      parameters:
-        - $ref: '#/components/parameters/heightPath'
-        - $ref: '#/components/parameters/pageSizeQuery'
-        - $ref: '#/components/parameters/idQuery'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                type: array
-                description: Array of transactions.
-                items:
-                  $ref: '#/components/schemas/TransactionInfoDTO'
-        '404':
-          $ref: '#/components/responses/ResourceNotFound'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  '/block/{height}/transaction/{hash}/merkle':
+  '/blocks/{height}/transactions/{hash}/merkle':
     get:
       tags:
         - Block routes
@@ -487,7 +334,80 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ServerInfoDTO'
-  '/transaction/{transactionId}':
+  /transactions:
+    get:
+      tags:
+        - Transaction routes
+      summary: Get transactions
+      description: Returns an array of transactions.
+      operationId: searchTransactions
+      parameters:
+        - $ref: '#/components/parameters/addressQuery'
+        - $ref: '#/components/parameters/recipientAddressQuery'
+        - $ref: '#/components/parameters/signerPublicKeyQuery'
+        - $ref: '#/components/parameters/heightQuery'
+        - $ref: '#/components/parameters/pageSizeQuery'
+        - $ref: '#/components/parameters/pageNumberQuery'
+        - $ref: '#/components/parameters/offsetQuery'
+        - $ref: '#/components/parameters/groupQuery'
+        - $ref: '#/components/parameters/orderQuery'
+        - $ref: '#/components/parameters/transactionTypeQuery'
+        - $ref: '#/components/parameters/embedded'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionPage'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
+    post:
+      tags:
+        - Transaction routes
+      summary: Get transactions information
+      description: Returns transactions information for a given array of transactionIds.
+      operationId: getTransactionsById
+      requestBody:
+        $ref: '#/components/requestBodies/transactionIds'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                description: Array of transactions information.
+                items:
+                  $ref: '#/components/schemas/TransactionInfoExtendedDTO'
+        '400':
+          $ref: '#/components/responses/InvalidContent'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
+    put:
+      tags:
+        - Transaction routes
+      summary: Announce a new transaction
+      description: |
+        Announces a transaction to the network.
+        The [catbuffer library](https://github.com/nemtech/catbuffer) defines the protocol to serialize and deserialize Symbol entities.
+        Catbuffers are integrated into [Symbol SDKs](https://nemtech.github.io/sdk.html). 
+        It's recommended to use SDKs instead of calling the API endpoint directly to announce transactions.
+      operationId: announceTransaction
+      requestBody:
+        $ref: '#/components/requestBodies/transactionPayload'
+      responses:
+        '202':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnnounceTransactionInfoDTO'
+        '400':
+          $ref: '#/components/responses/InvalidContent'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
+  '/transactions/{transactionId}':
     get:
       tags:
         - Transaction routes
@@ -507,51 +427,7 @@ paths:
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  /transaction:
-    post:
-      tags:
-        - Transaction routes
-      summary: Get transactions information
-      description: Returns transactions information for a given array of transactionIds.
-      operationId: getTransactions
-      requestBody:
-        $ref: '#/components/requestBodies/transactionIds'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                type: array
-                description: Array of transactions information.
-                items:
-                  $ref: '#/components/schemas/TransactionInfoDTO'
-        '400':
-          $ref: '#/components/responses/InvalidContent'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-    put:
-      tags:
-        - Transaction routes
-      summary: Announce a new transaction
-      description: |
-        Announces a transaction to the network.
-        We recommended to use the Symbol-SDKs to announce transactions because they should be serialized.
-      operationId: announceTransaction
-      requestBody:
-        $ref: '#/components/requestBodies/transactionPayload'
-      responses:
-        '202':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AnnounceTransactionInfoDTO'
-        '400':
-          $ref: '#/components/responses/InvalidContent'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  '/transaction/{hash}/status':
+  '/transactions/{hash}/status':
     get:
       tags:
         - Transaction routes
@@ -571,7 +447,7 @@ paths:
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  /transaction/statuses:
+  /transactions/statuses:
     post:
       tags:
         - Transaction routes
@@ -594,7 +470,7 @@ paths:
           $ref: '#/components/responses/InvalidContent'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  /transaction/partial:
+  /transactions/partial:
     put:
       tags:
         - Transaction routes
@@ -614,7 +490,7 @@ paths:
           $ref: '#/components/responses/InvalidContent'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  /transaction/cosignature:
+  /transactions/cosignature:
     put:
       tags:
         - Transaction routes
@@ -644,8 +520,8 @@ paths:
       parameters:
         - $ref: '#/components/parameters/accountIdPath'
         - $ref: '#/components/parameters/pageSizeQuery'
+        - $ref: '#/components/parameters/orderQuery'
         - $ref: '#/components/parameters/idQuery'
-        - $ref: '#/components/parameters/orderingQuery'
       responses:
         '200':
           description: success
@@ -668,7 +544,7 @@ paths:
         - $ref: '#/components/parameters/mosaicIdPath'
         - $ref: '#/components/parameters/pageSizeQuery'
         - $ref: '#/components/parameters/idQuery'
-        - $ref: '#/components/parameters/orderingQuery'
+        - $ref: '#/components/parameters/orderQuery'
       responses:
         '200':
           description: success
@@ -691,7 +567,7 @@ paths:
         - $ref: '#/components/parameters/namespaceIdPath'
         - $ref: '#/components/parameters/pageSizeQuery'
         - $ref: '#/components/parameters/idQuery'
-        - $ref: '#/components/parameters/orderingQuery'
+        - $ref: '#/components/parameters/orderQuery'
       responses:
         '200':
           description: success
@@ -832,7 +708,7 @@ paths:
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  '/mosaic/{mosaicId}':
+  '/mosaics/{mosaicId}':
     get:
       tags:
         - Mosaic routes
@@ -852,7 +728,28 @@ paths:
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  /mosaic:
+  /mosaics:
+    get:
+      tags:
+        - Mosaic routes
+      summary: Get mosaics
+      description: Gets an array of mosaics.
+      operationId: searchMosaics
+      parameters:
+        - $ref: '#/components/parameters/ownerAddressQuery'
+        - $ref: '#/components/parameters/pageSizeQuery'
+        - $ref: '#/components/parameters/pageNumberQuery'
+        - $ref: '#/components/parameters/offsetQuery'
+        - $ref: '#/components/parameters/orderQuery'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MosaicPage'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
     post:
       tags:
         - Mosaic routes
@@ -871,46 +768,6 @@ paths:
                 description: Array of mosaics information.
                 items:
                   $ref: '#/components/schemas/MosaicInfoDTO'
-        '400':
-          $ref: '#/components/responses/InvalidContent'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  '/account/{accountId}/mosaics':
-    get:
-      tags:
-        - Mosaic routes
-      summary: Get mosaics created by an account
-      description: Gets an array of mosaics created for a given account address.
-      operationId: getMosaicsFromAccount
-      parameters:
-        - $ref: '#/components/parameters/accountIdPath'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MosaicsInfoDTO'
-        '404':
-          $ref: '#/components/responses/ResourceNotFound'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  /account/mosaics:
-    post:
-      tags:
-        - Mosaic routes
-      summary: Get mosaics created for given array of addresses
-      description: Gets mosaics created for a given array of addresses.
-      operationId: getMosaicsFromAccounts
-      requestBody:
-        $ref: '#/components/requestBodies/accountIds'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MosaicsInfoDTO'
         '400':
           $ref: '#/components/responses/InvalidContent'
         '409':
@@ -1282,8 +1139,7 @@ components:
     heightPath:
       name: height
       in: path
-      description: |
-        Block height.
+      description: Block height.
       required: true
       schema:
         $ref: '#/components/schemas/Height'
@@ -1342,10 +1198,46 @@ components:
     transactionIdPath:
       name: transactionId
       in: path
-      description: Transaction identifier or hash.
+      description: Transaction id or hash.
       required: true
       schema:
         type: string
+    addressQuery:
+      name: address
+      in: query
+      description: |
+        Filter by address involved in the transaction. 
+        An account's address is consider to be involved in the transaction when the account is the sender, recipient, or it is required to cosign the transaction.
+        This filter cannot be combined with ``recipientAddress`` and ``signerPublicKey`` query params.
+      schema:
+        $ref: '#/components/schemas/AddressBase32'
+    beneficiaryPublicKeyQuery:
+      name: beneficiaryPublicKey
+      description: Filter by beneficiary public key.
+      in: query
+      schema:
+        $ref: '#/components/schemas/PublicKey'
+    embedded:
+      name: embedded
+      in: query
+      description: |
+        When true, the endpoint also returns all the embedded aggregate transactions.
+        Otherwise, only top-level transactions used to calcualate the block transactionsHash are returned.
+      schema:
+        type: boolean
+        default: false
+    groupQuery:
+      name: group
+      in: query
+      schema:
+        $ref: '#/components/schemas/TransactionGroupSubsetEnum'
+        default: confirmed
+    heightQuery:
+      name: height
+      in: query
+      description: Filter by block height.
+      schema:
+        $ref: '#/components/schemas/Height'
     idQuery:
       name: id
       in: query
@@ -1355,30 +1247,68 @@ components:
         Otherwise, newer elements with respect to the id are returned.
       schema:
         type: string
-    orderingQuery:
-      name: ordering
+    offsetQuery:
+      name: offset
       in: query
       description: |
-        Ordering criteria:
-        * -id - Descending order by id.
-        * id - Ascending order by id.
+        Entry id at which to start pagination.
+        If the ordering parameter is set to -id, the elements returned precede the identifier.
+        Otherwise, newer elements with respect to the id are returned.
       schema:
         type: string
-        default: '-id'
+    orderQuery:
+      name: order
+      in: query
+      description: |
+        Sort responses in ascending or descending order based on the collection property set on the param ``orderBy``.
+        If the request does not specify ``orderBy``, REST returns the collection ordered by id.
+      schema:
+        $ref: '#/components/schemas/Order'
+    ownerAddressQuery:
+      name: ownerAddress
+      in: query
+      description: Filter by owner address.
+      schema:
+        $ref: '#/components/schemas/AddressBase32'
+    orderByBlockQuery:
+      name: orderBy
+      in: query
+      schema:
+        $ref: '#/components/schemas/BlockOrderByEnum'
+    pageNumberQuery:
+      name: pageNumber
+      in: query
+      description: Filter by page number.
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
     pageSizeQuery:
       name: pageSize
       in: query
-      description: Number of entries to return.
+      description: Select the number of entries to return.
       schema:
         type: integer
         minimum: 10
         maximum: 100
         default: 10
+    recipientAddressQuery:
+      name: recipientAddress
+      in: query
+      description: Address of an account receiving the transaction.
+      schema:
+        $ref: '#/components/schemas/AddressBase32'
+    signerPublicKeyQuery:
+      name: signerPublicKey
+      in: query
+      description: Public key of the account signing the entity.
+      schema:
+        $ref: '#/components/schemas/PublicKey'
     transactionTypeQuery:
       name: type
       in: query
       description: |
-        Transaction type to filter by.
+        Filter by transaction type.
         To filter by multiple transaction types, add more filter query params like: ``type=16974&type=16718``.
       style: form
       explode: true
@@ -1435,6 +1365,10 @@ components:
       format: hex
       description: Address expressed in hexadecimal base.
       example: 9081FCCB41F8C8409A9B99E485E0E28D23BD6304EF7215E01A
+    AddressBase32:
+      type: string
+      description: Address encoded using a 32-character set.
+      example: SCUSLPL2PLSOABGEP5U4Z4GZFKDAU7TBO3QT777Z
     Amount:
       type: string
       description: Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative).
@@ -1516,6 +1450,32 @@ components:
       format: hex
       description: Namespace identifier.
       example: 85BBEA6CC462B244
+    Order:
+      type: string
+      description: |
+        Indicates how to sort the results: 
+        * ``asc`` - ascending
+        * ``desc`` - descending
+      enum:
+        - asc
+        - desc
+      default: desc
+    Pagination:
+      type: object
+      required:
+        - pageNumber
+        - pageSize
+        - totalEntries
+        - totalPages
+      properties:
+        pageNumber:
+          type: integer
+        pageSize:
+          type: integer
+        totalEntries:
+          type: integer
+        totalPages:
+          type: integer
     PublicKey:
       type: string
       format: hex
@@ -1692,6 +1652,11 @@ components:
         * 4 - Voting.
         * 8 - Node.
         * 15 - All.
+    BlockOrderByEnum:
+      type: string
+      enum:
+        - id
+        - height
     PositionEnum:
       type: string
       enum:
@@ -1748,6 +1713,9 @@ components:
         - meta
         - block
       properties:
+        id:
+          type: string
+          description: Internal resource identifier.
         meta:
           $ref: '#/components/schemas/BlockMetaDTO'
         block:
@@ -1777,6 +1745,19 @@ components:
         numStatements:
           type: integer
           example: 1
+    BlockPage:
+      type: object
+      required:
+        - data
+        - pagination
+      properties:
+        data:
+          type: array
+          description: Array of blocks.
+          items:
+            $ref: '#/components/schemas/BlockInfoDTO'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     MerklePathItemDTO:
       type: object
       description: 'Each merkle path item is composed of a hash, and a position relative to the proofHash being evaluated.'
@@ -2205,15 +2186,31 @@ components:
           type: integer
           description: Number of accounts created.
           example: 177
-    TransactionStateTypeEnum:
+    TransactionGroupEnum:
       type: string
+      description: |
+        A transaction could be classified in the following groups:
+        * Unconfirmed: The transaction reached the P2P network. At this point, it is not guaranteed that the transaction will be included in a block.
+        * Confirmed: The transaction is included in a block.
+        * Partial: The transaction requires to be cosigned by other transaction participants in order to be included in a block.
+        * Failed: The transaction did not pass the network validation, and it was rejected.
       enum:
-        - confirmed
         - unconfirmed
+        - confirmed
         - failed
         - partial
-      description: State of the transaction.
-    TransactionStatusTypeEnum:
+    TransactionGroupSubsetEnum:
+      type: string
+      description: |
+        A transaction could be classified in the following groups:
+        * Unconfirmed: The transaction reached the P2P network. At this point, it is not guaranteed that the transaction will be included in a block.
+        * Confirmed: The transaction is included in a block.
+        * Partial: The transaction requires to be cosigned by other transaction participants in order to be included in a block.
+      enum:
+        - unconfirmed
+        - confirmed
+        - partial
+    TransactionStatusEnum:
       type: string
       enum:
         - Success
@@ -2580,6 +2577,16 @@ components:
       properties:
         message:
           type: string
+    EmbeddedTransactionBodyDTO:
+      type: object
+      required:
+        - transactions
+      properties:
+        transactions:
+          type: array
+          description: Array of transactions initiated by different accounts.
+          items:
+            $ref: '#/components/schemas/EmbeddedTransactionInfoDTO'
     EmbeddedTransactionDTO:
       type: object
       allOf:
@@ -2638,6 +2645,19 @@ components:
         id:
           type: string
           description: Identifier of the transaction.
+    TransactionPage:
+      type: object
+      required:
+        - data
+        - pagination
+      properties:
+        data:
+          type: array
+          description: Array of transactions.
+          items:
+            $ref: '#/components/schemas/TransactionInfoExtendedDTO'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     TransactionBodyDTO:
       type: object
       required:
@@ -2657,9 +2677,13 @@ components:
     TransactionInfoDTO:
       type: object
       required:
+        - id
         - meta
         - transaction
       properties:
+        id:
+          type: string
+          description: Internal resource identifier.
         meta:
           $ref: '#/components/schemas/TransactionMetaDTO'
         transaction:
@@ -2668,7 +2692,7 @@ components:
             - $ref: '#/components/schemas/NodeKeyLinkTransactionDTO'
             - $ref: '#/components/schemas/VrfKeyLinkTransactionDTO'
             - $ref: '#/components/schemas/VotingKeyLinkTransactionDTO'
-            - $ref: '#/components/schemas/AggregateTransactionDTO'
+            - $ref: '#/components/schemas/AggregateTransactionExtendedDTO'
             - $ref: '#/components/schemas/HashLockTransactionDTO'
             - $ref: '#/components/schemas/SecretLockTransactionDTO'
             - $ref: '#/components/schemas/SecretProofTransactionDTO'
@@ -2687,6 +2711,65 @@ components:
             - $ref: '#/components/schemas/MosaicGlobalRestrictionTransactionDTO'
             - $ref: '#/components/schemas/MosaicAddressRestrictionTransactionDTO'
             - $ref: '#/components/schemas/TransferTransactionDTO'
+    TransactionInfoExtendedDTO:
+      type: object
+      required:
+        - id
+        - meta
+        - transaction
+      properties:
+        id:
+          type: string
+          description: Internal resource identifier.
+        meta:
+          $ref: '#/components/schemas/TransactionMetaDTO'
+        transaction:
+          anyOf:
+            - $ref: '#/components/schemas/AccountKeyLinkTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedAccountKeyLinkTransactionDTO'
+            - $ref: '#/components/schemas/NodeKeyLinkTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedNodeKeyLinkTransactionDTO'
+            - $ref: '#/components/schemas/VrfKeyLinkTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedVrfKeyLinkTransactionDTO'
+            - $ref: '#/components/schemas/VotingKeyLinkTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedVotingKeyLinkTransactionDTO'
+            - $ref: '#/components/schemas/AggregateTransactionDTO'
+            - $ref: '#/components/schemas/HashLockTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedHashLockTransactionDTO'
+            - $ref: '#/components/schemas/SecretLockTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedSecretLockTransactionDTO'
+            - $ref: '#/components/schemas/SecretProofTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedSecretProofTransactionDTO'
+            - $ref: '#/components/schemas/AccountMetadataTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedAccountMetadataTransactionDTO'
+            - $ref: '#/components/schemas/MosaicMetadataTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedMosaicMetadataTransactionDTO'
+            - $ref: '#/components/schemas/NamespaceMetadataTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedNamespaceMetadataTransactionDTO'
+            - $ref: '#/components/schemas/MosaicDefinitionTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedMosaicDefinitionTransactionDTO'
+            - $ref: '#/components/schemas/MosaicSupplyChangeTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedMosaicSupplyChangeTransactionDTO'
+            - $ref: '#/components/schemas/NamespaceRegistrationTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedNamespaceRegistrationTransactionDTO'
+            - $ref: '#/components/schemas/AddressAliasTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedAddressAliasTransactionDTO'
+            - $ref: '#/components/schemas/MosaicAliasTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedMosaicAliasTransactionDTO'
+            - $ref: '#/components/schemas/MultisigAccountModificationTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedMultisigAccountModificationTransactionDTO'
+            - $ref: '#/components/schemas/AccountAddressRestrictionTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedAccountAddressRestrictionTransactionDTO'
+            - $ref: '#/components/schemas/AccountMosaicRestrictionTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedAccountMosaicRestrictionTransactionDTO'
+            - $ref: '#/components/schemas/AccountOperationRestrictionTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedAccountOperationRestrictionTransactionDTO'
+            - $ref: '#/components/schemas/MosaicGlobalRestrictionTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedMosaicGlobalRestrictionTransactionDTO'
+            - $ref: '#/components/schemas/MosaicAddressRestrictionTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedMosaicAddressRestrictionTransactionDTO'
+            - $ref: '#/components/schemas/TransferTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedTransferTransactionDTO'
     TransactionMetaDTO:
       type: object
       required:
@@ -2694,7 +2777,6 @@ components:
         - hash
         - merkleComponentHash
         - index
-        - id
       properties:
         height:
           $ref: '#/components/schemas/Height'
@@ -2705,9 +2787,6 @@ components:
         index:
           type: integer
           description: Transaction index within the block.
-        id:
-          type: string
-          description: Identifier of the transaciton
     TransactionStatusDTO:
       type: object
       required:
@@ -2716,9 +2795,9 @@ components:
         - hash
       properties:
         group:
-          $ref: '#/components/schemas/TransactionStateTypeEnum'
+          $ref: '#/components/schemas/TransactionGroupEnum'
         code:
-          $ref: '#/components/schemas/TransactionStatusTypeEnum'
+          $ref: '#/components/schemas/TransactionStatusEnum'
         hash:
           $ref: '#/components/schemas/Hash256'
         deadline:
@@ -2812,7 +2891,6 @@ components:
       required:
         - transactionsHash
         - cosignatures
-        - transactions
       properties:
         transactionsHash:
           $ref: '#/components/schemas/Hash256'
@@ -2821,17 +2899,23 @@ components:
           description: Array of transaction cosignatures.
           items:
             $ref: '#/components/schemas/CosignatureDTO'
-        transactions:
-          type: array
-          description: Array of transactions initiated by different accounts.
-          items:
-            $ref: '#/components/schemas/EmbeddedTransactionInfoDTO'
+    AggregateTransactionBodyExtendedDTO:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/AggregateTransactionBodyDTO'
+        - $ref: '#/components/schemas/EmbeddedTransactionBodyDTO'
     AggregateTransactionDTO:
       type: object
       description: Transaction to combine multiple transactions together.
       allOf:
         - $ref: '#/components/schemas/TransactionDTO'
         - $ref: '#/components/schemas/AggregateTransactionBodyDTO'
+    AggregateTransactionExtendedDTO:
+      type: object
+      description: Transaction to combine multiple transactions together.
+      allOf:
+        - $ref: '#/components/schemas/TransactionDTO'
+        - $ref: '#/components/schemas/AggregateTransactionBodyExtendedDTO'
     CosignatureDTO:
       type: object
       allOf:
@@ -3293,8 +3377,12 @@ components:
     MosaicInfoDTO:
       type: object
       required:
+        - id
         - mosaic
       properties:
+        id:
+          type: string
+          description: Internal resource identifier.
         mosaic:
           $ref: '#/components/schemas/MosaicDTO'
     MosaicNetworkPropertiesDTO:
@@ -3320,16 +3408,19 @@ components:
           type: string
           description: Mosaic rental fee.
           example: '500'
-    MosaicsInfoDTO:
+    MosaicPage:
       type: object
       required:
-        - mosaics
+        - data
+        - pagination
       properties:
-        mosaics:
+        data:
           type: array
-          description: Array of mosaics information.
+          description: Array of mosaics.
           items:
-            $ref: '#/components/schemas/MosaicDTO'
+            $ref: '#/components/schemas/MosaicInfoDTO'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     MosaicSupplyChangeTransactionBodyDTO:
       type: object
       required:
@@ -3942,7 +4033,7 @@ components:
           type: integer
           description: |
             Transaction index within the aggregate transaction.
-            If the transaction is not an inner transaction, then the secondary id is set to 0.
+            If the transaction is not an embedded transaction, then the secondary id is set to 0.
           example: 0
     StatementsDTO:
       type: object
@@ -4408,9 +4499,7 @@ components:
           type: array
           description: Array of addresses.
           items:
-            type: string
-            description: Address encoded using a 32-character set.
-            example: SCUSLPL2PLSOABGEP5U4Z4GZFKDAU7TBO3QT777Z
+            $ref: '#/components/schemas/AddressBase32'
     cosignature:
       type: object
       properties:
