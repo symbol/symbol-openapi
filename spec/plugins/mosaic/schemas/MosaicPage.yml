@@ -5,8 +5,8 @@ required:
 properties:
   data:
     type: array
-    description: Array of blocks.
+    description: Array of mosaics.
     items:
-      $ref: "./BlockInfoDTO.yml"
+      $ref: "./MosaicInfoDTO.yml"
   pagination:
     $ref: "../../../schemas/Pagination.yml"
