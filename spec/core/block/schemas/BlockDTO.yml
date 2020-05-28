@@ -14,7 +14,7 @@ allOf:
       - transactionsHash
       - receiptsHash
       - stateHash
-      - beneficiaryPublicKey
+      - beneficiaryAddress
       - feeMultiplier
     properties:
       height:
@@ -37,7 +37,7 @@ allOf:
         $ref: "../../../schemas/Hash256.yml"
       stateHash:
         $ref: "../../../schemas/Hash256.yml"
-      beneficiaryPublicKey:
-        $ref: "../../../schemas/PublicKey.yml"
+      beneficiaryAddress:
+        $ref: "../../../schemas/Address.yml"
       feeMultiplier:
         $ref: "../../../schemas/BlockFeeMultiplier.yml"
