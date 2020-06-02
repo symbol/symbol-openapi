@@ -422,7 +422,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TransactionInfoDTO'
+                $ref: '#/components/schemas/TransactionInfoExtendedDTO'
         '404':
           $ref: '#/components/responses/ResourceNotFound'
         '409':
@@ -2722,7 +2722,9 @@ components:
           type: string
           description: Internal resource identifier.
         meta:
-          $ref: '#/components/schemas/TransactionMetaDTO'
+          anyOf:
+            - $ref: '#/components/schemas/TransactionMetaDTO'
+            - $ref: '#/components/schemas/EmbeddedTransactionMetaDTO'
         transaction:
           anyOf:
             - $ref: '#/components/schemas/AccountKeyLinkTransactionDTO'
