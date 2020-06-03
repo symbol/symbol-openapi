@@ -1710,6 +1710,7 @@ components:
     BlockInfoDTO:
       type: object
       required:
+        - id
         - meta
         - block
       properties:
