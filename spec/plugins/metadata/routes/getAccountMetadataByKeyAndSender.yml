@@ -6,7 +6,7 @@ operationId: getAccountMetadataByKeyAndSender
 parameters:
   - $ref: "../../../parameters/path/accountId.yml"
   - $ref: "../../../parameters/path/metadataKey.yml"
-  - $ref: "../../../parameters/path/publicKey.yml"
+  - $ref: "../../../parameters/path/address.yml"
 responses:
   "200":
     description: success

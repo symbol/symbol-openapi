@@ -1,4 +1,6 @@
 # path
+address:
+  $ref: './path/address.yml'
 accountIdPath:
   $ref: './path/accountId.yml'
 heightPath:
