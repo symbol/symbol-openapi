@@ -21,9 +21,9 @@ properties:
     type: array
     description: Array of cosignatory accounts to add.
     items:
-      $ref: "../../../schemas/Address.yml"
+      $ref: "../../../schemas/UnresolvedAddress.yml"
   addressDeletions:
     type: array
     description: Array of cosignatory accounts to delete.
     items:
-      $ref: "../../../schemas/Address.yml"
+      $ref: "../../../schemas/UnresolvedAddress.yml"

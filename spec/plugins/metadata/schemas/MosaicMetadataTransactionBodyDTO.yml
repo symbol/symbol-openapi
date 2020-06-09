@@ -8,7 +8,7 @@ required:
   - value
 properties:
   targetAddress:
-    $ref: "../../../schemas/Address.yml"
+    $ref: "../../../schemas/UnresolvedAddress.yml"
   scopedMetadataKey:
     $ref: "../../../schemas/MetadataKey.yml"
   targetMosaicId:
