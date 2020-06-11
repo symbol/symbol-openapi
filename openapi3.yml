@@ -379,7 +379,7 @@ paths:
                 type: array
                 description: Array of transactions information.
                 items:
-                  $ref: '#/components/schemas/TransactionInfoExtendedDTO'
+                  $ref: '#/components/schemas/TransactionInfoDTO'
         '400':
           $ref: '#/components/responses/InvalidContent'
         '409':
@@ -422,7 +422,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TransactionInfoExtendedDTO'
+                $ref: '#/components/schemas/TransactionInfoDTO'
         '404':
           $ref: '#/components/responses/ResourceNotFound'
         '409':
@@ -2656,7 +2656,7 @@ components:
           type: array
           description: Array of transactions.
           items:
-            $ref: '#/components/schemas/TransactionInfoExtendedDTO'
+            $ref: '#/components/schemas/TransactionInfoDTO'
         pagination:
           $ref: '#/components/schemas/Pagination'
     TransactionBodyDTO:
@@ -2690,45 +2690,6 @@ components:
         transaction:
           anyOf:
             - $ref: '#/components/schemas/AccountKeyLinkTransactionDTO'
-            - $ref: '#/components/schemas/NodeKeyLinkTransactionDTO'
-            - $ref: '#/components/schemas/VrfKeyLinkTransactionDTO'
-            - $ref: '#/components/schemas/VotingKeyLinkTransactionDTO'
-            - $ref: '#/components/schemas/AggregateTransactionExtendedDTO'
-            - $ref: '#/components/schemas/HashLockTransactionDTO'
-            - $ref: '#/components/schemas/SecretLockTransactionDTO'
-            - $ref: '#/components/schemas/SecretProofTransactionDTO'
-            - $ref: '#/components/schemas/AccountMetadataTransactionDTO'
-            - $ref: '#/components/schemas/MosaicMetadataTransactionDTO'
-            - $ref: '#/components/schemas/NamespaceMetadataTransactionDTO'
-            - $ref: '#/components/schemas/MosaicDefinitionTransactionDTO'
-            - $ref: '#/components/schemas/MosaicSupplyChangeTransactionDTO'
-            - $ref: '#/components/schemas/NamespaceRegistrationTransactionDTO'
-            - $ref: '#/components/schemas/AddressAliasTransactionDTO'
-            - $ref: '#/components/schemas/MosaicAliasTransactionDTO'
-            - $ref: '#/components/schemas/MultisigAccountModificationTransactionDTO'
-            - $ref: '#/components/schemas/AccountAddressRestrictionTransactionDTO'
-            - $ref: '#/components/schemas/AccountMosaicRestrictionTransactionDTO'
-            - $ref: '#/components/schemas/AccountOperationRestrictionTransactionDTO'
-            - $ref: '#/components/schemas/MosaicGlobalRestrictionTransactionDTO'
-            - $ref: '#/components/schemas/MosaicAddressRestrictionTransactionDTO'
-            - $ref: '#/components/schemas/TransferTransactionDTO'
-    TransactionInfoExtendedDTO:
-      type: object
-      required:
-        - id
-        - meta
-        - transaction
-      properties:
-        id:
-          type: string
-          description: Internal resource identifier.
-        meta:
-          anyOf:
-            - $ref: '#/components/schemas/TransactionMetaDTO'
-            - $ref: '#/components/schemas/EmbeddedTransactionMetaDTO'
-        transaction:
-          anyOf:
-            - $ref: '#/components/schemas/AccountKeyLinkTransactionDTO'
             - $ref: '#/components/schemas/EmbeddedAccountKeyLinkTransactionDTO'
             - $ref: '#/components/schemas/NodeKeyLinkTransactionDTO'
             - $ref: '#/components/schemas/EmbeddedNodeKeyLinkTransactionDTO'
@@ -2737,6 +2698,7 @@ components:
             - $ref: '#/components/schemas/VotingKeyLinkTransactionDTO'
             - $ref: '#/components/schemas/EmbeddedVotingKeyLinkTransactionDTO'
             - $ref: '#/components/schemas/AggregateTransactionDTO'
+            - $ref: '#/components/schemas/AggregateTransactionExtendedDTO'
             - $ref: '#/components/schemas/HashLockTransactionDTO'
             - $ref: '#/components/schemas/EmbeddedHashLockTransactionDTO'
             - $ref: '#/components/schemas/SecretLockTransactionDTO'
