@@ -2686,7 +2686,9 @@ components:
           type: string
           description: Internal resource identifier.
         meta:
-          $ref: '#/components/schemas/TransactionMetaDTO'
+          anyOf:
+            - $ref: '#/components/schemas/TransactionMetaDTO'
+            - $ref: '#/components/schemas/EmbeddedTransactionMetaDTO'
         transaction:
           anyOf:
             - $ref: '#/components/schemas/AccountKeyLinkTransactionDTO'
