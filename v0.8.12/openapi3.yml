@@ -2595,9 +2595,13 @@ components:
     EmbeddedTransactionInfoDTO:
       type: object
       required:
+        - id
         - meta
         - transaction
       properties:
+        id:
+          type: string
+          description: Internal resource identifier.
         meta:
           $ref: '#/components/schemas/EmbeddedTransactionMetaDTO'
         transaction:
@@ -2631,7 +2635,6 @@ components:
         - aggregateHash
         - aggregateId
         - index
-        - id
       properties:
         height:
           $ref: '#/components/schemas/Height'
@@ -2643,9 +2646,6 @@ components:
         index:
           type: integer
           description: Transaction index within the aggregate.
-        id:
-          type: string
-          description: Identifier of the transaction.
     TransactionPage:
       type: object
       required:
