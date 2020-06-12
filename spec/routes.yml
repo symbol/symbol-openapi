@@ -105,7 +105,7 @@
 "/metadata/namespace/{namespaceId}/key/{key}":
   get:
     $ref: "./plugins/metadata/routes/getNamespaceMetadataByKey.yml"
-"/metadata/account/{address}/key/{key}/sender/{senderAddress}":
+"/metadata/account/{address}/key/{key}/sender/{sourceAddress}":
   get:
     $ref: "./plugins/metadata/routes/getAccountMetadataByKeyAndSender.yml"
 "/metadata/mosaic/{mosaicId}/key/{key}/sender/{sourceAddress}":
