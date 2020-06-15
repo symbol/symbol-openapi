@@ -335,24 +335,47 @@ paths:
               schema:
                 $ref: '#/components/schemas/ServerInfoDTO'
   /transactions:
+    put:
+      tags:
+        - Transaction routes
+      summary: Announce a new transaction
+      description: |
+        Announces a transaction to the network.
+        The [catbuffer library](https://github.com/nemtech/catbuffer) defines the protocol to serialize and deserialize Symbol entities.
+        Catbuffers are integrated into [Symbol SDKs](https://nemtech.github.io/sdk.html). 
+        It's recommended to use SDKs instead of calling the API endpoint directly to announce transactions.
+      operationId: announceTransaction
+      requestBody:
+        $ref: '#/components/requestBodies/transactionPayload'
+      responses:
+        '202':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnnounceTransactionInfoDTO'
+        '400':
+          $ref: '#/components/responses/InvalidContent'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
+  /transactions/confirmed:
     get:
       tags:
         - Transaction routes
       summary: Get transactions
-      description: Returns an array of transactions.
-      operationId: searchTransactions
+      description: Returns an array of confirmed transactions.
+      operationId: searchConfirmedTransactions
       parameters:
         - $ref: '#/components/parameters/addressQuery'
         - $ref: '#/components/parameters/recipientAddressQuery'
         - $ref: '#/components/parameters/signerPublicKeyQuery'
         - $ref: '#/components/parameters/heightQuery'
+        - $ref: '#/components/parameters/transactionTypeQuery'
+        - $ref: '#/components/parameters/embedded'
         - $ref: '#/components/parameters/pageSizeQuery'
         - $ref: '#/components/parameters/pageNumberQuery'
         - $ref: '#/components/parameters/offsetQuery'
-        - $ref: '#/components/parameters/groupQuery'
         - $ref: '#/components/parameters/orderQuery'
-        - $ref: '#/components/parameters/transactionTypeQuery'
-        - $ref: '#/components/parameters/embedded'
       responses:
         '200':
           description: success
@@ -384,36 +407,13 @@ paths:
           $ref: '#/components/responses/InvalidContent'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-    put:
-      tags:
-        - Transaction routes
-      summary: Announce a new transaction
-      description: |
-        Announces a transaction to the network.
-        The [catbuffer library](https://github.com/nemtech/catbuffer) defines the protocol to serialize and deserialize Symbol entities.
-        Catbuffers are integrated into [Symbol SDKs](https://nemtech.github.io/sdk.html). 
-        It's recommended to use SDKs instead of calling the API endpoint directly to announce transactions.
-      operationId: announceTransaction
-      requestBody:
-        $ref: '#/components/requestBodies/transactionPayload'
-      responses:
-        '202':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AnnounceTransactionInfoDTO'
-        '400':
-          $ref: '#/components/responses/InvalidContent'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  '/transactions/{transactionId}':
+  '/transactions/confirmed/{transactionId}':
     get:
       tags:
         - Transaction routes
       summary: Get transaction information
-      description: Returns transaction information given a transactionId or hash.
-      operationId: getTransaction
+      description: Returns confirmed transaction information given a transactionId or hash.
+      operationId: getConfirmedTransaction
       parameters:
         - $ref: '#/components/parameters/transactionIdPath'
       responses:
@@ -427,33 +427,60 @@ paths:
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  '/transactions/{hash}/status':
+  /transactions/unconfirmed:
     get:
       tags:
         - Transaction routes
-      summary: Get transaction status
-      description: Returns the transaction status for a given hash.
-      operationId: getTransactionStatus
+      summary: Get transactions
+      description: Returns an array of unconfirmed transactions.
+      operationId: searchUnconfirmedTransactions
       parameters:
-        - $ref: '#/components/parameters/transactionHashPath'
+        - $ref: '#/components/parameters/addressQuery'
+        - $ref: '#/components/parameters/recipientAddressQuery'
+        - $ref: '#/components/parameters/signerPublicKeyQuery'
+        - $ref: '#/components/parameters/heightQuery'
+        - $ref: '#/components/parameters/transactionTypeQuery'
+        - $ref: '#/components/parameters/embedded'
+        - $ref: '#/components/parameters/pageSizeQuery'
+        - $ref: '#/components/parameters/pageNumberQuery'
+        - $ref: '#/components/parameters/offsetQuery'
+        - $ref: '#/components/parameters/orderQuery'
       responses:
         '200':
           description: success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TransactionStatusDTO'
+                $ref: '#/components/schemas/TransactionPage'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
+  '/transactions/unconfirmed/{transactionId}':
+    get:
+      tags:
+        - Transaction routes
+      summary: Get transaction information
+      description: Returns unconfirmed transaction information given a transactionId or hash.
+      operationId: getUnconfirmedTransaction
+      parameters:
+        - $ref: '#/components/parameters/transactionIdPath'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionInfoDTO'
         '404':
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  /transactions/statuses:
+  /transactionStatus:
     post:
       tags:
-        - Transaction routes
-      summary: Get transactions status
+        - Transaction status routes
+      summary: Get transaction statuses
       description: Returns an array of transaction statuses for a given array of transaction hashes.
-      operationId: getTransactionsStatuses
+      operationId: getTransactionStatuses
       requestBody:
         $ref: '#/components/requestBodies/transactionHashes'
       responses:
@@ -470,7 +497,53 @@ paths:
           $ref: '#/components/responses/InvalidContent'
         '409':
           $ref: '#/components/responses/InvalidArgument'
+  '/transactionStatus/{hash}':
+    get:
+      tags:
+        - Transaction status routes
+      summary: Get transaction status
+      description: Returns the transaction status for a given hash.
+      operationId: getTransactionStatus
+      parameters:
+        - $ref: '#/components/parameters/transactionHashPath'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionStatusDTO'
+        '404':
+          $ref: '#/components/responses/ResourceNotFound'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
   /transactions/partial:
+    get:
+      tags:
+        - Transaction routes
+      summary: Get transactions
+      description: Returns an array of partial transactions.
+      operationId: searchPartialTransactions
+      parameters:
+        - $ref: '#/components/parameters/addressQuery'
+        - $ref: '#/components/parameters/recipientAddressQuery'
+        - $ref: '#/components/parameters/signerPublicKeyQuery'
+        - $ref: '#/components/parameters/heightQuery'
+        - $ref: '#/components/parameters/transactionTypeQuery'
+        - $ref: '#/components/parameters/embedded'
+        - $ref: '#/components/parameters/pageSizeQuery'
+        - $ref: '#/components/parameters/pageNumberQuery'
+        - $ref: '#/components/parameters/offsetQuery'
+        - $ref: '#/components/parameters/orderQuery'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionPage'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
     put:
       tags:
         - Transaction routes
@@ -488,6 +561,26 @@ paths:
                 $ref: '#/components/schemas/AnnounceTransactionInfoDTO'
         '400':
           $ref: '#/components/responses/InvalidContent'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
+  '/transactions/partial/{transactionId}':
+    get:
+      tags:
+        - Transaction routes
+      summary: Get transaction information
+      description: Returns partial transaction information given a transactionId or hash.
+      operationId: getPartialTransaction
+      parameters:
+        - $ref: '#/components/parameters/transactionIdPath'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionInfoDTO'
+        '404':
+          $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
   /transactions/cosignature:
@@ -1240,12 +1333,6 @@ components:
       schema:
         type: boolean
         default: false
-    groupQuery:
-      name: group
-      in: query
-      schema:
-        $ref: '#/components/schemas/TransactionGroupSubsetEnum'
-        default: confirmed
     heightQuery:
       name: height
       in: query
@@ -2222,17 +2309,6 @@ components:
         - unconfirmed
         - confirmed
         - failed
-        - partial
-    TransactionGroupSubsetEnum:
-      type: string
-      description: |
-        A transaction could be classified in the following groups:
-        * Unconfirmed: The transaction reached the P2P network. At this point, it is not guaranteed that the transaction will be included in a block.
-        * Confirmed: The transaction is included in a block.
-        * Partial: The transaction requires to be cosigned by other transaction participants in order to be included in a block.
-      enum:
-        - unconfirmed
-        - confirmed
         - partial
     TransactionStatusEnum:
       type: string
