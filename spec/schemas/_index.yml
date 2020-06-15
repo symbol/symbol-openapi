@@ -113,6 +113,8 @@ NetworkTypeEnum:
   "$ref": "../core/entity/schemas/NetworkTypeEnum.yml"
 EntityDTO:
   "$ref": "../core/entity/schemas/EntityDTO.yml"
+SizePrefixedEntityDTO:
+  "$ref": "../core/entity/schemas/SizePrefixedEntityDTO.yml"
 VerifiableEntityDTO:
   "$ref": "../core/entity/schemas/VerifiableEntityDTO.yml"
 
@@ -155,8 +157,6 @@ StorageInfoDTO:
 # Core - Transaction
 TransactionGroupEnum:
   "$ref": "../core/transaction/schemas/TransactionGroupEnum.yml"
-TransactionGroupSubsetEnum:
-  "$ref": "../core/transaction/schemas/TransactionGroupSubsetEnum.yml"
 TransactionStatusEnum:
   "$ref": "../core/transaction/schemas/TransactionStatusEnum.yml"
 TransactionTypeEnum:
@@ -179,8 +179,6 @@ TransactionDTO:
   "$ref": "../core/transaction/schemas/TransactionDTO.yml"
 TransactionInfoDTO:
   "$ref": "../core/transaction/schemas/TransactionInfoDTO.yml"
-TransactionInfoExtendedDTO:
-  "$ref": "../core/transaction/schemas/TransactionInfoExtendedDTO.yml"
 TransactionMetaDTO:
   "$ref": "../core/transaction/schemas/TransactionMetaDTO.yml"
 TransactionStatusDTO:
