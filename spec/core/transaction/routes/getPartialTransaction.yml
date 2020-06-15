@@ -2,7 +2,7 @@ tags:
   - Transaction routes
 summary: Get transaction information
 description: Returns partial transaction information given a transactionId or hash.
-operationId: getTransactionPartial
+operationId: getPartialTransaction
 parameters:
   - $ref: "../../../parameters/path/transactionId.yml"
 responses:

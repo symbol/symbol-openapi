@@ -1,8 +1,8 @@
 tags:
   - Transaction routes
 summary: Get transactions
-description: Returns an array of unconfirmed transactions.
-operationId: searchTransactionsUnconfirmed
+description: Returns an array of confirmed transactions.
+operationId: searchConfirmedTransactions
 parameters:
   - $ref: "../../../parameters/query/address.yml"
   - $ref: "../../../parameters/query/recipientAddress.yml"

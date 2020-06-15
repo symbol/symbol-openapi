@@ -1,8 +1,8 @@
 tags:
   - Transaction routes
 summary: Get transactions
-description: Returns an array of partial transactions.
-operationId: searchTransactionsPartial
+description: Returns an array of unconfirmed transactions.
+operationId: searchUnconfirmedTransactions
 parameters:
   - $ref: "../../../parameters/query/address.yml"
   - $ref: "../../../parameters/query/recipientAddress.yml"
