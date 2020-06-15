@@ -1,6 +1,6 @@
 tags:
   - Transaction routes
-summary: Get transactions status
+summary: Get TransactionStatus
 description: Returns an array of transaction statuses for a given array of transaction hashes.
 operationId: getTransactionsStatuses
 requestBody:
