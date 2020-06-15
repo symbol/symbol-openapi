@@ -73,7 +73,7 @@ paths:
       operationId: searchBlocks
       parameters:
         - $ref: '#/components/parameters/signerPublicKeyQuery'
-        - $ref: '#/components/parameters/beneficiaryPublicKeyQuery'
+        - $ref: '#/components/parameters/beneficiaryAddressQuery'
         - $ref: '#/components/parameters/pageSizeQuery'
         - $ref: '#/components/parameters/pageNumberQuery'
         - $ref: '#/components/parameters/offsetQuery'
@@ -510,7 +510,7 @@ paths:
           $ref: '#/components/responses/InvalidContent'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  '/metadata/account/{accountId}':
+  '/metadata/account/{address}':
     get:
       tags:
         - Metadata routes
@@ -518,7 +518,7 @@ paths:
       description: Returns the account metadata given an account id.
       operationId: getAccountMetadata
       parameters:
-        - $ref: '#/components/parameters/accountIdPath'
+        - $ref: '#/components/parameters/address'
         - $ref: '#/components/parameters/pageSizeQuery'
         - $ref: '#/components/parameters/orderQuery'
         - $ref: '#/components/parameters/idQuery'
@@ -579,7 +579,7 @@ paths:
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  '/metadata/account/{accountId}/key/{key}':
+  '/metadata/account/{address}/key/{key}':
     get:
       tags:
         - Metadata routes
@@ -587,7 +587,7 @@ paths:
       description: Returns the account metadata given an account id and a key.
       operationId: getAccountMetadataByKey
       parameters:
-        - $ref: '#/components/parameters/accountIdPath'
+        - $ref: '#/components/parameters/address'
         - $ref: '#/components/parameters/metadataKeyPath'
       responses:
         '200':
@@ -642,7 +642,7 @@ paths:
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  '/metadata/account/{accountId}/key/{key}/sender/{publicKey}':
+  '/metadata/account/{address}/key/{key}/sender/{sourceAddress}':
     get:
       tags:
         - Metadata routes
@@ -650,9 +650,9 @@ paths:
       description: 'Returns the account metadata given an account id, a key, and a sender.'
       operationId: getAccountMetadataByKeyAndSender
       parameters:
-        - $ref: '#/components/parameters/accountIdPath'
+        - $ref: '#/components/parameters/address'
         - $ref: '#/components/parameters/metadataKeyPath'
-        - $ref: '#/components/parameters/publicKeyPath'
+        - $ref: '#/components/parameters/sourceAddressPath'
       responses:
         '200':
           description: success
@@ -664,7 +664,7 @@ paths:
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  '/metadata/mosaic/{mosaicId}/key/{key}/sender/{publicKey}':
+  '/metadata/mosaic/{mosaicId}/key/{key}/sender/{sourceAddress}':
     get:
       tags:
         - Metadata routes
@@ -674,7 +674,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/mosaicIdPath'
         - $ref: '#/components/parameters/metadataKeyPath'
-        - $ref: '#/components/parameters/publicKeyPath'
+        - $ref: '#/components/parameters/sourceAddressPath'
       responses:
         '200':
           description: success
@@ -686,7 +686,7 @@ paths:
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  '/metadata/namespace/{namespaceId}/key/{key}/sender/{publicKey}':
+  '/metadata/namespace/{namespaceId}/key/{key}/sender/{sourceAddress}':
     get:
       tags:
         - Metadata routes
@@ -696,7 +696,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/namespaceIdPath'
         - $ref: '#/components/parameters/metadataKeyPath'
-        - $ref: '#/components/parameters/publicKeyPath'
+        - $ref: '#/components/parameters/sourceAddressPath'
       responses:
         '200':
           description: success
@@ -772,7 +772,7 @@ paths:
           $ref: '#/components/responses/InvalidContent'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  '/account/{accountId}/multisig':
+  '/account/{address}/multisig':
     get:
       tags:
         - Multisig routes
@@ -780,7 +780,7 @@ paths:
       description: Returns the multisig account information.
       operationId: getAccountMultisig
       parameters:
-        - $ref: '#/components/parameters/accountIdPath'
+        - $ref: '#/components/parameters/address'
       responses:
         '200':
           description: success
@@ -792,7 +792,7 @@ paths:
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  '/account/{accountId}/multisig/graph':
+  '/account/{address}/multisig/graph':
     get:
       tags:
         - Multisig routes
@@ -800,7 +800,7 @@ paths:
       description: Returns the multisig account graph.
       operationId: getAccountMultisigGraph
       parameters:
-        - $ref: '#/components/parameters/accountIdPath'
+        - $ref: '#/components/parameters/address'
       responses:
         '200':
           description: success
@@ -1078,16 +1078,16 @@ paths:
           $ref: '#/components/responses/InvalidContent'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  '/restrictions/mosaic/{mosaicId}/address/{accountId}':
+  '/restrictions/mosaic/{mosaicId}/address/{address}':
     get:
       tags:
         - Restriction Mosaic routes
-      summary: Get mosaic address restrictions for a given mosaic and account identifier.
+      summary: Get mosaic address restrictions for a given mosaic and account address.
       description: Get mosaic address restriction.
       operationId: getMosaicAddressRestriction
       parameters:
         - $ref: '#/components/parameters/mosaicIdPath'
-        - $ref: '#/components/parameters/accountIdPath'
+        - $ref: '#/components/parameters/address'
       responses:
         '200':
           description: success
@@ -1129,6 +1129,13 @@ servers:
   - url: 'http://localhost:3000'
 components:
   parameters:
+    address:
+      name: address
+      in: path
+      description: Account address.
+      required: true
+      schema:
+        $ref: '#/components/schemas/AddressBase32'
     accountIdPath:
       name: accountId
       in: path
@@ -1188,6 +1195,13 @@ components:
       required: true
       schema:
         $ref: '#/components/schemas/Hash256'
+    sourceAddressPath:
+      name: sourceAddress
+      in: path
+      description: Account address.
+      required: true
+      schema:
+        $ref: '#/components/schemas/AddressBase32'
     transactionHashPath:
       name: hash
       in: path
@@ -1211,12 +1225,12 @@ components:
         This filter cannot be combined with ``recipientAddress`` and ``signerPublicKey`` query params.
       schema:
         $ref: '#/components/schemas/AddressBase32'
-    beneficiaryPublicKeyQuery:
-      name: beneficiaryPublicKey
-      description: Filter by beneficiary public key.
+    beneficiaryAddressQuery:
+      name: beneficiaryAddress
+      description: Filter by beneficiary address.
       in: query
       schema:
-        $ref: '#/components/schemas/PublicKey'
+        $ref: '#/components/schemas/AddressBase32'
     embedded:
       name: embedded
       in: query
@@ -1364,11 +1378,11 @@ components:
       type: string
       format: hex
       description: Address expressed in hexadecimal base.
-      example: 9081FCCB41F8C8409A9B99E485E0E28D23BD6304EF7215E01A
+      example: 9081FCCB41F8C8409A9B99E485E0E28D23BD6304EF7215E0
     AddressBase32:
       type: string
       description: Address encoded using a 32-character set.
-      example: SCUSLPL2PLSOABGEP5U4Z4GZFKDAU7TBO3QT777Z
+      example: SAAA244WMCB2JXGNQTQHQOS45TGBFF4V2MJBVOQ
     Amount:
       type: string
       description: Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative).
@@ -1515,7 +1529,7 @@ components:
       description: |
         Address expressed in hexadecimal base. If the bit 0 of byte 0 is not set (like in 0x90), then it is a
         regular address. Else (e.g. 0x91) it represents a namespace id which starts at byte 1.
-      example: 9081FCCB41F8C8409A9B99E485E0E28D23BD6304EF7215E01A
+      example: 90340017CFF3DD2BCF3B2670CDCB9FC8C75754E2325F297C
     UnresolvedMosaicId:
       type: string
       format: hex
@@ -1666,6 +1680,7 @@ components:
     BlockDTO:
       type: object
       allOf:
+        - $ref: '#/components/schemas/SizePrefixedEntityDTO'
         - $ref: '#/components/schemas/VerifiableEntityDTO'
         - $ref: '#/components/schemas/EntityDTO'
         - type: object
@@ -1680,7 +1695,7 @@ components:
             - transactionsHash
             - receiptsHash
             - stateHash
-            - beneficiaryPublicKey
+            - beneficiaryAddress
             - feeMultiplier
           properties:
             height:
@@ -1703,8 +1718,8 @@ components:
               $ref: '#/components/schemas/Hash256'
             stateHash:
               $ref: '#/components/schemas/Hash256'
-            beneficiaryPublicKey:
-              $ref: '#/components/schemas/PublicKey'
+            beneficiaryAddress:
+              $ref: '#/components/schemas/Address'
             feeMultiplier:
               $ref: '#/components/schemas/BlockFeeMultiplier'
     BlockInfoDTO:
@@ -1866,6 +1881,14 @@ components:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+    SizePrefixedEntityDTO:
+      type: object
+      required:
+        - size
+      properties:
+        size:
+          type: integer
+          description: Entity size in bytes.
     VerifiableEntityDTO:
       type: object
       required:
@@ -1909,11 +1932,11 @@ components:
         currencyMosaicId:
           type: string
           description: Mosaic id used as primary chain currency.
-          example: 0x621E'C5B4'0385'6FC2
+          example: 0x24F4'26B8'D549'3D4B
         harvestingMosaicId:
           type: string
           description: Mosaic id used to provide harvesting ability.
-          example: 0x4291'ED23'000A'037A
+          example: 0x1D9C'DC7E'218C'A88D
         blockGenerationTargetTime:
           type: string
           description: Targeted time between blocks.
@@ -1986,10 +2009,10 @@ components:
           type: string
           description: Percentage of the harvested fee that is collected by the network.
           example: '5'
-        harvestNetworkFeeSinkPublicKey:
-          type: string
-          description: Public key of the harvest network fee sink account.
-          example: FF5563F1C5824EE0CD868799FBE8744B46D5549973FDA499939C952D951494E4
+        harvestNetworkFeeSinkAddress:
+          $ref: '#/components/schemas/AddressBase32'
+          description: Address of the harvest network fee sink account.
+          example: SDKDPA36TE53BO24FD4KA6OPGOUSEVOU3O5SIFI
         blockPruneInterval:
           type: string
           description: Number of blocks between cache pruning.
@@ -2022,7 +2045,7 @@ components:
         nodeEqualityStrategy:
           $ref: '#/components/schemas/NodeIdentityEqualityStrategy'
           example: host
-        publicKey:
+        nemesisSignerPublicKey:
           $ref: '#/components/schemas/PublicKey'
           description: Nemesis public key.
           example: B4F12E7C9F6946091E2CB8B6D3A12B50D17CCBBF646386EA27CE2946A7423DCF
@@ -2237,6 +2260,7 @@ components:
         - Failure_Signature_Not_Verifiable
         - Failure_AccountLink_Link_Already_Exists
         - Failure_AccountLink_Inconsistent_Unlink_Data
+        - Failure_AccountLink_Unknown_Link
         - Failure_AccountLink_Remote_Account_Ineligible
         - Failure_AccountLink_Remote_Account_Signer_Prohibited
         - Failure_AccountLink_Remote_Account_Participant_Prohibited
@@ -2390,6 +2414,7 @@ components:
         * Failure_Signature_Not_Verifiable - Validation failed because the verification of the signature failed.
         * Failure_AccountLink_Link_Already_Exists - Validation failed because main account is already linked to another account.
         * Failure_AccountLink_Inconsistent_Unlink_Data - Validation failed because unlink data is not consistent with existing account link.
+        * Failure_AccountLink_Unknown_Link - Validation failed because main account is not linked to another account.
         * Failure_AccountLink_Remote_Account_Ineligible - Validation failed because link is attempting to convert ineligible account to remote.
         * Failure_AccountLink_Remote_Account_Signer_Prohibited - Validation failed because remote is not allowed to sign a transaction.
         * Failure_AccountLink_Remote_Account_Participant_Prohibited - Validation failed because remote is not allowed to participate in the transaction.
@@ -2672,6 +2697,7 @@ components:
     TransactionDTO:
       type: object
       allOf:
+        - $ref: '#/components/schemas/SizePrefixedEntityDTO'
         - $ref: '#/components/schemas/VerifiableEntityDTO'
         - $ref: '#/components/schemas/EntityDTO'
         - $ref: '#/components/schemas/TransactionBodyDTO'
@@ -2890,7 +2916,11 @@ components:
         - type: object
           required:
             - signerPublicKey
+            - version
           properties:
+            version:
+              type: string
+              description: Entity version.
             signerPublicKey:
               $ref: '#/components/schemas/PublicKey'
     VrfKeyLinkNetworkPropertiesDTO:
@@ -3091,14 +3121,14 @@ components:
     AccountMetadataTransactionBodyDTO:
       type: object
       required:
-        - targetPublicKey
+        - targetAddress
         - scopedMetadataKey
         - valueSizeDelta
         - valueSize
         - value
       properties:
-        targetPublicKey:
-          $ref: '#/components/schemas/PublicKey'
+        targetAddress:
+          $ref: '#/components/schemas/UnresolvedAddress'
         scopedMetadataKey:
           $ref: '#/components/schemas/MetadataKey'
         valueSizeDelta:
@@ -3154,18 +3184,18 @@ components:
       type: object
       required:
         - compositeHash
-        - senderPublicKey
-        - targetPublicKey
+        - sourceAddress
+        - targetAddress
         - scopedMetadataKey
         - metadataType
         - value
       properties:
         compositeHash:
           $ref: '#/components/schemas/Hash256'
-        senderPublicKey:
-          $ref: '#/components/schemas/PublicKey'
-        targetPublicKey:
-          $ref: '#/components/schemas/PublicKey'
+        sourceAddress:
+          $ref: '#/components/schemas/Address'
+        targetAddress:
+          $ref: '#/components/schemas/Address'
         scopedMetadataKey:
           $ref: '#/components/schemas/MetadataKey'
         targetId:
@@ -3188,15 +3218,15 @@ components:
     MosaicMetadataTransactionBodyDTO:
       type: object
       required:
-        - targetPublicKey
+        - targetAddress
         - scopedMetadataKey
         - targetMosaicId
         - valueSizeDelta
         - valueSize
         - value
       properties:
-        targetPublicKey:
-          $ref: '#/components/schemas/PublicKey'
+        targetAddress:
+          $ref: '#/components/schemas/UnresolvedAddress'
         scopedMetadataKey:
           $ref: '#/components/schemas/MetadataKey'
         targetMosaicId:
@@ -3218,15 +3248,15 @@ components:
     NamespaceMetadataTransactionBodyDTO:
       type: object
       required:
-        - targetPublicKey
+        - targetAddress
         - scopedMetadataKey
         - targetMosaicId
         - valueSizeDelta
         - valueSize
         - value
       properties:
-        targetPublicKey:
-          $ref: '#/components/schemas/PublicKey'
+        targetAddress:
+          $ref: '#/components/schemas/UnresolvedAddress'
         scopedMetadataKey:
           $ref: '#/components/schemas/MetadataKey'
         targetNamespaceId:
@@ -3310,7 +3340,6 @@ components:
         - id
         - supply
         - startHeight
-        - ownerPublicKey
         - ownerAddress
         - revision
         - flags
@@ -3323,8 +3352,6 @@ components:
           $ref: '#/components/schemas/Amount'
         startHeight:
           $ref: '#/components/schemas/Height'
-        ownerPublicKey:
-          $ref: '#/components/schemas/PublicKey'
         ownerAddress:
           $ref: '#/components/schemas/Address'
         revision:
@@ -3367,10 +3394,10 @@ components:
           type: string
           description: Maximum mosaic divisibility.
           example: '6'
-        mosaicRentalFeeSinkPublicKey:
-          $ref: '#/components/schemas/PublicKey'
-          description: Public key of the mosaic rental fee sink account.
-          example: 53E140B5947F104CABC2D6FE8BAEDBC30EF9A0609C717D9613DE593EC2A266D3
+        mosaicRentalFeeSinkAddress:
+          $ref: '#/components/schemas/AddressBase32'
+          description: Address of the mosaic rental fee sink account.
+          example: SDKDPA36TE53BO24FD4KA6OPGOUSEVOU3O5SIFI
         mosaicRentalFee:
           type: string
           description: Mosaic rental fee.
@@ -3439,8 +3466,8 @@ components:
       required:
         - minRemovalDelta
         - minApprovalDelta
-        - publicKeyAdditions
-        - publicKeyDeletions
+        - addressAdditions
+        - addressDeletions
       properties:
         minRemovalDelta:
           type: integer
@@ -3454,16 +3481,16 @@ components:
             Number of signatures needed to approve a transaction.
             If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories.
           example: 1
-        publicKeyAdditions:
+        addressAdditions:
           type: array
           description: Array of cosignatory accounts to add.
           items:
-            $ref: '#/components/schemas/PublicKey'
-        publicKeyDeletions:
+            $ref: '#/components/schemas/UnresolvedAddress'
+        addressDeletions:
           type: array
           description: Array of cosignatory accounts to delete.
           items:
-            $ref: '#/components/schemas/PublicKey'
+            $ref: '#/components/schemas/UnresolvedAddress'
     MultisigAccountModificationTransactionDTO:
       type: object
       description: Transaction to create or modify a multisig account.
@@ -3473,15 +3500,12 @@ components:
     MultisigDTO:
       type: object
       required:
-        - accountPublicKey
         - accountAddress
         - minApproval
         - minRemoval
-        - cosignatoryPublicKeys
-        - multisigPublicKeys
+        - cosignatoryAddresses
+        - multisigAddresses
       properties:
-        accountPublicKey:
-          $ref: '#/components/schemas/PublicKey'
         accountAddress:
           $ref: '#/components/schemas/Address'
         minApproval:
@@ -3492,18 +3516,17 @@ components:
           description: Number of signatures needed to remove a cosignatory.
           type: integer
           example: 1
-        cosignatoryPublicKeys:
+        cosignatoryAddresses:
           type: array
-          description: Array of public keys of the cosignatory accounts.
+          description: Addresses of the cosignatory accounts.
           items:
-            $ref: '#/components/schemas/PublicKey'
-        multisigPublicKeys:
+            $ref: '#/components/schemas/Address'
+        multisigAddresses:
           type: array
-          description: Array of multisig accounts where the account is cosignatory.
-          example:
-            - 565059F55E68F904214E8BE1D610B5BBEA4CE46CC13D246D45BC1DAE5D32A0D2
+          description: Multisig accounts where the account is cosignatory.
+          example: null
           items:
-            $ref: '#/components/schemas/PublicKey'
+            $ref: '#/components/schemas/Address'
     MultisigNetworkPropertiesDTO:
       type: object
       properties:
@@ -3699,7 +3722,6 @@ components:
         - level0
         - alias
         - parentId
-        - ownerPublicKey
         - ownerAddress
         - startHeight
         - endHeight
@@ -3720,8 +3742,6 @@ components:
           $ref: '#/components/schemas/AliasDTO'
         parentId:
           $ref: '#/components/schemas/NamespaceId'
-        ownerPublicKey:
-          $ref: '#/components/schemas/PublicKey'
         ownerAddress:
           $ref: '#/components/schemas/Address'
         startHeight:
@@ -3773,10 +3793,10 @@ components:
           type: string
           description: Reserved root namespaces that cannot be claimed.
           example: 'xem, nem, user, account, org, com, biz, net, edu, mil, gov, info'
-        namespaceRentalFeeSinkPublicKey:
-          $ref: '#/components/schemas/PublicKey'
-          description: Public key of the namespace rental fee sink account.
-          example: 3E82E1C1E4A75ADAA3CBA8C101C3CD31D9817A2EB966EB3B511FB2ED45B8E262
+        namespaceRentalFeeSinkAddress:
+          $ref: '#/components/schemas/AddressBase32'
+          description: Address of the namespace rental fee sink account.
+          example: SDTZ23JBJZP3GTKKM2P6FYCMXS6RQYPB6R477TQ
         rootNamespaceRentalFeePerBlock:
           type: string
           description: Root namespace rental fee per block.
@@ -3867,15 +3887,15 @@ components:
           required:
             - mosaicId
             - amount
-            - senderPublicKey
+            - senderAddress
             - recipientAddress
           properties:
             mosaicId:
               $ref: '#/components/schemas/MosaicId'
             amount:
               $ref: '#/components/schemas/Amount'
-            senderPublicKey:
-              $ref: '#/components/schemas/PublicKey'
+            senderAddress:
+              $ref: '#/components/schemas/Address'
             recipientAddress:
               $ref: '#/components/schemas/Address'
     BalanceChangeReceiptDTO:
@@ -3887,14 +3907,14 @@ components:
           required:
             - mosaicId
             - amount
-            - targetPublicKey
+            - targetAddress
           properties:
             mosaicId:
               $ref: '#/components/schemas/MosaicId'
             amount:
               $ref: '#/components/schemas/Amount'
-            targetPublicKey:
-              $ref: '#/components/schemas/PublicKey'
+            targetAddress:
+              $ref: '#/components/schemas/Address'
     NamespaceExpiryReceiptDTO:
       type: object
       description: Receipt stored when a namespace expires.
