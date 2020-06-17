@@ -1,5 +1,7 @@
 content:
   application/json:
     schema:
-      $ref: "./schemas/transactionIds.yml"
+      oneOf:
+        - $ref: "./schemas/transactionIds.yml"
+        - $ref: "./schemas/transactionHashes.yml"
 required: true

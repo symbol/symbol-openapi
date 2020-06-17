@@ -5,7 +5,7 @@ required:
 properties:
   data:
     type: array
-    description: Array of transactions.
+    description: Array of confirmed transactions.
     items:
       $ref: "./TransactionInfoDTO.yml"
   pagination:

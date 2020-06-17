@@ -68,7 +68,7 @@
   get:
     $ref: "./core/transaction/routes/searchConfirmedTransactions.yml"
   post:
-    $ref: "./core/transaction/routes/getTransactionsById.yml"
+    $ref: "./core/transaction/routes/getConfirmedTransactionsById.yml"
 "/transactions/confirmed/{transactionId}":
   get:
     $ref: "./core/transaction/routes/getConfirmedTransaction.yml"

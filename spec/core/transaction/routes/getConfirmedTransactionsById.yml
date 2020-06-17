@@ -1,8 +1,8 @@
 tags:
   - Transaction routes
-summary: Get transactions information
-description: Returns transactions information for a given array of transactionIds.
-operationId: getTransactionsById
+summary: Get confirmed transactions information
+description: Returns confirmed transactions information for a given array of ids or hashes.
+operationId: getConfirmedTransactionsById
 requestBody:
   $ref: "../../../request_bodies/transactionIds.yml"
 responses:
