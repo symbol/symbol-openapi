@@ -1482,6 +1482,10 @@ components:
       type: integer
       description: Fee multiplier applied to transactions contained in block.
       example: 0
+    CosignatureVersion:
+      type: string
+      description: Cosignature version.
+      example: '0'
     Difficulty:
       type: string
       description: 'Determines how hard is to harvest a new block, based on previous blocks.'
@@ -2995,8 +2999,7 @@ components:
             - version
           properties:
             version:
-              type: string
-              description: Entity version.
+              $ref: '#/components/schemas/CosignatureVersion'
             signerPublicKey:
               $ref: '#/components/schemas/PublicKey'
     VrfKeyLinkNetworkPropertiesDTO:
@@ -4572,6 +4575,8 @@ components:
           $ref: '#/components/schemas/Signature'
         signerPublicKey:
           $ref: '#/components/schemas/PublicKey'
+        version:
+          $ref: '#/components/schemas/CosignatureVersion'
     mosaicIds:
       type: object
       properties:
