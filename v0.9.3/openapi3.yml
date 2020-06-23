@@ -1615,6 +1615,11 @@ components:
       type: string
       description: Number of seconds elapsed since the creation of the nemesis block.
       example: 108303181802
+    UInt32:
+      type: integer
+      format: int64
+      description: A number that allows uint 32 values.
+      example: 2222212828
     UnresolvedAddress:
       type: string
       description: |
@@ -1725,7 +1730,7 @@ components:
           $ref: '#/components/schemas/Amount'
           description: Fees paid by the account for this bucket.
         beneficiaryCount:
-          type: integer
+          $ref: '#/components/schemas/UInt32'
           description: Number of times the account has been a beneficiary for this bucket.
         rawScore:
           $ref: '#/components/schemas/Importance'
@@ -1926,11 +1931,11 @@ components:
         - lowestFeeMultiplier
       properties:
         averageFeeMultiplier:
-          type: integer
+          $ref: '#/components/schemas/BlockFeeMultiplier'
           description: Average fee multiplier over the last "numBlocksTransactionFeeStats".
           example: 1
         medianFeeMultiplier:
-          type: integer
+          $ref: '#/components/schemas/BlockFeeMultiplier'
           description: Median fee multiplier over the last "numBlocksTransactionFeeStats".
           example: 1
         highestFeeMultiplier:
@@ -1978,7 +1983,7 @@ components:
         - size
       properties:
         size:
-          type: integer
+          $ref: '#/components/schemas/UInt32'
           description: Entity size in bytes.
     VerifiableEntityDTO:
       type: object
@@ -3214,7 +3219,7 @@ components:
           type: integer
           description: Change in value size in bytes.
         valueSize:
-          type: integer
+          $ref: '#/components/schemas/UInt32'
           description: Value size in bytes.
         value:
           $ref: '#/components/schemas/MetadataValue'
@@ -3314,7 +3319,7 @@ components:
           type: integer
           description: Change in value size in bytes.
         valueSize:
-          type: integer
+          $ref: '#/components/schemas/UInt32'
           description: Value size in bytes.
         value:
           $ref: '#/components/schemas/MetadataValue'
@@ -3344,7 +3349,7 @@ components:
           type: integer
           description: Change in value size in bytes.
         valueSize:
-          type: integer
+          $ref: '#/components/schemas/UInt32'
           description: Value size in bytes.
         value:
           $ref: '#/components/schemas/MetadataValue'
@@ -3395,8 +3400,7 @@ components:
         duration:
           $ref: '#/components/schemas/BlockDuration'
         nonce:
-          type: integer
-          format: int64
+          $ref: '#/components/schemas/UInt32'
           description: Random nonce used to generate the mosaic id.
           example: 0
         flags:
@@ -3434,7 +3438,7 @@ components:
         ownerAddress:
           $ref: '#/components/schemas/Address'
         revision:
-          type: integer
+          $ref: '#/components/schemas/UInt32'
           description: Number of definitions for the same mosaic.
           example: 1
         flags:
@@ -3588,12 +3592,12 @@ components:
         accountAddress:
           $ref: '#/components/schemas/Address'
         minApproval:
-          type: integer
+          $ref: '#/components/schemas/UInt32'
           description: Number of signatures needed to approve a transaction.
           example: 2
         minRemoval:
           description: Number of signatures needed to remove a cosignatory.
-          type: integer
+          $ref: '#/components/schemas/UInt32'
           example: 1
         cosignatoryAddresses:
           type: array
@@ -4092,11 +4096,11 @@ components:
         - secondaryId
       properties:
         primaryId:
-          type: integer
+          $ref: '#/components/schemas/UInt32'
           description: Transaction index within the block.
           example: 1
         secondaryId:
-          type: integer
+          $ref: '#/components/schemas/UInt32'
           description: |
             Transaction index within the aggregate transaction.
             If the transaction is not an embedded transaction, then the secondary id is set to 0.
