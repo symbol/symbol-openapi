@@ -3,5 +3,5 @@ required:
   - size
 properties:
   size:
-    $ref: "../../../schemas/Uint32.yml"
+    $ref: "../../../schemas/UInt32.yml"
     description: Entity size in bytes.
