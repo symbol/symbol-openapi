@@ -1490,6 +1490,10 @@ components:
       type: string
       description: 'Determines how hard is to harvest a new block, based on previous blocks.'
       example: 100000000000000
+    FinalizationPoint:
+      type: string
+      description: Finalization point
+      example: '123456'
     Hash256:
       type: string
       format: hex
@@ -1742,26 +1746,22 @@ components:
         - key
       properties:
         keyType:
-          $ref: '#/components/schemas/KeyTypeEnum'
+          $ref: '#/components/schemas/AccountKeyTypeFlagsEnum'
         key:
           type: string
-    KeyTypeEnum:
+    AccountKeyTypeFlagsEnum:
       type: integer
       enum:
         - 0
         - 1
         - 2
         - 4
-        - 8
-        - 15
       description: |
         Type of account key:
         * 0 - Unset.
-        * 1 - Linked.
-        * 2 - VRF.
-        * 4 - Voting.
-        * 8 - Node.
-        * 15 - All.
+        * 1 - Linked account public key.
+        * 2 - Node public key on which remote is allowed to harvest.
+        * 4 - VRF public key.
     BlockOrderByEnum:
       type: string
       enum:
@@ -3047,10 +3047,16 @@ components:
       type: object
       required:
         - linkedPublicKey
+        - startPoint
+        - endPoint
         - linkAction
       properties:
         linkedPublicKey:
           $ref: '#/components/schemas/VotingKey'
+        startPoint:
+          $ref: '#/components/schemas/FinalizationPoint'
+        endPoint:
+          $ref: '#/components/schemas/FinalizationPoint'
         linkAction:
           $ref: '#/components/schemas/LinkActionEnum'
     VotingKeyLinkTransactionDTO:
@@ -3143,13 +3149,15 @@ components:
     SecretLockTransactionBodyDTO:
       type: object
       required:
+        - recipientAddress
         - secret
         - mosaicId
         - amount
         - duration
         - hashAlgorithm
-        - recipientAddress
       properties:
+        recipientAddress:
+          $ref: '#/components/schemas/UnresolvedAddress'
         secret:
           $ref: '#/components/schemas/Hash256'
         mosaicId:
@@ -3160,8 +3168,6 @@ components:
           $ref: '#/components/schemas/BlockDuration'
         hashAlgorithm:
           $ref: '#/components/schemas/LockHashAlgorithmEnum'
-        recipientAddress:
-          $ref: '#/components/schemas/UnresolvedAddress'
     SecretLockTransactionDTO:
       type: object
       description: 'Transaction to sends mosaics to a recipient if the proof used is revealed. If the duration is reached, the locked funds go back to the sender of the transaction.'
@@ -3171,17 +3177,17 @@ components:
     SecretProofTransactionBodyDTO:
       type: object
       required:
+        - recipientAddress
         - secret
         - hashAlgorithm
-        - recipientAddress
         - proof
       properties:
+        recipientAddress:
+          $ref: '#/components/schemas/UnresolvedAddress'
         secret:
           $ref: '#/components/schemas/Hash256'
         hashAlgorithm:
           $ref: '#/components/schemas/LockHashAlgorithmEnum'
-        recipientAddress:
-          $ref: '#/components/schemas/UnresolvedAddress'
         proof:
           type: string
           description: Original random set of bytes.
