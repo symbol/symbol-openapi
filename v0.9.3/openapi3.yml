@@ -1677,7 +1677,7 @@ components:
         - publicKey
         - publicKeyHeight
         - accountType
-        - supplementalAccountKeys
+        - supplementalPublicKeys
         - activityBuckets
         - mosaics
         - importance
@@ -1693,7 +1693,7 @@ components:
           $ref: '#/components/schemas/Height'
         accountType:
           $ref: '#/components/schemas/AccountTypeEnum'
-        supplementalAccountKeys:
+        supplementalPublicKeys:
           type: array
           items:
             $ref: '#/components/schemas/AccountKeyDTO'
