@@ -389,8 +389,8 @@ paths:
       tags:
         - Transaction routes
       summary: Get transactions information
-      description: Returns transactions information for a given array of transactionIds.
-      operationId: getTransactionsById
+      description: Returns confirmed transactions information for a given array of transactionIds.
+      operationId: getConfirmedTransactions
       requestBody:
         $ref: '#/components/requestBodies/transactionIds'
       responses:
@@ -452,6 +452,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TransactionPage'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
+    post:
+      tags:
+        - Transaction routes
+      summary: Get transactions information
+      description: Returns unconfirmed transactions information for a given array of transactionIds.
+      operationId: getUnconfirmedTransactions
+      requestBody:
+        $ref: '#/components/requestBodies/transactionIds'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                description: Array of transactions information.
+                items:
+                  $ref: '#/components/schemas/TransactionInfoDTO'
+        '400':
+          $ref: '#/components/responses/InvalidContent'
         '409':
           $ref: '#/components/responses/InvalidArgument'
   '/transactions/unconfirmed/{transactionId}':
@@ -559,6 +581,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AnnounceTransactionInfoDTO'
+        '400':
+          $ref: '#/components/responses/InvalidContent'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
+    post:
+      tags:
+        - Transaction routes
+      summary: Get transactions information
+      description: Returns partial transactions information for a given array of transactionIds.
+      operationId: getPartialTransactions
+      requestBody:
+        $ref: '#/components/requestBodies/transactionIds'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                description: Array of transactions information.
+                items:
+                  $ref: '#/components/schemas/TransactionInfoDTO'
         '400':
           $ref: '#/components/responses/InvalidContent'
         '409':
