@@ -7,6 +7,4 @@ properties:
   vrf:
     $ref: "./AccountLinkPublicKeyDTO.yml"
   voting:
-    type: array
-    items:
-      $ref: "./AccountLinkVotingKeyDTO.yml"
+    $ref: "./AccountLinkVotingKeysDTO.yml"

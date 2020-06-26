@@ -79,6 +79,8 @@ ActivityBucketDTO:
   "$ref": "../core/account/schemas/ActivityBucketDTO.yml"
 AccountLinkPublicKeyDTO:
   "$ref": "../core/account/schemas/AccountLinkPublicKeyDTO.yml"
+AccountLinkVotingKeysDTO:
+  "$ref": "../core/account/schemas/AccountLinkVotingKeysDTO.yml"
 AccountLinkVotingKeyDTO:
   "$ref": "../core/account/schemas/AccountLinkVotingKeyDTO.yml"
 SupplementalPublicKeysDTO:
