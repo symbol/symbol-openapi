@@ -1738,9 +1738,7 @@ components:
         accountType:
           $ref: '#/components/schemas/AccountTypeEnum'
         supplementalPublicKeys:
-          type: array
-          items:
-            $ref: '#/components/schemas/AccountKeyDTO'
+          $ref: '#/components/schemas/SupplementalPublicKeysDTO'
         activityBuckets:
           type: array
           items:
@@ -1784,16 +1782,46 @@ components:
         rawScore:
           $ref: '#/components/schemas/Importance'
           description: Importance score for this bucket. This is taken into account to calculate the latest account importance.
-    AccountKeyDTO:
+    AccountLinkPublicKeyDTO:
       type: object
       required:
-        - keyType
-        - key
+        - publicKey
       properties:
-        keyType:
-          $ref: '#/components/schemas/AccountKeyTypeFlagsEnum'
-        key:
+        publicKey:
           type: string
+    AccountLinkVotingKeysDTO:
+      type: object
+      required:
+        - publicKeys
+      properties:
+        publicKeys:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountLinkVotingKeyDTO'
+    AccountLinkVotingKeyDTO:
+      type: object
+      required:
+        - publicKey
+        - startPoint
+        - endPoint
+      properties:
+        publicKey:
+          type: string
+        startPoint:
+          type: string
+        endPoint:
+          type: string
+    SupplementalPublicKeysDTO:
+      type: object
+      properties:
+        linked:
+          $ref: '#/components/schemas/AccountLinkPublicKeyDTO'
+        node:
+          $ref: '#/components/schemas/AccountLinkPublicKeyDTO'
+        vrf:
+          $ref: '#/components/schemas/AccountLinkPublicKeyDTO'
+        voting:
+          $ref: '#/components/schemas/AccountLinkVotingKeysDTO'
     AccountKeyTypeFlagsEnum:
       type: integer
       enum:
