@@ -25,7 +25,7 @@
   get:
     $ref: "./core/chain/routes/getChainScore.yml"
 
-# Core -Network
+# Core - Network
 /network:
   get:
     $ref: "./core/network/routes/getNetworkType.yml"
@@ -62,32 +62,50 @@
 
 # Core - Transaction
 /transactions:
-  get:
-    $ref: "./core/transaction/routes/searchTransactions.yml"
-  post:
-    $ref: "./core/transaction/routes/getTransactionsById.yml"
   put:
     $ref: "./core/transaction/routes/announceTransaction.yml"
-"/transactions/{transactionId}":
+"/transactions/confirmed":
   get:
-    $ref: "./core/transaction/routes/getTransaction.yml"
-"/transactions/{hash}/status":
+    $ref: "./core/transaction/routes/searchConfirmedTransactions.yml"
+  post:
+    $ref: "./core/transaction/routes/getConfirmedTransactions.yml"
+"/transactions/confirmed/{transactionId}":
   get:
-    $ref: "./core/transaction/routes/getTransactionStatus.yml"
-/transactions/statuses:
+    $ref: "./core/transaction/routes/getConfirmedTransaction.yml"
+"/transactions/unconfirmed":
+  get:
+    $ref: "./core/transaction/routes/searchUnconfirmedTransactions.yml"
+  post:
+    $ref: "./core/transaction/routes/getUnconfirmedTransactions.yml"
+"/transactions/unconfirmed/{transactionId}":
+  get:
+    $ref: "./core/transaction/routes/getUnconfirmedTransaction.yml"
+
+# Core - Transaction Status
+/transactionStatus:
   post:
     $ref: "./core/transaction/routes/getTransactionStatuses.yml"
+"/transactionStatus/{hash}":
+  get:
+    $ref: "./core/transaction/routes/getTransactionStatus.yml"
 
 # Plugin - Aggregate
 /transactions/partial:
+  get:
+    $ref: "./core/transaction/routes/searchPartialTransactions.yml"
   put:
     $ref: "./plugins/aggregate/routes/announcePartialTransaction.yml"
+  post:
+    $ref: "./core/transaction/routes/getPartialTransactions.yml"
+"/transactions/partial/{transactionId}":
+  get:
+    $ref: "./core/transaction/routes/getPartialTransaction.yml"
 /transactions/cosignature:
   put:
     $ref: "./plugins/aggregate/routes/announceCosignatureTransaction.yml"
 
 # Plugin - Metadata
-"/metadata/account/{accountId}":
+"/metadata/account/{address}":
   get:
     $ref: "./plugins/metadata/routes/getAccountMetadata.yml"
 "/metadata/mosaic/{mosaicId}":
@@ -96,7 +114,7 @@
 "/metadata/namespace/{namespaceId}":
   get:
     $ref: "./plugins/metadata/routes/getNamespaceMetadata.yml"
-"/metadata/account/{accountId}/key/{key}":
+"/metadata/account/{address}/key/{key}":
   get:
     $ref: "./plugins/metadata/routes/getAccountMetadataByKey.yml"
 "/metadata/mosaic/{mosaicId}/key/{key}":
@@ -105,35 +123,31 @@
 "/metadata/namespace/{namespaceId}/key/{key}":
   get:
     $ref: "./plugins/metadata/routes/getNamespaceMetadataByKey.yml"
-"/metadata/account/{accountId}/key/{key}/sender/{publicKey}":
+"/metadata/account/{address}/key/{key}/sender/{sourceAddress}":
   get:
     $ref: "./plugins/metadata/routes/getAccountMetadataByKeyAndSender.yml"
-"/metadata/mosaic/{mosaicId}/key/{key}/sender/{publicKey}":
+"/metadata/mosaic/{mosaicId}/key/{key}/sender/{sourceAddress}":
   get:
     $ref: "./plugins/metadata/routes/getMosaicMetadataByKeyAndSender.yml"
-"/metadata/namespace/{namespaceId}/key/{key}/sender/{publicKey}":
+"/metadata/namespace/{namespaceId}/key/{key}/sender/{sourceAddress}":
   get:
     $ref: "./plugins/metadata/routes/getNamespaceMetadataByKeyAndSender.yml"
 
 # Plugin - Mosaic
-"/mosaic/{mosaicId}":
+"/mosaics/{mosaicId}":
   get:
     $ref: "./plugins/mosaic/routes/getMosaic.yml"
-/mosaic:
+/mosaics:
+  get:
+    $ref: "./plugins/mosaic/routes/searchMosaics.yml"
   post:
     $ref: "./plugins/mosaic/routes/getMosaics.yml"
-"/account/{accountId}/mosaics":
-  get:
-    $ref: "./plugins/mosaic/routes/getMosaicsFromAccount.yml"
-/account/mosaics:
-  post:
-    $ref: "./plugins/mosaic/routes/getMosaicsFromAccounts.yml"
 
 # Plugin - Multisig
-"/account/{accountId}/multisig":
+"/account/{address}/multisig":
   get:
     $ref: "./plugins/multisig/routes/getAccountMultisig.yml"
-"/account/{accountId}/multisig/graph":
+"/account/{address}/multisig/graph":
   get:
     $ref: "./plugins/multisig/routes/getAccountMultisigGraph.yml"
 
@@ -176,7 +190,7 @@
     $ref: "./plugins/restriction_mosaic/routes/getMosaicGlobalRestriction.yml"
   post:
     $ref: "./plugins/restriction_mosaic/routes/getMosaicAddressRestrictions.yml"
-"/restrictions/mosaic/{mosaicId}/address/{accountId}":
+"/restrictions/mosaic/{mosaicId}/address/{address}":
   get:
     $ref: "./plugins/restriction_mosaic/routes/getMosaicAddressRestriction.yml"
 /restrictions/mosaic:
