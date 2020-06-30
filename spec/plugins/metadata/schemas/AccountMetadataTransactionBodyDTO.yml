@@ -1,20 +1,20 @@
 type: object
 required:
-  - targetPublicKey
+  - targetAddress
   - scopedMetadataKey
   - valueSizeDelta
   - valueSize
   - value
 properties:
-  targetPublicKey:
-    $ref: "../../../schemas/PublicKey.yml"
+  targetAddress:
+    $ref: "../../../schemas/UnresolvedAddress.yml"
   scopedMetadataKey:
     $ref: "../../../schemas/MetadataKey.yml"
   valueSizeDelta:
     type: integer
     description: Change in value size in bytes.
   valueSize:
-    type: integer
+    $ref: "../../../schemas/UInt32.yml"
     description: Value size in bytes.
   value:
     $ref: "../../../schemas/MetadataValue.yml"

@@ -1,4 +1,6 @@
 # path
+address:
+  $ref: './path/address.yml'
 accountIdPath:
   $ref: './path/accountId.yml'
 heightPath:
@@ -13,6 +15,8 @@ publicKeyPath:
   $ref: './path/publicKey.yml'
 receiptHashPath:
   $ref: './path/receiptHash.yml'
+sourceAddressPath:
+  $ref: './path/sourceAddress.yml'
 transactionHashPath:
   $ref: './path/transactionHash.yml'
 transactionIdPath:
@@ -20,12 +24,10 @@ transactionIdPath:
 # query
 addressQuery:
   $ref: './query/address.yml'
-beneficiaryPublicKeyQuery:
-  $ref: './query/beneficiaryPublicKey.yml'
+beneficiaryAddressQuery:
+  $ref: './query/beneficiaryAddress.yml'
 embedded:
   $ref: './query/embedded.yml'
-groupQuery:
-  $ref: './query/group.yml'
 heightQuery:
   $ref: './query/height.yml'
 idQuery:
@@ -48,14 +50,14 @@ recipientAddressQuery:
   $ref: './query/recipientAddress.yml'
 scopedMetadataKeyQuery:
   $ref: './query/scopedMetadataKey.yml'
-senderPublicKeyQuery:
-  $ref: './query/senderPublicKey.yml'
+sourceAddressQuery:
+  $ref: './query/sourceAddress.yml'
 signerPublicKeyQuery:
   $ref: './query/signerPublicKey.yml'
 targetIdQuery:
   $ref: './query/targetId.yml'
-targetPublicKeyQuery:
-  $ref: './query/targetPublicKey.yml'
+targetAddressQuery:
+  $ref: './query/targetAddress.yml'
 transactionTypeQuery:
   $ref: './query/transactionTypes.yml'
 

@@ -4,8 +4,8 @@ summary: Get metadata entries
 description: Returns an array of metadata.
 operationId: searchMetadataEntries
 parameters:
-  - $ref: "../../../parameters/query/senderPublicKey.yml"
-  - $ref: "../../../parameters/query/targetPublicKey.yml"
+  - $ref: "../../../parameters/query/sourceAddress.yml"
+  - $ref: "../../../parameters/query/targetAddress.yml"
   - $ref: "../../../parameters/query/scopedMetadataKey.yml"
   - $ref: "../../../parameters/query/targetId.yml"
   - $ref: "../../../parameters/query/metadataType.yml"
