@@ -9,8 +9,12 @@ BlockDuration:
   "$ref": "./BlockDuration.yml"
 BlockFeeMultiplier:
   "$ref": "./BlockFeeMultiplier.yml"
+CosignatureVersion:
+  "$ref": "./CosignatureVersion.yml"
 Difficulty:
   "$ref": "./Difficulty.yml"
+FinalizationPoint:
+  "$ref": "./FinalizationPoint.yml"
 Hash256:
   "$ref": "./Hash256.yml"
 Height:
@@ -51,6 +55,8 @@ Signature:
   "$ref": "./Signature.yml"
 Timestamp:
   "$ref": "./Timestamp.yml"
+UInt32:
+  "$ref": "./UInt32.yml"
 UnresolvedAddress:
   "$ref": "./UnresolvedAddress.yml"
 UnresolvedMosaicId:
@@ -75,10 +81,16 @@ AccountInfoDTO:
   "$ref": "../core/account/schemas/AccountInfoDTO.yml"
 ActivityBucketDTO:
   "$ref": "../core/account/schemas/ActivityBucketDTO.yml"
-AccountKeyDTO:
-  "$ref": "../core/account/schemas/AccountKeyDTO.yml"
-KeyTypeEnum:
-  "$ref": "../core/account/schemas/KeyTypeEnum.yml"
+AccountLinkPublicKeyDTO:
+  "$ref": "../core/account/schemas/AccountLinkPublicKeyDTO.yml"
+AccountLinkVotingKeysDTO:
+  "$ref": "../core/account/schemas/AccountLinkVotingKeysDTO.yml"
+AccountLinkVotingKeyDTO:
+  "$ref": "../core/account/schemas/AccountLinkVotingKeyDTO.yml"
+SupplementalPublicKeysDTO:
+  "$ref": "../core/account/schemas/SupplementalPublicKeysDTO.yml"
+AccountKeyTypeFlagsEnum:
+  "$ref": "../core/account/schemas/AccountKeyTypeFlagsEnum.yml"
 
 # Core - Block
 BlockOrderByEnum:
