@@ -8,7 +8,6 @@ parameters:
   - $ref: "../../../parameters/query/pageSize.yml"
   - $ref: "../../../parameters/query/pageNumber.yml"
   - $ref: "../../../parameters/query/offset.yml"
-  - $ref: "../../../parameters/query/group.yml"
   - $ref: "../../../parameters/query/order.yml"
 responses:
   "200":

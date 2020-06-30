@@ -52,8 +52,8 @@ receiptTypeQuery:
   $ref: './query/receiptType.yml'
 recipientAddressQuery:
   $ref: './query/recipientAddress.yml'
-senderPublicKey:
-  $ref: './query/senderPublicKey.yml'
+senderAddressQuery:
+  $ref: './query/senderAddress.yml'
 signerPublicKeyQuery:
   $ref: './query/signerPublicKey.yml'
 transactionTypeQuery:
