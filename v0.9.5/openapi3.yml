@@ -951,7 +951,32 @@ paths:
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  '/namespace/{namespaceId}':
+  /namespaces:
+    get:
+      tags:
+        - Namespace routes
+      summary: Get namespaces
+      description: Gets an array of namespaces.
+      operationId: searchNamespaces
+      parameters:
+        - $ref: '#/components/parameters/ownerAddressQuery'
+        - $ref: '#/components/parameters/registrationTypeQuery'
+        - $ref: '#/components/parameters/level0Query'
+        - $ref: '#/components/parameters/aliasTypeQuery'
+        - $ref: '#/components/parameters/pageSizeQuery'
+        - $ref: '#/components/parameters/pageNumberQuery'
+        - $ref: '#/components/parameters/offsetQuery'
+        - $ref: '#/components/parameters/orderQuery'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamespacePage'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
+  '/namespaces/{namespaceId}':
     get:
       tags:
         - Namespace routes
@@ -971,89 +996,7 @@ paths:
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  '/account/{accountId}/namespaces':
-    get:
-      tags:
-        - Namespace routes
-      summary: Get namespaces created by an account
-      description: Gets an array of namespaces for a given account address.
-      operationId: getNamespacesFromAccount
-      parameters:
-        - $ref: '#/components/parameters/accountIdPath'
-        - $ref: '#/components/parameters/pageSizeQuery'
-        - $ref: '#/components/parameters/idQuery'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NamespacesInfoDTO'
-        '404':
-          $ref: '#/components/responses/ResourceNotFound'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  /account/namespaces:
-    post:
-      tags:
-        - Namespace routes
-      summary: Get namespaces for given array of addresses
-      description: Gets namespaces for a given array of addresses.
-      operationId: getNamespacesFromAccounts
-      requestBody:
-        $ref: '#/components/requestBodies/accountIds'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NamespacesInfoDTO'
-        '400':
-          $ref: '#/components/responses/InvalidContent'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  /account/names:
-    post:
-      tags:
-        - Namespace routes
-      summary: Get readable names for a set of accountIds
-      description: Returns friendly names for accounts.
-      operationId: getAccountsNames
-      requestBody:
-        $ref: '#/components/requestBodies/accountIds'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AccountsNamesDTO'
-        '400':
-          $ref: '#/components/responses/InvalidContent'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  /mosaic/names:
-    post:
-      tags:
-        - Namespace routes
-      summary: Get readable names for a set of mosaics
-      description: Returns friendly names for mosaics.
-      operationId: getMosaicsNames
-      requestBody:
-        $ref: '#/components/requestBodies/mosaicIds'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MosaicsNamesDTO'
-        '400':
-          $ref: '#/components/responses/InvalidContent'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  /namespace/names:
+  /namespaces/names:
     post:
       tags:
         - Namespace routes
@@ -1072,6 +1015,46 @@ paths:
                 description: Array of namespace names.
                 items:
                   $ref: '#/components/schemas/NamespaceNameDTO'
+        '400':
+          $ref: '#/components/responses/InvalidContent'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
+  /namespaces/account/names:
+    post:
+      tags:
+        - Namespace routes
+      summary: Get readable names for a set of accountIds
+      description: Returns friendly names for accounts.
+      operationId: getAccountsNames
+      requestBody:
+        $ref: '#/components/requestBodies/addresses'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountsNamesDTO'
+        '400':
+          $ref: '#/components/responses/InvalidContent'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
+  /namespaces/mosaic/names:
+    post:
+      tags:
+        - Namespace routes
+      summary: Get readable names for a set of mosaics
+      description: Returns friendly names for mosaics.
+      operationId: getMosaicsNames
+      requestBody:
+        $ref: '#/components/requestBodies/mosaicIds'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MosaicsNamesDTO'
         '400':
           $ref: '#/components/responses/InvalidContent'
         '409':
@@ -1362,6 +1345,12 @@ components:
         This filter cannot be combined with ``recipientAddress`` and ``signerPublicKey`` query params.
       schema:
         $ref: '#/components/schemas/AddressBase32'
+    aliasTypeQuery:
+      name: aliasType
+      in: query
+      description: Filter by alias type.
+      schema:
+        $ref: '#/components/schemas/AliasTypeEnum'
     beneficiaryAddressQuery:
       name: beneficiaryAddress
       description: Filter by beneficiary address.
@@ -1392,6 +1381,12 @@ components:
         Otherwise, newer elements with respect to the id are returned.
       schema:
         type: string
+    level0Query:
+      name: level0
+      in: query
+      description: Filter by root namespace.
+      schema:
+        $ref: '#/components/schemas/NamespaceId'
     offsetQuery:
       name: offset
       in: query
@@ -1443,6 +1438,12 @@ components:
       description: Address of an account receiving the transaction.
       schema:
         $ref: '#/components/schemas/AddressBase32'
+    registrationTypeQuery:
+      name: registrationType
+      in: query
+      description: Filter by registration type.
+      schema:
+        $ref: '#/components/schemas/NamespaceRegistrationTypeEnum'
     signerPublicKeyQuery:
       name: signerPublicKey
       in: query
@@ -1468,6 +1469,18 @@ components:
           schema:
             $ref: '#/components/schemas/accountIds'
       required: false
+    addresses:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              addresses:
+                type: array
+                description: Array of addresses.
+                items:
+                  $ref: '#/components/schemas/AddressBase32'
+      required: true
     cosignature:
       content:
         application/json:
@@ -3872,9 +3885,13 @@ components:
     NamespaceInfoDTO:
       type: object
       required:
+        - id
         - meta
         - namespace
       properties:
+        id:
+          type: string
+          description: Internal resource identifier.
         meta:
           $ref: '#/components/schemas/NamespaceMetaDTO'
         namespace:
@@ -3985,6 +4002,19 @@ components:
           type: string
           description: Child namespace rental fee.
           example: '100'
+    NamespacePage:
+      type: object
+      required:
+        - data
+        - pagination
+      properties:
+        data:
+          type: array
+          description: Array of namespaces.
+          items:
+            $ref: '#/components/schemas/NamespaceInfoDTO'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     NamespaceRegistrationTransactionBodyDTO:
       type: object
       required:
@@ -4011,16 +4041,6 @@ components:
       allOf:
         - $ref: '#/components/schemas/TransactionDTO'
         - $ref: '#/components/schemas/NamespaceRegistrationTransactionBodyDTO'
-    NamespacesInfoDTO:
-      type: object
-      required:
-        - namespaces
-      properties:
-        namespaces:
-          type: array
-          description: Array of namespaces information.
-          items:
-            $ref: '#/components/schemas/NamespaceInfoDTO'
     ReceiptTypeEnum:
       type: integer
       enum:
