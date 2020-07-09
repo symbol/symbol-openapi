@@ -28,6 +28,8 @@ addressQuery:
   $ref: './query/address.yml'
 mosaicIdQuery:
   $ref: './query/mosaicId.yml'
+aliasTypeQuery:
+  $ref: './query/aliasType.yml'
 beneficiaryAddressQuery:
   $ref: './query/beneficiaryAddress.yml'
 embedded:
@@ -36,6 +38,8 @@ heightQuery:
   $ref: './query/height.yml'
 idQuery:
   $ref: './query/id.yml'
+level0Query:
+  $ref: './query/level0.yml'
 offsetQuery:
   $ref: './query/offset.yml'
 orderQuery:
@@ -52,6 +56,8 @@ pageSizeQuery:
   $ref: './query/pageSize.yml'
 recipientAddressQuery:
   $ref: './query/recipientAddress.yml'
+registrationTypeQuery:
+  $ref: './query/registrationType.yml'
 signerPublicKeyQuery:
   $ref: './query/signerPublicKey.yml'
 transactionTypeQuery:
