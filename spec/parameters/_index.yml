@@ -24,6 +24,8 @@ transactionIdPath:
 # query
 addressQuery:
   $ref: './query/address.yml'
+aliasTypeQuery:
+  $ref: './query/aliasType.yml'
 beneficiaryAddressQuery:
   $ref: './query/beneficiaryAddress.yml'
 embedded:
@@ -34,6 +36,8 @@ idQuery:
   $ref: './query/id.yml'
 metadataType:
   $ref: './query/metadataType.yml'
+level0Query:
+  $ref: './query/level0.yml'
 offsetQuery:
   $ref: './query/offset.yml'
 orderQuery:
@@ -52,6 +56,8 @@ scopedMetadataKeyQuery:
   $ref: './query/scopedMetadataKey.yml'
 sourceAddressQuery:
   $ref: './query/sourceAddress.yml'
+registrationTypeQuery:
+  $ref: './query/registrationType.yml'
 signerPublicKeyQuery:
   $ref: './query/signerPublicKey.yml'
 targetIdQuery:
