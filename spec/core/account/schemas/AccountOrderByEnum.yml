@@ -1,5 +1,4 @@
 type: string
 enum:
   - id
-  - importance
   - balance
