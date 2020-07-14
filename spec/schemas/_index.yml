@@ -506,6 +506,8 @@ TransferTransactionDTO:
 # Request bodies
 accountIds:
   "$ref": "../request_bodies/schemas/accountIds.yml"
+addresses:
+  "$ref": "../request_bodies/schemas/addresses.yml"
 cosignature:
   "$ref": "../request_bodies/schemas/cosignature.yml"
 mosaicIds:
