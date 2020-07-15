@@ -669,40 +669,22 @@ paths:
           $ref: '#/components/responses/InvalidContent'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  '/metadata/account/{address}':
+  /metadata:
     get:
       tags:
         - Metadata routes
-      summary: Get account metadata
-      description: Returns the account metadata given an account id.
-      operationId: getAccountMetadata
+      summary: Get metadata entries
+      description: Returns an array of metadata.
+      operationId: searchMetadataEntries
       parameters:
-        - $ref: '#/components/parameters/address'
+        - $ref: '#/components/parameters/sourceAddressQuery'
+        - $ref: '#/components/parameters/targetAddressQuery'
+        - $ref: '#/components/parameters/scopedMetadataKeyQuery'
+        - $ref: '#/components/parameters/targetIdQuery'
+        - $ref: '#/components/parameters/metadataType'
         - $ref: '#/components/parameters/pageSizeQuery'
-        - $ref: '#/components/parameters/orderQuery'
-        - $ref: '#/components/parameters/idQuery'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MetadataEntriesDTO'
-        '404':
-          $ref: '#/components/responses/ResourceNotFound'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  '/metadata/mosaic/{mosaicId}':
-    get:
-      tags:
-        - Metadata routes
-      summary: Get mosaic metadata
-      description: Returns the mosaic metadata given a mosaic id.
-      operationId: getMosaicMetadata
-      parameters:
-        - $ref: '#/components/parameters/mosaicIdPath'
-        - $ref: '#/components/parameters/pageSizeQuery'
-        - $ref: '#/components/parameters/idQuery'
+        - $ref: '#/components/parameters/pageNumberQuery'
+        - $ref: '#/components/parameters/offsetQuery'
         - $ref: '#/components/parameters/orderQuery'
       responses:
         '200':
@@ -710,161 +692,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MetadataEntriesDTO'
-        '404':
-          $ref: '#/components/responses/ResourceNotFound'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  '/metadata/namespace/{namespaceId}':
-    get:
-      tags:
-        - Metadata routes
-      summary: Get namespace metadata
-      description: Returns the namespace metadata given a namespace id.
-      operationId: getNamespaceMetadata
-      parameters:
-        - $ref: '#/components/parameters/namespaceIdPath'
-        - $ref: '#/components/parameters/pageSizeQuery'
-        - $ref: '#/components/parameters/idQuery'
-        - $ref: '#/components/parameters/orderQuery'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MetadataEntriesDTO'
-        '404':
-          $ref: '#/components/responses/ResourceNotFound'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  '/metadata/account/{address}/key/{key}':
-    get:
-      tags:
-        - Metadata routes
-      summary: Get account metadata
-      description: Returns the account metadata given an account id and a key.
-      operationId: getAccountMetadataByKey
-      parameters:
-        - $ref: '#/components/parameters/address'
-        - $ref: '#/components/parameters/metadataKeyPath'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MetadataEntriesDTO'
-        '404':
-          $ref: '#/components/responses/ResourceNotFound'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  '/metadata/mosaic/{mosaicId}/key/{key}':
-    get:
-      tags:
-        - Metadata routes
-      summary: Get mosaic metadata
-      description: Returns the mosaic metadata given a mosaic id and a key.
-      operationId: getMosaicMetadataByKey
-      parameters:
-        - $ref: '#/components/parameters/mosaicIdPath'
-        - $ref: '#/components/parameters/metadataKeyPath'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MetadataEntriesDTO'
-        '404':
-          $ref: '#/components/responses/ResourceNotFound'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  '/metadata/namespace/{namespaceId}/key/{key}':
-    get:
-      tags:
-        - Metadata routes
-      summary: Get namespace metadata
-      description: Returns the namespace metadata given a namespace id and a key.
-      operationId: getNamespaceMetadataByKey
-      parameters:
-        - $ref: '#/components/parameters/namespaceIdPath'
-        - $ref: '#/components/parameters/metadataKeyPath'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MetadataEntriesDTO'
-        '404':
-          $ref: '#/components/responses/ResourceNotFound'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  '/metadata/account/{address}/key/{key}/sender/{sourceAddress}':
-    get:
-      tags:
-        - Metadata routes
-      summary: Get account metadata
-      description: 'Returns the account metadata given an account id, a key, and a sender.'
-      operationId: getAccountMetadataByKeyAndSender
-      parameters:
-        - $ref: '#/components/parameters/address'
-        - $ref: '#/components/parameters/metadataKeyPath'
-        - $ref: '#/components/parameters/sourceAddressPath'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MetadataDTO'
-        '404':
-          $ref: '#/components/responses/ResourceNotFound'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  '/metadata/mosaic/{mosaicId}/key/{key}/sender/{sourceAddress}':
-    get:
-      tags:
-        - Metadata routes
-      summary: Get mosaic metadata
-      description: 'Returns the mosaic metadata given a mosaic id, a key, and a sender.'
-      operationId: getMosaicMetadataByKeyAndSender
-      parameters:
-        - $ref: '#/components/parameters/mosaicIdPath'
-        - $ref: '#/components/parameters/metadataKeyPath'
-        - $ref: '#/components/parameters/sourceAddressPath'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MetadataDTO'
-        '404':
-          $ref: '#/components/responses/ResourceNotFound'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  '/metadata/namespace/{namespaceId}/key/{key}/sender/{sourceAddress}':
-    get:
-      tags:
-        - Metadata routes
-      summary: Get namespace metadata
-      description: 'Returns the namespace metadata given a namespace id, a key, and a sender.'
-      operationId: getNamespaceMetadataByKeyAndSender
-      parameters:
-        - $ref: '#/components/parameters/namespaceIdPath'
-        - $ref: '#/components/parameters/metadataKeyPath'
-        - $ref: '#/components/parameters/sourceAddressPath'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MetadataDTO'
-        '404':
-          $ref: '#/components/responses/ResourceNotFound'
+                $ref: '#/components/schemas/MetadataPage'
         '409':
           $ref: '#/components/responses/InvalidArgument'
   '/mosaics/{mosaicId}':
@@ -1302,13 +1130,6 @@ components:
       required: true
       schema:
         type: integer
-    metadataKeyPath:
-      name: key
-      in: path
-      description: Metadata key.
-      required: true
-      schema:
-        $ref: '#/components/schemas/MetadataKey'
     mosaicIdPath:
       name: mosaicId
       in: path
@@ -1409,6 +1230,12 @@ components:
         Otherwise, newer elements with respect to the id are returned.
       schema:
         type: string
+    metadataType:
+      name: metadataType
+      in: query
+      description: Filter by metadata type.
+      schema:
+        $ref: '#/components/schemas/MetadataTypeEnum'
     level0Query:
       name: level0
       in: query
@@ -1474,7 +1301,19 @@ components:
     recipientAddressQuery:
       name: recipientAddress
       in: query
-      description: Address of an account receiving the transaction.
+      description: Filter by address of the account receiving the transaction.
+      schema:
+        $ref: '#/components/schemas/AddressBase32'
+    scopedMetadataKeyQuery:
+      name: scopedMetadataKey
+      in: query
+      description: Filter by metadata key.
+      schema:
+        $ref: '#/components/schemas/MetadataKey'
+    sourceAddressQuery:
+      name: sourceAddress
+      in: query
+      description: Filter by address sending the metadata entry.
       schema:
         $ref: '#/components/schemas/AddressBase32'
     registrationTypeQuery:
@@ -1486,9 +1325,23 @@ components:
     signerPublicKeyQuery:
       name: signerPublicKey
       in: query
-      description: Public key of the account signing the entity.
+      description: Filter by public key of the account signing the entity.
       schema:
         $ref: '#/components/schemas/PublicKey'
+    targetIdQuery:
+      name: targetId
+      in: query
+      description: Filter by namespace or mosaic id.
+      schema:
+        type: string
+        format: hex
+        example: 0DC67FBE1CAD29E3
+    targetAddressQuery:
+      name: targetAddress
+      in: query
+      description: Filter by address of the account receiving the metadata entry.
+      schema:
+        $ref: '#/components/schemas/AddressBase32'
     transactionTypeQuery:
       name: type
       in: query
@@ -3409,26 +3262,6 @@ components:
       allOf:
         - $ref: '#/components/schemas/EmbeddedTransactionDTO'
         - $ref: '#/components/schemas/NamespaceMetadataTransactionBodyDTO'
-    MetadataDTO:
-      type: object
-      required:
-        - id
-        - metadataEntry
-      properties:
-        id:
-          type: string
-        metadataEntry:
-          $ref: '#/components/schemas/MetadataEntryDTO'
-    MetadataEntriesDTO:
-      type: object
-      required:
-        - metadataEntries
-      properties:
-        metadataEntries:
-          type: array
-          description: Array of account metadata.
-          items:
-            $ref: '#/components/schemas/MetadataDTO'
     MetadataEntryDTO:
       type: object
       required:
@@ -3457,6 +3290,16 @@ components:
           type: string
           format: hex
           description: Metadata value.
+    MetadataInfoDTO:
+      type: object
+      required:
+        - id
+        - metadataEntry
+      properties:
+        id:
+          type: string
+        metadataEntry:
+          $ref: '#/components/schemas/MetadataEntryDTO'
     MetadataNetworkPropertiesDTO:
       type: object
       properties:
@@ -3464,6 +3307,19 @@ components:
           type: string
           description: Maximum metadata value size.
           example: '1024'
+    MetadataPage:
+      type: object
+      required:
+        - data
+        - pagination
+      properties:
+        data:
+          type: array
+          description: Array of metadata entries.
+          items:
+            $ref: '#/components/schemas/MetadataInfoDTO'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     MosaicMetadataTransactionBodyDTO:
       type: object
       required:
