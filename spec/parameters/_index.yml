@@ -28,6 +28,8 @@ addressQuery:
   $ref: './query/address.yml'
 artifactIdQuery:
   $ref: './query/artifactId.yml'
+mosaicIdQuery:
+  $ref: './query/mosaicId.yml'
 aliasTypeQuery:
   $ref: './query/aliasType.yml'
 beneficiaryAddressQuery:
@@ -44,6 +46,8 @@ offsetQuery:
   $ref: './query/offset.yml'
 orderQuery:
   $ref: './query/order.yml'
+orderByAccountQuery:
+  $ref: './query/orderByAccount.yml'
 ownerAddressQuery:
   $ref: './query/ownerAddress.yml'
 orderByBlockQuery:
