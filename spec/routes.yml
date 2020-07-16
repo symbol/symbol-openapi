@@ -18,6 +18,9 @@
 "/blocks/{height}/transactions/{hash}/merkle":
   get:
     $ref: "./core/block/routes/getMerkleTransaction.yml"
+"/blocks/{height}/statements/{hash}/merkle":
+  get:
+    $ref: "./plugins/receipt/routes/getMerkleReceipts.yml"
 
 # Core - Chain
 /chain/height:
@@ -157,9 +160,6 @@
 "/statements/resolutions/mosaic":
   get:
     $ref: "./plugins/receipt/routes/searchMosaicResolutionStatements.yml"
-"/blocks/{height}/statements/{hash}/merkle":
-  get:
-    $ref: "./plugins/receipt/routes/getMerkleReceipts.yml"
 
 # Plugin - RestrictionAccount
 "/restrictions/account/{accountId}":
