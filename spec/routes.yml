@@ -20,7 +20,7 @@
     $ref: "./core/block/routes/getMerkleTransaction.yml"
 "/blocks/{height}/statements/{hash}/merkle":
   get:
-    $ref: "./plugins/receipt/routes/getMerkleReceipts.yml"
+    $ref: "./core/block/routes/getMerkleReceipts.yml"
 
 # Core - Chain
 /chain/height:
