@@ -162,6 +162,38 @@ paths:
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
+  '/blocks/{height}/statements/{hash}/merkle':
+    get:
+      tags:
+        - Block routes
+      summary: Get the merkle path for a given a receipt statement hash and block
+      description: |
+        Returns the merkle path for a receipt statement or resolution linked to a block.
+        The merkle path is the minimum number of nodes needed to calculate the merkle root.
+
+        Steps to calculate the merkle root:
+        1. proofHash = hash (leaf).
+        2. Concatenate proofHash with the first unprocessed item from the merklePath list as follows:
+        * a) If item.position == left -> proofHash = sha_256(item.hash + proofHash).
+        * b) If item.position == right -> proofHash = sha_256(proofHash+ item.hash).
+        3. Repeat 2. for every item in the merklePath list.
+        4. Compare if the calculated proofHash equals the one recorded in the
+        block header (block.receiptsHash) to verify if the statement was linked with the block.
+      operationId: getMerkleReceipts
+      parameters:
+        - $ref: '#/components/parameters/heightPath'
+        - $ref: '#/components/parameters/receiptHashPath'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MerkleProofInfoDTO'
+        '404':
+          $ref: '#/components/responses/ResourceNotFound'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
   /chain/height:
     get:
       tags:
@@ -909,54 +941,79 @@ paths:
           $ref: '#/components/responses/InvalidContent'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  '/block/{height}/receipts':
+  /statements/transaction:
     get:
       tags:
         - Receipt routes
-      summary: Get receipts from a block
-      description: Returns the receipts linked to a block.
-      operationId: getBlockReceipts
+      summary: Get receipts
+      description: Gets an array of transaction statements.
+      operationId: searchReceipts
       parameters:
-        - $ref: '#/components/parameters/heightPath'
+        - $ref: '#/components/parameters/heightQuery'
+        - $ref: '#/components/parameters/receiptTypeQuery'
+        - $ref: '#/components/parameters/recipientAddressQuery'
+        - $ref: '#/components/parameters/senderAddressQuery'
+        - $ref: '#/components/parameters/targetAddressQuery'
+        - $ref: '#/components/parameters/artifactIdQuery'
+        - $ref: '#/components/parameters/pageSizeQuery'
+        - $ref: '#/components/parameters/pageNumberQuery'
+        - $ref: '#/components/parameters/offsetQuery'
+        - $ref: '#/components/parameters/orderQuery'
       responses:
         '200':
           description: success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StatementsDTO'
+                $ref: '#/components/schemas/TransactionStatementPage'
         '404':
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  '/block/{height}/receipt/{hash}/merkle':
+  /statements/resolutions/address:
     get:
       tags:
         - Receipt routes
-      summary: Get the merkle path for a given a receipt statement hash and block
-      description: |
-        Returns the merkle path for a receipt statement or resolution linked to a block.
-        The merkle path is the minimum number of nodes needed to calculate the merkle root.
-
-        Steps to calculate the merkle root:
-        1. proofHash = hash (leaf).
-        2. Concatenate proofHash with the first unprocessed item from the merklePath list as follows:
-        * a) If item.position == left -> proofHash = sha_256(item.hash + proofHash).
-        * b) If item.position == right -> proofHash = sha_256(proofHash+ item.hash).
-        3. Repeat 2. for every item in the merklePath list.
-        4. Compare if the calculated proofHash equals the one recorded in the
-        block header (block.receiptsHash) to verify if the statement was linked with the block.
-      operationId: getMerkleReceipts
+      summary: Get receipts address resolution statements
+      description: Gets an array of address resolution statements.
+      operationId: searchAddressResolutionStatements
       parameters:
-        - $ref: '#/components/parameters/heightPath'
-        - $ref: '#/components/parameters/receiptHashPath'
+        - $ref: '#/components/parameters/heightQuery'
+        - $ref: '#/components/parameters/pageSizeQuery'
+        - $ref: '#/components/parameters/pageNumberQuery'
+        - $ref: '#/components/parameters/offsetQuery'
+        - $ref: '#/components/parameters/orderQuery'
       responses:
         '200':
           description: success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MerkleProofInfoDTO'
+                $ref: '#/components/schemas/ResolutionStatementPage'
+        '404':
+          $ref: '#/components/responses/ResourceNotFound'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
+  /statements/resolutions/mosaic:
+    get:
+      tags:
+        - Receipt routes
+      summary: Get receipts mosaic resolution statements
+      description: Gets an array of mosaic resolution statements.
+      operationId: searchMosaicResolutionStatements
+      parameters:
+        - $ref: '#/components/parameters/heightQuery'
+        - $ref: '#/components/parameters/pageSizeQuery'
+        - $ref: '#/components/parameters/pageNumberQuery'
+        - $ref: '#/components/parameters/offsetQuery'
+        - $ref: '#/components/parameters/orderQuery'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResolutionStatementPage'
         '404':
           $ref: '#/components/responses/ResourceNotFound'
         '409':
@@ -1188,6 +1245,12 @@ components:
         This filter cannot be combined with ``recipientAddress`` and ``signerPublicKey`` query params.
       schema:
         $ref: '#/components/schemas/AddressBase32'
+    artifactIdQuery:
+      name: artifactId
+      in: query
+      description: Mosaic or namespace identifier
+      schema:
+        type: string
     mosaicIdQuery:
       name: mosaicId
       in: query
@@ -1298,10 +1361,21 @@ components:
         minimum: 10
         maximum: 100
         default: 10
+    receiptTypeQuery:
+      name: receiptType
+      in: query
+      schema:
+        $ref: '#/components/schemas/ReceiptTypeEnum'
     recipientAddressQuery:
       name: recipientAddress
       in: query
       description: Filter by address of the account receiving the transaction.
+      schema:
+        $ref: '#/components/schemas/AddressBase32'
+    senderAddressQuery:
+      name: senderAddress
+      in: query
+      description: Filter by address sending mosaics.
       schema:
         $ref: '#/components/schemas/AddressBase32'
     scopedMetadataKeyQuery:
@@ -1339,7 +1413,7 @@ components:
     targetAddressQuery:
       name: targetAddress
       in: query
-      description: Filter by address of the account receiving the metadata entry.
+      description: Filter by target address.
       schema:
         $ref: '#/components/schemas/AddressBase32'
     transactionTypeQuery:
@@ -4085,7 +4159,7 @@ components:
           anyOf:
             - $ref: '#/components/schemas/Address'
             - $ref: '#/components/schemas/MosaicId'
-    ResolutionStatementBodyDTO:
+    ResolutionStatementDTO:
       type: object
       required:
         - height
@@ -4106,16 +4180,33 @@ components:
             within one block the resolution might change for different sources due to alias related transactions.
           items:
             $ref: '#/components/schemas/ResolutionEntryDTO'
-    ResolutionStatementDTO:
+    ResolutionStatementInfoDTO:
       type: object
+      required:
+        - id
+        - statement
       description: |
         A resolution statement keeps the relation between a namespace alias used in a transaction
         and the real address or mosaicId.
-      required:
-        - statement
       properties:
+        id:
+          type: string
+          description: Internal resource identifier.
         statement:
-          $ref: '#/components/schemas/ResolutionStatementBodyDTO'
+          $ref: '#/components/schemas/ResolutionStatementDTO'
+    ResolutionStatementPage:
+      type: object
+      required:
+        - data
+        - pagination
+      properties:
+        data:
+          type: array
+          description: Array of transaction address resolution statements.
+          items:
+            $ref: '#/components/schemas/ResolutionStatementInfoDTO'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     SourceDTO:
       type: object
       description: Transaction that triggered the receipt.
@@ -4133,30 +4224,7 @@ components:
             Transaction index within the aggregate transaction.
             If the transaction is not an embedded transaction, then the secondary id is set to 0.
           example: 0
-    StatementsDTO:
-      type: object
-      description: Collection of transaction statements and resolutions triggered for the block requested.
-      required:
-        - transactionStatements
-        - addressResolutionStatements
-        - mosaicResolutionStatements
-      properties:
-        transactionStatements:
-          type: array
-          description: Array of transaction statements for the block requested.
-          items:
-            $ref: '#/components/schemas/TransactionStatementDTO'
-        addressResolutionStatements:
-          type: array
-          description: Array of address resolutions for the block requested.
-          items:
-            $ref: '#/components/schemas/ResolutionStatementDTO'
-        mosaicResolutionStatements:
-          type: array
-          description: Array of mosaic resolutions for the block requested.
-          items:
-            $ref: '#/components/schemas/ResolutionStatementDTO'
-    TransactionStatementBodyDTO:
+    TransactionStatementDTO:
       type: object
       required:
         - height
@@ -4177,14 +4245,31 @@ components:
               - $ref: '#/components/schemas/NamespaceExpiryReceiptDTO'
               - $ref: '#/components/schemas/MosaicExpiryReceiptDTO'
               - $ref: '#/components/schemas/InflationReceiptDTO'
-    TransactionStatementDTO:
+    TransactionStatementInfoDTO:
       type: object
-      description: Collection of receipts related to a transaction.
       required:
+        - id
         - statement
+      description: Collection of receipts related to a transaction.
       properties:
+        id:
+          type: string
+          description: Internal resource identifier.
         statement:
-          $ref: '#/components/schemas/TransactionStatementBodyDTO'
+          $ref: '#/components/schemas/TransactionStatementDTO'
+    TransactionStatementPage:
+      type: object
+      required:
+        - data
+        - pagination
+      properties:
+        data:
+          type: array
+          description: Array of transaction statements.
+          items:
+            $ref: '#/components/schemas/TransactionStatementInfoDTO'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     AccountRestrictionFlagsEnum:
       type: integer
       example: 1
