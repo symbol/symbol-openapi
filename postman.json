@@ -1,14 +1,14 @@
 {
     "item": [
         {
-            "id": "c0a2a565-a959-4d3a-8d7d-8d5dd5d54954",
+            "id": "55bc7c91-77ec-42a0-87c5-26be96876dad",
             "name": "accounts",
             "item": [
                 {
-                    "id": "7052ed0f-57e3-4e53-ac0f-1ac64289942a",
-                    "name": "Get accounts",
+                    "id": "a6ef0498-23d3-469f-839f-3fe8c8b28b60",
+                    "name": "Search accounts",
                     "request": {
-                        "name": "Get accounts",
+                        "name": "Search accounts",
                         "description": {
                             "content": "Gets an array of accounts.",
                             "type": "text/plain"
@@ -61,7 +61,7 @@
                     },
                     "response": [
                         {
-                            "id": "b9dc5968-b039-4f36-bfc0-d61569f8e478",
+                            "id": "081b9e66-d8b8-426f-96d7-656092946bec",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -115,7 +115,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "11e6ff03-cac2-4dd2-a68b-c969c6f1530b",
+                            "id": "ab836907-ae1f-4692-9f41-8382d5607ded",
                             "name": "InvalidArgument",
                             "originalRequest": {
                                 "url": {
@@ -172,7 +172,7 @@
                     "event": []
                 },
                 {
-                    "id": "92233cd1-739c-4239-a8fa-e7ec726bb53b",
+                    "id": "90a55c85-efc7-461f-8547-cf45490e51df",
                     "name": "Get accounts information",
                     "request": {
                         "name": "Get accounts information",
@@ -207,7 +207,7 @@
                     },
                     "response": [
                         {
-                            "id": "9410c173-11d0-49d4-aac4-6ea375cb0066",
+                            "id": "a85cd380-ec5d-4983-8eb2-3b8e2b993124",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -236,7 +236,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "9c03db06-4b64-43fd-b5ca-9e11c5ec2644",
+                            "id": "ae29c311-a961-45d7-9f64-cff2d48963bc",
                             "name": "InvalidContent",
                             "originalRequest": {
                                 "url": {
@@ -265,7 +265,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "075ee769-e93f-41a9-9baf-49bcc4c318c8",
+                            "id": "e972b982-842f-4bca-a644-d4a5566e57db",
                             "name": "InvalidArgument",
                             "originalRequest": {
                                 "url": {
@@ -297,7 +297,7 @@
                     "event": []
                 },
                 {
-                    "id": "61dde0c7-8231-43ce-ae86-a8f1ea71e3e4",
+                    "id": "b7683b2d-3663-4ac5-b5af-7955761b3188",
                     "name": "Get account information",
                     "request": {
                         "name": "Get account information",
@@ -330,7 +330,7 @@
                     },
                     "response": [
                         {
-                            "id": "1b1556d7-cb40-4702-a20f-7764c443801d",
+                            "id": "f2aeb7ab-13ca-4ae1-9736-789a343ad767",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -365,7 +365,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "d1298116-2ad9-454f-8102-cd76d6945c6d",
+                            "id": "82215262-ce70-42de-9cac-44cef0f432c3",
                             "name": "ResourceNotFound",
                             "originalRequest": {
                                 "url": {
@@ -400,7 +400,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "5d578c09-eaeb-4a1f-a5d1-e5f73beab648",
+                            "id": "6b45cae1-d7c8-4d33-95af-acb5f6b4388f",
                             "name": "InvalidArgument",
                             "originalRequest": {
                                 "url": {
@@ -441,14 +441,14 @@
             "event": []
         },
         {
-            "id": "a46131e6-a957-40be-adfa-e71db9fb0f89",
+            "id": "a8c5c653-5f07-45cb-8104-06cca7d2c947",
             "name": "blocks",
             "item": [
                 {
-                    "id": "93d37217-a9e4-493a-93d2-a3860bbb53ed",
-                    "name": "Get blocks",
+                    "id": "9daa3f47-7c2a-4927-8f95-1b8d103b9d91",
+                    "name": "Search blocks",
                     "request": {
-                        "name": "Get blocks",
+                        "name": "Search blocks",
                         "description": {
                             "content": "Gets an array of bocks.",
                             "type": "text/plain"
@@ -506,7 +506,7 @@
                     },
                     "response": [
                         {
-                            "id": "b3e11733-ca12-46b7-9b1a-76d36e16ce04",
+                            "id": "b9416f5e-bc73-493e-9489-f2c920c9444e",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -564,7 +564,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "51c40643-4b42-4e48-95cd-966e47769556",
+                            "id": "64baacfd-030e-4766-a114-a093ecc4f8ba",
                             "name": "InvalidArgument",
                             "originalRequest": {
                                 "url": {
@@ -625,11 +625,11 @@
                     "event": []
                 },
                 {
-                    "id": "993ff8c8-ea22-416f-bb8b-e61986fa843b",
+                    "id": "e6eda3c8-d4d7-4f40-bd46-b71c1a0f58c0",
                     "name": "{height}",
                     "item": [
                         {
-                            "id": "abb93b0d-e378-4858-b305-08340347db3b",
+                            "id": "4cca725d-bde0-4eed-bf56-a00fda44d334",
                             "name": "Get block information",
                             "request": {
                                 "name": "Get block information",
@@ -664,7 +664,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "43774b5d-b874-42a9-87dd-a337acb33fce",
+                                    "id": "905b4369-d655-4a68-afe3-0b29ec6f1e31",
                                     "name": "success",
                                     "originalRequest": {
                                         "url": {
@@ -699,7 +699,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "48012d80-c810-4121-9afa-e0b68929db1c",
+                                    "id": "57a2ed0c-2064-4a49-924d-7bba63bbe288",
                                     "name": "ResourceNotFound",
                                     "originalRequest": {
                                         "url": {
@@ -734,7 +734,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "1e0eddf6-78bf-43f6-b3e8-5abc039793cc",
+                                    "id": "416008fd-35af-4e93-be9a-71db980b65af",
                                     "name": "InvalidArgument",
                                     "originalRequest": {
                                         "url": {
@@ -772,7 +772,7 @@
                             "event": []
                         },
                         {
-                            "id": "c7b0dac4-1c44-4c03-96dc-ca7dc12855b4",
+                            "id": "0bc04efb-5c29-4e8e-a9fb-28436f6e2d47",
                             "name": "Get the merkle path for a given a transaction and block",
                             "request": {
                                 "name": "Get the merkle path for a given a transaction and block",
@@ -818,7 +818,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "7317877c-10ef-4262-bf38-cef216879868",
+                                    "id": "85fd97c4-49fc-4169-8203-96e0f9c07a0a",
                                     "name": "success",
                                     "originalRequest": {
                                         "url": {
@@ -860,7 +860,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "48026cb0-49a2-4676-89e2-297ba2ebc93c",
+                                    "id": "04c1ad27-bdab-412f-9c13-0961c94f5d20",
                                     "name": "ResourceNotFound",
                                     "originalRequest": {
                                         "url": {
@@ -902,7 +902,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "914c7703-b562-43e5-b1b9-baa3f86c8ce8",
+                                    "id": "aaee0f6b-5f52-497e-b316-907958105476",
                                     "name": "InvalidArgument",
                                     "originalRequest": {
                                         "url": {
@@ -947,7 +947,7 @@
                             "event": []
                         },
                         {
-                            "id": "21842584-b361-40d3-b6ef-233a99c5348e",
+                            "id": "4b85bca1-8b46-43ae-ab92-ede2d8bbaf22",
                             "name": "Get the merkle path for a given a receipt statement hash and block",
                             "request": {
                                 "name": "Get the merkle path for a given a receipt statement hash and block",
@@ -993,7 +993,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "9ec3f3f3-cba4-47ae-ba69-14144542a777",
+                                    "id": "6eb96478-946b-4630-ae13-48dc7a1b2c47",
                                     "name": "success",
                                     "originalRequest": {
                                         "url": {
@@ -1035,7 +1035,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "ab8df22c-30db-40fd-8600-a0bedaf27f63",
+                                    "id": "023cb993-b672-40ea-89b7-658748a28818",
                                     "name": "ResourceNotFound",
                                     "originalRequest": {
                                         "url": {
@@ -1077,7 +1077,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "6c95282a-9dfd-4806-bebe-2bb5b9574382",
+                                    "id": "dcd1e844-be8e-42fd-9945-ad1958f32cd3",
                                     "name": "InvalidArgument",
                                     "originalRequest": {
                                         "url": {
@@ -1128,11 +1128,11 @@
             "event": []
         },
         {
-            "id": "3e3d2434-cdeb-4f93-a302-609b16fbbd60",
+            "id": "ac692cbf-d2b2-4c17-b6bd-e7022e37b3a1",
             "name": "chain",
             "item": [
                 {
-                    "id": "707b2094-bbd8-436f-b49c-d752e21e176f",
+                    "id": "d51531aa-c162-4bce-925a-3d033d0d588b",
                     "name": "Get the current height of the chain",
                     "request": {
                         "name": "Get the current height of the chain",
@@ -1158,7 +1158,7 @@
                     },
                     "response": [
                         {
-                            "id": "b3bcfec3-07ce-48d9-b6b6-f406ac6517d2",
+                            "id": "c8777b53-161e-4e1f-8e87-7e5a4ccb524b",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -1191,7 +1191,7 @@
                     "event": []
                 },
                 {
-                    "id": "eb1272bb-4ff6-4461-8421-08f0c93d6173",
+                    "id": "f63c1d13-196d-47f2-a550-12cd582fbc21",
                     "name": "Get the current score of the chain",
                     "request": {
                         "name": "Get the current score of the chain",
@@ -1217,7 +1217,7 @@
                     },
                     "response": [
                         {
-                            "id": "c46c6a79-043f-4ffe-879a-21da7466bfbb",
+                            "id": "33276b3c-e475-4c35-862d-627d5c4a54e7",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -1253,11 +1253,11 @@
             "event": []
         },
         {
-            "id": "0d90f90b-8e8f-4b55-87d9-3f83c0aee8c9",
+            "id": "05aae412-5ba6-4cf0-99e9-17a6f7de2b5e",
             "name": "network",
             "item": [
                 {
-                    "id": "c73e6e3c-7357-4706-af89-b48c23ab9a88",
+                    "id": "b469860f-6726-4e78-9faf-914ce2e12a17",
                     "name": "Get the current network type of the chain",
                     "request": {
                         "name": "Get the current network type of the chain",
@@ -1282,7 +1282,7 @@
                     },
                     "response": [
                         {
-                            "id": "cacca72c-f3e8-4b13-abec-75cdb940a0ea",
+                            "id": "4a515bcf-f7a3-4a16-869d-39396c7af139",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -1314,11 +1314,11 @@
                     "event": []
                 },
                 {
-                    "id": "86257429-1626-40f2-bb24-8f1bc687a279",
+                    "id": "ede743a4-ee5f-424e-8a59-424b42c1a84c",
                     "name": "fees",
                     "item": [
                         {
-                            "id": "46bd0cc6-26f7-42c9-ba2a-ad640cf1d58d",
+                            "id": "259b6896-66b7-4be4-aba7-eda66d899c2e",
                             "name": "Get rental fees information",
                             "request": {
                                 "name": "Get rental fees information",
@@ -1345,7 +1345,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "7ceee1a7-9923-4972-8686-6887d1311472",
+                                    "id": "7a06df9d-b09f-4c94-a097-d6c84850c33c",
                                     "name": "success",
                                     "originalRequest": {
                                         "url": {
@@ -1376,7 +1376,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "632717ac-f9f1-4ab6-b118-409aedfd6986",
+                                    "id": "1ffd9ebe-267b-4c44-a8db-62a7b58ae17e",
                                     "name": "InvalidArgument",
                                     "originalRequest": {
                                         "url": {
@@ -1410,7 +1410,7 @@
                             "event": []
                         },
                         {
-                            "id": "a12ef082-c3ff-4d50-be79-ebcf4468af5d",
+                            "id": "c027644d-f326-4e90-badc-35ec3f0631f3",
                             "name": "Get transaction fees information",
                             "request": {
                                 "name": "Get transaction fees information",
@@ -1437,7 +1437,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "5950469c-bfec-4dcd-a03d-089e82ce07e7",
+                                    "id": "6a107580-42b0-4f8d-8e94-295bc0c04f14",
                                     "name": "success",
                                     "originalRequest": {
                                         "url": {
@@ -1474,7 +1474,7 @@
                     "event": []
                 },
                 {
-                    "id": "a75f89fc-c1a5-4d1c-9643-06b6710d67ba",
+                    "id": "be120c38-0001-4bae-bdc6-57577b756915",
                     "name": "Get the network properties",
                     "request": {
                         "name": "Get the network properties",
@@ -1500,7 +1500,7 @@
                     },
                     "response": [
                         {
-                            "id": "a340fb0c-33c3-4208-bdf5-4181170f9d87",
+                            "id": "14a0cd08-5ce6-4b98-8d57-c3bb4af10e51",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -1530,7 +1530,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "20fd8799-1eb4-4f01-a586-18519061a388",
+                            "id": "b3d29201-0213-4129-94d6-64b93b6b6a1e",
                             "name": "InvalidArgument",
                             "originalRequest": {
                                 "url": {
@@ -1566,11 +1566,11 @@
             "event": []
         },
         {
-            "id": "4adb7bf8-e69a-4e39-8e72-6d0c9c0ec31d",
+            "id": "fa6089b3-d9f6-4637-93a1-b3a2eb9ed97e",
             "name": "node",
             "item": [
                 {
-                    "id": "07f5b0ef-8be1-477f-986b-2041b5c3e3c6",
+                    "id": "9dd66b27-da8d-457d-bbf2-05f8e099899f",
                     "name": "Get the node health information",
                     "request": {
                         "name": "Get the node health information",
@@ -1596,7 +1596,7 @@
                     },
                     "response": [
                         {
-                            "id": "22700f24-da7d-498c-9fb7-e04a338c5eae",
+                            "id": "eed10d43-db08-4a0e-8e4f-4a13fdcb46f5",
                             "name": "Both API node and database services are reachable from REST server.",
                             "originalRequest": {
                                 "url": {
@@ -1626,7 +1626,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "a45630fa-a849-4754-9e44-f6fe2ecbb31c",
+                            "id": "60991981-bacf-447d-93e5-c2c8489d0c84",
                             "name": "Either API node or database service is unavailable or unreachable from REST server.",
                             "originalRequest": {
                                 "url": {
@@ -1659,7 +1659,7 @@
                     "event": []
                 },
                 {
-                    "id": "4c5c5db4-0bd9-456c-8cbf-5d8747b36a1e",
+                    "id": "6907d7ca-e212-465f-bce6-e817682283d3",
                     "name": "Get the node information",
                     "request": {
                         "name": "Get the node information",
@@ -1685,7 +1685,7 @@
                     },
                     "response": [
                         {
-                            "id": "30871005-0b0d-45e5-8cf5-96cffe65e851",
+                            "id": "c22849b7-68ff-4774-904e-593a830686a5",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -1718,7 +1718,7 @@
                     "event": []
                 },
                 {
-                    "id": "8575ebeb-9bcf-4168-a571-b024a55c909c",
+                    "id": "0bef984d-fa77-476b-8f3f-e72ef689f24a",
                     "name": "Get peers information",
                     "request": {
                         "name": "Get peers information",
@@ -1744,7 +1744,7 @@
                     },
                     "response": [
                         {
-                            "id": "2ba22297-9abe-4c0e-9700-14b9314af35a",
+                            "id": "8946da10-b33c-4bfe-8a56-d61bc7492b04",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -1777,7 +1777,7 @@
                     "event": []
                 },
                 {
-                    "id": "3bcfb1fc-fb87-4b92-83e0-190de00bd8f3",
+                    "id": "c9c51eb2-95b8-4aeb-9c8f-22ef07e4902c",
                     "name": "Get the storage information of the node",
                     "request": {
                         "name": "Get the storage information of the node",
@@ -1803,7 +1803,7 @@
                     },
                     "response": [
                         {
-                            "id": "a121d6f1-1e3d-4da7-8726-bbf4a19aa414",
+                            "id": "328d8d05-e8d2-4484-90ff-63db5854c583",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -1836,7 +1836,7 @@
                     "event": []
                 },
                 {
-                    "id": "400ed445-a31e-4f6a-8c12-eec947a9a23b",
+                    "id": "e82a95ec-d5fb-4644-af65-ca568d0ee0d5",
                     "name": "Get the node time",
                     "request": {
                         "name": "Get the node time",
@@ -1862,7 +1862,7 @@
                     },
                     "response": [
                         {
-                            "id": "768b3b5b-b356-4b2e-9742-5cd3297715b3",
+                            "id": "054ec48b-95fa-4705-82cb-23702cf87031",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -1895,7 +1895,7 @@
                     "event": []
                 },
                 {
-                    "id": "413de223-2dac-4467-bd68-7cdca53e03ac",
+                    "id": "931d3b43-96f1-426d-8595-cb4c7e2ca250",
                     "name": "Get the version of the running REST component",
                     "request": {
                         "name": "Get the version of the running REST component",
@@ -1921,7 +1921,7 @@
                     },
                     "response": [
                         {
-                            "id": "d2e9b17f-1962-43bf-9ab2-4d179ac0a2f6",
+                            "id": "3a99e0cf-cc05-429f-a9a5-026a870da2af",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -1957,11 +1957,11 @@
             "event": []
         },
         {
-            "id": "06e79160-d38c-4f00-bc02-22d6db83b556",
+            "id": "bef56486-8a09-4e49-b8d6-44d52b9b6f6d",
             "name": "transactions",
             "item": [
                 {
-                    "id": "cd6e0995-841e-4dd0-b7f0-7f6e94175bb8",
+                    "id": "b7464bd4-fefa-472b-a41a-2c62380c0790",
                     "name": "Announce a new transaction",
                     "request": {
                         "name": "Announce a new transaction",
@@ -1996,7 +1996,7 @@
                     },
                     "response": [
                         {
-                            "id": "4cc4eacf-313b-4bc1-aa70-8001a08b6846",
+                            "id": "73130790-ce01-4e93-9cbc-1b4d89016d7d",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -2025,7 +2025,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "436698e3-d7c9-4ce7-93db-c0e334c0ddcf",
+                            "id": "77a6f64f-2607-46f5-bc71-acd99d4d5d70",
                             "name": "InvalidContent",
                             "originalRequest": {
                                 "url": {
@@ -2054,7 +2054,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "e20e4a98-bfca-4b89-a82a-4cfbd8228ed1",
+                            "id": "9552866d-df9b-4286-93f4-36fcf5b24d52",
                             "name": "InvalidArgument",
                             "originalRequest": {
                                 "url": {
@@ -2086,14 +2086,14 @@
                     "event": []
                 },
                 {
-                    "id": "a1d1b8a5-ac37-4afb-8a78-487993fec292",
+                    "id": "fe98eeb7-a1cc-4961-94d3-bf589d0eb544",
                     "name": "confirmed",
                     "item": [
                         {
-                            "id": "31695beb-a228-487e-ae25-f114b945c93e",
-                            "name": "Get transactions",
+                            "id": "d1303108-36b9-4422-93ff-bc7408a103e9",
+                            "name": "Search confirmed transactions",
                             "request": {
-                                "name": "Get transactions",
+                                "name": "Search confirmed transactions",
                                 "description": {
                                     "content": "Returns an array of confirmed transactions.",
                                     "type": "text/plain"
@@ -2172,7 +2172,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "5cf45731-8f8a-47e3-8110-ad6f705f0e87",
+                                    "id": "c8b5df42-db39-4534-b506-74d07e5dd321",
                                     "name": "success",
                                     "originalRequest": {
                                         "url": {
@@ -2247,7 +2247,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "67f1fb1e-f873-4066-a3ca-dcb564317e3d",
+                                    "id": "e78ad53d-cafd-4cce-9e50-da2a32794aec",
                                     "name": "InvalidArgument",
                                     "originalRequest": {
                                         "url": {
@@ -2325,10 +2325,10 @@
                             "event": []
                         },
                         {
-                            "id": "389120c4-4e09-4727-bcf5-ecbe00aaba52",
-                            "name": "Get transactions information",
+                            "id": "c6bc9026-a55b-4887-907c-5b01420b4da9",
+                            "name": "Get confirmed trasactions information",
                             "request": {
-                                "name": "Get transactions information",
+                                "name": "Get confirmed trasactions information",
                                 "description": {
                                     "content": "Returns confirmed transactions information for a given array of transactionIds.",
                                     "type": "text/plain"
@@ -2361,7 +2361,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "20576fd3-dff1-4fd1-8d2a-7dd6b2167b9b",
+                                    "id": "05b96104-c24c-4b4c-a019-ae685a5d803e",
                                     "name": "success",
                                     "originalRequest": {
                                         "url": {
@@ -2391,7 +2391,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "eaf28352-e020-4a33-90f2-9cb2fa3f7406",
+                                    "id": "ed049853-eac9-4c5b-9754-694ec56c5076",
                                     "name": "InvalidContent",
                                     "originalRequest": {
                                         "url": {
@@ -2421,7 +2421,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "aa3b8090-13eb-4bc6-a8f2-95a5e805433f",
+                                    "id": "229c528e-a8d9-414a-9a93-b286ebd219f0",
                                     "name": "InvalidArgument",
                                     "originalRequest": {
                                         "url": {
@@ -2454,10 +2454,10 @@
                             "event": []
                         },
                         {
-                            "id": "f1ef17a5-3bed-48a3-97d3-437fe84f70a0",
-                            "name": "Get transaction information",
+                            "id": "b1de69f0-fa17-4262-b5a2-9ef4bee99d3c",
+                            "name": "Get confirmed transaction information",
                             "request": {
-                                "name": "Get transaction information",
+                                "name": "Get confirmed transaction information",
                                 "description": {
                                     "content": "Returns confirmed transaction information given a transactionId or hash.",
                                     "type": "text/plain"
@@ -2488,7 +2488,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "3ef1db14-dac4-4cb8-b10c-63247603380b",
+                                    "id": "7e5e72c5-e15c-428c-9422-9b5add98ac49",
                                     "name": "success",
                                     "originalRequest": {
                                         "url": {
@@ -2524,7 +2524,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "7bbb65f1-fc1f-45dc-92f7-e0f93ce875c7",
+                                    "id": "ffa4bdaa-201d-465d-bef5-e379ae05766b",
                                     "name": "ResourceNotFound",
                                     "originalRequest": {
                                         "url": {
@@ -2560,7 +2560,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "766f3f4e-0790-4e37-8d62-e2659d99b6e8",
+                                    "id": "52f8de93-3f7c-45a2-8265-3734493445eb",
                                     "name": "InvalidArgument",
                                     "originalRequest": {
                                         "url": {
@@ -2602,14 +2602,14 @@
                     "event": []
                 },
                 {
-                    "id": "4c0dadcc-599a-4c04-bac6-2a289316233e",
+                    "id": "7e7c73ed-60db-49b5-8cf1-191a5f62a001",
                     "name": "unconfirmed",
                     "item": [
                         {
-                            "id": "35fa3448-021f-4d02-9c0b-16de6abd6ae5",
-                            "name": "Get transactions",
+                            "id": "877ea1a3-03cb-4416-8260-0105fd0f8053",
+                            "name": "Search unconfirmed transactions",
                             "request": {
-                                "name": "Get transactions",
+                                "name": "Search unconfirmed transactions",
                                 "description": {
                                     "content": "Returns an array of unconfirmed transactions.",
                                     "type": "text/plain"
@@ -2688,7 +2688,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "53bc0c20-b76f-4f60-8172-753f1f4942c6",
+                                    "id": "28fb4784-bcbb-4784-9d0e-6bf8872bc143",
                                     "name": "success",
                                     "originalRequest": {
                                         "url": {
@@ -2763,7 +2763,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "ca56fc59-b027-451c-9cdc-47d5e5d7d1cd",
+                                    "id": "4bda0d11-98db-47b9-aa7d-525400adf636",
                                     "name": "InvalidArgument",
                                     "originalRequest": {
                                         "url": {
@@ -2841,10 +2841,10 @@
                             "event": []
                         },
                         {
-                            "id": "fadb7c7f-3e77-4211-8dbe-d468864ea2da",
-                            "name": "Get transactions information",
+                            "id": "757b81c2-19d0-4c1c-8e7e-d8c5b5cf5a61",
+                            "name": "Get unconfirmed trasactions information",
                             "request": {
-                                "name": "Get transactions information",
+                                "name": "Get unconfirmed trasactions information",
                                 "description": {
                                     "content": "Returns unconfirmed transactions information for a given array of transactionIds.",
                                     "type": "text/plain"
@@ -2877,7 +2877,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "e41a2222-5828-4cf6-8418-37a50627c044",
+                                    "id": "bdbbd482-400b-47ea-bd0d-751ddbc02a84",
                                     "name": "success",
                                     "originalRequest": {
                                         "url": {
@@ -2907,7 +2907,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "d2c0b303-9176-46cf-a9cf-534d18684845",
+                                    "id": "88bd67cc-6126-46f3-98ba-2908028570cf",
                                     "name": "InvalidContent",
                                     "originalRequest": {
                                         "url": {
@@ -2937,7 +2937,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "90d6d6d3-e9e3-4481-b01a-7bda01a2c6e2",
+                                    "id": "e4482578-b833-4297-9ac1-e0bf33ea9e57",
                                     "name": "InvalidArgument",
                                     "originalRequest": {
                                         "url": {
@@ -2970,10 +2970,10 @@
                             "event": []
                         },
                         {
-                            "id": "aab53143-9968-4e05-a968-bfc8e75212a3",
-                            "name": "Get transaction information",
+                            "id": "4d3e3c0c-dda3-41ec-94c7-4ec27cb09f45",
+                            "name": "Get unconfirmed transaction information",
                             "request": {
-                                "name": "Get transaction information",
+                                "name": "Get unconfirmed transaction information",
                                 "description": {
                                     "content": "Returns unconfirmed transaction information given a transactionId or hash.",
                                     "type": "text/plain"
@@ -3004,7 +3004,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "a3ba033c-b770-44ed-81ea-d51e2d991a49",
+                                    "id": "db2825b8-38be-46c5-b5ff-a37979ee71b2",
                                     "name": "success",
                                     "originalRequest": {
                                         "url": {
@@ -3040,7 +3040,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "346acaa0-61fc-4b1c-a603-150392c7dbde",
+                                    "id": "5ec3b912-e356-4d46-8310-c58eda384fd1",
                                     "name": "ResourceNotFound",
                                     "originalRequest": {
                                         "url": {
@@ -3076,7 +3076,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "435c7298-a708-4281-aa24-a873afbabab3",
+                                    "id": "147a98e0-9f5b-47ad-9107-6095d377ce31",
                                     "name": "InvalidArgument",
                                     "originalRequest": {
                                         "url": {
@@ -3118,14 +3118,14 @@
                     "event": []
                 },
                 {
-                    "id": "63a8821b-c12b-4c54-a97d-071895443f80",
+                    "id": "4093e53d-deaf-4e07-aea9-affde4df7932",
                     "name": "partial",
                     "item": [
                         {
-                            "id": "f4aaa8b5-c7d4-46bb-b242-dd20d7d3604e",
-                            "name": "Get transactions",
+                            "id": "2986882f-d98b-4dba-9200-260d15ce95cd",
+                            "name": "Search partial transactions",
                             "request": {
-                                "name": "Get transactions",
+                                "name": "Search partial transactions",
                                 "description": {
                                     "content": "Returns an array of partial transactions.",
                                     "type": "text/plain"
@@ -3204,7 +3204,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "e17fb572-04dc-4d1b-b35a-703b3e435fa9",
+                                    "id": "820128bf-a68d-44b2-b6b7-b2856b869265",
                                     "name": "success",
                                     "originalRequest": {
                                         "url": {
@@ -3279,7 +3279,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "44ee5fff-a754-42d4-97e4-44dc94ed417c",
+                                    "id": "20fa8157-0a0f-4ab9-a09b-88de1b0445ef",
                                     "name": "InvalidArgument",
                                     "originalRequest": {
                                         "url": {
@@ -3357,7 +3357,7 @@
                             "event": []
                         },
                         {
-                            "id": "7beb95ec-104f-4f37-a797-7f8df3823986",
+                            "id": "b9952bfc-fa5e-4339-bcc6-909ac0b1cdf7",
                             "name": "Announce an aggregate bonded transaction",
                             "request": {
                                 "name": "Announce an aggregate bonded transaction",
@@ -3393,7 +3393,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "149f0abb-f419-430e-8c2f-93d92f815eba",
+                                    "id": "eae3bffe-d374-4878-b9eb-bc75f1e166eb",
                                     "name": "success",
                                     "originalRequest": {
                                         "url": {
@@ -3423,7 +3423,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "510ed3b7-769c-42b6-aa74-07fa20d23f14",
+                                    "id": "becf5c2f-b544-4498-9bf8-dfebd124fd2a",
                                     "name": "InvalidContent",
                                     "originalRequest": {
                                         "url": {
@@ -3453,7 +3453,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "a130d399-c537-4e66-99e5-61b0c95af623",
+                                    "id": "1cf998c9-becc-43f5-b884-b17b6785e2d1",
                                     "name": "InvalidArgument",
                                     "originalRequest": {
                                         "url": {
@@ -3486,10 +3486,10 @@
                             "event": []
                         },
                         {
-                            "id": "f12bd0b6-a36e-4e7d-b477-9d089c15d946",
-                            "name": "Get transactions information",
+                            "id": "bdee8c81-edc3-4124-a919-55093553008c",
+                            "name": "Get partial trasactions information",
                             "request": {
-                                "name": "Get transactions information",
+                                "name": "Get partial trasactions information",
                                 "description": {
                                     "content": "Returns partial transactions information for a given array of transactionIds.",
                                     "type": "text/plain"
@@ -3522,7 +3522,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "1db971c1-8aa4-41f0-a01c-07688dda9005",
+                                    "id": "690e68a0-6e84-421a-8584-b30bda15829e",
                                     "name": "success",
                                     "originalRequest": {
                                         "url": {
@@ -3552,7 +3552,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "872d92ff-7c4d-456b-823d-9594da2c0631",
+                                    "id": "812fbae7-5c0e-49eb-ba5e-04d3176b75cf",
                                     "name": "InvalidContent",
                                     "originalRequest": {
                                         "url": {
@@ -3582,7 +3582,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "023780b6-2264-40d9-99e3-97b95b102acc",
+                                    "id": "22208680-81f0-4a83-b9c7-b525e1f95bdd",
                                     "name": "InvalidArgument",
                                     "originalRequest": {
                                         "url": {
@@ -3615,10 +3615,10 @@
                             "event": []
                         },
                         {
-                            "id": "d5e2b9b5-02ed-4b66-8c23-b043dab9f5e7",
-                            "name": "Get transaction information",
+                            "id": "5310b04d-ccb8-4c2a-a820-09976c03c635",
+                            "name": "Get partial transaction information",
                             "request": {
-                                "name": "Get transaction information",
+                                "name": "Get partial transaction information",
                                 "description": {
                                     "content": "Returns partial transaction information given a transactionId or hash.",
                                     "type": "text/plain"
@@ -3649,7 +3649,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "69a47b0b-e5cb-49d7-ad25-d20fe3c66cc1",
+                                    "id": "a88b7092-302a-4625-b9e3-1dcd3f5832ae",
                                     "name": "success",
                                     "originalRequest": {
                                         "url": {
@@ -3685,7 +3685,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "16ee3194-9cb4-408a-8044-cea0bee65bbb",
+                                    "id": "f5159238-7da8-4105-b374-42f2df942594",
                                     "name": "ResourceNotFound",
                                     "originalRequest": {
                                         "url": {
@@ -3721,7 +3721,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "3d188056-2ab9-44b5-ac73-d7cbab69ed4f",
+                                    "id": "ad7206d0-5a1e-4f77-b2d1-afc21b777e24",
                                     "name": "InvalidArgument",
                                     "originalRequest": {
                                         "url": {
@@ -3763,7 +3763,7 @@
                     "event": []
                 },
                 {
-                    "id": "48c8b362-9dee-40b0-9795-78b6883ca0ba",
+                    "id": "9dece2cd-647b-4c0b-9c21-4a8a14d9c080",
                     "name": "Announce a cosignature transaction",
                     "request": {
                         "name": "Announce a cosignature transaction",
@@ -3799,7 +3799,7 @@
                     },
                     "response": [
                         {
-                            "id": "bd39ed63-cf11-4ff0-b9b3-53e3446b493f",
+                            "id": "2a968e8e-8d9a-4fa8-84b9-6d273a53b189",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -3829,7 +3829,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "aa5d62a8-b095-47e1-b108-9e4ff7eb29bc",
+                            "id": "f016530c-b514-49e3-baa4-91258b311878",
                             "name": "InvalidContent",
                             "originalRequest": {
                                 "url": {
@@ -3859,7 +3859,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "2023dad8-6e87-44ac-959b-e4bc0cbe4032",
+                            "id": "c9969026-65d7-4634-bb99-df4e288cb01d",
                             "name": "InvalidArgument",
                             "originalRequest": {
                                 "url": {
@@ -3895,11 +3895,11 @@
             "event": []
         },
         {
-            "id": "1a6853e0-5aca-4fec-8d97-3c95b9883c9b",
+            "id": "cbbab3ad-226c-4843-84c1-b2789c96ba7d",
             "name": "transaction Status",
             "item": [
                 {
-                    "id": "8ddc7a68-b058-4a6d-8ead-132935898427",
+                    "id": "4cf3f3b5-baba-4c23-88a6-b093398fa5ef",
                     "name": "Get transaction statuses",
                     "request": {
                         "name": "Get transaction statuses",
@@ -3934,7 +3934,7 @@
                     },
                     "response": [
                         {
-                            "id": "31a6fbd0-64d6-455b-9764-dfe7a2e12057",
+                            "id": "75b14e40-8542-401a-b2ec-8e9a2ed0b64b",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -3963,7 +3963,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "8047600b-e659-4d8b-89e6-4d293075af7f",
+                            "id": "341527bf-e586-4d5b-b64e-d386d50c2725",
                             "name": "InvalidContent",
                             "originalRequest": {
                                 "url": {
@@ -3992,7 +3992,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "bc4fa5c0-d990-47d7-8218-2ca4f5d2dde1",
+                            "id": "20995fc4-a076-4732-996a-f27655004907",
                             "name": "InvalidArgument",
                             "originalRequest": {
                                 "url": {
@@ -4024,7 +4024,7 @@
                     "event": []
                 },
                 {
-                    "id": "19fa54c4-562e-4981-bc1c-abc3e178cf09",
+                    "id": "f772094a-bb5a-421a-9e12-b4b1cc330584",
                     "name": "Get transaction status",
                     "request": {
                         "name": "Get transaction status",
@@ -4059,7 +4059,7 @@
                     },
                     "response": [
                         {
-                            "id": "4f48e0d9-ad3d-4191-aa91-dd3ba4fa6c06",
+                            "id": "a2e638a3-ad2f-464e-b25c-3250256594f7",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -4094,7 +4094,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "f6114016-4391-4770-b9ff-cb2558fb788f",
+                            "id": "0cc951d0-b680-414b-aa95-b86dcc6ac981",
                             "name": "ResourceNotFound",
                             "originalRequest": {
                                 "url": {
@@ -4129,7 +4129,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "9200338e-9806-409a-a36d-312ae815d452",
+                            "id": "54e077d9-cf7d-4ef6-bac3-bffd15e84a07",
                             "name": "InvalidArgument",
                             "originalRequest": {
                                 "url": {
@@ -4170,10 +4170,10 @@
             "event": []
         },
         {
-            "id": "b6228279-00a5-4414-9bb8-ce8d1fa0a5ec",
-            "name": "Get metadata entries",
+            "id": "349ff761-7c12-44b3-8c1b-8a93364d8c78",
+            "name": "Search metadata entries",
             "request": {
-                "name": "Get metadata entries",
+                "name": "Search metadata entries",
                 "description": {
                     "content": "Returns an array of metadata.",
                     "type": "text/plain"
@@ -4241,7 +4241,7 @@
             },
             "response": [
                 {
-                    "id": "4a18bbc4-e855-4f39-aa06-7cd983940008",
+                    "id": "736b834f-006a-4914-a13b-4e835911d735",
                     "name": "success",
                     "originalRequest": {
                         "url": {
@@ -4307,7 +4307,7 @@
                     "_postman_previewlanguage": "json"
                 },
                 {
-                    "id": "754d3553-cfd3-4bb4-a957-d5fb81d228be",
+                    "id": "f56bfb84-1c6a-41d2-b1e6-a52c8eaedeb3",
                     "name": "InvalidArgument",
                     "originalRequest": {
                         "url": {
@@ -4376,14 +4376,14 @@
             "event": []
         },
         {
-            "id": "4232da57-af39-4115-a432-dc4404ce7470",
+            "id": "af7b40a7-710c-4436-9c9f-356872283178",
             "name": "mosaics",
             "item": [
                 {
-                    "id": "18e396af-9ba5-4ce7-96d6-d81d6553f925",
-                    "name": "Get mosaics",
+                    "id": "cd73314f-26dd-495f-924e-f73f10153e4b",
+                    "name": "Search mosaics",
                     "request": {
-                        "name": "Get mosaics",
+                        "name": "Search mosaics",
                         "description": {
                             "content": "Gets an array of mosaics.",
                             "type": "text/plain"
@@ -4431,7 +4431,7 @@
                     },
                     "response": [
                         {
-                            "id": "89ac63dd-24d4-40ee-aa45-e14f1a0cbe72",
+                            "id": "c8a6e7ac-a59a-4a00-9e5d-fa1617869618",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -4481,7 +4481,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "6aa6b87a-f2fb-4068-84ec-d5194996a79f",
+                            "id": "207eecd6-8ec3-41d3-af17-17b004ef9aae",
                             "name": "InvalidArgument",
                             "originalRequest": {
                                 "url": {
@@ -4534,7 +4534,7 @@
                     "event": []
                 },
                 {
-                    "id": "6f78d273-1c70-433e-b635-17eae58d27e9",
+                    "id": "5e9b2287-6537-4297-86e0-dabad89dde8a",
                     "name": "Get mosaics information for an array of mosaics",
                     "request": {
                         "name": "Get mosaics information for an array of mosaics",
@@ -4569,7 +4569,7 @@
                     },
                     "response": [
                         {
-                            "id": "7672a036-12e7-4668-8fb8-46c0d35c0eed",
+                            "id": "2a8fbdb7-a78e-40b4-bd28-9a22fc96a0ee",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -4598,7 +4598,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "8cbb800c-fc1b-461d-a9db-828a84678773",
+                            "id": "199a9109-2e76-4bbe-8b3e-0a478197af37",
                             "name": "InvalidContent",
                             "originalRequest": {
                                 "url": {
@@ -4627,7 +4627,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "976d1a0a-6281-4ef9-823b-8fdebdd43a31",
+                            "id": "7ec89ce5-2469-4b42-957d-802df8689f9e",
                             "name": "InvalidArgument",
                             "originalRequest": {
                                 "url": {
@@ -4659,7 +4659,7 @@
                     "event": []
                 },
                 {
-                    "id": "e9ea9b6e-e14e-4400-be7f-eda205f8d6eb",
+                    "id": "d9ebfee9-782f-4f6e-a753-9006691267a1",
                     "name": "Get mosaic information",
                     "request": {
                         "name": "Get mosaic information",
@@ -4694,7 +4694,7 @@
                     },
                     "response": [
                         {
-                            "id": "5a12e13f-9df8-4d6b-a7f0-4da7b1f64f32",
+                            "id": "1bbc3d1c-f068-4e93-9b01-13dbe1324665",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -4729,7 +4729,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "8b10af03-8e04-42da-b081-7427aac64a8c",
+                            "id": "21b8e76f-12fb-4785-9c6d-77cb7ce96b25",
                             "name": "ResourceNotFound",
                             "originalRequest": {
                                 "url": {
@@ -4764,7 +4764,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "a510c31d-39ba-4382-a163-3d8a6d3bf7ff",
+                            "id": "d34c6b87-0b2f-41fa-ae5a-221582849148",
                             "name": "InvalidArgument",
                             "originalRequest": {
                                 "url": {
@@ -4805,11 +4805,11 @@
             "event": []
         },
         {
-            "id": "b5e446d9-3087-4d34-8812-efe4ea07cd72",
+            "id": "c5e48694-010f-4b6f-913f-b4e2a6de9118",
             "name": "account/{address}/multisig",
             "item": [
                 {
-                    "id": "9d2c8478-ee3f-4504-a094-9a420ef483bd",
+                    "id": "ad0543a0-5abb-41b7-9028-3ac4666d6f5f",
                     "name": "Get multisig account information",
                     "request": {
                         "name": "Get multisig account information",
@@ -4845,7 +4845,7 @@
                     },
                     "response": [
                         {
-                            "id": "8aec4dcd-8d96-4531-ac2e-5eaf84bf24d3",
+                            "id": "31fa3601-aaa9-4471-97e0-d97cd6eacd34",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -4881,7 +4881,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "1d79d8f0-0148-4c03-8c77-5a670017fbbc",
+                            "id": "87ca4306-7430-4b12-beb8-4815aa2542a8",
                             "name": "ResourceNotFound",
                             "originalRequest": {
                                 "url": {
@@ -4917,7 +4917,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "b603cc83-76b2-434b-bf0d-fae8cd56f3a3",
+                            "id": "1e0ff55c-31dd-4f1a-8938-bc699b5be73a",
                             "name": "InvalidArgument",
                             "originalRequest": {
                                 "url": {
@@ -4956,7 +4956,7 @@
                     "event": []
                 },
                 {
-                    "id": "1a51ed4a-9aae-4cc7-8199-ac423b0352bc",
+                    "id": "bcd13ca1-54d8-46c4-9b01-5e16ef3c703b",
                     "name": "Get multisig account graph information",
                     "request": {
                         "name": "Get multisig account graph information",
@@ -4993,7 +4993,7 @@
                     },
                     "response": [
                         {
-                            "id": "267c15c3-516e-42ae-b884-95aee8e7f47d",
+                            "id": "e568e144-3597-485b-8efe-d68760625c27",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -5030,7 +5030,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "62b88f3c-7af5-4899-8417-4f99ada2e1d1",
+                            "id": "d537b416-dbc4-4411-adf9-4a1ba3ac3256",
                             "name": "ResourceNotFound",
                             "originalRequest": {
                                 "url": {
@@ -5067,7 +5067,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "7d3ea022-674e-42dd-b8af-b4198126c639",
+                            "id": "d4f69d84-88bf-40d5-bf75-7831ce9e347a",
                             "name": "InvalidArgument",
                             "originalRequest": {
                                 "url": {
@@ -5110,14 +5110,14 @@
             "event": []
         },
         {
-            "id": "cb7e3889-1d81-4f83-a476-9f65c10dbd68",
+            "id": "588ea433-834c-479d-bf72-d58afad844e8",
             "name": "namespaces",
             "item": [
                 {
-                    "id": "25104dcc-6d63-49f0-bf88-fd65229a516c",
-                    "name": "Get namespaces",
+                    "id": "27c97dc5-e507-4e22-a264-ff43d06eb422",
+                    "name": "Search namespaces",
                     "request": {
-                        "name": "Get namespaces",
+                        "name": "Search namespaces",
                         "description": {
                             "content": "Gets an array of namespaces.",
                             "type": "text/plain"
@@ -5180,7 +5180,7 @@
                     },
                     "response": [
                         {
-                            "id": "712d19fe-e067-4f4f-ad29-37e080dbd74e",
+                            "id": "39e5e53b-facc-499e-94f2-38ddc9f77d39",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -5242,7 +5242,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "76fa0208-c379-4a89-8cd9-8420cd9c4697",
+                            "id": "fc9a503c-0ea0-4cfc-a885-d05f30caf137",
                             "name": "InvalidArgument",
                             "originalRequest": {
                                 "url": {
@@ -5307,7 +5307,7 @@
                     "event": []
                 },
                 {
-                    "id": "0a5c56e0-a868-4f1d-a173-d06f26c298ea",
+                    "id": "3848827a-6760-4781-ac5b-375f9a7e43b2",
                     "name": "Get namespace information",
                     "request": {
                         "name": "Get namespace information",
@@ -5342,7 +5342,7 @@
                     },
                     "response": [
                         {
-                            "id": "cf49a65f-4dfc-4b7d-8636-5cb7b85d5103",
+                            "id": "bd6d6181-e978-48e6-811c-74e5ee5b7a3c",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -5377,7 +5377,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "1a9ede5c-d387-4aa8-b55a-a86607537709",
+                            "id": "dfe92efc-8238-42bf-8d47-1ff56ccd10ea",
                             "name": "ResourceNotFound",
                             "originalRequest": {
                                 "url": {
@@ -5412,7 +5412,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "f8f5ddb8-b1d9-4ea1-8e77-377414b74134",
+                            "id": "4d299c9c-a4b7-4b1b-948e-a15779840b73",
                             "name": "InvalidArgument",
                             "originalRequest": {
                                 "url": {
@@ -5450,7 +5450,7 @@
                     "event": []
                 },
                 {
-                    "id": "f7eb2dff-b6bf-444b-be6b-7d049208935a",
+                    "id": "57551a4b-9632-4043-9124-dcc8975fc0dd",
                     "name": "Get readable names for a set of namespaces",
                     "request": {
                         "name": "Get readable names for a set of namespaces",
@@ -5486,7 +5486,7 @@
                     },
                     "response": [
                         {
-                            "id": "cdc30d52-278a-43fe-b086-d38246996cdf",
+                            "id": "50ca8509-631c-4e13-909f-82926ce02879",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -5516,7 +5516,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "622d4999-a7b6-43e4-b530-da70c7d334fa",
+                            "id": "b2056a26-d5dd-408a-ac45-646370489cc1",
                             "name": "InvalidContent",
                             "originalRequest": {
                                 "url": {
@@ -5546,7 +5546,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "240aa241-2fa9-40bd-9797-7c6dc7d17dc3",
+                            "id": "ce9f0800-95e4-4466-ad1f-f3f48608a067",
                             "name": "InvalidArgument",
                             "originalRequest": {
                                 "url": {
@@ -5579,7 +5579,7 @@
                     "event": []
                 },
                 {
-                    "id": "7463e7d3-5a39-496c-9e05-7901aadaf19d",
+                    "id": "65bd3493-5615-4435-8dbe-0d2af23f9650",
                     "name": "Get readable names for a set of accountIds",
                     "request": {
                         "name": "Get readable names for a set of accountIds",
@@ -5616,7 +5616,7 @@
                     },
                     "response": [
                         {
-                            "id": "6cddf1ad-06da-444a-b4d7-aaa4f2678ab2",
+                            "id": "77fa5d3d-403e-40b9-a0c1-f25471810a07",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -5647,7 +5647,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "130f97cd-de8c-4c65-8526-66d17065e142",
+                            "id": "0b376e6f-e7c3-49f7-bbcb-f62b99759e8d",
                             "name": "InvalidContent",
                             "originalRequest": {
                                 "url": {
@@ -5678,7 +5678,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "a4fb736e-d8e2-43a1-9e55-6a1f8cb580b2",
+                            "id": "76ab3bea-731d-412a-a7e4-2afccf581a75",
                             "name": "InvalidArgument",
                             "originalRequest": {
                                 "url": {
@@ -5712,7 +5712,7 @@
                     "event": []
                 },
                 {
-                    "id": "db0d4ee6-9873-426a-9cfc-69e543ffe3ef",
+                    "id": "16dbd47a-873b-4842-bdc5-5495ed9f5283",
                     "name": "Get readable names for a set of mosaics",
                     "request": {
                         "name": "Get readable names for a set of mosaics",
@@ -5749,7 +5749,7 @@
                     },
                     "response": [
                         {
-                            "id": "771073fb-a155-4f8d-b99a-c9fe381639aa",
+                            "id": "3dca5af9-4892-429c-a60e-e3380257cd4f",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -5780,7 +5780,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "7d866a0c-48b3-4cc4-9e8c-e9b0a8290c7a",
+                            "id": "e8d511ce-2bb4-4b10-bdf6-34ea84610c76",
                             "name": "InvalidContent",
                             "originalRequest": {
                                 "url": {
@@ -5811,7 +5811,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "bc92fdc9-1dc4-4c5c-ac54-500fae9eea04",
+                            "id": "a278f5c7-d1e9-4a68-982a-ae2f8eead1de",
                             "name": "InvalidArgument",
                             "originalRequest": {
                                 "url": {
@@ -5848,14 +5848,14 @@
             "event": []
         },
         {
-            "id": "c98a2142-f3f9-4805-94dd-c70d7bf00778",
+            "id": "816c8a5e-24e2-450d-ad85-7db7cf538252",
             "name": "statements",
             "item": [
                 {
-                    "id": "1e893e71-0e81-48c6-a5db-6ee3627fa3f2",
-                    "name": "Get receipts",
+                    "id": "5e8283f6-a9ba-43e2-883b-1d18e2bb8879",
+                    "name": "Search transaction statements",
                     "request": {
-                        "name": "Get receipts",
+                        "name": "Search transaction statements",
                         "description": {
                             "content": "Gets an array of transaction statements.",
                             "type": "text/plain"
@@ -5934,7 +5934,7 @@
                     },
                     "response": [
                         {
-                            "id": "4916cc8f-7848-4f7f-8d9c-30363848df21",
+                            "id": "9e8f79b6-2f66-4a47-88a3-1298ff37ebd5",
                             "name": "success",
                             "originalRequest": {
                                 "url": {
@@ -6009,7 +6009,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "679a15d1-e76e-42da-8b53-925c5888580f",
+                            "id": "a3a61459-a2ac-4020-bd7b-1317c26ca4b9",
                             "name": "ResourceNotFound",
                             "originalRequest": {
                                 "url": {
@@ -6084,7 +6084,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "470b3d81-756f-4635-ac35-efc3062d42c4",
+                            "id": "23da7b8f-d661-4104-b30d-6d4253fbca46",
                             "name": "InvalidArgument",
                             "originalRequest": {
                                 "url": {
@@ -6162,11 +6162,11 @@
                     "event": []
                 },
                 {
-                    "id": "2d3155e7-a06b-4235-a3d0-3187ae222e59",
+                    "id": "b8cd3915-fd8d-4feb-835b-00640d9758cd",
                     "name": "resolutions",
                     "item": [
                         {
-                            "id": "7c43c90b-6371-4667-84fc-691ff01f70a8",
+                            "id": "a296ca90-e6ad-483e-960b-b5ff71759a68",
                             "name": "Get receipts address resolution statements",
                             "request": {
                                 "name": "Get receipts address resolution statements",
@@ -6219,7 +6219,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "30a4a30f-60a5-444b-961f-d62076465039",
+                                    "id": "798980d1-887a-4f38-a115-3b7cbcffe240",
                                     "name": "success",
                                     "originalRequest": {
                                         "url": {
@@ -6271,7 +6271,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "50b81f39-5f2a-43d0-a61b-7eb81375fd95",
+                                    "id": "685c4882-43b0-4890-8b70-96267a1e556f",
                                     "name": "ResourceNotFound",
                                     "originalRequest": {
                                         "url": {
@@ -6323,7 +6323,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "23800d98-e03b-4d7c-9f0e-4285bea0be68",
+                                    "id": "5d197fbf-1a55-49f6-b40a-a323da408739",
                                     "name": "InvalidArgument",
                                     "originalRequest": {
                                         "url": {
@@ -6378,7 +6378,7 @@
                             "event": []
                         },
                         {
-                            "id": "7cc78b92-4d7b-4b73-97c4-2a2aeee941a1",
+                            "id": "da3b251e-5e01-4772-a417-92b7ab8bcb79",
                             "name": "Get receipts mosaic resolution statements",
                             "request": {
                                 "name": "Get receipts mosaic resolution statements",
@@ -6431,7 +6431,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "a27645e3-6a5a-4d22-9020-ba9d6e6f632c",
+                                    "id": "4c0f7c25-93a5-497f-bb54-79957aed4cf3",
                                     "name": "success",
                                     "originalRequest": {
                                         "url": {
@@ -6483,7 +6483,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "bf11ff84-7c59-45c0-9f51-9d1f2a17bf80",
+                                    "id": "5d6c1b7b-e2a8-4730-ac23-c5bcf5e05855",
                                     "name": "ResourceNotFound",
                                     "originalRequest": {
                                         "url": {
@@ -6535,7 +6535,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "dc804547-95c4-4c8f-9751-41347cc490b5",
+                                    "id": "6f25aad6-fe59-49d6-b870-ac7715a33661",
                                     "name": "InvalidArgument",
                                     "originalRequest": {
                                         "url": {
@@ -6596,15 +6596,15 @@
             "event": []
         },
         {
-            "id": "8a258bdd-33c5-41af-8803-0b108234df6a",
+            "id": "7d7151b0-194c-40cf-9637-c40bf28a95f3",
             "name": "restrictions",
             "item": [
                 {
-                    "id": "61ba9e72-c542-4adc-b69d-9fbd5d97a8fb",
+                    "id": "d3b373b8-1d12-4830-9ede-1dfe4c1e2d92",
                     "name": "account",
                     "item": [
                         {
-                            "id": "4cd45a7b-0715-4b0b-b877-e0a697aaecb9",
+                            "id": "412bebd6-be52-4873-9534-27b05890f298",
                             "name": "Get account restrictions for given array of addresses",
                             "request": {
                                 "name": "Get account restrictions for given array of addresses",
@@ -6640,7 +6640,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "0261a146-3295-4cca-83c9-22db12e2e01f",
+                                    "id": "7b72d4f5-d774-45c3-af86-ed77c80b5a69",
                                     "name": "success",
                                     "originalRequest": {
                                         "url": {
@@ -6670,7 +6670,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "895f5709-ddf3-421a-9ceb-73240fcb5c72",
+                                    "id": "80ea7ab1-8c6e-44d3-b4e2-e7ab8fc6e673",
                                     "name": "InvalidContent",
                                     "originalRequest": {
                                         "url": {
@@ -6700,7 +6700,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "f1352653-36c9-48e1-9ee6-85372fa71056",
+                                    "id": "755e8227-d9bd-49c8-b2e0-5388610aeea3",
                                     "name": "InvalidArgument",
                                     "originalRequest": {
                                         "url": {
@@ -6733,7 +6733,7 @@
                             "event": []
                         },
                         {
-                            "id": "737d16a4-ef06-4eb4-b3e3-826d0c6286e3",
+                            "id": "5f4778ac-e7bb-4b75-a04c-fafc2977ef9d",
                             "name": "Get the account restrictions",
                             "request": {
                                 "name": "Get the account restrictions",
@@ -6767,7 +6767,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "b5c85123-80e4-4f70-9f19-41e9f3cd4dd6",
+                                    "id": "263ae774-c6c5-4a24-b72a-902bc1871135",
                                     "name": "success",
                                     "originalRequest": {
                                         "url": {
@@ -6803,7 +6803,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "cd50212f-fb68-418e-a51c-c76826cf9573",
+                                    "id": "19eee94f-3e34-4b1d-b925-ab51885b18de",
                                     "name": "ResourceNotFound",
                                     "originalRequest": {
                                         "url": {
@@ -6839,7 +6839,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "62217f6f-5dac-4ff3-969b-76f2a4def8be",
+                                    "id": "3e1113a3-39c2-4e3d-9102-d071a7b5ac6b",
                                     "name": "InvalidArgument",
                                     "originalRequest": {
                                         "url": {
@@ -6881,11 +6881,11 @@
                     "event": []
                 },
                 {
-                    "id": "73343031-f35e-4f23-be9d-d6bf563ef92d",
+                    "id": "5d18ca8d-f31d-4616-a280-20ecaa953fb3",
                     "name": "mosaic",
                     "item": [
                         {
-                            "id": "94004db3-1ff5-47ea-9793-89ef86b63a8f",
+                            "id": "a1ed76af-7bfa-4db5-9e6a-6cf31442e403",
                             "name": "Get mosaic global restrictions for an array of mosaics.",
                             "request": {
                                 "name": "Get mosaic global restrictions for an array of mosaics.",
@@ -6921,7 +6921,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "dc550175-532c-4a6b-ad4a-7550f209635c",
+                                    "id": "5b79602c-d9f3-4334-aced-ee738959ff26",
                                     "name": "success",
                                     "originalRequest": {
                                         "url": {
@@ -6951,7 +6951,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "a4317d8b-72ae-4b11-9405-76bb8681134c",
+                                    "id": "8e7fd4ce-3279-4707-8822-07b44e15ca97",
                                     "name": "InvalidContent",
                                     "originalRequest": {
                                         "url": {
@@ -6981,7 +6981,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "2b5ba8db-2f61-4a17-80ec-1259dbe1ae6e",
+                                    "id": "70042ef7-ded7-4270-b8b4-e3b6fe4c958d",
                                     "name": "InvalidArgument",
                                     "originalRequest": {
                                         "url": {
@@ -7014,11 +7014,11 @@
                             "event": []
                         },
                         {
-                            "id": "eaba81bc-af0d-44f3-ade8-8b05121b2a99",
+                            "id": "9e88cd0d-8434-4c99-97b1-93561ee2822c",
                             "name": "{mosaic Id}",
                             "item": [
                                 {
-                                    "id": "23ea4bbb-f086-4969-81c0-a9c8c0eb0c2c",
+                                    "id": "57c22e2e-3546-4a63-b7a7-182923a5c9dc",
                                     "name": "Get mosaic global restriction for a given mosaic identifier.",
                                     "request": {
                                         "name": "Get mosaic global restriction for a given mosaic identifier.",
@@ -7054,7 +7054,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "30fe25be-8ba0-4789-8bb1-65b7f69c9818",
+                                            "id": "353c215e-96a8-47d4-bfe5-f6eeb736af02",
                                             "name": "success",
                                             "originalRequest": {
                                                 "url": {
@@ -7090,7 +7090,7 @@
                                             "_postman_previewlanguage": "json"
                                         },
                                         {
-                                            "id": "33346629-c594-410c-9ebc-249f8dadfd34",
+                                            "id": "9b338d57-a56e-49ca-8639-996563546c91",
                                             "name": "ResourceNotFound",
                                             "originalRequest": {
                                                 "url": {
@@ -7126,7 +7126,7 @@
                                             "_postman_previewlanguage": "json"
                                         },
                                         {
-                                            "id": "2e159969-1b28-4097-be7b-4cf0ab49de0a",
+                                            "id": "343eed66-86d0-4fa3-abef-f561399c0777",
                                             "name": "InvalidArgument",
                                             "originalRequest": {
                                                 "url": {
@@ -7165,7 +7165,7 @@
                                     "event": []
                                 },
                                 {
-                                    "id": "f4ecc195-8e7e-40aa-a0c3-d0a399781273",
+                                    "id": "df56cec3-327b-4806-9991-7fa80f6d969d",
                                     "name": "Get mosaic address restrictions for a given mosaic and account identifiers array.",
                                     "request": {
                                         "name": "Get mosaic address restrictions for a given mosaic and account identifiers array.",
@@ -7211,7 +7211,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "2fd7ab4e-c2bb-4c2f-8030-e24ee48aad61",
+                                            "id": "c5086745-b8b9-4a49-9ca8-bf41789f75a8",
                                             "name": "success",
                                             "originalRequest": {
                                                 "url": {
@@ -7247,7 +7247,7 @@
                                             "_postman_previewlanguage": "json"
                                         },
                                         {
-                                            "id": "4c51ddc3-f97e-4ead-aed1-d976dcfba2fe",
+                                            "id": "2e3c7b76-e5f5-4d9d-8732-58e1d4db4b68",
                                             "name": "InvalidContent",
                                             "originalRequest": {
                                                 "url": {
@@ -7283,7 +7283,7 @@
                                             "_postman_previewlanguage": "json"
                                         },
                                         {
-                                            "id": "217b01c9-7234-4c94-9676-509b89269ff6",
+                                            "id": "f456ca89-49fd-434a-a526-f7aad5317409",
                                             "name": "InvalidArgument",
                                             "originalRequest": {
                                                 "url": {
@@ -7322,7 +7322,7 @@
                                     "event": []
                                 },
                                 {
-                                    "id": "5139579f-35c6-4f19-8321-7d04ee94cb70",
+                                    "id": "c48dd8b2-efb4-4125-83f8-91c62a2092aa",
                                     "name": "Get mosaic address restrictions for a given mosaic and account address.",
                                     "request": {
                                         "name": "Get mosaic address restrictions for a given mosaic and account address.",
@@ -7368,7 +7368,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "76054e15-41e5-4867-acae-d419921af06c",
+                                            "id": "4abfc2cf-853f-4e0d-a07e-885afd3cdb2b",
                                             "name": "success",
                                             "originalRequest": {
                                                 "url": {
@@ -7410,7 +7410,7 @@
                                             "_postman_previewlanguage": "json"
                                         },
                                         {
-                                            "id": "9066b39c-8f57-468a-b8a0-2c54eec30832",
+                                            "id": "0b64c1a6-8a35-4f78-b91b-267cdfc76b69",
                                             "name": "ResourceNotFound",
                                             "originalRequest": {
                                                 "url": {
@@ -7452,7 +7452,7 @@
                                             "_postman_previewlanguage": "json"
                                         },
                                         {
-                                            "id": "677abf9d-7da6-4fe9-8296-6a2a3097ef2e",
+                                            "id": "23ad1702-49df-4367-b8fe-31f6de6f7559",
                                             "name": "InvalidArgument",
                                             "originalRequest": {
                                                 "url": {
@@ -7515,7 +7515,7 @@
         }
     ],
     "info": {
-        "_postman_id": "0ec1173f-641e-4b65-9e33-12dc1c4e54f2",
+        "_postman_id": "e5e77d63-74e5-4394-978a-ea51dc876ade",
         "name": "Catapult REST Endpoints",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": {

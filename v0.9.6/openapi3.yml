@@ -25,7 +25,7 @@ paths:
     get:
       tags:
         - Account routes
-      summary: Get accounts
+      summary: Search accounts
       description: Gets an array of accounts.
       operationId: searchAccounts
       parameters:
@@ -90,7 +90,7 @@ paths:
     get:
       tags:
         - Block routes
-      summary: Get blocks
+      summary: Search blocks
       description: Gets an array of bocks.
       operationId: searchBlocks
       parameters:
@@ -416,7 +416,7 @@ paths:
     get:
       tags:
         - Transaction routes
-      summary: Get transactions
+      summary: Search confirmed transactions
       description: Returns an array of confirmed transactions.
       operationId: searchConfirmedTransactions
       parameters:
@@ -442,7 +442,7 @@ paths:
     post:
       tags:
         - Transaction routes
-      summary: Get transactions information
+      summary: Get confirmed trasactions information
       description: Returns confirmed transactions information for a given array of transactionIds.
       operationId: getConfirmedTransactions
       requestBody:
@@ -465,7 +465,7 @@ paths:
     get:
       tags:
         - Transaction routes
-      summary: Get transaction information
+      summary: Get confirmed transaction information
       description: Returns confirmed transaction information given a transactionId or hash.
       operationId: getConfirmedTransaction
       parameters:
@@ -485,7 +485,7 @@ paths:
     get:
       tags:
         - Transaction routes
-      summary: Get transactions
+      summary: Search unconfirmed transactions
       description: Returns an array of unconfirmed transactions.
       operationId: searchUnconfirmedTransactions
       parameters:
@@ -511,7 +511,7 @@ paths:
     post:
       tags:
         - Transaction routes
-      summary: Get transactions information
+      summary: Get unconfirmed trasactions information
       description: Returns unconfirmed transactions information for a given array of transactionIds.
       operationId: getUnconfirmedTransactions
       requestBody:
@@ -534,7 +534,7 @@ paths:
     get:
       tags:
         - Transaction routes
-      summary: Get transaction information
+      summary: Get unconfirmed transaction information
       description: Returns unconfirmed transaction information given a transactionId or hash.
       operationId: getUnconfirmedTransaction
       parameters:
@@ -597,7 +597,7 @@ paths:
     get:
       tags:
         - Transaction routes
-      summary: Get transactions
+      summary: Search partial transactions
       description: Returns an array of partial transactions.
       operationId: searchPartialTransactions
       parameters:
@@ -642,7 +642,7 @@ paths:
     post:
       tags:
         - Transaction routes
-      summary: Get transactions information
+      summary: Get partial trasactions information
       description: Returns partial transactions information for a given array of transactionIds.
       operationId: getPartialTransactions
       requestBody:
@@ -665,7 +665,7 @@ paths:
     get:
       tags:
         - Transaction routes
-      summary: Get transaction information
+      summary: Get partial transaction information
       description: Returns partial transaction information given a transactionId or hash.
       operationId: getPartialTransaction
       parameters:
@@ -705,7 +705,7 @@ paths:
     get:
       tags:
         - Metadata routes
-      summary: Get metadata entries
+      summary: Search metadata entries
       description: Returns an array of metadata.
       operationId: searchMetadataEntries
       parameters:
@@ -751,7 +751,7 @@ paths:
     get:
       tags:
         - Mosaic routes
-      summary: Get mosaics
+      summary: Search mosaics
       description: Gets an array of mosaics.
       operationId: searchMosaics
       parameters:
@@ -837,7 +837,7 @@ paths:
     get:
       tags:
         - Namespace routes
-      summary: Get namespaces
+      summary: Search namespaces
       description: Gets an array of namespaces.
       operationId: searchNamespaces
       parameters:
@@ -945,7 +945,7 @@ paths:
     get:
       tags:
         - Receipt routes
-      summary: Get receipts
+      summary: Search transaction statements
       description: Gets an array of transaction statements.
       operationId: searchReceipts
       parameters:
