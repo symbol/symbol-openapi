@@ -1,22 +1,20 @@
 tags:
   - Block routes
-summary: Search blocks
-description: Gets an array of blocks.
-operationId: searchBlocks
+summary: Search finalized blocks
+description: Gets an array of finalized blocks.
+operationId: searchFinalizedBlocks
 parameters:
-  - $ref: "../../../parameters/query/signerPublicKey.yml"
-  - $ref: "../../../parameters/query/beneficiaryAddress.yml"
   - $ref: "../../../parameters/query/pageSize.yml"
   - $ref: "../../../parameters/query/pageNumber.yml"
   - $ref: "../../../parameters/query/offset.yml"
   - $ref: "../../../parameters/query/order.yml"
-  - $ref: "../../../parameters/query/orderByBlock.yml"
+  - $ref: "../../../parameters/query/orderByFinalizedBlock.yml"
 responses:
   "200":
     description: success
     content:
       application/json:
         schema:
-          $ref: "../schemas/BlockPage.yml"
+          $ref: "../schemas/FinalizedBlockPage.yml"
   "409":
     $ref : "../../../responses/InvalidArgument.yml"
