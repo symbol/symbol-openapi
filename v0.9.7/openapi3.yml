@@ -1166,7 +1166,7 @@ components:
     accountIdPath:
       name: accountId
       in: path
-      description: Account public key or address enconded using a 32-character set.
+      description: Account public key or address encoded using a 32-character set.
       required: true
       schema:
         type: string
@@ -1241,7 +1241,7 @@ components:
       in: query
       description: |
         Filter by address involved in the transaction. 
-        An account's address is consider to be involved in the transaction when the account is the sender, recipient, or it is required to cosign the transaction.
+        An account's address is considered to be involved in the transaction when the account is the sender, recipient, or it is required to cosign the transaction.
         This filter cannot be combined with ``recipientAddress`` and ``signerPublicKey`` query params.
       schema:
         $ref: '#/components/schemas/AddressBase32'
@@ -1274,7 +1274,7 @@ components:
       in: query
       description: |
         When true, the endpoint also returns all the embedded aggregate transactions.
-        Otherwise, only top-level transactions used to calcualate the block transactionsHash are returned.
+        Otherwise, only top-level transactions used to calculate the block transactionsHash are returned.
       schema:
         type: boolean
         default: false
@@ -1770,7 +1770,7 @@ components:
         - rawScore
       description: |
         Supplementary data stored for importance recalculation.
-        At each importance recalculation, existing buckets are shifted, the working bucket is finalized and a new working bucketis created.
+        At each importance recalculation, existing buckets are shifted, the working bucket is finalized and a new working bucket is created.
         Each bucket influences at most five importance recalculations.
       properties:
         startHeight:
