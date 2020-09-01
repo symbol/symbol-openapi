@@ -246,10 +246,15 @@ VotingKeyLinkTransactionDTO:
 EmbeddedVotingKeyLinkTransactionDTO:
   "$ref": "../plugins/coresystem/schemas/EmbeddedVotingKeyLinkTransactionDTO.yml"
 
-
 # Plugin - LockHash
 EmbeddedHashLockTransactionDTO:
   "$ref": "../plugins/lock_hash/schemas/EmbeddedHashLockTransactionDTO.yml"
+HashLockEntryDTO:
+  "$ref": "../plugins/lock_hash/schemas/HashLockEntryDTO.yml"
+HashLockInfoDTO:
+  "$ref": "../plugins/lock_hash/schemas/HashLockInfoDTO.yml"
+HashLockPage:
+  "$ref": "../plugins/lock_hash/schemas/HashLockPage.yml"
 HashLockTransactionBodyDTO:
   "$ref": "../plugins/lock_hash/schemas/HashLockTransactionBodyDTO.yml"
 HashLockTransactionDTO:
@@ -258,12 +263,18 @@ HashLockNetworkPropertiesDTO:
   "$ref": "../plugins/lock_hash/schemas/HashLockNetworkPropertiesDTO.yml"
 
 # Plugin - LockSecret
-LockHashAlgorithmEnum:
-  "$ref": "../plugins/lock_secret/schemas/LockHashAlgorithmEnum.yml"
+SecretHashAlgorithmEnum.:
+  "$ref": "../plugins/lock_secret/schemas/SecretHashAlgorithmEnum.yml"
 EmbeddedSecretLockTransactionDTO:
   "$ref": "../plugins/lock_secret/schemas/EmbeddedSecretLockTransactionDTO.yml"
 EmbeddedSecretProofTransactionDTO:
   "$ref": "../plugins/lock_secret/schemas/EmbeddedSecretProofTransactionDTO.yml"
+SecretLockEntryDTO:
+  "$ref": "../plugins/lock_secret/schemas/SecretLockEntryDTO.yml"
+SecretLockInfoDTO:
+  "$ref": "../plugins/lock_secret/schemas/SecretLockInfoDTO.yml"
+SecretLockPage:
+  "$ref": "../plugins/lock_secret/schemas/SecretLockPage.yml"
 SecretLockNetworkPropertiesDTO:
   "$ref": "../plugins/lock_secret/schemas/SecretLockNetworkPropertiesDTO.yml"
 SecretLockTransactionBodyDTO:
