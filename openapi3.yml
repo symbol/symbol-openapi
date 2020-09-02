@@ -1696,16 +1696,10 @@ components:
       required:
         - pageNumber
         - pageSize
-        - totalEntries
-        - totalPages
       properties:
         pageNumber:
           type: integer
         pageSize:
-          type: integer
-        totalEntries:
-          type: integer
-        totalPages:
           type: integer
     PublicKey:
       type: string
