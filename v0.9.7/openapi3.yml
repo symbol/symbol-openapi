@@ -20,6 +20,8 @@ tags:
   - name: Restriction Account routes
   - name: Receipt routes
   - name: Transaction routes
+  - name: Hash Lock routes
+  - name: Secret Lock routes
 paths:
   /accounts:
     get:
@@ -704,10 +706,10 @@ paths:
   '/account/{address}/lock/hash':
     get:
       tags:
-        - Lock hash routes
-      summary: Get hash lock entries
+        - Hash Lock routes
+      summary: Search hash lock entries
       description: Returns an array of hash locks.
-      operationId: searchLockHash
+      operationId: searchHashLock
       parameters:
         - $ref: '#/components/parameters/address'
         - $ref: '#/components/parameters/pageSizeQuery'
@@ -726,10 +728,10 @@ paths:
   '/lock/hash/{hash}':
     get:
       tags:
-        - Lock hash routes
+        - Hash Lock routes
       summary: Get hash lock information
       description: Gets the hash lock for a given hash.
-      operationId: getLockHash
+      operationId: getHashLock
       parameters:
         - $ref: '#/components/parameters/hashPath'
       responses:
@@ -744,10 +746,10 @@ paths:
   '/account/{address}/lock/secret':
     get:
       tags:
-        - Lock secret routes
-      summary: Get secret lock entries
+        - Secret Lock routes
+      summary: Search secret lock entries
       description: Returns an array of secret locks.
-      operationId: searchLockSecret
+      operationId: searchSecretLock
       parameters:
         - $ref: '#/components/parameters/address'
         - $ref: '#/components/parameters/pageSizeQuery'
@@ -766,10 +768,10 @@ paths:
   '/lock/secret/{secret}':
     get:
       tags:
-        - Lock secret routes
+        - Secret Lock routes
       summary: Get secret lock information
       description: Gets the secret lock for a given secret.
-      operationId: getLockSecret
+      operationId: getSecretLock
       parameters:
         - $ref: '#/components/parameters/secretPath'
       responses:
