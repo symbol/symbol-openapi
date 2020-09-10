@@ -1100,15 +1100,15 @@ paths:
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  '/restrictions/account/{accountId}':
+  '/restrictions/account/{address}':
     get:
       tags:
         - Restriction Account routes
       summary: Get the account restrictions
-      description: Returns the account restrictions for a given account.
+      description: Returns the account restrictions for a given address.
       operationId: getAccountRestrictions
       parameters:
-        - $ref: '#/components/parameters/accountIdPath'
+        - $ref: '#/components/parameters/address'
       responses:
         '200':
           description: success
@@ -1120,115 +1120,43 @@ paths:
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  /restrictions/account:
-    post:
-      tags:
-        - Restriction Account routes
-      summary: Get account restrictions for given array of addresses
-      description: Returns the account restrictions for a given array of addresses.
-      operationId: getAccountRestrictionsFromAccounts
-      requestBody:
-        $ref: '#/components/requestBodies/accountIds'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                type: array
-                description: Array of account restrictions.
-                items:
-                  $ref: '#/components/schemas/AccountRestrictionsInfoDTO'
-        '400':
-          $ref: '#/components/responses/InvalidContent'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  '/restrictions/mosaic/{mosaicId}':
-    get:
-      tags:
-        - Restriction Mosaic routes
-      summary: Get mosaic global restriction for a given mosaic identifier.
-      description: Get mosaic global restriction.
-      operationId: getMosaicGlobalRestriction
-      parameters:
-        - $ref: '#/components/parameters/mosaicIdPath'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MosaicGlobalRestrictionDTO'
-        '404':
-          $ref: '#/components/responses/ResourceNotFound'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-    post:
-      tags:
-        - Restriction Mosaic routes
-      summary: Get mosaic address restrictions for a given mosaic and account identifiers array.
-      description: Get mosaic address restrictions.
-      operationId: getMosaicAddressRestrictions
-      parameters:
-        - $ref: '#/components/parameters/mosaicIdPath'
-      requestBody:
-        $ref: '#/components/requestBodies/accountIds'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                type: array
-                description: Array of mosaics address restrictions.
-                items:
-                  $ref: '#/components/schemas/MosaicAddressRestrictionDTO'
-        '400':
-          $ref: '#/components/responses/InvalidContent'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  '/restrictions/mosaic/{mosaicId}/address/{address}':
-    get:
-      tags:
-        - Restriction Mosaic routes
-      summary: Get mosaic address restrictions for a given mosaic and account address.
-      description: Get mosaic address restriction.
-      operationId: getMosaicAddressRestriction
-      parameters:
-        - $ref: '#/components/parameters/mosaicIdPath'
-        - $ref: '#/components/parameters/address'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MosaicAddressRestrictionDTO'
-        '404':
-          $ref: '#/components/responses/ResourceNotFound'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
   /restrictions/mosaic:
-    post:
+    get:
       tags:
         - Restriction Mosaic routes
-      summary: Get mosaic global restrictions for an array of mosaics.
-      description: Get mosaic global restrictions.
-      operationId: getMosaicGlobalRestrictions
-      requestBody:
-        $ref: '#/components/requestBodies/mosaicIds'
+      summary: Search mosaic restrictions
+      description: Returns an array of mosaic restrictions.
+      operationId: searchMosaicRestriction
+      parameters:
+        - $ref: '#/components/parameters/mosaicIdQuery'
+        - $ref: '#/components/parameters/entryType'
+        - $ref: '#/components/parameters/targetAddressQuery'
+        - $ref: '#/components/parameters/pageSizeQuery'
+        - $ref: '#/components/parameters/pageNumberQuery'
+        - $ref: '#/components/parameters/offsetQuery'
+        - $ref: '#/components/parameters/orderQuery'
       responses:
         '200':
           description: success
           content:
             application/json:
               schema:
-                type: array
-                description: Array of mosaics global restrictions.
-                items:
-                  $ref: '#/components/schemas/MosaicGlobalRestrictionDTO'
-        '400':
-          $ref: '#/components/responses/InvalidContent'
+                type: object
+                required:
+                  - data
+                  - pagination
+                properties:
+                  data:
+                    type: array
+                    description: Array of mosaic restrictions.
+                    items:
+                      anyOf:
+                        - $ref: '#/components/schemas/MosaicAddressRestrictionDTO'
+                        - $ref: '#/components/schemas/MosaicGlobalRestrictionDTO'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+        '404':
+          $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
 externalDocs:
@@ -1374,6 +1302,12 @@ components:
       schema:
         type: boolean
         default: false
+    entryType:
+      name: entryType
+      in: query
+      description: Filter by entry type.
+      schema:
+        $ref: '#/components/schemas/MosaicRestrictionEntryTypeEnum'
     heightQuery:
       name: height
       in: query
@@ -4670,8 +4604,12 @@ components:
     MosaicAddressRestrictionDTO:
       type: object
       required:
+        - id
         - mosaicRestrictionEntry
       properties:
+        id:
+          type: string
+          description: Internal resource identifier.
         mosaicRestrictionEntry:
           $ref: '#/components/schemas/MosaicAddressRestrictionEntryWrapperDTO'
     MosaicAddressRestrictionEntryDTO:
@@ -4734,8 +4672,12 @@ components:
     MosaicGlobalRestrictionDTO:
       type: object
       required:
+        - id
         - mosaicRestrictionEntry
       properties:
+        id:
+          type: string
+          description: Internal resource identifier.
         mosaicRestrictionEntry:
           $ref: '#/components/schemas/MosaicGlobalRestrictionEntryWrapperDTO'
     MosaicGlobalRestrictionEntryDTO:
