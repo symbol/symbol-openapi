@@ -1141,20 +1141,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                required:
-                  - data
-                  - pagination
-                properties:
-                  data:
-                    type: array
-                    description: Array of mosaic restrictions.
-                    items:
-                      anyOf:
-                        - $ref: '#/components/schemas/MosaicAddressRestrictionDTO'
-                        - $ref: '#/components/schemas/MosaicGlobalRestrictionDTO'
-                  pagination:
-                    $ref: '#/components/schemas/Pagination'
+                $ref: '#/components/schemas/MosaicRestrictionsPage'
         '404':
           $ref: '#/components/responses/ResourceNotFound'
         '409':
@@ -2311,11 +2298,19 @@ components:
         - 1
         - 2
         - 3
+        - 4
+        - 5
+        - 6
+        - 7
       description: |
         Role of the node:
         * 1 - Peer node.
         * 2 - Api node.
-        * 3 - Dual node.
+        * 3 - Peer Api node.
+        * 4 - Voting node.
+        * 5 - Peer Voting node.
+        * 6 - Api Voting node.
+        * 7 - Peer Api Voting node.
       example: 2
     CommunicationTimestampsDTO:
       type: object
@@ -4759,6 +4754,21 @@ components:
           type: string
           description: Maximum number of mosaic restriction values.
           example: '20'
+    MosaicRestrictionsPage:
+      type: object
+      required:
+        - data
+        - pagination
+      properties:
+        data:
+          type: array
+          description: Array of mosaic restrictions.
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/MosaicAddressRestrictionDTO'
+              - $ref: '#/components/schemas/MosaicGlobalRestrictionDTO'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     MessageTypeEnum:
       type: integer
       enum:
