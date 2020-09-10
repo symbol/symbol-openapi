@@ -3348,7 +3348,7 @@ components:
           type: string
           description: Maximum number of blocks for which a hash lock can exist.
           example: 2d
-    SecretHashAlgorithmEnum.:
+    LockHashAlgorithmEnum.:
       type: integer
       enum:
         - 0
@@ -3393,7 +3393,7 @@ components:
         status:
           $ref: '#/components/schemas/Status'
         hashAlgorithm:
-          $ref: '#/components/schemas/SecretHashAlgorithmEnum.'
+          $ref: '#/components/schemas/LockHashAlgorithmEnum.'
         secret:
           $ref: '#/components/schemas/Secret'
         recipientAddress:
@@ -3459,7 +3459,7 @@ components:
         duration:
           $ref: '#/components/schemas/BlockDuration'
         hashAlgorithm:
-          $ref: '#/components/schemas/SecretHashAlgorithmEnum.'
+          $ref: '#/components/schemas/LockHashAlgorithmEnum.'
     SecretLockTransactionDTO:
       type: object
       description: 'Transaction to sends mosaics to a recipient if the proof used is revealed. If the duration is reached, the locked funds go back to the sender of the transaction.'
@@ -3479,7 +3479,7 @@ components:
         secret:
           $ref: '#/components/schemas/Hash256'
         hashAlgorithm:
-          $ref: '#/components/schemas/SecretHashAlgorithmEnum.'
+          $ref: '#/components/schemas/LockHashAlgorithmEnum.'
         proof:
           type: string
           description: Original random set of bytes.
