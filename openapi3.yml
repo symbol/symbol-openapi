@@ -1532,6 +1532,11 @@ components:
       type: string
       description: 'Determines how hard is to harvest a new block, based on previous blocks.'
       example: 100000000000000
+    FinalizationEpoch:
+      type: integer
+      format: int64
+      description: Finalization Epoch
+      example: 123456
     FinalizationPoint:
       type: string
       description: Finalization point
@@ -1825,15 +1830,15 @@ components:
       type: object
       required:
         - publicKey
-        - startPoint
-        - endPoint
+        - startEpoch
+        - endEpoch
       properties:
         publicKey:
           type: string
-        startPoint:
-          type: string
-        endPoint:
-          type: string
+        startEpoch:
+          $ref: '#/components/schemas/FinalizationEpoch'
+        endEpoch:
+          $ref: '#/components/schemas/FinalizationEpoch'
     SupplementalPublicKeysDTO:
       type: object
       properties:
@@ -3169,16 +3174,16 @@ components:
       type: object
       required:
         - linkedPublicKey
-        - startPoint
-        - endPoint
+        - startEpoch
+        - endEpoch
         - linkAction
       properties:
         linkedPublicKey:
           $ref: '#/components/schemas/VotingKey'
-        startPoint:
-          $ref: '#/components/schemas/FinalizationPoint'
-        endPoint:
-          $ref: '#/components/schemas/FinalizationPoint'
+        startEpoch:
+          $ref: '#/components/schemas/FinalizationEpoch'
+        endEpoch:
+          $ref: '#/components/schemas/FinalizationEpoch'
         linkAction:
           $ref: '#/components/schemas/LinkActionEnum'
     VotingKeyLinkTransactionDTO:
