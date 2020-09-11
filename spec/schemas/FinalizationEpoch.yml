@@ -1,3 +1,4 @@
 type: integer
-description: Finalization point
-example: 0
+format: int64
+description: Finalization Epoch
+example: 123456
