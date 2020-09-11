@@ -1,8 +1,8 @@
 type: object
 required:
   - linkedPublicKey
-  - startPoint
-  - endPoint
+  - startEpoch
+  - endEpoch
   - linkAction
 properties:
   linkedPublicKey:

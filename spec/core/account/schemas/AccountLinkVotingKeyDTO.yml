@@ -1,8 +1,8 @@
 type: object
 required:
   - publicKey
-  - startPoint
-  - endPoint
+  - startEpoch
+  - endEpoch
 properties:
   publicKey:
     type: string
