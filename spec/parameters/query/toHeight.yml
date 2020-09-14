@@ -1,0 +1,6 @@
+name: toHeight
+in: query
+description: Filter to specific block height, included.
+schema:
+  $ref: "../../schemas/Height.yml"
+
