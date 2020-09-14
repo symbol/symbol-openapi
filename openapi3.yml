@@ -196,40 +196,28 @@ paths:
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  /chain/height:
+  /chain/info:
     get:
       tags:
         - Chain routes
-      summary: Get the current height of the chain
-      description: Returns the current height of the blockchain.
-      operationId: getChainHeight
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HeightInfoDTO'
-  /chain/score:
-    get:
-      tags:
-        - Chain routes
-      summary: Get the current score of the chain
+      summary: Get the current information of the chain
       description: |
-        Gets the current score of the blockchain. The higher the score, the better the chain.
+        Returns the current information of the blockchain.
+
+        The higher the score, the better the chain.
         During synchronization, nodes try to get the best blockchain in the network.
 
         The score for a block is derived from its difficulty and the time (in seconds) that has elapsed since the last block:
 
             block score = difficulty − time elapsed since last block
-      operationId: getChainScore
+      operationId: getChainInfo
       responses:
         '200':
           description: success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ChainScoreDTO'
+                $ref: '#/components/schemas/ChainInfoDTO'
   /network:
     get:
       tags:
@@ -1538,9 +1526,10 @@ components:
       description: Finalization Epoch
       example: 123456
     FinalizationPoint:
-      type: string
+      type: integer
+      format: int64
       description: Finalization point
-      example: '123456'
+      example: 0
     Hash256:
       type: string
       format: hex
@@ -1548,6 +1537,10 @@ components:
     Height:
       type: string
       description: Height of the blockchain.
+      example: 1
+    FinalizedHeight:
+      type: string
+      description: Finalized height of the blockchain.
       example: 1
     Importance:
       type: string
@@ -1987,23 +1980,38 @@ components:
           description: List of complementary merkle path items needed to recalculate the merkle root.
           items:
             $ref: '#/components/schemas/MerklePathItemDTO'
-    ChainScoreDTO:
+    ChainInfoDTO:
       type: object
       required:
+        - height
         - scoreHigh
         - scoreLow
+        - latestFinalizedBlock
       properties:
+        height:
+          $ref: '#/components/schemas/Height'
         scoreHigh:
           $ref: '#/components/schemas/Score'
         scoreLow:
           $ref: '#/components/schemas/Score'
-    HeightInfoDTO:
+        latestFinalizedBlock:
+          $ref: '#/components/schemas/FinalizedBlockDTO'
+    FinalizedBlockDTO:
       type: object
       required:
+        - finalizationEpoch
+        - finalizationPoint
         - height
+        - hash
       properties:
+        finalizationEpoch:
+          $ref: '#/components/schemas/FinalizationEpoch'
+        finalizationPoint:
+          $ref: '#/components/schemas/FinalizationPoint'
         height:
           $ref: '#/components/schemas/Height'
+        hash:
+          $ref: '#/components/schemas/Hash256'
     RentalFeesDTO:
       type: object
       required:
