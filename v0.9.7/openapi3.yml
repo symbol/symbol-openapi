@@ -414,6 +414,8 @@ paths:
         - $ref: '#/components/parameters/recipientAddressQuery'
         - $ref: '#/components/parameters/signerPublicKeyQuery'
         - $ref: '#/components/parameters/heightQuery'
+        - $ref: '#/components/parameters/fromHeightQuery'
+        - $ref: '#/components/parameters/toHeightQuery'
         - $ref: '#/components/parameters/transactionTypeQuery'
         - $ref: '#/components/parameters/embedded'
         - $ref: '#/components/parameters/pageSizeQuery'
@@ -483,6 +485,8 @@ paths:
         - $ref: '#/components/parameters/recipientAddressQuery'
         - $ref: '#/components/parameters/signerPublicKeyQuery'
         - $ref: '#/components/parameters/heightQuery'
+        - $ref: '#/components/parameters/fromHeightQuery'
+        - $ref: '#/components/parameters/toHeightQuery'
         - $ref: '#/components/parameters/transactionTypeQuery'
         - $ref: '#/components/parameters/embedded'
         - $ref: '#/components/parameters/pageSizeQuery'
@@ -595,6 +599,8 @@ paths:
         - $ref: '#/components/parameters/recipientAddressQuery'
         - $ref: '#/components/parameters/signerPublicKeyQuery'
         - $ref: '#/components/parameters/heightQuery'
+        - $ref: '#/components/parameters/fromHeightQuery'
+        - $ref: '#/components/parameters/toHeightQuery'
         - $ref: '#/components/parameters/transactionTypeQuery'
         - $ref: '#/components/parameters/embedded'
         - $ref: '#/components/parameters/pageSizeQuery'
@@ -1283,6 +1289,12 @@ components:
       description: Filter by entry type.
       schema:
         $ref: '#/components/schemas/MosaicRestrictionEntryTypeEnum'
+    fromHeightQuery:
+      name: fromHeight
+      in: query
+      description: Only blocks with height greater or equal than this one are returned.
+      schema:
+        $ref: '#/components/schemas/Height'
     heightQuery:
       name: height
       in: query
@@ -1428,6 +1440,12 @@ components:
       description: Filter by target address.
       schema:
         $ref: '#/components/schemas/AddressBase32'
+    toHeightQuery:
+      name: toHeight
+      in: query
+      description: Only blocks with height smaller or equal than this one are returned.
+      schema:
+        $ref: '#/components/schemas/Height'
     transactionTypeQuery:
       name: type
       in: query
