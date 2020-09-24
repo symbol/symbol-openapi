@@ -514,8 +514,6 @@ MosaicRestrictionsPage:
 
 
 # Plugin - Transfer
-MessageTypeEnum:
-  "$ref": "../plugins/transfer/schemas/MessageTypeEnum.yml"
 EmbeddedTransferTransactionDTO:
   "$ref": "../plugins/transfer/schemas/EmbeddedTransferTransactionDTO.yml"
 MessageDTO:
