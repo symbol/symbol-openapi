@@ -1,8 +1,0 @@
-type: object
-required:
-  - payload
-properties:
-  payload:
-    type: string
-    format: hex
-    description: Content of the message.
