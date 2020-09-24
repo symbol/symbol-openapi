@@ -4800,35 +4800,11 @@ components:
               - $ref: '#/components/schemas/MosaicGlobalRestrictionDTO'
         pagination:
           $ref: '#/components/schemas/Pagination'
-    MessageTypeEnum:
-      type: integer
-      enum:
-        - 0
-        - 1
-        - 254
-      description: |
-        Type of message:
-        * 0 - Regular message.
-        * 1 - Encrypted message.
-        * 254 - Persistent harvesting delegation.
-      example: 0
     EmbeddedTransferTransactionDTO:
       type: object
       allOf:
         - $ref: '#/components/schemas/EmbeddedTransactionDTO'
         - $ref: '#/components/schemas/TransferTransactionBodyDTO'
-    MessageDTO:
-      type: object
-      required:
-        - type
-        - payload
-      properties:
-        type:
-          $ref: '#/components/schemas/MessageTypeEnum'
-        payload:
-          type: string
-          format: hex
-          description: Content of the message.
     TransferNetworkPropertiesDTO:
       type: object
       properties:
@@ -4841,7 +4817,6 @@ components:
       required:
         - recipientAddress
         - mosaics
-        - message
       properties:
         recipientAddress:
           $ref: '#/components/schemas/UnresolvedAddress'
@@ -4852,7 +4827,8 @@ components:
           items:
             $ref: '#/components/schemas/UnresolvedMosaic'
         message:
-          $ref: '#/components/schemas/MessageDTO'
+          type: string
+          description: Transfer transaction message
     TransferTransactionDTO:
       type: object
       description: Transaction to transfer mosaics and a message to another account.
