@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The changelog format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [0.10.3] - 25-Sep-2020
+
+Targets catapult-rest 2.1.0
+
+### Added
+
+- Removed ``MessageDTO`` and ``MessageTypeEnum``. Changed the type of ``message`` property in transfer transaction to ``string``.
+- Updated property names in ``BlockDTO``.
+    1. Changed ``numTransactions`` to ``totalTransactionsCount``.
+    2. Changed ``numStatements`` to ``statementsCount``.
+    3. Added ``transactionsCount``.
+
 ## [0.10.0] - 19-Sep-2020
 
 Targets catapult-rest 2.0.0
