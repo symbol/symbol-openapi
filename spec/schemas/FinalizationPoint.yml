@@ -1,3 +1,4 @@
-type: string
+type: integer
+format: int64
 description: Finalization point
-example: "123456"
+example: 0

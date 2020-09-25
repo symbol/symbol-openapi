@@ -23,12 +23,9 @@
     $ref: "./core/block/routes/getMerkleReceipts.yml"
 
 # Core - Chain
-/chain/height:
+/chain/info:
   get:
-    $ref: "./core/chain/routes/getChainHeight.yml"
-/chain/score:
-  get:
-    $ref: "./core/chain/routes/getChainScore.yml"
+    $ref: "./core/chain/routes/getChainInfo.yml"
 
 # Core - Network
 /network:
@@ -110,6 +107,24 @@
   put:
     $ref: "./plugins/aggregate/routes/announceCosignatureTransaction.yml"
 
+# Plugin - LockHash
+"/account/{address}/lock/hash":
+  get:
+    $ref: "./plugins/lock_hash/routes/searchHashLock.yml"
+
+"/lock/hash/{hash}":
+  get:
+    $ref: "./plugins/lock_hash/routes/getHashLock.yml"
+
+# Plugin - LockSecret
+"/account/{address}/lock/secret":
+  get:
+    $ref: "./plugins/lock_secret/routes/searchSecretLock.yml"
+
+"/lock/secret/{secret}":
+  get:
+    $ref: "./plugins/lock_secret/routes/getSecretLock.yml"
+
 # Plugin - Metadata
 "/metadata":
   get:
@@ -162,22 +177,11 @@
     $ref: "./plugins/receipt/routes/searchMosaicResolutionStatements.yml"
 
 # Plugin - RestrictionAccount
-"/restrictions/account/{accountId}":
+"/restrictions/account/{address}":
   get:
     $ref: "./plugins/restriction_account/routes/getAccountRestrictions.yml"
-/restrictions/account:
-  post:
-    $ref: "./plugins/restriction_account/routes/getAccountRestrictionsFromAccounts.yml"
 
 # Plugin - RestrictionMosaic
-"/restrictions/mosaic/{mosaicId}":
+"/restrictions/mosaic":
   get:
-    $ref: "./plugins/restriction_mosaic/routes/getMosaicGlobalRestriction.yml"
-  post:
-    $ref: "./plugins/restriction_mosaic/routes/getMosaicAddressRestrictions.yml"
-"/restrictions/mosaic/{mosaicId}/address/{address}":
-  get:
-    $ref: "./plugins/restriction_mosaic/routes/getMosaicAddressRestriction.yml"
-/restrictions/mosaic:
-  post:
-    $ref: "./plugins/restriction_mosaic/routes/getMosaicGlobalRestrictions.yml"
+    $ref: "./plugins/restriction_mosaic/routes/searchMosaicRestrictions.yml"

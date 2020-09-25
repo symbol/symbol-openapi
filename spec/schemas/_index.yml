@@ -13,12 +13,16 @@ CosignatureVersion:
   "$ref": "./CosignatureVersion.yml"
 Difficulty:
   "$ref": "./Difficulty.yml"
+FinalizationEpoch:
+  "$ref": "./FinalizationEpoch.yml"
 FinalizationPoint:
   "$ref": "./FinalizationPoint.yml"
 Hash256:
   "$ref": "./Hash256.yml"
 Height:
   "$ref": "./Height.yml"
+FinalizedHeight:
+  "$ref": "./FinalizedHeight.yml"
 Importance:
   "$ref": "./Importance.yml"
 LinkActionEnum:
@@ -51,6 +55,10 @@ ProofVerificationHash:
   "$ref": "./ProofVerificationHash.yml"
 Score:
   "$ref": "./Score.yml"
+Status:
+  "$ref": "./Status.yml"
+Secret:
+  "$ref": "./Secret.yml"
 Signature:
   "$ref": "./Signature.yml"
 Timestamp:
@@ -111,10 +119,10 @@ MerkleProofInfoDTO:
   "$ref": "../core/block/schemas/MerkleProofInfoDTO.yml"
 
 # Core - Chain
-ChainScoreDTO:
-  "$ref": "../core/chain/schemas/ChainScoreDTO.yml"
-HeightInfoDTO:
-  "$ref": "../core/chain/schemas/HeightInfoDTO.yml"
+ChainInfoDTO:
+  "$ref": "../core/chain/schemas/ChainInfoDTO.yml"
+FinalizedBlockDTO:
+  "$ref": "../core/chain/schemas/FinalizedBlockDTO.yml"
 
 # Core - Entity
 RentalFeesDTO:
@@ -246,10 +254,15 @@ VotingKeyLinkTransactionDTO:
 EmbeddedVotingKeyLinkTransactionDTO:
   "$ref": "../plugins/coresystem/schemas/EmbeddedVotingKeyLinkTransactionDTO.yml"
 
-
 # Plugin - LockHash
 EmbeddedHashLockTransactionDTO:
   "$ref": "../plugins/lock_hash/schemas/EmbeddedHashLockTransactionDTO.yml"
+HashLockEntryDTO:
+  "$ref": "../plugins/lock_hash/schemas/HashLockEntryDTO.yml"
+HashLockInfoDTO:
+  "$ref": "../plugins/lock_hash/schemas/HashLockInfoDTO.yml"
+HashLockPage:
+  "$ref": "../plugins/lock_hash/schemas/HashLockPage.yml"
 HashLockTransactionBodyDTO:
   "$ref": "../plugins/lock_hash/schemas/HashLockTransactionBodyDTO.yml"
 HashLockTransactionDTO:
@@ -258,12 +271,18 @@ HashLockNetworkPropertiesDTO:
   "$ref": "../plugins/lock_hash/schemas/HashLockNetworkPropertiesDTO.yml"
 
 # Plugin - LockSecret
-LockHashAlgorithmEnum:
+LockHashAlgorithmEnum.:
   "$ref": "../plugins/lock_secret/schemas/LockHashAlgorithmEnum.yml"
 EmbeddedSecretLockTransactionDTO:
   "$ref": "../plugins/lock_secret/schemas/EmbeddedSecretLockTransactionDTO.yml"
 EmbeddedSecretProofTransactionDTO:
   "$ref": "../plugins/lock_secret/schemas/EmbeddedSecretProofTransactionDTO.yml"
+SecretLockEntryDTO:
+  "$ref": "../plugins/lock_secret/schemas/SecretLockEntryDTO.yml"
+SecretLockInfoDTO:
+  "$ref": "../plugins/lock_secret/schemas/SecretLockInfoDTO.yml"
+SecretLockPage:
+  "$ref": "../plugins/lock_secret/schemas/SecretLockPage.yml"
 SecretLockNetworkPropertiesDTO:
   "$ref": "../plugins/lock_secret/schemas/SecretLockNetworkPropertiesDTO.yml"
 SecretLockTransactionBodyDTO:
@@ -490,14 +509,13 @@ MosaicGlobalRestrictionTransactionDTO:
   "$ref": "../plugins/restriction_mosaic/schemas/MosaicGlobalRestrictionTransactionDTO.yml"
 MosaicRestrictionNetworkPropertiesDTO:
   "$ref": "../plugins/restriction_mosaic/schemas/MosaicRestrictionNetworkPropertiesDTO.yml"
+MosaicRestrictionsPage:
+  "$ref": "../plugins/restriction_mosaic/schemas/MosaicRestrictionsPage.yml"
+
 
 # Plugin - Transfer
-MessageTypeEnum:
-  "$ref": "../plugins/transfer/schemas/MessageTypeEnum.yml"
 EmbeddedTransferTransactionDTO:
   "$ref": "../plugins/transfer/schemas/EmbeddedTransferTransactionDTO.yml"
-MessageDTO:
-  "$ref": "../plugins/transfer/schemas/MessageDTO.yml"
 TransferNetworkPropertiesDTO:
   "$ref": "../plugins/transfer/schemas/TransferNetworkPropertiesDTO.yml"
 TransferTransactionBodyDTO:
