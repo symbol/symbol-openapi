@@ -8,10 +8,14 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 
 Targets catapult-rest 2.1.0
 
-### Added
+### Removed
 
-- Removed ``MessageDTO`` and ``MessageTypeEnum``. Changed the type of ``message`` property in transfer transaction to ``string``.
-- Updated property names in ``BlockDTO``.
+- ``MessageDTO`` and ``MessageTypeEnum``.
+
+### Changed
+
+- Type of ``message`` property in transfer transaction to ``string``.
+- Property names in ``BlockDTO``.
     1. Changed ``numTransactions`` to ``totalTransactionsCount``.
     2. Changed ``numStatements`` to ``statementsCount``.
     3. Added ``transactionsCount``.
