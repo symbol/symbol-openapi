@@ -746,6 +746,7 @@ paths:
       operationId: searchSecretLock
       parameters:
         - $ref: '#/components/parameters/address'
+        - $ref: '#/components/parameters/secretQuery'
         - $ref: '#/components/parameters/pageSizeQuery'
         - $ref: '#/components/parameters/pageNumberQuery'
         - $ref: '#/components/parameters/offsetQuery'
@@ -757,24 +758,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SecretLockPage'
-        '409':
-          $ref: '#/components/responses/InvalidArgument'
-  '/lock/secret/{secret}':
-    get:
-      tags:
-        - Secret Lock routes
-      summary: Get secret lock information
-      description: Gets the secret lock for a given secret.
-      operationId: getSecretLock
-      parameters:
-        - $ref: '#/components/parameters/secretPath'
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SecretLockInfoDTO'
         '409':
           $ref: '#/components/responses/InvalidArgument'
   /metadata:
@@ -1213,13 +1196,6 @@ components:
       required: true
       schema:
         $ref: '#/components/schemas/Hash256'
-    secretPath:
-      name: secret
-      in: path
-      description: Filter by secret.
-      required: true
-      schema:
-        $ref: '#/components/schemas/Secret'
     sourceAddressPath:
       name: sourceAddress
       in: path
@@ -1396,6 +1372,12 @@ components:
       description: Filter by address of the account receiving the transaction.
       schema:
         $ref: '#/components/schemas/AddressBase32'
+    secretQuery:
+      name: secret
+      in: query
+      description: Filter by secret.
+      schema:
+        $ref: '#/components/schemas/Secret'
     senderAddressQuery:
       name: senderAddress
       in: query
