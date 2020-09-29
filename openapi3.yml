@@ -462,6 +462,8 @@ paths:
         - $ref: '#/components/parameters/heightQuery'
         - $ref: '#/components/parameters/fromHeightQuery'
         - $ref: '#/components/parameters/toHeightQuery'
+        - $ref: '#/components/parameters/fromTransferAmountQuery'
+        - $ref: '#/components/parameters/toTransferAmountQuery'
         - $ref: '#/components/parameters/transactionTypeQuery'
         - $ref: '#/components/parameters/embedded'
         - $ref: '#/components/parameters/transferMosaicIdQuery'
@@ -534,6 +536,8 @@ paths:
         - $ref: '#/components/parameters/heightQuery'
         - $ref: '#/components/parameters/fromHeightQuery'
         - $ref: '#/components/parameters/toHeightQuery'
+        - $ref: '#/components/parameters/fromTransferAmountQuery'
+        - $ref: '#/components/parameters/toTransferAmountQuery'
         - $ref: '#/components/parameters/transactionTypeQuery'
         - $ref: '#/components/parameters/embedded'
         - $ref: '#/components/parameters/transferMosaicIdQuery'
@@ -649,6 +653,8 @@ paths:
         - $ref: '#/components/parameters/heightQuery'
         - $ref: '#/components/parameters/fromHeightQuery'
         - $ref: '#/components/parameters/toHeightQuery'
+        - $ref: '#/components/parameters/fromTransferAmountQuery'
+        - $ref: '#/components/parameters/toTransferAmountQuery'
         - $ref: '#/components/parameters/transactionTypeQuery'
         - $ref: '#/components/parameters/embedded'
         - $ref: '#/components/parameters/transferMosaicIdQuery'
@@ -1320,6 +1326,14 @@ components:
       description: Only blocks with height greater or equal than this one are returned.
       schema:
         $ref: '#/components/schemas/Height'
+    fromTransferAmountQuery:
+      name: fromTransferAmount
+      in: query
+      description: |
+        Requires providing the `transferMosaicId` filter.
+        Only transfer transactions with a transfer amount of the provided mosaic id, greater or equal than this amount are returned.
+      schema:
+        type: integer
     heightQuery:
       name: height
       in: query
@@ -1477,6 +1491,14 @@ components:
       description: Only blocks with height smaller or equal than this one are returned.
       schema:
         $ref: '#/components/schemas/Height'
+    toTransferAmountQuery:
+      name: toTransferAmount
+      in: query
+      description: |
+        Requires providing the `transferMosaicId` filter.
+        Only transfer transactions with a transfer amount of the provided mosaic id, lesser or equal than this amount are returned.
+      schema:
+        type: integer
     transactionTypeQuery:
       name: type
       in: query
