@@ -10,6 +10,7 @@ tags:
   - name: Account routes
   - name: Block routes
   - name: Chain routes
+  - name: Finalization routes
   - name: Metadata routes
   - name: Mosaic routes
   - name: Multisig routes
@@ -218,6 +219,51 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ChainInfoDTO'
+  '/finalization/proof/epoch/{epoch}':
+    get:
+      tags:
+        - Finalization routes
+      summary: Get finalization proof
+      description: Gets finalization proof for the greatest height associated with the given epoch.
+      operationId: getFinalizationProofAtEpoch
+      parameters:
+        - name: epoch
+          in: path
+          description: Finalization epoch.
+          required: true
+          schema:
+            $ref: '#/components/schemas/FinalizationEpoch'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FinalizationProofDTO'
+        '404':
+          $ref: '#/components/responses/ResourceNotFound'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
+  '/finalization/proof/height/{height}':
+    get:
+      tags:
+        - Finalization routes
+      summary: Get finalization proof
+      description: Gets finalization proof at the given height.
+      operationId: getFinalizationProofAtHeight
+      parameters:
+        - $ref: '#/components/parameters/heightPath'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FinalizationProofDTO'
+        '404':
+          $ref: '#/components/responses/ResourceNotFound'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
   /network:
     get:
       tags:
@@ -2121,6 +2167,87 @@ components:
       properties:
         signature:
           $ref: '#/components/schemas/Signature'
+    BmTreeSignature:
+      type: object
+      required:
+        - root
+        - top
+        - bottom
+      properties:
+        root:
+          $ref: '#/components/schemas/ParentPublicKeySignaturePair'
+        top:
+          $ref: '#/components/schemas/ParentPublicKeySignaturePair'
+        bottom:
+          $ref: '#/components/schemas/ParentPublicKeySignaturePair'
+    FinalizationProofDTO:
+      type: object
+      required:
+        - version
+        - finalizationEpoch
+        - finalizationPoint
+        - height
+        - hash
+        - messageGroups
+      properties:
+        version:
+          type: integer
+        finalizationEpoch:
+          $ref: '#/components/schemas/FinalizationEpoch'
+        finalizationPoint:
+          $ref: '#/components/schemas/FinalizationPoint'
+        height:
+          $ref: '#/components/schemas/Height'
+        hash:
+          $ref: '#/components/schemas/Hash256'
+        messageGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageGroup'
+    MessageGroup:
+      type: object
+      required:
+        - stage
+        - height
+        - hashes
+        - signatures
+      properties:
+        stage:
+          description: Message stage
+          $ref: '#/components/schemas/StageEnum'
+        height:
+          description: Block height corresponding to the first hash.
+          $ref: '#/components/schemas/Height'
+        hashes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hash256'
+        signatures:
+          type: array
+          items:
+            $ref: '#/components/schemas/BmTreeSignature'
+    ParentPublicKeySignaturePair:
+      type: object
+      required:
+        - parentPublicKey
+        - signature
+      properties:
+        parentPublicKey:
+          $ref: '#/components/schemas/PublicKey'
+        signature:
+          $ref: '#/components/schemas/Signature'
+    StageEnum:
+      type: integer
+      enum:
+        - 0
+        - 1
+        - 2
+      description: |
+        Type of stage:
+        * 0 - Prevote.
+        * 1 - Precommit.
+        * 2 - Count.
+      example: 0
     NodeIdentityEqualityStrategy:
       type: string
       description: |
