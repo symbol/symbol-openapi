@@ -418,6 +418,7 @@ paths:
         - $ref: '#/components/parameters/toHeightQuery'
         - $ref: '#/components/parameters/transactionTypeQuery'
         - $ref: '#/components/parameters/embedded'
+        - $ref: '#/components/parameters/transferMosaicIdQuery'
         - $ref: '#/components/parameters/pageSizeQuery'
         - $ref: '#/components/parameters/pageNumberQuery'
         - $ref: '#/components/parameters/offsetQuery'
@@ -489,6 +490,7 @@ paths:
         - $ref: '#/components/parameters/toHeightQuery'
         - $ref: '#/components/parameters/transactionTypeQuery'
         - $ref: '#/components/parameters/embedded'
+        - $ref: '#/components/parameters/transferMosaicIdQuery'
         - $ref: '#/components/parameters/pageSizeQuery'
         - $ref: '#/components/parameters/pageNumberQuery'
         - $ref: '#/components/parameters/offsetQuery'
@@ -603,6 +605,7 @@ paths:
         - $ref: '#/components/parameters/toHeightQuery'
         - $ref: '#/components/parameters/transactionTypeQuery'
         - $ref: '#/components/parameters/embedded'
+        - $ref: '#/components/parameters/transferMosaicIdQuery'
         - $ref: '#/components/parameters/pageSizeQuery'
         - $ref: '#/components/parameters/pageNumberQuery'
         - $ref: '#/components/parameters/offsetQuery'
@@ -1440,6 +1443,12 @@ components:
         type: array
         items:
           $ref: '#/components/schemas/TransactionTypeEnum'
+    transferMosaicIdQuery:
+      name: transferMosaicId
+      in: query
+      description: Filters transactions involving a specific ``mosaicId``.
+      schema:
+        $ref: '#/components/schemas/MosaicId'
   requestBodies:
     accountIds:
       content:
