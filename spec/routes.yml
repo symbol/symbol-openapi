@@ -27,6 +27,14 @@
   get:
     $ref: "./core/chain/routes/getChainInfo.yml"
 
+# Core - Finalization
+"/finalization/proof/epoch/{epoch}":
+  get:
+    $ref: "./core/finalization/routes/getFinalizationProofAtEpoch.yml"
+"/finalization/proof/height/{height}":
+  get:
+    $ref: "./core/finalization/routes/getFinalizationProofAtHeight.yml"
+
 # Core - Network
 /network:
   get:
