@@ -1,0 +1,5 @@
+name: transferMosaicId
+in: query
+description: Filters transactions involving a specific ``mosaicId``.
+schema:
+  $ref: "../../schemas/MosaicId.yml"
