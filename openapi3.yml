@@ -1333,7 +1333,7 @@ components:
         Requires providing the `transferMosaicId` filter.
         Only transfer transactions with a transfer amount of the provided mosaic id, greater or equal than this amount are returned.
       schema:
-        type: integer
+        $ref: '#/components/schemas/Amount'
     heightQuery:
       name: height
       in: query
@@ -1498,7 +1498,7 @@ components:
         Requires providing the `transferMosaicId` filter.
         Only transfer transactions with a transfer amount of the provided mosaic id, lesser or equal than this amount are returned.
       schema:
-        type: integer
+        $ref: '#/components/schemas/Amount'
     transactionTypeQuery:
       name: type
       in: query
