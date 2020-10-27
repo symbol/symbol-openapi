@@ -1,22 +1,22 @@
 type: integer
 enum:
-  - 2115
-  - 2120
-  - 2130
-  - 2116
-  - 2125
-  - 2133
-  - 2126
-  - 2128
-  - 2129
+  - 579
+  - 584
+  - 594
+  - 580
+  - 589
+  - 597
+  - 590
+  - 592
+  - 593
 description: |
   Type of the repository:
-  * 0x843 (2115 decimal) - accountStatePath.
-  * 0x848 (2120 decimal) - hashLockStatePath.
-  * 0x852 (2130 decimal) - secretLockStatePath.
-  * 0x844 (2116 decimal) - metadataStatePath.
-  * 0x84D (2125 decimal) - mosaicStatePath.
-  * 0x855 (2133 decimal) - multisigStatePath.
-  * 0x84E (2126 decimal) - namespaceStatePath.
-  * 0x850 (2128 decimal) - accountRestrictionsStatePath.
-  * 0x851 (2129 decimal) - mosaicRestrictionsStatePath.
+  * 0x243 (579 decimal) - accountStatePath.
+  * 0x248 (584 decimal) - hashLockStatePath.
+  * 0x252 (594 decimal) - secretLockStatePath.
+  * 0x244 (580 decimal) - metadataStatePath.
+  * 0x24D (589 decimal) - mosaicStatePath.
+  * 0x255 (597 decimal) - multisigStatePath.
+  * 0x24E (590 decimal) - namespaceStatePath.
+  * 0x250 (592 decimal) - accountRestrictionsStatePath.
+  * 0x251 (593 decimal) - mosaicRestrictionsStatePath.

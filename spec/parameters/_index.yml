@@ -23,6 +23,10 @@ transactionHashPath:
   $ref: './path/transactionHash.yml'
 transactionIdPath:
   $ref: './path/transactionId.yml'
+stateHash:
+  $ref: './path/stateHash.yml'
+statePacketType:
+  $ref: './path/statePacketType.yml'
 # query
 addressQuery:
   $ref: './query/address.yml'
@@ -76,10 +80,6 @@ scopedMetadataKeyQuery:
   $ref: './query/scopedMetadataKey.yml'
 sourceAddressQuery:
   $ref: './query/sourceAddress.yml'
-stateHash:
-  $ref: './stateHash.yml'
-statePacketType:
-  $ref: './statePacketType.yml'
 registrationTypeQuery:
   $ref: './query/registrationType.yml'
 signerPublicKeyQuery:

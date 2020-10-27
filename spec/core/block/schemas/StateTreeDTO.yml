@@ -5,4 +5,4 @@ properties:
   tree:
     type: array
     items:
-      $ref: "../../../types/Hash256.yml"
+      $ref: "../../../schemas/Hash256.yml"

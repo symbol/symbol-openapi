@@ -8,8 +8,8 @@ description: |
   block header.
 operationId: getMerkleState
 parameters:
-  - $ref: "../../../parameters/statePacketType.yml"
-  - $ref: "../../../parameters/stateHash.yml"
+  - $ref: "../../../parameters/path/statePacketType.yml"
+  - $ref: "../../../parameters/path/stateHash.yml"
 responses:
   "200":
     description: success
