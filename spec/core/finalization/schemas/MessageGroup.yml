@@ -1,0 +1,21 @@
+type: object
+required:
+  - stage
+  - height
+  - hashes
+  - signatures
+properties:
+  stage:
+    description: Message stage
+    $ref: "./StageEnum.yml"
+  height:
+    description: Block height corresponding to the first hash.
+    $ref: "../../../schemas/Height.yml"
+  hashes:
+    type: array
+    items:
+      $ref: "../../../schemas/Hash256.yml"
+  signatures:
+    type: array
+    items:
+      $ref: "./BmTreeSignature.yml"

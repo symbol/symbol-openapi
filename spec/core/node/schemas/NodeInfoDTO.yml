@@ -2,6 +2,7 @@ type: object
 required:
   - version
   - publicKey
+  - networkGenerationHashSeed
   - roles
   - port
   - networkIdentifier
@@ -11,20 +12,19 @@ properties:
   version:
     type: integer
     description: Version of the application.
-    format: int32
     example: 0
   publicKey:
-    $ref: "../../../types/PublicKey.yml"
+    $ref: "../../../schemas/PublicKey.yml"
+  networkGenerationHashSeed:
+    $ref: "../../../schemas/Hash256.yml"
   roles:
     $ref: "./RolesTypeEnum.yml"
   port:
     type: integer
     description: Port used for the communication.
-    format: int32
     example: 7900
   networkIdentifier:
     type: integer
-    format: int32
     example: 144
   friendlyName:
     type: string

@@ -1,0 +1,7 @@
+type: object
+required:
+  - size
+properties:
+  size:
+    $ref: "../../../schemas/UInt32.yml"
+    description: Entity size in bytes.

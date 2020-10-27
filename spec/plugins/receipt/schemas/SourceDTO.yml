@@ -5,14 +5,12 @@ required:
   - secondaryId
 properties:
   primaryId:
-    type: integer
-    format: int32
+    $ref: "../../../schemas/UInt32.yml"
     description: Transaction index within the block.
     example: 1
   secondaryId:
-    type: integer
-    format: int32
+    $ref: "../../../schemas/UInt32.yml"
     description: |
-      Transaction index inside within the aggregate transaction.
-      If the transaction is not an inner transaction, then the secondary id is set to 0.
+      Transaction index within the aggregate transaction.
+      If the transaction is not an embedded transaction, then the secondary id is set to 0.
     example: 0

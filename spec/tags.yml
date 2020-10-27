@@ -1,7 +1,7 @@
 - name: Account routes
 - name: Block routes
 - name: Chain routes
-- name: Diagnostic routes
+- name: Finalization routes
 - name: Metadata routes
 - name: Mosaic routes
 - name: Multisig routes
@@ -12,3 +12,5 @@
 - name: Restriction Account routes
 - name: Receipt routes
 - name: Transaction routes
+- name: Hash Lock routes
+- name: Secret Lock routes

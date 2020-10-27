@@ -1,0 +1,12 @@
+tags:
+  - Node routes
+summary: Get the storage information of the node
+description: Returns storage information about the node.
+operationId: getNodeStorage
+responses:
+  "200":
+    description: success
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/StorageInfoDTO.yml"

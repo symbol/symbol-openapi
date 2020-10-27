@@ -1,0 +1,4 @@
+type: string
+format: hex
+description: 32-bytes VRF proof scalar.
+example: 480175C83739B22C53EAECAA7E7F3B245F1DFAFA6B3AE5C1D0129502FCBAAD0C

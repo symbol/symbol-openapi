@@ -1,0 +1,11 @@
+name: type
+in: query
+description: |
+  Filter by transaction type.
+  To filter by multiple transaction types, add more filter query params like: ``type=16974&type=16718``.
+style: form
+explode: true
+schema:
+  type: array
+  items:
+    $ref: "../../core/transaction/schemas/TransactionTypeEnum.yml"

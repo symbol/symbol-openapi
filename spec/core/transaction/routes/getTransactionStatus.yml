@@ -1,10 +1,10 @@
 tags:
-  - Transaction routes
+  - Transaction status routes
 summary: Get transaction status
 description: Returns the transaction status for a given hash.
 operationId: getTransactionStatus
 parameters:
-  - $ref: "../../../parameters/transactionHash.yml"
+  - $ref: "../../../parameters/path/transactionHash.yml"
 responses:
   "200":
     description: success

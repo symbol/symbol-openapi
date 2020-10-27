@@ -1,0 +1,9 @@
+# Todo: This filter will be deprecated in favor of offset once all pagination changes are applied.
+name: id
+in: query
+description: |
+  Entry id at which to start pagination.
+  If the ordering parameter is set to -id, the elements returned precede the identifier.
+  Otherwise, newer elements with respect to the id are returned.
+schema:
+  type: string

@@ -1,13 +1,20 @@
 type: object
 required:
+  - id
   - meta
   - transaction
 properties:
+  id:
+    type: string
+    description: Internal resource identifier.
   meta:
     $ref: "./EmbeddedTransactionMetaDTO.yml"
   transaction:
     anyOf:
-      - $ref: "../../../plugins/account_link/schemas/EmbeddedAccountLinkTransactionDTO.yml"
+      - $ref: "../../../plugins/account_link/schemas/EmbeddedAccountKeyLinkTransactionDTO.yml"
+      - $ref: "../../../plugins/account_link/schemas/EmbeddedNodeKeyLinkTransactionDTO.yml"
+      - $ref: "../../../plugins/coresystem/schemas/EmbeddedVrfKeyLinkTransactionDTO.yml"
+      - $ref: "../../../plugins/coresystem/schemas/EmbeddedVotingKeyLinkTransactionDTO.yml"
       - $ref: "../../../plugins/lock_hash/schemas/EmbeddedHashLockTransactionDTO.yml"
       - $ref: "../../../plugins/lock_secret/schemas/EmbeddedSecretLockTransactionDTO.yml"
       - $ref: "../../../plugins/lock_secret/schemas/EmbeddedSecretProofTransactionDTO.yml"

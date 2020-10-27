@@ -1,0 +1,12 @@
+type: object
+required:
+  - publicKey
+  - startEpoch
+  - endEpoch
+properties:
+  publicKey:
+    type: string
+  startEpoch:
+    $ref: "../../../schemas/FinalizationEpoch.yml"
+  endEpoch:
+    $ref: "../../../schemas/FinalizationEpoch.yml"

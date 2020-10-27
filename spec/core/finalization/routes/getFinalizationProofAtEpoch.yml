@@ -1,0 +1,18 @@
+tags:
+  - Finalization routes
+summary: Get finalization proof
+description: Gets finalization proof for the greatest height associated with the given epoch.
+operationId: getFinalizationProofAtEpoch
+parameters:
+  - $ref: "../../../parameters/path/epoch.yml"
+responses:
+  "200":
+    description: success
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/FinalizationProofDTO.yml"
+  "404":
+    $ref: "../../../responses/ResourceNotFound.yml"
+  "409":
+    $ref: "../../../responses/InvalidArgument.yml"

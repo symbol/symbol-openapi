@@ -1,0 +1,5 @@
+name: targetAddress
+in: query
+description: Filter by target address.
+schema:
+  $ref: "../../schemas/AddressBase32.yml"

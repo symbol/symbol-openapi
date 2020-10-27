@@ -1,192 +1,194 @@
 # Core - Account
-"/account/{accountId}":
+"/accounts":
   get:
-    $ref: "./core/account/routes/getAccountInfo.yml"
-/account:
+    $ref: "./core/account/routes/searchAccounts.yml"
   post:
     $ref: "./core/account/routes/getAccountsInfo.yml"
-"/account/{accountId}/transactions":
+"/accounts/{accountId}":
   get:
-    $ref: "./core/account/routes/getAccountConfirmedTransactions.yml"
-"/account/{accountId}/transactions/incoming":
-  get:
-    $ref: "./core/account/routes/getAccountIncomingTransactions.yml"
-"/account/{accountId}/transactions/outgoing":
-  get:
-    $ref: "./core/account/routes/getAccountOutgoingTransactions.yml"
-"/account/{accountId}/transactions/unconfirmed":
-  get:
-    $ref: "./core/account/routes/getAccountUnconfirmedTransactions.yml"
-"/account/{accountId}/transactions/partial":
-  get:
-    $ref: "./core/account/routes/getAccountPartialTransactions.yml"
+    $ref: "./core/account/routes/getAccountInfo.yml"
 
 # Core - Block
-"/block/{height}":
+"/blocks":
+  get:
+    $ref: "./core/block/routes/searchBlocks.yml"
+"/blocks/{height}":
   get:
     $ref: "./core/block/routes/getBlockByHeight.yml"
-"/blocks/{height}/limit/{limit}":
-  get:
-    $ref: "./core/block/routes/getBlocksByHeightWithLimit.yml"
-"/block/{height}/transactions":
-  get:
-    $ref: "./core/block/routes/getBlockTransactions.yml"
-"/block/{height}/transaction/{hash}/merkle":
+"/blocks/{height}/transactions/{hash}/merkle":
   get:
     $ref: "./core/block/routes/getMerkleTransaction.yml"
+"/blocks/{height}/statements/{hash}/merkle":
+  get:
+    $ref: "./core/block/routes/getMerkleReceipts.yml"
 "/state/{state}/hash/{hash}/merkle":
   get:
     $ref: "./core/block/routes/getMerkleState.yml"
 
 # Core - Chain
-/chain/height:
+/chain/info:
   get:
-    $ref: "./core/chain/routes/getChainHeight.yml"
-/chain/score:
-  get:
-    $ref: "./core/chain/routes/getChainScore.yml"
+    $ref: "./core/chain/routes/getChainInfo.yml"
 
-# Core - Diagnostic
-/diagnostic/storage:
+# Core - Finalization
+"/finalization/proof/epoch/{epoch}":
   get:
-    $ref: "./core/diagnostic/routes/getDiagnosticStorage.yml"
-/diagnostic/server:
+    $ref: "./core/finalization/routes/getFinalizationProofAtEpoch.yml"
+"/finalization/proof/height/{height}":
   get:
-    $ref: "./core/diagnostic/routes/getServerInfo.yml"
+    $ref: "./core/finalization/routes/getFinalizationProofAtHeight.yml"
 
-# Core -Network
+# Core - Network
 /network:
   get:
     $ref: "./core/network/routes/getNetworkType.yml"
+/network/fees/rental:
+  get:
+    $ref: "./core/network/routes/getRentalFees.yml"
+/network/fees/transaction:
+  get:
+    $ref: "./core/network/routes/getTransactionFees.yml"
+
+/network/properties:
+  get:
+    $ref: "./core/network/routes/getNetworkProperties.yml"
 
 # Core - Node
+/node/health:
+  get:
+    $ref: "./core/node/routes/getNodeHealth.yml"
 /node/info:
   get:
     $ref: "./core/node/routes/getNodeInfo.yml"
+/node/peers:
+  get:
+    $ref: "./core/node/routes/getNodePeers.yml"
+/node/storage:
+  get:
+    $ref: "./core/node/routes/getNodeStorage.yml"
 /node/time:
   get:
     $ref: "./core/node/routes/getNodeTime.yml"
+/node/server:
+  get:
+    $ref: "./core/node/routes/getServerInfo.yml"
 
 # Core - Transaction
-"/transaction/{transactionId}":
-  get:
-    $ref: "./core/transaction/routes/getTransaction.yml"
-/transaction:
-  post:
-    $ref: "./core/transaction/routes/getTransactions.yml"
+/transactions:
+
   put:
     $ref: "./core/transaction/routes/announceTransaction.yml"
-"/transaction/{hash}/status":
+"/transactions/confirmed":
   get:
-    $ref: "./core/transaction/routes/getTransactionStatus.yml"
-/transaction/statuses:
+    $ref: "./core/transaction/routes/searchConfirmedTransactions.yml"
+  post:
+    $ref: "./core/transaction/routes/getConfirmedTransactions.yml"
+"/transactions/confirmed/{transactionId}":
+  get:
+    $ref: "./core/transaction/routes/getConfirmedTransaction.yml"
+"/transactions/unconfirmed":
+  get:
+    $ref: "./core/transaction/routes/searchUnconfirmedTransactions.yml"
+  post:
+    $ref: "./core/transaction/routes/getUnconfirmedTransactions.yml"
+"/transactions/unconfirmed/{transactionId}":
+  get:
+    $ref: "./core/transaction/routes/getUnconfirmedTransaction.yml"
+
+# Core - Transaction Status
+/transactionStatus:
   post:
     $ref: "./core/transaction/routes/getTransactionStatuses.yml"
+"/transactionStatus/{hash}":
+  get:
+    $ref: "./core/transaction/routes/getTransactionStatus.yml"
 
 # Plugin - Aggregate
-/transaction/partial:
+/transactions/partial:
+  get:
+    $ref: "./core/transaction/routes/searchPartialTransactions.yml"
   put:
     $ref: "./plugins/aggregate/routes/announcePartialTransaction.yml"
-/transaction/cosignature:
+  post:
+    $ref: "./core/transaction/routes/getPartialTransactions.yml"
+"/transactions/partial/{transactionId}":
+  get:
+    $ref: "./core/transaction/routes/getPartialTransaction.yml"
+/transactions/cosignature:
   put:
     $ref: "./plugins/aggregate/routes/announceCosignatureTransaction.yml"
 
+# Plugin - LockHash
+"/account/{address}/lock/hash":
+  get:
+    $ref: "./plugins/lock_hash/routes/searchHashLock.yml"
+
+"/lock/hash/{hash}":
+  get:
+    $ref: "./plugins/lock_hash/routes/getHashLock.yml"
+
+# Plugin - LockSecret
+"/account/{address}/lock/secret":
+  get:
+    $ref: "./plugins/lock_secret/routes/searchSecretLock.yml"
+
 # Plugin - Metadata
-"/metadata/account/{accountId}":
+"/metadata":
   get:
-    $ref: "./plugins/metadata/routes/getAccountMetadata.yml"
-"/metadata/mosaic/{mosaicId}":
-  get:
-    $ref: "./plugins/metadata/routes/getMosaicMetadata.yml"
-"/metadata/namespace/{namespaceId}":
-  get:
-    $ref: "./plugins/metadata/routes/getNamespaceMetadata.yml"
-"/metadata/account/{accountId}/key/{key}":
-  get:
-    $ref: "./plugins/metadata/routes/getAccountMetadataByKey.yml"
-"/metadata/mosaic/{mosaicId}/key/{key}":
-  get:
-    $ref: "./plugins/metadata/routes/getMosaicMetadataByKey.yml"
-"/metadata/namespace/{namespaceId}/key/{key}":
-  get:
-    $ref: "./plugins/metadata/routes/getNamespaceMetadataByKey.yml"
-"/metadata/account/{accountId}/key/{key}/sender/{publicKey}":
-  get:
-    $ref: "./plugins/metadata/routes/getAccountMetadataByKeyAndSender.yml"
-"/metadata/mosaic/{mosaicId}/key/{key}/sender/{publicKey}":
-  get:
-    $ref: "./plugins/metadata/routes/getMosaicMetadataByKeyAndSender.yml"
-"/metadata/namespace/{namespaceId}/key/{key}/sender/{publicKey}":
-  get:
-    $ref: "./plugins/metadata/routes/getNamespaceMetadataByKeyAndSender.yml"
+    $ref: "./plugins/metadata/routes/searchMetadataEntries.yml"
 
 # Plugin - Mosaic
-"/mosaic/{mosaicId}":
+"/mosaics/{mosaicId}":
   get:
     $ref: "./plugins/mosaic/routes/getMosaic.yml"
-/mosaic:
+/mosaics:
+  get:
+    $ref: "./plugins/mosaic/routes/searchMosaics.yml"
   post:
     $ref: "./plugins/mosaic/routes/getMosaics.yml"
-"/account/{accountId}/mosaics":
-  get:
-    $ref: "./plugins/mosaic/routes/getMosaicsFromAccount.yml"
-/account/mosaics:
-  post:
-    $ref: "./plugins/mosaic/routes/getMosaicsFromAccounts.yml"
 
 # Plugin - Multisig
-"/account/{accountId}/multisig":
+"/account/{address}/multisig":
   get:
     $ref: "./plugins/multisig/routes/getAccountMultisig.yml"
-"/account/{accountId}/multisig/graph":
+"/account/{address}/multisig/graph":
   get:
     $ref: "./plugins/multisig/routes/getAccountMultisigGraph.yml"
 
 # Plugin - Namespace
-"/namespace/{namespaceId}":
+"/namespaces":
+  get:
+    $ref: "./plugins/namespace/routes/searchNamespaces.yml"
+"/namespaces/{namespaceId}":
   get:
     $ref: "./plugins/namespace/routes/getNamespace.yml"
-"/account/{accountId}/namespaces":
-  get:
-    $ref: "./plugins/namespace/routes/getNamespacesFromAccount.yml"
-/account/namespaces:
-  post:
-    $ref: "./plugins/namespace/routes/getNamespacesFromAccounts.yml"
-/account/names:
-  post:
-    $ref: "./plugins/namespace/routes/getAccountsNames.yml"
-/mosaic/names:
-  post:
-    $ref: "./plugins/namespace/routes/getMosaicsNames.yml"
-/namespace/names:
+/namespaces/names:
   post:
     $ref: "./plugins/namespace/routes/getNamespacesNames.yml"
+/namespaces/account/names:
+  post:
+    $ref: "./plugins/namespace/routes/getAccountsNames.yml"
+/namespaces/mosaic/names:
+  post:
+    $ref: "./plugins/namespace/routes/getMosaicsNames.yml"
 
 # Plugin - Receipt
-"/block/{height}/receipts":
+"/statements/transaction":
   get:
-    $ref: "./plugins/receipt/routes/getBlockReceipts.yml"
-"/block/{height}/receipt/{hash}/merkle":
+    $ref: "./plugins/receipt/routes/searchTransactionStatements.yml"
+"/statements/resolutions/address":
   get:
-    $ref: "./plugins/receipt/routes/getMerkleReceipts.yml"
+    $ref: "./plugins/receipt/routes/searchAddressResolutionStatements.yml"
+"/statements/resolutions/mosaic":
+  get:
+    $ref: "./plugins/receipt/routes/searchMosaicResolutionStatements.yml"
 
 # Plugin - RestrictionAccount
-"/restrictions/account/{accountId}":
+"/restrictions/account/{address}":
   get:
     $ref: "./plugins/restriction_account/routes/getAccountRestrictions.yml"
-/restrictions/account:
-  post:
-    $ref: "./plugins/restriction_account/routes/getAccountRestrictionsFromAccounts.yml"
 
 # Plugin - RestrictionMosaic
-"/restrictions/mosaic/{mosaicId}":
+"/restrictions/mosaic":
   get:
-    $ref: "./plugins/restriction_mosaic/routes/getMosaicGlobalRestriction.yml"
-  post:
-    $ref: "./plugins/restriction_mosaic/routes/getMosaicAddressRestrictions.yml"
-"/restrictions/mosaic/{mosaicId}/address/{accountId}":
-  get:
-    $ref: "./plugins/restriction_mosaic/routes/getMosaicAddressRestriction.yml"
-/restrictions/mosaic:
-  post:
-    $ref: "./plugins/restriction_mosaic/routes/getMosaicGlobalRestrictions.yml"
+    $ref: "./plugins/restriction_mosaic/routes/searchMosaicRestrictions.yml"

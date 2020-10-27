@@ -5,12 +5,12 @@ required:
   - hash
 properties:
   group:
-    $ref: "./TransactionStateEnum.yml"
+    $ref: "./TransactionGroupEnum.yml"
   code:
-    $ref: "./TransactionStatusCodeEnum.yml"
+    $ref: "./TransactionStatusEnum.yml"
   hash:
-    $ref: "../../../types/Hash256.yml"
+    $ref: "../../../schemas/Hash256.yml"
   deadline:
-    $ref: "../../../types/BlockDuration.yml"
+    $ref: "../../../schemas/BlockDuration.yml"
   height:
-    $ref: "../../../types/Height.yml"
+    $ref: "../../../schemas/Height.yml"

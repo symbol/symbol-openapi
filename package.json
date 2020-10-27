@@ -1,23 +1,29 @@
 {
-  "name": "nem2-openapi",
-  "version": "0.7.20.5",
-  "description": "OpenAPI spec for Catapult",
+  "name": "symbol-openapi",
+  "version": "0.10.1",
+  "description": "OpenAPI Specification of catapult-rest",
   "main": "index.js",
   "scripts": {
     "test": "swagger-cli validate _build/openapi3.yml",
     "build": "swagger-cli bundle ./spec/openapi.yml --outfile _build/openapi3.yml --type yaml",
-    "postman": "openapi2postmanv2 -s _build/openapi3.yml -o _build/postman.json -p"
+    "postman": "openapi2postmanv2 -s _build/openapi3.yml -o _build/postman.json -p",
+    "version": "echo $npm_package_version",
+    "version:prepare": "mkdir _build/v$npm_package_version && cp -r _build/template/. _build/v$npm_package_version",
+    "version:pack": "cp _build/openapi3.yml _build/postman.json _build/v$npm_package_version"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nemtech/nem2-openapi.git"
+    "url": "git+https://github.com/nemtech/symbol-openapi.git"
   },
   "license": "Apache 2.0",
   "bugs": {
-    "url": "https://github.com/nemtech/nem2-openapi/issues"
+    "url": "https://github.com/nemtech/symbol-openapi/issues"
   },
-  "homepage": "https://github.com/nemtech/nem2-openapi#readme",
-  "dependencies": {
-    "openapi-to-postmanv2": "^0.1.0"
+  "homepage": "https://github.com/nemtech/symbol-openapi#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "openapi-to-postmanv2": "^1.2.6",
+    "swagger-cli": "^4.0.4",
+    "yaml-cli": "^1.1.8"
   }
 }

@@ -5,7 +5,6 @@ required:
   - level0
   - alias
   - parentId
-  - ownerPublicKey
   - ownerAddress
   - startHeight
   - endHeight
@@ -14,24 +13,21 @@ properties:
     $ref: "./NamespaceRegistrationTypeEnum.yml"
   depth:
     type: integer
-    format: int32
     description: Level of the namespace.
     example: 1
   level0:
-    $ref: "../../../types/NamespaceId.yml"
+    $ref: "../../../schemas/NamespaceId.yml"
   level1:
-    $ref: "../../../types/NamespaceId.yml"
+    $ref: "../../../schemas/NamespaceId.yml"
   level2:
-    $ref: "../../../types/NamespaceId.yml"
+    $ref: "../../../schemas/NamespaceId.yml"
   alias:
     $ref: "./AliasDTO.yml"
   parentId:
-    $ref: "../../../types/NamespaceId.yml"
-  ownerPublicKey:
-    $ref: "../../../types/PublicKey.yml"
+    $ref: "../../../schemas/NamespaceId.yml"
   ownerAddress:
-    $ref: "../../../types/Address.yml"
+    $ref: "../../../schemas/Address.yml"
   startHeight:
-    $ref: "../../../types/Height.yml"
+    $ref: "../../../schemas/Height.yml"
   endHeight:
-    $ref: "../../../types/Height.yml"
+    $ref: "../../../schemas/Height.yml"

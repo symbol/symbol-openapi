@@ -1,0 +1,33 @@
+tags:
+  - Transaction routes
+summary: Search confirmed transactions
+description: |
+  Returns an array of confirmed transactions.
+  If a transaction was announced with an alias rather than an address, the address that will be considered when querying is the one that
+  was resolved from the alias at confirmation time.
+operationId: searchConfirmedTransactions
+parameters:
+  - $ref: "../../../parameters/query/address.yml"
+  - $ref: "../../../parameters/query/recipientAddress.yml"
+  - $ref: "../../../parameters/query/signerPublicKey.yml"
+  - $ref: "../../../parameters/query/height.yml"
+  - $ref: "../../../parameters/query/fromHeight.yml"
+  - $ref: "../../../parameters/query/toHeight.yml"
+  - $ref: "../../../parameters/query/fromTransferAmount.yml"
+  - $ref: "../../../parameters/query/toTransferAmount.yml"
+  - $ref: "../../../parameters/query/transactionTypes.yml"
+  - $ref: "../../../parameters/query/embedded.yml"
+  - $ref: "../../../parameters/query/transferMosaicId.yml"
+  - $ref: "../../../parameters/query/pageSize.yml"
+  - $ref: "../../../parameters/query/pageNumber.yml"
+  - $ref: "../../../parameters/query/offset.yml"
+  - $ref: "../../../parameters/query/order.yml"
+responses:
+  "200":
+    description: success
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/TransactionPage.yml"
+  "409":
+    $ref : "../../../responses/InvalidArgument.yml"

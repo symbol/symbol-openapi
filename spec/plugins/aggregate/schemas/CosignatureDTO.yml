@@ -4,6 +4,9 @@ allOf:
   - type: object
     required:
       - signerPublicKey
+      - version
     properties:
+      version:
+        $ref: "../../../schemas/CosignatureVersion.yml"
       signerPublicKey:
-        $ref: "../../../types/PublicKey.yml"
+        $ref: "../../../schemas/PublicKey.yml"
