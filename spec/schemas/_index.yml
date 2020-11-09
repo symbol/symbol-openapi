@@ -37,6 +37,8 @@ MosaicId:
   "$ref": "./MosaicId.yml"
 Mosaic:
   "$ref": "./Mosaic.yml"
+MerkleInfo:
+  "$ref": "./MerkleInfo.yml"
 RestrictionKey:
   "$ref": "./RestrictionKey.yml"
 NamespaceId:
@@ -56,7 +58,7 @@ ProofVerificationHash:
 Score:
   "$ref": "./Score.yml"
 Status:
-  "$ref": "./Status.yml"
+  "$ref": "./LockStatus.yml"
 Secret:
   "$ref": "./Secret.yml"
 Signature:
