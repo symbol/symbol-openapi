@@ -7,7 +7,6 @@ properties:
     type: array
     description: Array of account restrictions.
     items:
-      anyOf:
-      - $ref: "./AccountRestrictionDTO.yml"
+      $ref: "./AccountRestrictionsInfoDTO.yml"
   pagination:
     $ref: "../../../schemas/Pagination.yml"
