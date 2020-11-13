@@ -1,6 +1,0 @@
-type: object
-required:
-  - raw
-properties:
-  raw:
-    type: string

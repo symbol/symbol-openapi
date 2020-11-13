@@ -11,7 +11,7 @@ responses:
     content:
       application/json:
         schema:
-          $ref: "../../../schemas/MerkleInfo.yml"
+          $ref: "../../../schemas/MerkleStateInfoDTO.yml"
   "404":
     $ref : "../../../responses/ResourceNotFound.yml"
   "409":

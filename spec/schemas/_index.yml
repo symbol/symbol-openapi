@@ -37,8 +37,10 @@ MosaicId:
   "$ref": "./MosaicId.yml"
 Mosaic:
   "$ref": "./Mosaic.yml"
-MerkleInfo:
-  "$ref": "./MerkleInfo.yml"
+MerkleStateInfoDTO:
+  "$ref": "./MerkleStateInfoDTO.yml"
+MerkleTreeRaw:
+  "$ref": "./MerkleTreeRaw.yml"
 RestrictionKey:
   "$ref": "./RestrictionKey.yml"
 NamespaceId:

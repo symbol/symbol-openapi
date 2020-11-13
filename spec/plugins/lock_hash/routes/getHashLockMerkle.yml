@@ -11,6 +11,6 @@ responses:
     content:
       application/json:
         schema:
-          $ref: "../../../schemas/MerkleInfo.yml"
+          $ref: "../../../schemas/MerkleStateInfoDTO.yml"
   "409":
     $ref : "../../../responses/InvalidArgument.yml"
