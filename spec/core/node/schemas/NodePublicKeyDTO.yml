@@ -1,0 +1,6 @@
+type: object
+required:
+  - nodePublicKey
+properties:
+  nodePublicKey:
+      $ref: "../../../schemas/PublicKey.yml"
