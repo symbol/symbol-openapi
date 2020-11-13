@@ -1,10 +1,10 @@
 tags:
-  - Mosaic routes
-summary: Get mosaic merkle information
-description: Gets the mosaic definition merkle for a given mosaic identifier.
-operationId: getMosaicMerkle
+  - Restriction Mosaic routes
+summary: Get the mosaic restrictions merkle
+description: Returns the mosaic restrictions merkle for a given composite hash.
+operationId: getMosaicRestrictionsMerkle
 parameters:
-  - $ref: "../../../parameters/path/mosaicId.yml"
+  - $ref: "../../../parameters/path/compositeHash.yml"
 responses:
   "200":
     description: success

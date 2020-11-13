@@ -1,10 +1,10 @@
 tags:
-  - Mosaic routes
-summary: Get mosaic merkle information
-description: Gets the mosaic definition merkle for a given mosaic identifier.
-operationId: getMosaicMerkle
+  - Restriction Account routes
+summary: Get the account restrictions merkle
+description: Returns the account restrictions merkle for a given address.
+operationId: getAccountRestrictionsMerkle
 parameters:
-  - $ref: "../../../parameters/path/mosaicId.yml"
+  - $ref: "../../../parameters/path/address.yml"
 responses:
   "200":
     description: success

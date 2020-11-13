@@ -2,7 +2,7 @@ tags:
   - Restriction Mosaic routes
 summary: Search mosaic restrictions
 description: Returns an array of mosaic restrictions.
-operationId: searchMosaicRestriction
+operationId: searchMosaicRestrictions
 parameters:
   - $ref: "../../../parameters/query/mosaicId.yml"
   - $ref: "../../../parameters/query/entryType.yml"

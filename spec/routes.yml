@@ -220,11 +220,23 @@
     $ref: "./plugins/receipt/routes/searchMosaicResolutionStatements.yml"
 
 # Plugin - RestrictionAccount
+"/restrictions/account":
+  get:
+    $ref: "./plugins/restriction_account/routes/searchAccountRestrictions.yml"
 "/restrictions/account/{address}":
   get:
     $ref: "./plugins/restriction_account/routes/getAccountRestrictions.yml"
+"/restrictions/account/{address}/merkle":
+  get:
+    $ref: "./plugins/restriction_account/routes/getAccountRestrictionsMerkle.yml"
 
 # Plugin - RestrictionMosaic
 "/restrictions/mosaic":
   get:
     $ref: "./plugins/restriction_mosaic/routes/searchMosaicRestrictions.yml"
+"/restrictions/mosaic/{compositeHash}":
+  get:
+    $ref: "./plugins/restriction_mosaic/routes/getMosaicRestrictions.yml"
+"/restrictions/mosaic/{compositeHash}/merkle":
+  get:
+    $ref: "./plugins/restriction_mosaic/routes/getMosaicRestrictionsMerkle.yml"
