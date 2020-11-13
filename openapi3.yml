@@ -424,6 +424,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ServerInfoDTO'
+  /node/unlockedaccount:
+    get:
+      tags:
+        - Node routes
+      summary: Get the unlocked harvesting account public keys.
+      description: Returns array of unlocked account public keys.
+      operationId: getUnlockedAccount
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnlockedAccountDTO'
   /transactions:
     put:
       tags:
@@ -2607,6 +2621,15 @@ components:
           type: integer
           description: Number of accounts created.
           example: 177
+    UnlockedAccountDTO:
+      type: object
+      required:
+        - unlockedAccount
+      properties:
+        unlockedAccount:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicKey'
     TransactionGroupEnum:
       type: string
       description: |
