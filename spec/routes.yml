@@ -72,9 +72,6 @@
 /node/unlockedaccount:
   get:
     $ref: "./core/node/routes/getUnlockedAccount.yml"
-/node/publicKey:
-  get:
-    $ref: "./core/node/routes/getNodePublicKey.yml"
 
 # Core - Transaction
 /transactions:
