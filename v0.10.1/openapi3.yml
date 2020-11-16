@@ -2574,6 +2574,8 @@ components:
           type: string
           description: Node IP address.
           example: 127.0.0.1
+        nodePublicKey:
+          $ref: '#/components/schemas/PublicKey'
     NodeTimeDTO:
       type: object
       required:
