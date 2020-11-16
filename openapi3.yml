@@ -89,6 +89,26 @@ paths:
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
+  '/accounts/{accountId}/merkle':
+    get:
+      tags:
+        - Account routes
+      summary: Get account merkle information
+      description: Returns the account merkle information.
+      operationId: getAccountInfoMerkle
+      parameters:
+        - $ref: '#/components/parameters/accountIdPath'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MerkleStateInfoDTO'
+        '404':
+          $ref: '#/components/responses/ResourceNotFound'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
   /blocks:
     get:
       tags:
@@ -769,7 +789,7 @@ paths:
           $ref: '#/components/responses/InvalidContent'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  '/account/{address}/lock/hash':
+  /lock/hash:
     get:
       tags:
         - Hash Lock routes
@@ -777,7 +797,7 @@ paths:
       description: Returns an array of hash locks.
       operationId: searchHashLock
       parameters:
-        - $ref: '#/components/parameters/address'
+        - $ref: '#/components/parameters/addressQuery'
         - $ref: '#/components/parameters/pageSizeQuery'
         - $ref: '#/components/parameters/pageNumberQuery'
         - $ref: '#/components/parameters/offsetQuery'
@@ -809,7 +829,25 @@ paths:
                 $ref: '#/components/schemas/HashLockInfoDTO'
         '409':
           $ref: '#/components/responses/InvalidArgument'
-  '/account/{address}/lock/secret':
+  '/lock/hash/{hash}/merkle':
+    get:
+      tags:
+        - Hash Lock routes
+      summary: Get hash lock merkle information
+      description: Gets the hash lock merkle for a given hash.
+      operationId: getHashLockMerkle
+      parameters:
+        - $ref: '#/components/parameters/hashPath'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MerkleStateInfoDTO'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
+  /lock/secret:
     get:
       tags:
         - Secret Lock routes
@@ -817,7 +855,7 @@ paths:
       description: Returns an array of secret locks.
       operationId: searchSecretLock
       parameters:
-        - $ref: '#/components/parameters/address'
+        - $ref: '#/components/parameters/addressQuery'
         - $ref: '#/components/parameters/secretQuery'
         - $ref: '#/components/parameters/pageSizeQuery'
         - $ref: '#/components/parameters/pageNumberQuery'
@@ -830,6 +868,42 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SecretLockPage'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
+  '/lock/secret/{compositeHash}':
+    get:
+      tags:
+        - Secret Lock routes
+      summary: Get secret lock information
+      description: Gets the hash lock for a given composite hash.
+      operationId: getSecretLock
+      parameters:
+        - $ref: '#/components/parameters/compositeHashPath'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecretLockInfoDTO'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
+  '/lock/secret/{compositeHash}/merkle':
+    get:
+      tags:
+        - Secret Lock routes
+      summary: Get secret lock merkle information
+      description: Gets the hash lock merkle for a given composite hash.
+      operationId: getSecretLockMerkle
+      parameters:
+        - $ref: '#/components/parameters/compositeHashPath'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MerkleStateInfoDTO'
         '409':
           $ref: '#/components/responses/InvalidArgument'
   /metadata:
@@ -858,6 +932,42 @@ paths:
                 $ref: '#/components/schemas/MetadataPage'
         '409':
           $ref: '#/components/responses/InvalidArgument'
+  '/metadata/{compositeHash}':
+    get:
+      tags:
+        - Metadata routes
+      summary: Get metadata information
+      description: Gets the metadata for a given composite hash.
+      operationId: getMetadata
+      parameters:
+        - $ref: '#/components/parameters/compositeHashPath'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetadataInfoDTO'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
+  '/metadata/{compositeHash}/merkle':
+    get:
+      tags:
+        - Metadata routes
+      summary: Get metadata merkle information
+      description: Gets the metadata merkle for a given composite hash.
+      operationId: getMetadataMerkle
+      parameters:
+        - $ref: '#/components/parameters/compositeHashPath'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MerkleStateInfoDTO'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
   '/mosaics/{mosaicId}':
     get:
       tags:
@@ -874,6 +984,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MosaicInfoDTO'
+        '404':
+          $ref: '#/components/responses/ResourceNotFound'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
+  '/mosaics/{mosaicId}/merkle':
+    get:
+      tags:
+        - Mosaic routes
+      summary: Get mosaic merkle information
+      description: Gets the mosaic definition merkle for a given mosaic identifier.
+      operationId: getMosaicMerkle
+      parameters:
+        - $ref: '#/components/parameters/mosaicIdPath'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MerkleStateInfoDTO'
         '404':
           $ref: '#/components/responses/ResourceNotFound'
         '409':
@@ -942,6 +1072,26 @@ paths:
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
+  '/account/{address}/multisig/merkle':
+    get:
+      tags:
+        - Multisig routes
+      summary: Get multisig account merkle information
+      description: Returns the multisig account merkle information.
+      operationId: getAccountMultisigMerkle
+      parameters:
+        - $ref: '#/components/parameters/address'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MerkleStateInfoDTO'
+        '404':
+          $ref: '#/components/responses/ResourceNotFound'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
   '/account/{address}/multisig/graph':
     get:
       tags:
@@ -1005,6 +1155,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NamespaceInfoDTO'
+        '404':
+          $ref: '#/components/responses/ResourceNotFound'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
+  '/namespaces/{namespaceId}/merkle':
+    get:
+      tags:
+        - Namespace routes
+      summary: Get namespace merkle information
+      description: Gets the namespace merkle for a given namespace identifier.
+      operationId: getNamespaceMerkle
+      parameters:
+        - $ref: '#/components/parameters/namespaceIdPath'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MerkleStateInfoDTO'
         '404':
           $ref: '#/components/responses/ResourceNotFound'
         '409':
@@ -1149,6 +1319,30 @@ paths:
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
+  /restrictions/account:
+    get:
+      tags:
+        - Restriction Account routes
+      summary: Search account restrictions
+      description: Returns an array of account restrictions.
+      operationId: searchAccountRestrictions
+      parameters:
+        - $ref: '#/components/parameters/addressQuery'
+        - $ref: '#/components/parameters/pageSizeQuery'
+        - $ref: '#/components/parameters/pageNumberQuery'
+        - $ref: '#/components/parameters/offsetQuery'
+        - $ref: '#/components/parameters/orderQuery'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountRestrictionsPage'
+        '404':
+          $ref: '#/components/responses/ResourceNotFound'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
   '/restrictions/account/{address}':
     get:
       tags:
@@ -1169,13 +1363,33 @@ paths:
           $ref: '#/components/responses/ResourceNotFound'
         '409':
           $ref: '#/components/responses/InvalidArgument'
+  '/restrictions/account/{address}/merkle':
+    get:
+      tags:
+        - Restriction Account routes
+      summary: Get the account restrictions merkle
+      description: Returns the account restrictions merkle for a given address.
+      operationId: getAccountRestrictionsMerkle
+      parameters:
+        - $ref: '#/components/parameters/address'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MerkleStateInfoDTO'
+        '404':
+          $ref: '#/components/responses/ResourceNotFound'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
   /restrictions/mosaic:
     get:
       tags:
         - Restriction Mosaic routes
       summary: Search mosaic restrictions
       description: Returns an array of mosaic restrictions.
-      operationId: searchMosaicRestriction
+      operationId: searchMosaicRestrictions
       parameters:
         - $ref: '#/components/parameters/mosaicIdQuery'
         - $ref: '#/components/parameters/entryType'
@@ -1191,6 +1405,46 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MosaicRestrictionsPage'
+        '404':
+          $ref: '#/components/responses/ResourceNotFound'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
+  '/restrictions/mosaic/{compositeHash}':
+    get:
+      tags:
+        - Restriction Mosaic routes
+      summary: Get the mosaic restrictions
+      description: Returns the mosaic restrictions for a composite hash.
+      operationId: getMosaicRestrictions
+      parameters:
+        - $ref: '#/components/parameters/compositeHashPath'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MosaicRestrictionDTO'
+        '404':
+          $ref: '#/components/responses/ResourceNotFound'
+        '409':
+          $ref: '#/components/responses/InvalidArgument'
+  '/restrictions/mosaic/{compositeHash}/merkle':
+    get:
+      tags:
+        - Restriction Mosaic routes
+      summary: Get the mosaic restrictions merkle
+      description: Returns the mosaic restrictions merkle for a given composite hash.
+      operationId: getMosaicRestrictionsMerkle
+      parameters:
+        - $ref: '#/components/parameters/compositeHashPath'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MerkleStateInfoDTO'
         '404':
           $ref: '#/components/responses/ResourceNotFound'
         '409':
@@ -1220,6 +1474,13 @@ components:
       name: hash
       in: path
       description: Filter by hash.
+      required: true
+      schema:
+        $ref: '#/components/schemas/Hash256'
+    compositeHashPath:
+      name: compositeHash
+      in: path
+      description: Filter by composite hash.
       required: true
       schema:
         $ref: '#/components/schemas/Hash256'
@@ -1683,6 +1944,22 @@ components:
           $ref: '#/components/schemas/MosaicId'
         amount:
           $ref: '#/components/schemas/Amount'
+    MerkleStateInfoDTO:
+      type: object
+      description: |
+        The merkle path information clients can use to proof the state of the given entity.
+      required:
+        - raw
+      properties:
+        raw:
+          $ref: '#/components/schemas/MerkleTreeRaw'
+    MerkleTreeRaw:
+      type: string
+      format: hex
+      description: |
+        The hex information of the complete merkle tree as returned by server api.
+        More information can be found in chapter 4.3 of the catapult whitepaper.
+      example: 00008080DA9B4AF63BE985715EA635AF98E3CF3B0A22F9A2BE1C7DD40B79948AA63E36586E5D2E9D0C089C1C64BC0D42A11ADBD1CD6CDB4B7C294062F55113525A64AE3CFF3F04A7F2A487B42EA89323C4408F82415223ACFEC7DFA7924EFC31A70778AB17A00C3EAFF635F01BB3B474F0AF1BE99FBDA85EEFB209CC7BD158D3540DE3A3F2D1
     RestrictionKey:
       type: string
       format: hex
@@ -1739,11 +2016,15 @@ components:
         Score of the blockchain. During synchronization, nodes try to get the
         blockchain with highest score in the network.
       example: 1683298087010368300
-    Status:
+    LockStatus:
       type: integer
-      format: integer
-      description: A number that indicates the status.
-      example: 1
+      enum:
+        - 0
+        - 1
+      description: |
+        Possible status of lock states:
+        * 0 - UNUSED.
+        * 1 - USED.
     Secret:
       type: string
       format: hex
@@ -3428,7 +3709,7 @@ components:
         endHeight:
           $ref: '#/components/schemas/Height'
         status:
-          $ref: '#/components/schemas/Status'
+          $ref: '#/components/schemas/LockStatus'
         hash:
           $ref: '#/components/schemas/Hash256'
     HashLockInfoDTO:
@@ -3530,7 +3811,7 @@ components:
         endHeight:
           $ref: '#/components/schemas/Height'
         status:
-          $ref: '#/components/schemas/Status'
+          $ref: '#/components/schemas/LockStatus'
         hashAlgorithm:
           $ref: '#/components/schemas/LockHashAlgorithmEnum.'
         secret:
@@ -4344,8 +4625,6 @@ components:
     NamespaceRegistrationTransactionBodyDTO:
       type: object
       required:
-        - duration
-        - parentId
         - id
         - registrationType
         - name
@@ -4715,6 +4994,19 @@ components:
       properties:
         accountRestrictions:
           $ref: '#/components/schemas/AccountRestrictionsDTO'
+    AccountRestrictionsPage:
+      type: object
+      required:
+        - data
+        - pagination
+      properties:
+        data:
+          type: array
+          description: Array of account restrictions.
+          items:
+            $ref: '#/components/schemas/AccountRestrictionsInfoDTO'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     AccountRestrictionsDTO:
       type: object
       required:
@@ -4802,6 +5094,12 @@ components:
       allOf:
         - $ref: '#/components/schemas/EmbeddedTransactionDTO'
         - $ref: '#/components/schemas/MosaicGlobalRestrictionTransactionBodyDTO'
+    MosaicRestrictionDTO:
+      type: object
+      description: Generic Mosaic Restriction
+      anyOf:
+        - $ref: '#/components/schemas/MosaicAddressRestrictionDTO'
+        - $ref: '#/components/schemas/MosaicGlobalRestrictionDTO'
     MosaicAddressRestrictionDTO:
       type: object
       required:
