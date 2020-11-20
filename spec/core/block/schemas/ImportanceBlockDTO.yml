@@ -12,9 +12,8 @@ allOf:
         $ref: ../../../schemas/UInt32.yml
         description: Number of voting eligible accounts.
       harvestingEligibleAccountsCount:
-        type: string # uint64
+        $ref: ../../../schemas/UInt64.yml
         description: Number of harvesting eligible accounts.
-        example: "100"
       totalVotingBalance:
         $ref: "../../../schemas/Amount.yml"
         description: Total balance eligible for voting.
