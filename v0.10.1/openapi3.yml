@@ -2043,6 +2043,10 @@ components:
       format: int64
       description: A number that allows uint 32 values.
       example: 2222212828
+    UInt64:
+      type: string
+      description: A number that allows uint 64 values represented with a string.
+      example: '123456'
     UnresolvedAddress:
       type: string
       description: |
@@ -2300,7 +2304,9 @@ components:
         meta:
           $ref: '#/components/schemas/BlockMetaDTO'
         block:
-          $ref: '#/components/schemas/BlockDTO'
+          anyOf:
+            - $ref: '#/components/schemas/BlockDTO'
+            - $ref: '#/components/schemas/ImportanceBlockDTO'
     BlockMetaDTO:
       type: object
       required:
@@ -2350,6 +2356,29 @@ components:
             $ref: '#/components/schemas/BlockInfoDTO'
         pagination:
           $ref: '#/components/schemas/Pagination'
+    ImportanceBlockDTO:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/BlockDTO'
+        - type: object
+          required:
+            - votingEligibleAccountsCount
+            - harvestingEligibleAccountsCount
+            - totalVotingBalance
+            - previousImportanceBlockHash
+          properties:
+            votingEligibleAccountsCount:
+              $ref: '#/components/schemas/UInt32'
+              description: Number of voting eligible accounts.
+            harvestingEligibleAccountsCount:
+              $ref: '#/components/schemas/UInt64'
+              description: Number of harvesting eligible accounts.
+            totalVotingBalance:
+              $ref: '#/components/schemas/Amount'
+              description: Total balance eligible for voting.
+            previousImportanceBlockHash:
+              $ref: '#/components/schemas/Hash256'
+              description: Previous importance block hash.
     MerklePathItemDTO:
       type: object
       description: 'Each merkle path item is composed of a hash, and a position relative to the proofHash being evaluated.'
