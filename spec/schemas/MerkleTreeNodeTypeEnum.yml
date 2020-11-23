@@ -5,5 +5,5 @@ enum:
 description: |
   Type of merkle tree node type:
   * 0 - Branch node.
-  * 1 - Leaf node.
+  * 255 - Leaf node.
 example: 0
