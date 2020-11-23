@@ -1,0 +1,13 @@
+type: object
+description: |
+  The state merkle tree parsed from raw buffer.
+required:
+  - tree
+properties:
+  tree:
+    description: Merkle tree parsed from merkle tree raw.
+    type: array
+    items:
+      anyOf:
+        - $ref: "./MerkleTreeBranch.yml"
+        - $ref: "./MerkleTreeLeaf.yml"

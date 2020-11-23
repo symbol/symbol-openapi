@@ -41,6 +41,16 @@ MerkleStateInfoDTO:
   "$ref": "./MerkleStateInfoDTO.yml"
 MerkleTreeRaw:
   "$ref": "./MerkleTreeRaw.yml"
+MerkleTreeBranch:
+  "$ref": "./MerkleTreeBranch.yml"
+MerkleTreeLeaf:
+  "$ref": "./MerkleTreeLeaf.yml"
+MerkleTreeBranchLink:
+  "$ref": "./MerkleTreeBranchLink.yml"
+MerkleTreeNodeTypeEnum:
+  "$ref": "./MerkleTreeNodeTypeEnum.yml"
+MerkleTree:
+  "$ref": "./MerkleTree.yml"
 RestrictionKey:
   "$ref": "./RestrictionKey.yml"
 NamespaceId:
