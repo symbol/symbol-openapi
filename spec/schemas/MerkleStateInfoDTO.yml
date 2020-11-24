@@ -8,4 +8,9 @@ properties:
   raw:
     $ref: "./MerkleTreeRaw.yml"
   tree:
-    $ref: "./MerkleTree.yml"
+    description: Merkle tree parsed from merkle tree raw.
+    type: array
+    items:
+      anyOf:
+        - $ref: "./MerkleTreeBranchDTO.yml"
+        - $ref: "./MerkleTreeLeafDTO.yml"

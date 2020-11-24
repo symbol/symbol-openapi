@@ -25,7 +25,7 @@ properties:
     description: Branch links (max 16).
     type: array
     items:
-      $ref: "./MerkleTreeBranchLink.yml"
+      $ref: "./MerkleTreeBranchLinkDTO.yml"
   branchHash:
     description: Hash of the branch node.
     $ref: "./Hash256.yml"
