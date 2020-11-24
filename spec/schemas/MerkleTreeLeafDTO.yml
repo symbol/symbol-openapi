@@ -19,7 +19,7 @@ properties:
     type: string
   nibbleCount:
     description: Nibble count.
-    type: integrer
+    type: integer
   value:
     description: Leaf value (sha256 hash).
     type: string
