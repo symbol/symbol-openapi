@@ -17,6 +17,9 @@ properties:
   encodedPath:
     description: Encoded leaf path.
     type: string
+  nibbleCount:
+    description: Nibble count.
+    type: integrer
   value:
     description: Leaf value (sha256 hash).
     type: string

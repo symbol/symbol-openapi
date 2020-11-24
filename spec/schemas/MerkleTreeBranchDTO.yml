@@ -18,6 +18,9 @@ properties:
   encodedPath:
     description: Encoded branch link path.
     type: string
+  nibbleCount:
+    description: Nibble count.
+    type: integer
   linkMask:
     description: Branch link bitmask.
     type: string
