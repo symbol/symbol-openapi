@@ -1950,9 +1950,17 @@ components:
         The merkle path information clients can use to proof the state of the given entity.
       required:
         - raw
+        - tree
       properties:
         raw:
           $ref: '#/components/schemas/MerkleTreeRaw'
+        tree:
+          description: Merkle tree parsed from merkle tree raw.
+          type: array
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/MerkleTreeBranchDTO'
+              - $ref: '#/components/schemas/MerkleTreeLeafDTO'
     MerkleTreeRaw:
       type: string
       format: hex
@@ -1960,6 +1968,93 @@ components:
         The hex information of the complete merkle tree as returned by server api.
         More information can be found in chapter 4.3 of the catapult whitepaper.
       example: 00008080DA9B4AF63BE985715EA635AF98E3CF3B0A22F9A2BE1C7DD40B79948AA63E36586E5D2E9D0C089C1C64BC0D42A11ADBD1CD6CDB4B7C294062F55113525A64AE3CFF3F04A7F2A487B42EA89323C4408F82415223ACFEC7DFA7924EFC31A70778AB17A00C3EAFF635F01BB3B474F0AF1BE99FBDA85EEFB209CC7BD158D3540DE3A3F2D1
+    MerkleTreeBranchDTO:
+      type: object
+      description: Merkle tree branch node.
+      required:
+        - type
+        - path
+        - encodedPath
+        - nibbleCount
+        - linkMask
+        - links
+        - branchHash
+      properties:
+        type:
+          description: Merkle tree node type.
+          $ref: '#/components/schemas/MerkleTreeNodeTypeEnum'
+        path:
+          description: Branch link path.
+          type: string
+        encodedPath:
+          description: Encoded branch link path.
+          type: string
+        nibbleCount:
+          description: Nibble count.
+          type: integer
+        linkMask:
+          description: Branch link bitmask.
+          type: string
+        links:
+          description: Branch links (max 16).
+          type: array
+          items:
+            $ref: '#/components/schemas/MerkleTreeBranchLinkDTO'
+        branchHash:
+          description: Hash of the branch node.
+          $ref: '#/components/schemas/Hash256'
+    MerkleTreeLeafDTO:
+      type: object
+      description: Merkle tree leaf node.
+      required:
+        - type
+        - path
+        - encodedPath
+        - nibbleCount
+        - value
+        - leafHash
+      properties:
+        type:
+          description: Merkle tree node type.
+          $ref: '#/components/schemas/MerkleTreeNodeTypeEnum'
+        path:
+          description: Leaf path.
+          type: string
+        encodedPath:
+          description: Encoded leaf path.
+          type: string
+        nibbleCount:
+          description: Nibble count.
+          type: integer
+        value:
+          description: Leaf value (sha256 hash).
+          type: string
+        leafHash:
+          description: Hash of the leaf node.
+          $ref: '#/components/schemas/Hash256'
+    MerkleTreeBranchLinkDTO:
+      type: object
+      description: Merkle tree branch link.
+      required:
+        - bit
+        - link
+      properties:
+        bit:
+          description: Branch link nibble bit index (hexadecimal).
+          type: string
+        link:
+          description: Branch link hash.
+          $ref: '#/components/schemas/Hash256'
+    MerkleTreeNodeTypeEnum:
+      type: integer
+      enum:
+        - 0
+        - 255
+      description: |
+        Type of Merkle tree node:
+        * 0 - Branch node.
+        * 255 - Leaf node.
+      example: 0
     RestrictionKey:
       type: string
       format: hex
