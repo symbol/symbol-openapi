@@ -1,7 +1,7 @@
 tags:
   - Multisig routes
 summary: Searches multisig accounts.
-description: Gets an array of mutlsig accounts.
+description: Gets an array of multisig accounts.
 operationId: searchAccountMultisigs
 parameters:
   - $ref: "../../../parameters/query/address.yml"
