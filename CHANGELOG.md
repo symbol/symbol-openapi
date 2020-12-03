@@ -26,11 +26,9 @@ Targets catapult-rest 2.1.0
 - Allowing hash lock searches without filters.
 - Allowing secret lock searches without filters.
 
-
 ### Removed
 
 - ``id`` from namespace's meta.
--
 
 ## [0.10.0] - 25-Sep-2020
 
