@@ -20,11 +20,14 @@ Targets catapult-rest 2.1.0
 - Added get mosaic restriction by composite hash ``/restrictions/mosaic/{compositeHash}`` endpoint.
 - Added get secret lock by composite hash ``/lock/secret/{compositeHash}`` endpoint.
 - Added get metadata by composite hash ``/metadata/{compositeHash}`` endpoint.
+- Added new IPv4 and IPv6 Role Types.
+- Added new private Network Types.
 
 ### Updated
 
 - Allowing hash lock searches without filters.
 - Allowing secret lock searches without filters.
+- Updated finalization proof schema added optional ``signatureSchema``.
 
 ### Removed
 
