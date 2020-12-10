@@ -2630,6 +2630,8 @@ components:
       properties:
         root:
           $ref: '#/components/schemas/ParentPublicKeySignaturePair'
+        top:
+          $ref: '#/components/schemas/ParentPublicKeySignaturePair'
         bottom:
           $ref: '#/components/schemas/ParentPublicKeySignaturePair'
     FinalizationProofDTO:
