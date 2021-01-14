@@ -1,8 +1,8 @@
 openapi: 3.0.2
 info:
-  version: 0.10.6
+  version: 0.11.0
   title: Catapult REST Endpoints
-  description: OpenAPI Specification of catapult-rest 2.2.0
+  description: OpenAPI Specification of catapult-rest 2.3.0
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
@@ -2172,8 +2172,8 @@ components:
     VotingKey:
       type: string
       format: hex
-      description: 48 bytes voting public key.
-      example: 4EDDA97C991A0BF44E0570B0BA0E0F7F1CE821A799726888734F28DDCCE8C5911F82C8663A2CB9C2215A28BD6A2E1F4D
+      description: 32 bytes voting public key.
+      example: 4EDDA97C991A0BF44E0570B0BA0E0F7F1CE821A799726888734F28DDCCE8C591
     RestrictionValue:
       type: string
       description: Restriction value.
@@ -2555,22 +2555,27 @@ components:
         - medianFeeMultiplier
         - highestFeeMultiplier
         - lowestFeeMultiplier
+        - minFeeMultiplier
       properties:
         averageFeeMultiplier:
           $ref: '#/components/schemas/BlockFeeMultiplier'
-          description: Average fee multiplier over the last "numBlocksTransactionFeeStats".
+          description: Average fee multiplier over the last "numBlocksTransactionFeeStats" on the current Network.
           example: 1
         medianFeeMultiplier:
           $ref: '#/components/schemas/BlockFeeMultiplier'
-          description: Median fee multiplier over the last "numBlocksTransactionFeeStats".
+          description: Median fee multiplier over the last "numBlocksTransactionFeeStats" on the current Network.
           example: 1
         highestFeeMultiplier:
           $ref: '#/components/schemas/BlockFeeMultiplier'
-          description: Highest fee multiplier over the last "numBlocksTransactionFeeStats".
+          description: Highest fee multiplier over the last "numBlocksTransactionFeeStats" on the current Network.
           example: 2
         lowestFeeMultiplier:
           $ref: '#/components/schemas/BlockFeeMultiplier'
-          description: Lowest fee multiplier over the last "numBlocksTransactionFeeStats".
+          description: Lowest fee multiplier over the last "numBlocksTransactionFeeStats" on the current Network.
+          example: 0
+        minFeeMultiplier:
+          $ref: '#/components/schemas/BlockFeeMultiplier'
+          description: Minimal fee multiplier on the current connected Node.
           example: 0
     NetworkTypeEnum:
       type: integer
@@ -2630,8 +2635,6 @@ components:
       properties:
         root:
           $ref: '#/components/schemas/ParentPublicKeySignaturePair'
-        top:
-          $ref: '#/components/schemas/ParentPublicKeySignaturePair'
         bottom:
           $ref: '#/components/schemas/ParentPublicKeySignaturePair'
     FinalizationProofDTO:
@@ -2666,9 +2669,6 @@ components:
         - hashes
         - signatures
       properties:
-        signatureSchema:
-          description: Signature schema to sepecify v1/v2 voting signature (Optional. For testnet only).
-          type: integer
         stage:
           description: Message stage
           $ref: '#/components/schemas/StageEnum'
