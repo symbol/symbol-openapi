@@ -1,6 +1,6 @@
 openapi: 3.0.2
 info:
-  version: 0.11.0
+  version: 0.11.1
   title: Catapult REST Endpoints
   description: OpenAPI Specification of catapult-rest 2.3.0
   license:
@@ -2583,7 +2583,7 @@ components:
         - 96
         - 144
         - 120
-        - 128
+        - 168
         - 104
         - 152
       description: |
@@ -2591,7 +2591,7 @@ components:
         * 0x60 (96 decimal) - Mijin network.
         * 0x90 (144 decimal) - Mijin test network.
         * 0x78 (120 decimal) - Private network.
-        * 0x80 (128 decimal) - Private test network.
+        * 0xA8 (168 decimal) - Private test network.
         * 0x68 (104 decimal) - Public main network.
         * 0x98 (152 decimal) - Public test network.
       example: 144
