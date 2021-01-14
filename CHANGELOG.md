@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The changelog format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [0.10.7] - 13-Jan-2021
+## [0.11.0] - 13-Jan-2021
 
 Targets catapult-rest 2.2.2
 
