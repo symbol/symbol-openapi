@@ -1251,6 +1251,8 @@ paths:
       operationId: searchReceipts
       parameters:
         - $ref: '#/components/parameters/heightQuery'
+        - $ref: '#/components/parameters/fromHeightQuery'
+        - $ref: '#/components/parameters/toHeightQuery'
         - $ref: '#/components/parameters/receiptTypeQuery'
         - $ref: '#/components/parameters/recipientAddressQuery'
         - $ref: '#/components/parameters/senderAddressQuery'
