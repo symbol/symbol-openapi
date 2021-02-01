@@ -25,6 +25,8 @@ deploy:
       - _build/openapi3.yml
       - _build/postman.json
     api_key: $GITHUB_TOKEN
+    on:
+      tags: true
 jobs:
   include:
     - stage: test
@@ -32,7 +34,7 @@ jobs:
       script: npm test
     - stage: deploy
       name: githubPages
-      script: /bin/sh travis/githubPages.sh
+      script: /bin/sh travis/githubPages.sh AND type = push
       if: branch = env(RELEASE_BRANCH)
     - stage: release
       name: release
