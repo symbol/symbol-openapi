@@ -34,8 +34,8 @@ jobs:
       script: npm test
     - stage: deploy
       name: githubPages
-      script: /bin/sh travis/githubPages.sh AND type = push
-      if: branch = env(RELEASE_BRANCH)
+      script: /bin/sh travis/githubPages.sh
+      if: branch = env(RELEASE_BRANCH) AND type = push
     - stage: release
       name: release
       script: /bin/sh travis/release.sh
