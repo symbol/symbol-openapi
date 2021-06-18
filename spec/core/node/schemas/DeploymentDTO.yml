@@ -15,4 +15,4 @@ properties:
   lastUpdatedDate:
     type: string
     example: '2021-06-02'
-    description: 'When was the node upgraded.'
+    description: 'When was the node last upgraded.'
