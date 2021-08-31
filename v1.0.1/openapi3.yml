@@ -2150,7 +2150,7 @@ components:
       example: 1
     Timestamp:
       type: string
-      description: Number of seconds elapsed since the creation of the nemesis block.
+      description: Number of milliseconds elapsed since the creation of the nemesis block. This value can be converted to epoch time by adding the network's 'epochAdjustment'.
       example: 108303181802
     UInt32:
       type: integer
@@ -5003,6 +5003,7 @@ components:
       type: object
       required:
         - id
+        - meta
         - statement
       description: |
         A resolution statement keeps the relation between a namespace alias used in a transaction
@@ -5011,6 +5012,8 @@ components:
         id:
           type: string
           description: Internal resource identifier.
+        meta:
+          $ref: '#/components/schemas/StatementMetaDTO'
         statement:
           $ref: '#/components/schemas/ResolutionStatementDTO'
     ResolutionStatementPage:
@@ -5043,6 +5046,14 @@ components:
             Transaction index within the aggregate transaction.
             If the transaction is not an embedded transaction, then the secondary id is set to 0.
           example: 0
+    StatementMetaDTO:
+      type: object
+      required:
+        - timestamp
+      description: 'Metadata related to the statment, including block information.'
+      properties:
+        timestamp:
+          $ref: '#/components/schemas/Timestamp'
     TransactionStatementDTO:
       type: object
       required:
@@ -5068,12 +5079,15 @@ components:
       type: object
       required:
         - id
+        - meta
         - statement
       description: Collection of receipts related to a transaction.
       properties:
         id:
           type: string
           description: Internal resource identifier.
+        meta:
+          $ref: '#/components/schemas/StatementMetaDTO'
         statement:
           $ref: '#/components/schemas/TransactionStatementDTO'
     TransactionStatementPage:
