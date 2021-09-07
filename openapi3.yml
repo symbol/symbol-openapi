@@ -3550,6 +3550,10 @@ components:
         index:
           type: integer
           description: Transaction index within the aggregate.
+        timestamp:
+          $ref: '#/components/schemas/Timestamp'
+        feeMultiplier:
+          $ref: '#/components/schemas/BlockFeeMultiplier'
     TransactionPage:
       type: object
       required:
@@ -3659,6 +3663,10 @@ components:
         index:
           type: integer
           description: Transaction index within the block.
+        timestamp:
+          $ref: '#/components/schemas/Timestamp'
+        feeMultiplier:
+          $ref: '#/components/schemas/BlockFeeMultiplier'
     TransactionStatusDTO:
       type: object
       required:
