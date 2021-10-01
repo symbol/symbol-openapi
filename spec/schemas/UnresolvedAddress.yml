@@ -1,4 +1,3 @@
 type: string
 anyOf:
-    - $ref: "./NamespaceId.yml"
     - $ref: "./Address.yml"
