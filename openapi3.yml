@@ -1473,7 +1473,7 @@ components:
       description: Account address.
       required: true
       schema:
-        $ref: '#/components/schemas/AddressBase32'
+        $ref: '#/components/schemas/Address'
     accountIdPath:
       name: accountId
       in: path
@@ -1546,7 +1546,7 @@ components:
       description: Account address.
       required: true
       schema:
-        $ref: '#/components/schemas/AddressBase32'
+        $ref: '#/components/schemas/Address'
     transactionHashPath:
       name: hash
       in: path
@@ -1565,11 +1565,11 @@ components:
       name: address
       in: query
       description: |
-        Filter by address involved in the transaction. 
+        Filter by address involved in the transaction.
         An account's address is considered to be involved in the transaction when the account is the sender, recipient, or it is required to cosign the transaction.
         This filter cannot be combined with ``recipientAddress`` and ``signerPublicKey`` query params.
       schema:
-        $ref: '#/components/schemas/AddressBase32'
+        $ref: '#/components/schemas/Address'
     artifactIdQuery:
       name: artifactId
       in: query
@@ -1593,7 +1593,7 @@ components:
       description: Filter by beneficiary address.
       in: query
       schema:
-        $ref: '#/components/schemas/AddressBase32'
+        $ref: '#/components/schemas/Address'
     embedded:
       name: embedded
       in: query
@@ -1685,7 +1685,7 @@ components:
       in: query
       description: Filter by owner address.
       schema:
-        $ref: '#/components/schemas/AddressBase32'
+        $ref: '#/components/schemas/Address'
     orderByBlockQuery:
       name: orderBy
       in: query
@@ -1727,7 +1727,7 @@ components:
       in: query
       description: Filter by address of the account receiving the transaction.
       schema:
-        $ref: '#/components/schemas/AddressBase32'
+        $ref: '#/components/schemas/Address'
     secretQuery:
       name: secret
       in: query
@@ -1739,7 +1739,7 @@ components:
       in: query
       description: Filter by address sending mosaics.
       schema:
-        $ref: '#/components/schemas/AddressBase32'
+        $ref: '#/components/schemas/Address'
     scopedMetadataKeyQuery:
       name: scopedMetadataKey
       in: query
@@ -1751,7 +1751,7 @@ components:
       in: query
       description: Filter by address sending the metadata entry.
       schema:
-        $ref: '#/components/schemas/AddressBase32'
+        $ref: '#/components/schemas/Address'
     registrationTypeQuery:
       name: registrationType
       in: query
@@ -1777,7 +1777,7 @@ components:
       in: query
       description: Filter by target address.
       schema:
-        $ref: '#/components/schemas/AddressBase32'
+        $ref: '#/components/schemas/Address'
     toHeightQuery:
       name: toHeight
       in: query
@@ -1862,13 +1862,8 @@ components:
   schemas:
     Address:
       type: string
-      format: hex
-      description: Address expressed in hexadecimal base.
-      example: 9081FCCB41F8C8409A9B99E485E0E28D23BD6304EF7215E0
-    AddressBase32:
-      type: string
       description: Address encoded using a 32-character set.
-      example: SAAA244WMCB2JXGNQTQHQOS45TGBFF4V2MJBVOQ
+      example: TADP6C2GVEG654OP5LZI32P2GYJSCMEGQBYB7QY
     Amount:
       type: string
       description: Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative).
@@ -2163,10 +2158,8 @@ components:
       example: '123456'
     UnresolvedAddress:
       type: string
-      description: |
-        Address expressed in hexadecimal base. If the bit 0 of byte 0 is not set (like in 0x90), then it is a
-        regular address. Else (e.g. 0x91) it represents a namespace id which starts at byte 1.
-      example: 90340017CFF3DD2BCF3B2670CDCB9FC8C75754E2325F297C
+      anyOf:
+        - $ref: '#/components/schemas/Address'
     UnresolvedMosaicId:
       type: string
       format: hex
@@ -2846,7 +2839,7 @@ components:
           description: Percentage of the harvested fee that is collected by the network.
           example: '5'
         harvestNetworkFeeSinkAddress:
-          $ref: '#/components/schemas/AddressBase32'
+          $ref: '#/components/schemas/Address'
           description: Address of the harvest network fee sink account.
           example: SDKDPA36TE53BO24FD4KA6OPGOUSEVOU3O5SIFI
         blockPruneInterval:
@@ -4400,7 +4393,7 @@ components:
           description: Maximum mosaic divisibility.
           example: '6'
         mosaicRentalFeeSinkAddress:
-          $ref: '#/components/schemas/AddressBase32'
+          $ref: '#/components/schemas/Address'
           description: Address of the mosaic rental fee sink account.
           example: SDKDPA36TE53BO24FD4KA6OPGOUSEVOU3O5SIFI
         mosaicRentalFee:
@@ -4805,7 +4798,7 @@ components:
           description: Reserved root namespaces that cannot be claimed.
           example: 'xem, nem, user, account, org, com, biz, net, edu, mil, gov, info'
         namespaceRentalFeeSinkAddress:
-          $ref: '#/components/schemas/AddressBase32'
+          $ref: '#/components/schemas/Address'
           description: Address of the namespace rental fee sink account.
           example: SDTZ23JBJZP3GTKKM2P6FYCMXS6RQYPB6R477TQ
         rootNamespaceRentalFeePerBlock:
@@ -5550,7 +5543,7 @@ components:
           type: array
           description: Array of addresses.
           items:
-            $ref: '#/components/schemas/AddressBase32'
+            $ref: '#/components/schemas/Address'
     addresses:
       type: object
       properties:
@@ -5558,7 +5551,7 @@ components:
           type: array
           description: Array of addresses.
           items:
-            $ref: '#/components/schemas/AddressBase32'
+            $ref: '#/components/schemas/Address'
     cosignature:
       type: object
       properties:
