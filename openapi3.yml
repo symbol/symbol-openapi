@@ -2591,18 +2591,10 @@ components:
     NetworkTypeEnum:
       type: integer
       enum:
-        - 96
-        - 144
-        - 120
-        - 168
         - 104
         - 152
       description: |
         Network type:
-        * 0x60 (96 decimal) - Mijin network.
-        * 0x90 (144 decimal) - Mijin test network.
-        * 0x78 (120 decimal) - Private network.
-        * 0xA8 (168 decimal) - Private test network.
         * 0x68 (104 decimal) - Public main network.
         * 0x98 (152 decimal) - Public test network.
       example: 144
@@ -2732,11 +2724,11 @@ components:
         name:
           type: string
           description: Network name.
-          example: mijinTest
+          example: testnet
         description:
           type: string
           description: A short text describing the network.
-          example: catapult development network
+          example: catapult public test network
     ChainPropertiesDTO:
       type: object
       description: Chain related configuration properties.
@@ -2873,7 +2865,7 @@ components:
         identifier:
           type: string
           description: Network identifier.
-          example: mijin-test
+          example: testnet
         nodeEqualityStrategy:
           $ref: '#/components/schemas/NodeIdentityEqualityStrategy'
           example: host
