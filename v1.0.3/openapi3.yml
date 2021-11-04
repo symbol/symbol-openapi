@@ -1452,8 +1452,8 @@ paths:
         '409':
           $ref: '#/components/responses/InvalidArgument'
 externalDocs:
-  description: Symbol Developers
-  url: 'https://nemtech.github.io/'
+  description: Symbol Technical Documentation
+  url: 'https://docs.symbolplatform.com/'
 servers:
   - url: 'http://localhost:3000'
     description: Local development
