@@ -1,7 +1,7 @@
 tags:
   - Node routes
 summary: Get the node time
-description: Gets the node time at the moment the reply was sent and received.
+description: Gets the node time for the moment the request was recieved and the reply was sent. Response timestamps represent milliseconds since the genesis block.
 operationId: getNodeTime
 responses:
   "200":
