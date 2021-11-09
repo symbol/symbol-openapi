@@ -4273,6 +4273,7 @@ components:
         - 0x01 (supplyMutable) - Mosaic supports supply changes even when mosaic owner owns partial supply.
         - 0x02 (transferable) - Mosaic supports transfers between arbitrary accounts. When not set, mosaic can only be transferred to and from mosaic owner.
         - 0x04 (restrictable) - Mosaic supports custom restrictions configured by mosaic owner.
+        - 0x08 (revokable) - Mosaic allows creator to revoke balances from another user.
     MosaicSupplyChangeActionEnum:
       type: integer
       enum:
@@ -4293,6 +4294,11 @@ components:
       allOf:
         - $ref: '#/components/schemas/EmbeddedTransactionDTO'
         - $ref: '#/components/schemas/MosaicSupplyChangeTransactionBodyDTO'
+    EmbeddedMosaicSupplyRevocationTransactionDTO:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/EmbeddedTransactionDTO'
+        - $ref: '#/components/schemas/MosaicSupplyRevocationTransactionBodyDTO'
     MosaicDefinitionTransactionBodyDTO:
       type: object
       required:
@@ -4427,6 +4433,25 @@ components:
       allOf:
         - $ref: '#/components/schemas/TransactionDTO'
         - $ref: '#/components/schemas/MosaicSupplyChangeTransactionBodyDTO'
+    MosaicSupplyRevocationTransactionBodyDTO:
+      type: object
+      required:
+        - sourceAddress
+        - mosaicId
+        - amount
+      properties:
+        sourceAddress:
+          $ref: '#/components/schemas/UnresolvedAddress'
+        mosaicId:
+          $ref: '#/components/schemas/UnresolvedMosaicId'
+        amount:
+          $ref: '#/components/schemas/Amount'
+    MosaicSupplyRevocationTransactionDTO:
+      type: object
+      description: Transaction that allows the mosaic creator to revoke some balance from a user.
+      allOf:
+        - $ref: '#/components/schemas/TransactionDTO'
+        - $ref: '#/components/schemas/MosaicSupplyRevocationTransactionBodyDTO'
     EmbeddedMultisigAccountModificationTransactionDTO:
       type: object
       allOf:
