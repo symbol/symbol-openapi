@@ -3421,6 +3421,7 @@ components:
         - 16961
         - 16717
         - 16973
+        - 17229
         - 16718
         - 16974
         - 17230
@@ -3447,6 +3448,7 @@ components:
         * 0x4241 (16961 decimal) - AggregateBondedTransaction.
         * 0x414D (16717 decimal) - MosaicDefinitionTransaction.
         * 0x424D (16973 decimal) - MosaicSupplyChangeTransaction.
+        * 0x434D (17229 decimal) - MosaicSupplyRevocationTransaction.
         * 0x414E (16718 decimal) - NamespaceRegistrationTransaction.
         * 0x424E (16974 decimal) - AddressAliasTransaction.
         * 0x434E (17230 decimal) - MosaicAliasTransaction.
@@ -3510,6 +3512,7 @@ components:
             - $ref: '#/components/schemas/EmbeddedNamespaceMetadataTransactionDTO'
             - $ref: '#/components/schemas/EmbeddedMosaicDefinitionTransactionDTO'
             - $ref: '#/components/schemas/EmbeddedMosaicSupplyChangeTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedMosaicSupplyRevocationTransactionDTO'
             - $ref: '#/components/schemas/EmbeddedNamespaceRegistrationTransactionDTO'
             - $ref: '#/components/schemas/EmbeddedAddressAliasTransactionDTO'
             - $ref: '#/components/schemas/EmbeddedMosaicAliasTransactionDTO'
@@ -3614,6 +3617,8 @@ components:
             - $ref: '#/components/schemas/EmbeddedMosaicDefinitionTransactionDTO'
             - $ref: '#/components/schemas/MosaicSupplyChangeTransactionDTO'
             - $ref: '#/components/schemas/EmbeddedMosaicSupplyChangeTransactionDTO'
+            - $ref: '#/components/schemas/MosaicSupplyRevocationTransactionDTO'
+            - $ref: '#/components/schemas/EmbeddedMosaicSupplyRevocationTransactionDTO'
             - $ref: '#/components/schemas/NamespaceRegistrationTransactionDTO'
             - $ref: '#/components/schemas/EmbeddedNamespaceRegistrationTransactionDTO'
             - $ref: '#/components/schemas/AddressAliasTransactionDTO'
