@@ -9,7 +9,7 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 Milestone: Symbol Mainnet
 
 - feat: Added mosaic supply revocation support.
-- fix: added catapult 1.0.3.0 new status codes.
+- fix: Added catapult 1.0.3.0 new status codes.
 
 ## [1.0.2] - 19-Oct-2021
 
