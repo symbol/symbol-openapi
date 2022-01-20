@@ -188,6 +188,10 @@
   get:
     $ref: "./plugins/multisig/routes/getAccountMultisigGraph.yml"
 
+"/multisig":
+  get:
+    $ref: "./plugins/multisig/routes/searchAccountMultisigs.yml"
+
 # Plugin - Namespace
 "/namespaces":
   get:
