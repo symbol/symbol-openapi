@@ -19,9 +19,17 @@ properties:
   addressHeight:
     $ref: "../../../schemas/Height.yml"
   publicKey:
-    $ref: "../../../schemas/PublicKey.yml"
+    allOf:
+      - description: >
+          The account's public key.
+          This information is only available once `publicKeyHeight` is greater than 0.
+      - $ref: "../../../schemas/PublicKey.yml"
   publicKeyHeight:
-    $ref: "../../../schemas/Height.yml"
+    allOf:
+      - description: >
+          Height of the blockchain where the `publicKey` for this account was added.
+          This happens when the account first sends a transaction.
+      - $ref: "../../../schemas/Height.yml"
   accountType:
     $ref: "./AccountTypeEnum.yml"
   supplementalPublicKeys:
