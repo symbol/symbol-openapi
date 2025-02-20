@@ -1,0 +1,12 @@
+type: object
+required:
+  - data
+  - pagination
+properties:
+  data:
+    type: array
+    description: Array of multisig accounts.
+    items:
+      $ref: "./MultisigPage.yml"
+  pagination:
+    $ref: "../../../schemas/Pagination.yml"

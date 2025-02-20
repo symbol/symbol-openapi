@@ -404,6 +404,8 @@ MultisigDTO:
   "$ref": "../plugins/multisig/schemas/MultisigDTO.yml"
 MultisigNetworkPropertiesDTO:
   "$ref": "../plugins/multisig/schemas/MultisigNetworkPropertiesDTO.yml"
+MultisigPage:
+  "$ref": "../plugins/multisig/schemas/MultisigPage.yml"
 
 # Plugin - Namespace
 AliasActionEnum:
