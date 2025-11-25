@@ -11,8 +11,8 @@ Milestone: Symbol Mainnet
 - fix: Changed documentation URL.
 - fix: Changed redoc standalone library URL.
 - fix: Added missing inflation and metadata endpoints.
-- fix: Added new params to search blocks endpoint.
-- fix: Updated network properties endpoint.
+- fix: Added fromTimestamp and toTimestamp params to search blocks endpoint.
+- fix: Added forkHeights, treasuryReissuanceTransactionSignatures and corruptAggregateTransactionHashes properties to network properties endpoint.
 - fix: Updated catapult client status codes.
 
 ## [1.0.3] - 10-Nov-2021
