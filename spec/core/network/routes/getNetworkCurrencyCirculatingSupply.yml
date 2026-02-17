@@ -8,19 +8,20 @@ description: |
   designated uncirculating or reserved accounts (e.g. nemesis or treasury accounts).
   
   Data sources:
-    • Mosaic supply and divisibility from blockchain database
-    • Nemesis signer public key from network properties file
-    • Uncirculating account public keys defined in rest.json (`uncirculatingAccountPublicKeys`)
-  
-  The result reflects real-time chain state and is formatted according to the mosaic divisibility.
+    - Mosaic supply and divisibility from blockchain database
+    - Nemesis signer public key from network properties file
+    - Uncirculating account public keys defined in rest.json (`uncirculatingAccountPublicKeys`)
 operationId: getCirculatingCurrencySupply
 responses:
   "200":
-    description: Successful response containing the circulating currency supply as fixed-decimal string.
+    description: |
+      Successful response containing the circulating currency supply.
+
+      The value is expressed in whole units with a fractional part
+      determined by the mosaic divisibility and returned as a fixed-decimal string.
     content:
       text/plain:
         schema:
-          schema:
-            type: string
-            pattern: '^\d+\.\d{1,6}$'
-            example: "6351335211.744781"
+          type: string
+          pattern: '^\d+\.\d+$'
+          example: "6351335211.744781"
