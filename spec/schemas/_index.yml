@@ -167,6 +167,8 @@ StageEnum:
   "$ref": "../core/finalization/schemas/StageEnum.yml"
 
 # Core - Network
+NetworkInflationDTO:
+  "$ref": "../core/network/schemas/NetworkInflationDTO.yml"
 NodeIdentityEqualityStrategy:
   "$ref": "../core/network/schemas/NodeIdentityEqualityStrategy.yml"
 NetworkTypeDTO:
