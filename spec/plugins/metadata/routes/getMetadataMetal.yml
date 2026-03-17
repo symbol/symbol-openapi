@@ -17,7 +17,7 @@ parameters:
       example: "image/png"
   - name: fileName
     in: query
-    description: Override the filename in Content-Disposition header.
+    description: Override the filename in the Content-Disposition header.
     required: false
     schema:
       type: string

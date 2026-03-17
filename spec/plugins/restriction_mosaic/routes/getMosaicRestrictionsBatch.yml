@@ -12,7 +12,7 @@ responses:
       application/json:
         schema:
           type: array
-          description: Array of mosaic restriction information.
+          description: Array of mosaic restriction entries.
           items:
             $ref: "../schemas/MosaicRestrictionDTO.yml"
   "400":

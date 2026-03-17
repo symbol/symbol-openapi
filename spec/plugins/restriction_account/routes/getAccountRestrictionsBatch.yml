@@ -12,7 +12,7 @@ responses:
       application/json:
         schema:
           type: array
-          description: Array of account restrictions information.
+          description: Array of account restriction entries.
           items:
             $ref: "../schemas/AccountRestrictionsInfoDTO.yml"
   "400":

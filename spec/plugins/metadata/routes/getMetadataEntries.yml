@@ -12,7 +12,7 @@ responses:
       application/json:
         schema:
           type: array
-          description: Array of metadata information.
+          description: Array of metadata entries.
           items:
             $ref: "../schemas/MetadataInfoDTO.yml"
   "400":
