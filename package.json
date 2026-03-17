@@ -13,17 +13,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nemtech/symbol-openapi.git"
+    "url": "git+https://github.com/symbol/symbol-openapi.git"
   },
   "license": "Apache 2.0",
   "bugs": {
-    "url": "https://github.com/nemtech/symbol-openapi/issues"
+    "url": "https://github.com/symbol/symbol-openapi/issues"
   },
-  "homepage": "https://github.com/nemtech/symbol-openapi#readme",
+  "homepage": "https://github.com/symbol/symbol-openapi#readme",
   "dependencies": {},
   "devDependencies": {
     "@redocly/cli": "^1.25.0",
-    "openapi-to-postmanv2": "^1.2.6",
-    "yaml-cli": "^1.1.8"
+    "openapi-to-postmanv2": "^6.0.0"
   }
 }
