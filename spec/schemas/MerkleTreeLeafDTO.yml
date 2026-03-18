@@ -24,5 +24,5 @@ properties:
     description: Leaf value (sha256 hash).
     type: string
   leafHash:
-    description: Hash of the leaf node.
+    description: Hash of the leaf node (64-character hex).
     $ref: "./Hash256.yml"

@@ -30,5 +30,5 @@ properties:
     items:
       $ref: "./MerkleTreeBranchLinkDTO.yml"
   branchHash:
-    description: Hash of the branch node.
+    description: Hash of the branch node (64-character hex).
     $ref: "./Hash256.yml"

@@ -8,6 +8,6 @@ properties:
     description: Branch link nibble bit index (hexadecimal).
     type: string
   link:
-    description: Branch link hash.
+    description: Branch link hash (64-character hex).
     $ref: "./Hash256.yml"
     

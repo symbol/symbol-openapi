@@ -11,13 +11,13 @@ required:
 properties:
   hash:
     $ref: "../../../schemas/Hash256.yml"
-    description: Block hash.
+    description: Block hash (64-character hex).
   totalFee:
     $ref: "../../../schemas/Amount.yml"
     description: Sum of all transaction fees included in the block.
   generationHash:
     $ref: "../../../schemas/Hash256.yml"
-    description: Generation hash.
+    description: Generation hash (64-character hex).
   stateHashSubCacheMerkleRoots:
     type: array
     description: Merkle roots of each sub-cache at this block height.
