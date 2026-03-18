@@ -6,3 +6,10 @@ description: |
 required: true
 schema:
   $ref: "../../schemas/Height.yml"
+examples:
+  nemesis:
+    summary: Nemesis block (first block)
+    value: "1"
+  recent:
+    summary: Recent block height
+    value: "17592"

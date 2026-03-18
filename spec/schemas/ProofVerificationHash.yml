@@ -7,4 +7,5 @@ description: |
   The harvester generates this proof using its VRF private key; the verification hash
   allows anyone with the VRF public key to verify that the proof was correctly computed
   without revealing the private key.
-example: 82FB583BFE3EE78805784D078F2547AE
+examples:
+  - 82FB583BFE3EE78805784D078F2547AE

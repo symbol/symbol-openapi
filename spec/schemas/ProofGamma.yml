@@ -5,4 +5,5 @@ description: |
   [generation hash proof](https://docs.symbol.dev/concepts/block.html#header) (VrfProof).
   The gamma value is the first component of the VRF output; it is combined with
   ``proofScalar`` and ``proofVerificationHash`` to form the complete verifiable proof.
-example: 8D49594A96C31EC6C64305FB2CCB47AA7A4AC0A4F614442BB3684D2BF41F274E
+examples:
+  - 8D49594A96C31EC6C64305FB2CCB47AA7A4AC0A4F614442BB3684D2BF41F274E

@@ -16,6 +16,28 @@ responses:
       application/json:
         schema:
           $ref: "../schemas/AccountInfoDTO.yml"
+        examples:
+          default:
+            value:
+              id: "5E62690AB46E5565E8C0B5B5"
+              account:
+                version: 1
+                address: TADP6C2GVEG654OP5LZI32P2GYJSCMEGQBYB7QY
+                addressHeight: "1"
+                publicKey: AC1A6E1D8DE5B17D2C6B1293F1CAD3829EEACF38D09311BB3C8E5A880092DE26
+                publicKeyHeight: "1"
+                accountType: 0
+                supplementalPublicKeys: {}
+                activityBuckets:
+                  - startHeight: "1"
+                    totalFeesPaid: "0"
+                    beneficiaryCount: 0
+                    rawScore: "0"
+                mosaics:
+                  - id: 0DC67FBE1CAD29E3
+                    amount: "1000000"
+                importance: "0.010263666447108395"
+                importanceHeight: "1"
   "404":
     $ref: "../../../responses/ResourceNotFound.yml"
   "409":
