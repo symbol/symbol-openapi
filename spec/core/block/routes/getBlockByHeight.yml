@@ -1,13 +1,20 @@
 tags:
   - Block routes
 summary: Get block information
-description: Gets a block from the chain that has the given height.
+description: |
+  Returns the block at the given height.
+  The response includes the block header, harvester signature, and block metadata
+  (hash, total fee, generation hash, transaction and statement counts).
+
+  If the block is an importance block, the response additionally contains
+  voting-eligible and harvesting-eligible account counts, total voting balance,
+  and the previous importance block hash.
 operationId: getBlockByHeight
 parameters:
   - $ref: "../../../parameters/path/heightPath.yml"
 responses:
   "200":
-    description: success
+    description: Block information successfully retrieved.
     content:
       application/json:
         schema:

@@ -1,21 +1,25 @@
 tags:
   - Account routes
 summary: Get accounts information
-description: Returns the account information for an array of accounts.
+description: |
+  Retrieves account data for multiple accounts in a single request.
+
+  The request body accepts an array of public keys, an array of addresses, or both.
+  This is the batch equivalent of the single-account endpoint.
 operationId: getAccountsInfo
 requestBody:
   $ref: "../../../request_bodies/accountIds.yml"
 responses:
   "200":
-    description: success
+    description: Successfully fetched list of account data.
     content:
       application/json:
         schema:
           type: array
-          description: Array of accounts information.
+          description: Array of account information objects.
           items:
             $ref: "../schemas/AccountInfoDTO.yml"
   "400":
-    $ref : "../../../responses/InvalidContent.yml"
+    $ref: "../../../responses/InvalidContent.yml"
   "409":
-    $ref : "../../../responses/InvalidArgument.yml"
+    $ref: "../../../responses/InvalidArgument.yml"

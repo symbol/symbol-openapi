@@ -1,3 +1,9 @@
 type: string
-description: Height of the blockchain.
-example: 1
+description: |
+  Height of a block in the blockchain. The first block (nemesis) has height 1;
+  each subsequent block increments by one.
+  Represented as a string to preserve precision, since the value is an unsigned 64-bit integer.
+pattern: '^[1-9][0-9]*$'
+examples:
+  - "1"
+  - "17592"

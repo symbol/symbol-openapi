@@ -1,4 +1,5 @@
 type: object
+description: Block metadata including hash, total fee, generation hash, and transaction/statement counts.
 required:
   - hash
   - totalFee
@@ -10,12 +11,16 @@ required:
 properties:
   hash:
     $ref: "../../../schemas/Hash256.yml"
+    description: Block hash.
   totalFee:
     $ref: "../../../schemas/Amount.yml"
+    description: Sum of all transaction fees included in the block.
   generationHash:
     $ref: "../../../schemas/Hash256.yml"
+    description: Generation hash.
   stateHashSubCacheMerkleRoots:
     type: array
+    description: Merkle roots of each sub-cache at this block height.
     items:
       $ref: "../../../schemas/Hash256.yml"
   totalTransactionsCount:
@@ -24,14 +29,16 @@ properties:
       Total number of [transactions](https://docs.symbol.dev/concepts/transaction.html)
       confirmed in this block, including *embedded* transactions
       (i.e. transactions contained within aggregate transactions).
-    example: 1
+    examples:
+      - 1
   transactionsCount:
     type: integer
     description: >
       Number of [transactions](https://docs.symbol.dev/concepts/transaction.html)
       confirmed in this block. This does not count *embedded* transactions
       (i.e. transactions contained within aggregate transactions).
-    example: 1
+    examples:
+      - 1
   statementsCount:
     type: integer
     description: >
@@ -41,4 +48,5 @@ properties:
       are triggered by transactions present in the block, but in general,
       [transaction statements](https://docs.symbol.dev/concepts/receipt.html#transaction-statement)
       are not.
-    example: 1
+    examples:
+      - 1

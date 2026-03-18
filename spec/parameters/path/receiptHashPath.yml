@@ -1,6 +1,6 @@
 name: hash
 in: path
-description: Receipt hash.
+description: Receipt statement hash (256-bit, hex-encoded).
 required: true
 schema:
   $ref: "../../schemas/Hash256.yml"

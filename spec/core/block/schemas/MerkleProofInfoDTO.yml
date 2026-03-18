@@ -1,4 +1,5 @@
 type: object
+description: Merkle proof information containing the path items needed to recalculate the merkle root.
 properties:
   merklePath:
     type: array

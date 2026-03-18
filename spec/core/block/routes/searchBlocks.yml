@@ -1,7 +1,13 @@
 tags:
   - Block routes
 summary: Search blocks
-description: Gets an array of blocks.
+description: |
+  Returns a paginated list of blocks matching the given criteria.
+
+  Results can be filtered by harvester (``signerPublicKey``), beneficiary address,
+  and timestamp range. Standard pagination parameters (``pageSize``, ``pageNumber``,
+  ``offset``, ``order``) apply.
+  The ``orderBy`` parameter supports ``id`` and ``height``. The ``offset`` value must match the ``orderBy`` field.
 operationId: searchBlocks
 parameters:
   - $ref: "../../../parameters/query/signerPublicKeyQuery.yml"
@@ -15,10 +21,10 @@ parameters:
   - $ref: "../../../parameters/query/toTimestampQuery.yml"
 responses:
   "200":
-    description: success
+    description: Paginated list of matching blocks.
     content:
       application/json:
         schema:
           $ref: "../schemas/BlockPage.yml"
   "409":
-    $ref : "../../../responses/InvalidArgument.yml"
+    $ref: "../../../responses/InvalidArgument.yml"

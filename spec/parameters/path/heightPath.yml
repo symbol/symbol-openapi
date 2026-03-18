@@ -1,6 +1,8 @@
 name: height
 in: path
-description: Block height.
+description: |
+  Block height in the chain. Each block has a unique height; the nemesis block is 1,
+  and each subsequent block increments by one.
 required: true
 schema:
   $ref: "../../schemas/Height.yml"

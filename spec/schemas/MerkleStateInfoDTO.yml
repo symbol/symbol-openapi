@@ -1,6 +1,6 @@
 type: object
 description: |
-  The merkle path information clients can use to proof the state of the given entity.
+  The merkle path information clients can use to prove the state of the given entity.
 required:
   - raw
   - tree

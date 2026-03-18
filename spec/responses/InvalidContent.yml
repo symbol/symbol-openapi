@@ -1,4 +1,4 @@
-description: InvalidContent
+description: The provided argument was not an acceptable input.
 content:
   application/json:
     schema:

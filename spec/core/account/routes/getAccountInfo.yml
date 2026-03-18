@@ -1,18 +1,22 @@
 tags:
   - Account routes
 summary: Get account information
-description: Returns the account information.
+description: |
+  Retrieves account data for a given account identifier.
+  The response contains the account state including balance, importance, public key, linked keys, and activity buckets.
+
+  The ``accountId`` path parameter accepts either a public key or a Base32-encoded address.
 operationId: getAccountInfo
 parameters:
   - $ref: "../../../parameters/path/accountIdPath.yml"
 responses:
   "200":
-    description: success
+    description: Account information successfully retrieved.
     content:
       application/json:
         schema:
           $ref: "../schemas/AccountInfoDTO.yml"
   "404":
-    $ref : "../../../responses/ResourceNotFound.yml"
+    $ref: "../../../responses/ResourceNotFound.yml"
   "409":
-    $ref : "../../../responses/InvalidArgument.yml"
+    $ref: "../../../responses/InvalidArgument.yml"

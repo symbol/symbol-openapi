@@ -1,4 +1,4 @@
-description: InvalidArgument
+description: The required arguments were missing or unacceptable for the request.
 content:
   application/json:
     schema:

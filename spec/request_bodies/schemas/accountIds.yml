@@ -1,12 +1,16 @@
 type: object
+description: |
+  Request body for batch account lookup. At least one of ``publicKeys`` or ``addresses`` must be provided.
+  When both are supplied, the server returns the union of both lookups - accounts matching any of the
+  provided public keys **or** any of the provided addresses.
 properties:
   publicKeys:
     type: array
-    description: Array of public keys.
+    description: Array of account public keys.
     items:
       $ref: "../../schemas/PublicKey.yml"
   addresses:
     type: array
-    description: Array of addresses.
+    description: Array of account addresses.
     items:
       $ref: "../../schemas/Address.yml"

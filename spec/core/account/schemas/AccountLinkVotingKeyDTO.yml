@@ -1,4 +1,5 @@
 type: object
+description: Voting key linked to the account, valid for a range of finalization epochs.
 required:
   - publicKey
   - startEpoch
@@ -6,7 +7,10 @@ required:
 properties:
   publicKey:
     type: string
+    description: Voting public key.
   startEpoch:
     $ref: "../../../schemas/FinalizationEpoch.yml"
+    description: First finalization epoch for which this key is valid.
   endEpoch:
     $ref: "../../../schemas/FinalizationEpoch.yml"
+    description: Last finalization epoch for which this key is valid.
