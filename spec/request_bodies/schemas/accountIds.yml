@@ -1,8 +1,6 @@
 type: object
 description: |
   Request body for batch account lookup. At least one of ``publicKeys`` or ``addresses`` must be provided.
-  When both are supplied, the server returns the union of both lookups - accounts matching any of the
-  provided public keys **or** any of the provided addresses.
 properties:
   publicKeys:
     type: array

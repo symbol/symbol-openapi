@@ -3,9 +3,13 @@ tags:
 summary: Get accounts information
 description: |
   Retrieves account data for multiple accounts in a single request.
-
-  The request body accepts an array of public keys, an array of addresses, or both.
   This is the batch equivalent of the single-account endpoint.
+  
+  The request body accepts an array of public keys, an array of addresses, or both.
+  When both are supplied, the server returns the union of both lookups - accounts matching any of the
+  provided public keys **or** any of the provided addresses.
+  If both `publicKeys` and `addresses` are empty or omitted, the request is invalid and the server
+  returns `400` error.
 operationId: getAccountsInfo
 requestBody:
   $ref: "../../../request_bodies/accountIds.yml"
