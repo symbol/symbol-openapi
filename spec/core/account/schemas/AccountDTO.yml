@@ -18,7 +18,7 @@ properties:
   version:
     $ref: "../../../schemas/StateVersion.yml"
   address:
-    $ref: "../../../schemas/Address.yml"
+    $ref: "../../../schemas/AddressHex.yml"
   addressHeight:
     $ref: "../../../schemas/Height.yml"
     description: Height of the blockchain when the address was first published.

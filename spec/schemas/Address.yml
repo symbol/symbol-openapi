@@ -1,6 +1,6 @@
 type: string
 description: |
-  Represents a unique account address. The first character indicates the network
+  Represents a unique account address in Base32 format. The first character indicates the network
   (`T` for testnet, `N` for mainnet). Addresses are 39 characters long, Base32-encoded,
   and include an embedded 3-byte checksum. The node validates this checksum, so an address
   with even a single altered character will be rejected.

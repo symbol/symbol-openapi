@@ -48,7 +48,8 @@ allOf:
         $ref: "../../../schemas/Hash256.yml"
         description: Hash of the global chain state at this block (64-character hex).
       beneficiaryAddress:
-        $ref: "../../../schemas/Address.yml"
-        description: Address of the optional beneficiary designated by the harvester.
+        $ref: "../../../schemas/AddressHex.yml"
+        description: |
+          Address of the optional beneficiary designated by the harvester. Returned as 48-character hex (24 bytes).
       feeMultiplier:
         $ref: "../../../schemas/BlockFeeMultiplier.yml"

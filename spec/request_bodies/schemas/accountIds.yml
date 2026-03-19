@@ -1,6 +1,7 @@
 type: object
 description: |
-  Request body for batch account lookup. At least one of ``publicKeys`` or ``addresses`` must be provided.
+  Request body for batch account lookup. Provide either ``publicKeys`` or ``addresses``, not both.
+  At least one must be non-empty.
 properties:
   publicKeys:
     type: array
