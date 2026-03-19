@@ -2,8 +2,8 @@ type: integer
 format: int64
 description: |
   [Finalization epoch](https://docs.symbol.dev/concepts/block.html#finalization) - a sequential
-  round number. Each epoch groups a set of blocks for finalization voting; the interval is defined
-  by the `votingSetGrouping` network property (e.g. 1440 blocks, ~12h on the public network).
+  integer. Each epoch groups a set of blocks for finalization voting; the interval is defined
+  by the `votingSetGrouping` network property (e.g. 1440 blocks, ~12h on mainnet).
 minimum: 1
 maximum: 9223372036854775807
 examples:

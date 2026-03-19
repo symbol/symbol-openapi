@@ -48,7 +48,7 @@
     [consensus algorithm](https://docs.symbol.dev/concepts/consensus-algorithm.html).
 
     - `Height`: unique, sequential position of the block in the chain. Subsequent blocks differ in height by 1.
-    - `Timestamp`: number of milliseconds elapsed since the creation of the nemesis block.
+    - `Timestamp`: number of milliseconds elapsed since the creation of the first block.
     - `Difficulty`: block difficulty (initial 1e14); adjusted in range 1e13–1e15 to maintain target block time.
     - `Harvester`: [account](https://docs.symbol.dev/concepts/account.html) that created the block; receives
       transaction [fees](https://docs.symbol.dev/concepts/fees.html) and

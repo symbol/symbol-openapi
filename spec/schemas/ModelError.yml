@@ -10,7 +10,7 @@ properties:
     type: string
     description: |
       Error type identifier. Common values:
-      - `InvalidContent`: malformed request body or unparseable content (HTTP 400).
+      - `InvalidContent`: malformed request body or unparsable content (HTTP 400).
       - `ResourceNotFound`: requested resource does not exist (HTTP 404).
       - `InvalidArgument`: required arguments missing or unacceptable (HTTP 409).
   message:

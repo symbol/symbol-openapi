@@ -1,6 +1,6 @@
 type: string
 description: |
-  Network timestamp in **milliseconds** since the creation of the nemesis block.
+  Network timestamp in **milliseconds** since the creation of the nemesis (first) block.
   Used for block timestamps, transaction deadlines, and time synchronization.
 
   **Finding the nemesis block time:** The ``epochAdjustment`` field returned by the

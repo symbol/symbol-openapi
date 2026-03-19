@@ -6,8 +6,7 @@ required:
   - endEpoch
 properties:
   publicKey:
-    type: string
-    description: Voting public key.
+    $ref: "../../../schemas/PublicKey.yml"
   startEpoch:
     $ref: "../../../schemas/FinalizationEpoch.yml"
     description: First finalization epoch for which this key is valid.

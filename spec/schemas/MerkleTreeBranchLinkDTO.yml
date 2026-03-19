@@ -7,9 +7,9 @@ required:
   - link
 properties:
   bit:
-    description: Nibble index (0–15) identifying this child slot.
+    description: Nibble index (0–15) identifying this child slot (hex).
     type: string
   link:
-    description: Hash of the child node (64-character hex).
+    description: Hash of the child node.
     $ref: "./Hash256.yml"
     

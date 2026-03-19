@@ -8,4 +8,6 @@ required:
 properties:
   size:
     $ref: "../../../schemas/UInt32.yml"
-    description: Total size of the serialized entity in bytes. Includes the full binary payload.
+    description: |
+      Total size of the serialized entity in bytes. Includes the full binary payload,
+      including the 4-byte size field itself.

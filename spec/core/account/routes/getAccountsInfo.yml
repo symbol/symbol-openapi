@@ -6,8 +6,7 @@ description: |
   This is the batch equivalent of the single-account endpoint.
   
   The request body accepts either an array of public keys or an array of addresses (not both).
-  At least one of `publicKeys` or `addresses` must be provided; if both are empty or omitted,
-  the request is invalid and the server returns `400` error.
+  If both `publicKeys` and `addresses` are provided, the request is invalid and the server returns `409` error.
 operationId: getAccountsInfo
 requestBody:
   $ref: "../../../request_bodies/accountIds.yml"

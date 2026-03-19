@@ -11,7 +11,7 @@ required:
 properties:
   signerPublicKey:
     $ref: "../../../schemas/PublicKey.yml"
-    description: Public key (64-character hex) of the account that signed the entity (e.g. block harvester, transaction signer).
+    description: Public key of the account that signed the entity (e.g. block harvester, transaction signer).
   version:
     type: integer
     description: Entity version. Indicates the schema variant for serialization and validation.
