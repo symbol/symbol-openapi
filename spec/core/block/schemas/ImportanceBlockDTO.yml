@@ -19,7 +19,7 @@ allOf:
         description: Number of accounts eligible for harvesting at this block.
       totalVotingBalance:
         $ref: "../../../schemas/Amount.yml"
-        description: Total balance eligible for finalization voting.
+        description: Total balance (in smallest/atomic units) eligible for finalization voting.
       previousImportanceBlockHash:
         $ref: "../../../schemas/Hash256.yml"
         description: Hash of the previous importance block.

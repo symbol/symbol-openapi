@@ -1,7 +1,6 @@
 type: string
 description: |
-  Height of a block in the blockchain. The first block (nemesis) has height 1;
-  each subsequent block increments by one.
+  Height of a block in the blockchain. Starts at 1 and increments by one per block.
   Represented as a string to preserve precision, since the value is an unsigned 64-bit integer.
 pattern: '^[1-9][0-9]*$'
 examples:

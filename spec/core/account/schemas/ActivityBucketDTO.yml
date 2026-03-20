@@ -16,7 +16,7 @@ properties:
   totalFeesPaid:
     $ref: "../../../schemas/Amount.yml"
     description: |
-      Total transaction fees paid by the account during this bucket's period.
+      Total transaction fees (in smallest/atomic units) paid by the account during this bucket's period.
       Used to compute the
       [Transaction Score (T)](https://docs.symbol.dev/concepts/consensus-algorithm.html#partial-scores)
       component of the PoS+ importance calculation.
