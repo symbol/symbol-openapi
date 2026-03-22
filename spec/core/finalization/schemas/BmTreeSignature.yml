@@ -1,4 +1,5 @@
 type: object
+description: BLS aggregate signature structure (root and bottom of the Bm tree).
 required:
   - root
   - bottom

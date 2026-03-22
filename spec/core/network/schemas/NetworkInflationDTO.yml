@@ -1,4 +1,7 @@
 type: object
+description: |
+  One entry in the inflation schedule: block height from which a reward amount applies,
+  and the reward amount in atomic units.
 required:
   - startHeight
   - rewardAmount
@@ -6,8 +9,10 @@ properties:
   startHeight:
     $ref: "../../../schemas/Height.yml"
     description: Block height at which this reward amount becomes active.
-    example: 10
+    examples:
+      - 10
   rewardAmount:
     type: string
     description: Amount of inflationary rewards available from this block height.
-    example: 20500000
+    examples:
+      - 20500000

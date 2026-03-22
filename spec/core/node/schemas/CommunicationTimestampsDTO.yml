@@ -1,6 +1,12 @@
 type: object
+description: |
+  Send and receive timestamps for round-trip time calculation (used when
+  computing node time and transaction deadlines).
 properties:
   sendTimestamp:
     $ref: "../../../schemas/Timestamp.yml"
   receiveTimestamp:
     $ref: "../../../schemas/Timestamp.yml"
+examples:
+  - sendTimestamp: "108303181802"
+    receiveTimestamp: "108303181850"

@@ -1,4 +1,7 @@
 type: object
+description: |
+  Storage statistics: number of blocks, transactions, and accounts stored
+  by the node.
 required:
   - numBlocks
   - numTransactions
@@ -7,12 +10,15 @@ properties:
   numBlocks:
     type: integer
     description: Number of blocks stored.
-    example: 245053
+    examples:
+      - 245053
   numTransactions:
     type: integer
     description: Number of transactions stored.
-    example: 58590
+    examples:
+      - 58590
   numAccounts:
     type: integer
     description: Number of accounts created.
-    example: 177
+    examples:
+      - 177
