@@ -1,6 +1,6 @@
 tags:
   - Node routes
-summary: Get the unlocked harvesting account public keys.
+summary: Get the unlocked harvesting account public keys
 description: Returns array of unlocked account public keys.
 operationId: getUnlockedAccount
 responses:

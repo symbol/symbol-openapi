@@ -6,14 +6,14 @@ properties:
   totalVotingBalanceCalculationFix:
     type: string
     description: |
-      The block height from which Symbol correctly calculates the total voting balance for finalization by including only the stake of accounts with 
-      active voting keys registered for the current finalization epoch. 
+      The block height from which Symbol correctly calculates the total voting balance for finalization by including only the stake of accounts with
+      active voting keys registered for the current finalization epoch.
       More: https://hackmd.io/@syndicate/postmortem-140921.
     examples:
       - 528'000
   treasuryReissuance:
     type: string
-    description: | 
+    description: |
       The block height of the Cyprus hard fork that implemented treasury reissuance according to the governance decision. 
       More: https://hackmd.io/@syndicate/governance.
     examples:
