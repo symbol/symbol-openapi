@@ -3,10 +3,7 @@ tags:
 summary: Get chain information
 description: |
   Returns the current state of the blockchain: chain height, chain score, and the
-  latest finalized block (the most recent block made permanent; it will never be rolled back).
-  The chain score is the sum of block scores (each block contributes
-  ``difficulty − time since previous block``). During synchronization, nodes select the chain
-  with the highest score (higher = better chain).
+  latest finalized block.
 operationId: getChainInfo
 responses:
   "200":
