@@ -1,5 +1,7 @@
 type: object
-description: BLS aggregate signature structure (root and bottom of the Bm tree).
+description: |
+  BLS aggregate signature structure (root and bottom of the Bm tree). BLS (Boneh, Lynn and Shacham)
+  is a cryptographic signature scheme used in finalization voting.
 required:
   - root
   - bottom

@@ -29,7 +29,7 @@ properties:
     examples:
       - NCVORTEX4XD5IQASZQEHDWUXT33XBOTBMKFDCLI
   mosaicRentalFee:
-    type: string
+    $ref: "../../../schemas/Amount.yml"
     description: Mosaic rental fee in atomic units (paid to create a new mosaic).
     examples:
       - "500000"

@@ -1,7 +1,6 @@
 type: object
 description: |
-  One entry in the inflation schedule: block height from which a reward amount applies,
-  and the reward amount in atomic units.
+  One entry in the inflation schedule: block height from which a reward amount applies, and the reward amount.
 required:
   - startHeight
   - rewardAmount
@@ -12,7 +11,7 @@ properties:
     examples:
       - 10
   rewardAmount:
-    type: string
-    description: Amount of inflationary rewards available from this block height.
+    $ref: "../../../schemas/Amount.yml"
+    description: Inflation reward per block in smallest (atomic) units of the network currency.
     examples:
       - 20500000

@@ -8,16 +8,16 @@ required:
 properties:
   deploymentTool:
     type: string
+    description: The tool used to create, maintain and deploy the node.
     examples:
-      - 'symbol-bootstrap'
-    description: "The tool used to create, maintain and deploy the node. Examples: ``symbol-bootstrap``, ``manual``."
+      - 'symbol-shoestring'
   deploymentToolVersion:
     type: string
     examples:
       - '1.0.6'
-    description: "The version of the tool used to create, maintain and deploy the node."
+    description: The version of the tool used to create, maintain and deploy the node.
   lastUpdatedDate:
     type: string
     examples:
-      - '2021-06-02'
-    description: "When was the node last upgraded."
+      - '2025-06-02'
+    description: When was the node last upgraded.

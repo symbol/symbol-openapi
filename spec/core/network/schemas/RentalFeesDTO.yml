@@ -1,7 +1,7 @@
 type: object
 description: |
   Estimated effective rental fees for on-chain resources: root namespace (per block),
-  child namespace, and mosaic creation. All amounts are in **native currency** and expressed
+  child namespace, and mosaic creation. All amounts are in **network currency** and expressed
   in **smallest (atomic) units**.
 required:
   - effectiveRootNamespaceRentalFeePerBlock

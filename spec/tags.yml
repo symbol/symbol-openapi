@@ -11,7 +11,7 @@
     [mosaic](https://docs.symbol.dev/concepts/mosaic.html) units it owns) and an
     [**importance score**](https://docs.symbol.dev/concepts/consensus-algorithm.html#importance-calculation)
     that determines the probability of being selected to harvest the next block. Importance is recalculated
-    periodically using **activity buckets** - rolling data that tracks fees paid, beneficiary counts, and raw
+    periodically using **activity buckets**, which are rolling data that tracks fees paid, beneficiary counts, and raw
     scores over a sliding window of recalculation periods.
 
     Accounts participate in block creation through
@@ -49,7 +49,7 @@
 
     - `Height`: unique, sequential position of the block in the chain. Subsequent blocks differ in height by 1.
     - `Timestamp`: number of milliseconds elapsed since the creation of the first block.
-    - `Difficulty`: block difficulty (initial 1e14); adjusted in range 1e13–1e15 to maintain target block time.
+    - `Difficulty`: block difficulty (initial 1e14); adjusted in range 1e13 to 1e15 to maintain target block time.
     - `Harvester`: [account](https://docs.symbol.dev/concepts/account.html) that created the block; receives
       transaction [fees](https://docs.symbol.dev/concepts/fees.html) and
       [inflation](https://docs.symbol.dev/concepts/inflation.html) rewards.

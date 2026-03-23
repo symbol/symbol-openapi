@@ -29,10 +29,7 @@ properties:
     examples:
       - 7900
   networkIdentifier:
-    type: integer
-    description: Network type identifier (e.g. 144 for testnet).
-    examples:
-      - 144
+    $ref: "../../entity/schemas/NetworkTypeEnum.yml"
   friendlyName:
     type: string
     description: Node friendly name.

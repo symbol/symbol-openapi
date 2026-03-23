@@ -1,6 +1,6 @@
 type: object
 description: |
-  A block that has been finalized – made permanent and irreversible. Contains the
+  A block that has been finalized. It is made permanent and irreversible. Contains the
   finalization epoch, point, block height, and hash.
 required:
   - finalizationEpoch
