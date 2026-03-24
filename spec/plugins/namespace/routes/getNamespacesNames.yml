@@ -7,7 +7,8 @@ description: |
   Submit an array of namespace identifiers in the request body. For each matching
   identifier, the response returns the namespace name. When a matching identifier is
   a subnamespace, the response will also include its parent namespace entry and parent
-  namespace identifier.
+  namespace identifier. Identifiers that cannot be resolved are omitted from the
+  response.
 operationId: getNamespacesNames
 requestBody:
   $ref: "../../../request_bodies/namespaceIds.yml"
