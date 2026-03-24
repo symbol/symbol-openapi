@@ -5,8 +5,9 @@ description: |
   Resolves human-readable namespace names for namespace identifiers.
 
   Submit an array of namespace identifiers in the request body. For each matching
-  identifier, the response returns the namespace name and, for subnamespaces, the
-  parent namespace identifier.
+  identifier, the response returns the namespace name. When a matching identifier is
+  a subnamespace, the response will also include its parent namespace entry and parent
+  namespace identifier.
 operationId: getNamespacesNames
 requestBody:
   $ref: "../../../request_bodies/namespaceIds.yml"
@@ -21,11 +22,15 @@ responses:
           items:
             $ref: "../schemas/NamespaceNameDTO.yml"
         examples:
-          default:
+          subnamespaceWithParent:
             value:
               - id: "E74B99BA41F4AFEE"
                 name: "xym"
                 parentId: "A95F1F8A96159516"
+              - id: "A95F1F8A96159516"
+                name: "symbol"
+          rootNamespace:
+            value:
               - id: "A95F1F8A96159516"
                 name: "symbol"
   "400":
