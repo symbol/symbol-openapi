@@ -1,9 +1,10 @@
 type: object
+description: Collection of namespace name resolution results for mosaic identifiers.
 required:
   - mosaicNames
 properties:
   mosaicNames:
     type: array
-    description: Array of mosaic names.
+    description: Array of namespace name entries resolved for the requested mosaic identifiers.
     items:
       $ref: "./MosaicNamesDTO.yml"

@@ -1,14 +1,16 @@
 type: object
+description: Resolved namespace names linked to a specific mosaic identifier.
 required:
   - mosaicId
   - names
 properties:
   mosaicId:
     $ref: "../../../schemas/MosaicId.yml"
+    description: Mosaic identifier for which namespace names were resolved.
   names:
     type: array
-    description: Mosaic linked namespace names.
-    example:
+    description: Namespace names currently linked to the mosaic.
+    examples:
       - symbol.xym
     items:
       type: string
