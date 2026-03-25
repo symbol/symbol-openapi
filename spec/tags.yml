@@ -141,6 +141,22 @@
 - name: Restriction Mosaic routes
 - name: Restriction Account routes
 - name: Receipt routes
+  description: |
+    [Receipts](https://docs.symbol.dev/concepts/receipt.html) are records produced while confirmed
+    transactions change blockchain state. They are grouped into **transaction statements** and
+    **resolution statements**.
+
+    - `Transaction statement`: groups the receipts emitted for a specific transaction source at a given
+      block height, including balance transfers, balance changes, expirations, and inflation.
+    - `Resolution statement`: records how an unresolved namespace alias used in a transaction was
+      resolved to a concrete address or mosaic id for a specific source and block.
+    - `Receipt type`: numeric code identifying the kind of receipt returned in a transaction statement.
+    - `Source`: pointer to the transaction and, when relevant, aggregate subtransaction that produced
+      the receipt or resolution entry.
+
+    Receipt endpoints return paginated statement collections that can be filtered by height and other
+    receipt-specific criteria. [Merkle proofs](https://docs.symbol.dev/concepts/data-validation.html#merkle-proof)
+    for receipt statements are available under Block routes.
 - name: Transaction routes
 - name: Transaction status routes
 - name: Hash Lock routes
