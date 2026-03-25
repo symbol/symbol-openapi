@@ -160,4 +160,12 @@
 - name: Transaction routes
 - name: Transaction status routes
 - name: Hash Lock routes
+  description: |
+    [Hash locks](https://docs.symbol.dev/concepts/aggregate-transaction.html#aggregate-bonded) are temporary
+    deposits locked before announcing an aggregate bonded transaction. They act as an anti-spam mechanism:
+    the lock must be confirmed before the aggregate bonded transaction can be announced, and the locked funds
+    are returned when the aggregate bonded transaction completes.
+
+    Hash lock endpoints return individual lock entries, paginated lock collections, batch lookup results,
+    and Merkle proofs for hash lock state.
 - name: Secret Lock routes
