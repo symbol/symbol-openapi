@@ -1,7 +1,7 @@
 type: object
 description: |
   Alias currently linked to the namespace.
-  Depending on ``type``, the namespace either has no alias, points to a mosaic id, or points to an account address.
+  Depending on ``type``, the namespace either has no alias, points to a mosaic ID, or points to an account address.
 required:
   - type
 properties:
