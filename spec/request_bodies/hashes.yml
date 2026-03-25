@@ -1,6 +1,0 @@
-description: Request body containing an array of hashes to look up.
-content:
-  application/json:
-    schema:
-      $ref: "./schemas/hashes.yml"
-required: true

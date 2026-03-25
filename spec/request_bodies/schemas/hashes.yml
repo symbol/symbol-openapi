@@ -1,8 +1,0 @@
-type: object
-description: Array wrapper used to request entities by their hashes.
-properties:
-  hashes:
-    type: array
-    description: Hashes of the requested entities.
-    items:
-      $ref: "../../schemas/Hash256.yml"

@@ -4,7 +4,7 @@ summary: Get hash lock information for an array of hashes
 description: Returns hash lock entries for the given array of aggregate bonded transaction hashes.
 operationId: getHashLocks
 requestBody:
-  $ref: "../../../request_bodies/hashes.yml"
+  $ref: "../../../request_bodies/transactionHashes.yml"
 responses:
   "200":
     description: Hash lock entries successfully retrieved.

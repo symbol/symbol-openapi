@@ -159,6 +159,12 @@
     for receipt statements are available under Block routes.
 - name: Transaction routes
 - name: Transaction status routes
+  description: |
+    Transaction status endpoints return the current processing state of a transaction identified by its hash.
+    They are useful after announcing a transaction and when tracking whether it is still **unconfirmed**,
+    already **confirmed**, waiting as **partial**, or has **failed** validation.
+
+    These endpoints support single-hash lookup and batch lookup by transaction hashes.
 - name: Hash Lock routes
   description: |
     [Hash locks](https://docs.symbol.dev/concepts/aggregate-transaction.html#aggregate-bonded) are temporary

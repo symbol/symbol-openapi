@@ -1,4 +1,5 @@
 type: object
+description: Current processing status of a transaction identified by its hash.
 required:
   - group
   - deadline
@@ -10,7 +11,10 @@ properties:
     $ref: "./TransactionStatusEnum.yml"
   hash:
     $ref: "../../../schemas/Hash256.yml"
+    description: Hash of the transaction.
   deadline:
     $ref: "../../../schemas/BlockDuration.yml"
+    description: Deadline recorded in the announced transaction.
   height:
     $ref: "../../../schemas/Height.yml"
+    description: Block height at which the transaction was confirmed, when available.
