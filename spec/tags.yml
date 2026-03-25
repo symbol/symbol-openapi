@@ -89,13 +89,13 @@
     [Mosaics](https://docs.symbol.dev/concepts/mosaic.html) are customizable blockchain assets on Symbol.
     A mosaic definition specifies its unique identifier, total supply, divisibility, owner, duration, and behavior flags.
 
-    - `Mosaic id`: unique identifier of a mosaic on Symbol.
+    - `Mosaic ID`: unique identifier of a mosaic on Symbol.
     - `Mosaic definition`: on-chain state that describes the mosaic supply, divisibility, owner, duration, and flags.
     - `Supply`: total number of mosaic units in existence, expressed in the smallest indivisible / atomic unit.
     - `Divisibility`: number of decimal places supported by the mosaic, from 0 to 6.
     - `Duration`: number of blocks for which the mosaic remains active. A value of `0` means the mosaic does not expire.
     - `Flags`: behavior settings that control supply mutability, transferability, restrictability, and revocability.
-    - `Alias`: namespace alias that can be used to refer to the mosaic instead of its raw mosaic id.
+    - `Alias`: namespace alias that can be used to refer to the mosaic instead of its raw mosaic ID.
 
     The behavior flags determine whether the mosaic supply can change, whether it can be transferred between arbitrary
     accounts, whether custom restrictions can be applied, and whether the creator can revoke balances from holders.
@@ -113,11 +113,11 @@
     - `Subnamespace`: child namespace registered under another namespace.
     - `Parent namespace`: direct namespace above a subnamespace in the hierarchy.
     - `Duration`: number of blocks for which the namespace remains active, represented by its lifetime on-chain.
-    - `Alias`: link from a namespace to an account address or mosaic id.
+    - `Alias`: link from a namespace to an account address or mosaic ID.
     - `Namespace id`: unique identifier derived from the namespace path and level.
     - `Active namespace`: namespace whose lifetime includes the current chain height.
 
-    Namespaces can be linked as aliases to an account address or a mosaic id, making on-chain identifiers easier for
+    Namespaces can be linked as aliases to an account address or a mosaic ID, making on-chain identifiers easier for
     humans to recognize. Namespace state also tracks owner, lifetime, hierarchy depth, and whether the namespace is
     currently active.
 
