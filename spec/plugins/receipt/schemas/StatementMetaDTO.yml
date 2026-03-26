@@ -5,5 +5,5 @@ description: Metadata for a statement containing the block timestamp when it was
 properties:
   timestamp:
     $ref: "../../../schemas/Timestamp.yml"
-    description: Block timestamp in milliseconds when the statement was recorded.
+    description: Block timestamp in milliseconds since nemesis block when the statement was recorded.
 

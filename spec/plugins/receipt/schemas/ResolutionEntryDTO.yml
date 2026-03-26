@@ -11,4 +11,4 @@ properties:
     anyOf:
       - $ref: "../../../schemas/AddressHex.yml"
       - $ref: "../../../schemas/MosaicId.yml"
-    description: Concrete address or mosaic id resolved from the alias for this source.
+    description: Concrete address or mosaic ID resolved from the alias for this source.

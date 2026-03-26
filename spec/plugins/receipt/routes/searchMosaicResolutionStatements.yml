@@ -4,7 +4,7 @@ summary: Search mosaic resolution statements
 description: |
   Returns a paginated list of mosaic resolution statements.
   These statements record how an unresolved mosaic alias used in a transaction was resolved to
-  a concrete mosaic id at a given block height.
+  a concrete mosaic ID at a given block height.
   A statement can contain multiple resolution entries because alias resolution may differ by
   transaction source within the same block.
 operationId: searchMosaicResolutionStatements

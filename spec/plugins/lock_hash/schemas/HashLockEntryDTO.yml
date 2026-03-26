@@ -1,5 +1,8 @@
 type: object
-description: Locked funds deposited before announcing an aggregate bonded transaction.
+description: |
+  Locked funds deposited before announcing an aggregate bonded transaction.
+  If the aggregate bonded transaction is not completed before the lock expires,
+  the locked funds are credited to the block harvester.
 required:
   - version
   - ownerAddress

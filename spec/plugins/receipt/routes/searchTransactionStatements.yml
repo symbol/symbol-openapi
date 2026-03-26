@@ -6,7 +6,7 @@ description: |
   changed on-chain state.
   Each statement is grouped by block height and source and contains the receipts produced by
   transaction execution, including balance transfers, balance changes, expirations, and inflation.
-  Results can be filtered by block height, receipt type, related addresses, and artifact ids.
+  Results can be filtered by block height, receipt type, related addresses, and artifact IDs.
 operationId: searchReceipts
 parameters:
   - $ref: "../../../parameters/query/heightQuery.yml"

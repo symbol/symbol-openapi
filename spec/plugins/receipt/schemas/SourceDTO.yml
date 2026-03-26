@@ -10,6 +10,7 @@ properties:
       Index of the top-level transaction within the block.
       A top-level transaction is a transaction that appears directly in the block,
       not one that is embedded inside an aggregate transaction.
+      Indexing is `1`-based, so the first top-level transaction in the block has `primaryId = 1`.
       This value can be `0` when the statement does not refer to a specific transaction source.
       Use this value to locate the block transaction that produced the receipt or resolution entry.
     examples:
@@ -18,6 +19,7 @@ properties:
     $ref: "../../../schemas/UInt32.yml"
     description: |
       Index of the embedded transaction within the aggregate transaction.
+      Indexing is `1`-based, so the first embedded transaction has `secondaryId = 1`.
       If the source is not an embedded transaction, this value is `0`.
       Use this together with `primaryId` to pinpoint the exact embedded transaction inside an aggregate.
     examples:
