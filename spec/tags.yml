@@ -102,6 +102,22 @@
 
     Mosaic endpoints return mosaic definitions, paginated mosaic collections, and Merkle proofs for mosaic state.
 - name: Multisig routes
+  description: |
+    [Multisig accounts](https://docs.symbol.dev/concepts/multisig-account.html) require approvals
+    from one or more cosignatories before they can act. Symbol uses an **M-of-N** model, where
+    `N` is the number of cosignatories attached to the multisig account and `M` is the minimum
+    number of approvals required for a given action.
+
+    Symbol also supports **multi-level multisig**, where a multisig account can itself act as a
+    cosignatory for another multisig account, up to the network-defined maximum depth
+    (`multisig.maxMultisigDepth = 3` on mainnet and testnet).
+
+    - `Cosignatory`: account that manages a multisig account and can approve aggregate transactions on its behalf.
+    - `Minimum approval`: number of cosignatory approvals required to approve a transaction initiated by the multisig account.
+    - `Minimum removal`: number of cosignatory approvals required to remove a cosignatory from the multisig account.
+
+    These endpoints return the current multisig state for an account, the surrounding multisig graph
+    across multiple levels, and the Merkle proof for the stored multisig state.
 - name: Namespace routes
   description: |
     [Namespaces](https://docs.symbol.dev/concepts/namespace.html) are human-readable names that can represent accounts,
