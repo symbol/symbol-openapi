@@ -2,8 +2,10 @@ tags:
   - Metadata routes
 summary: Get Metal metadata binary data
 description: |
-  Gets the binary payload stored in a Metal metadata entry.
-  The response content type is determined by the stored data (e.g. image, document).
+  Returns the decoded binary payload stored in Metal metadata entries identified by the given metal id.
+  Metal is a convention for storing chunked binary payloads in metadata entries. See the
+  [metal-on-symbol repository](https://github.com/OPENSPHERE-Inc/metal-on-symbol).
+  The response content type is determined by the stored data (for example image or document).
   Optional query parameters can override the response headers for content type and filename.
 operationId: getMetadataMetal
 parameters:

@@ -84,6 +84,24 @@
     finalized, including message groups (prevote, precommit, count stages) and BLS aggregate
     signatures from the voter set.
 - name: Metadata routes
+  description: |
+    [Metadata](https://docs.symbol.dev/concepts/metadata.html) lets accounts attach arbitrary key-value
+    data to three kinds of on-chain resources on Symbol: **accounts**, **mosaics**, and **namespaces**.
+    Each metadata entry is uniquely identified by its source address, target address, metadata type,
+    scoped metadata key, and, for mosaic and namespace metadata, the target artifact id. The derived
+    composite hash can be used as a compact identifier for lookup.
+
+    - `Source address`: account that created the metadata update.
+    - `Target address`: target account for account metadata, or the owner account for mosaic and namespace metadata.
+    - `Scoped metadata key`: 64-bit key assigned by the metadata creator to distinguish metadata entries.
+    - `Metadata type`: whether the metadata entry is attached to an account, mosaic, or namespace.
+    - `Composite hash`: unique identifier derived from the metadata coordinates.
+    - `Metal`: convention for storing chunked binary payloads in metadata entries. See the
+      [metal-on-symbol repository](https://github.com/OPENSPHERE-Inc/metal-on-symbol).
+
+    Metadata endpoints return individual metadata entries, batch lookup results, paginated search
+    results, Merkle proofs for metadata state, and decoded binary payloads stored with the Metal
+    convention.
 - name: Mosaic routes
   description: |
     [Mosaics](https://docs.symbol.dev/concepts/mosaic.html) are customizable blockchain assets on Symbol.

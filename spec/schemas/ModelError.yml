@@ -1,6 +1,6 @@
 type: object
 description: |
-  Error response body returned for 4xx responses.
+  Error response body returned for API error responses.
   Contains an error code identifier and a human-readable message.
 required:
   - code
@@ -13,6 +13,24 @@ properties:
       - `InvalidContent`: malformed request body or unparsable content (HTTP 400).
       - `ResourceNotFound`: requested resource does not exist (HTTP 404).
       - `InvalidArgument`: required arguments missing or unacceptable (HTTP 409).
+      - `Internal`: unexpected server-side failure (HTTP 500).
   message:
     type: string
     description: Human-readable error description. May include the invalid value or resource identifier.
+examples:
+  invalidContent:
+    value:
+      code: InvalidContent
+      message: request body could not be parsed
+  resourceNotFound:
+    value:
+      code: ResourceNotFound
+      message: no resource exists with id '999999999999'
+  invalidArgument:
+    value:
+      code: InvalidArgument
+      message: accountId has an invalid format
+  internal:
+    value:
+      code: Internal
+      message: unexpected error
