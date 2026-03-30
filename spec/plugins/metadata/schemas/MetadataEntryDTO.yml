@@ -14,7 +14,7 @@ properties:
     $ref: "../../../schemas/StateVersion.yml"
   compositeHash:
     description: |
-      Composite hash derived from sourceAddress, targetAddress, scopedMetadataKey, targetId, and metadataType. 
+      Composite hash derived from sourceAddress, targetAddress, scopedMetadataKey, targetId, and metadataType.
       It uniquely identifies the metadata entry.
     $ref: "../../../schemas/Hash256.yml"
   sourceAddress:
