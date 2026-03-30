@@ -1,5 +1,4 @@
 type: integer
-example: 1
 enum:
   - 1
   - 2
@@ -19,3 +18,5 @@ description: |
   - `0x8002` (`32770`): Block incoming transactions containing a given mosaic ID.
   - `0xC001` (`49153`): Block outgoing transactions to a given address.
   - `0xC004` (`49156`): Block outgoing transactions with a given transaction type.
+examples:
+  - 1

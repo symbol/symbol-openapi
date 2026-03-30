@@ -173,6 +173,24 @@
     **node time** (for transaction deadline calculation), **unlocked accounts** (harvesting),
     **connected peers**, and **node metadata** (deployment tool, version).
 - name: Restriction Mosaic routes
+  description: |
+    [Mosaic restrictions](https://docs.symbol.dev/concepts/mosaic-restriction.html) define rule
+    sets that control how a mosaic can be transferred on Symbol. They are commonly used with
+    restrictable mosaics to enforce compliance or access rules.
+    Mosaic restrictions are stored as two entry types: global restrictions and address restrictions.
+
+    - `Global restriction`: the rule defined for a mosaic. It says what restriction key is checked,
+      what value is expected, and how the comparison is performed.
+    - `Address restriction`: the value assigned to one specific account for a given mosaic and
+      restriction key.
+    - `How they work together`: a global restriction defines the rule, and an address restriction
+      provides the account-specific value that is checked against that rule.
+    - `Restriction key`: 64-bit identifier that links related global and address restrictions.
+    - `Entry type`: tells whether the returned entry is a global restriction entry or an
+      address-specific restriction entry.
+
+    Restriction mosaic endpoints return individual restriction entries, batch lookup results,
+    paginated search results, and Merkle proofs for mosaic restriction state.
 - name: Restriction Account routes
   description: |
     [Account restrictions](https://docs.symbol.dev/concepts/account-restriction.html) define

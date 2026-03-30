@@ -1,10 +1,12 @@
 type: object
+description: Rule definition for a global mosaic restriction key.
 required:
   - referenceMosaicId
   - restrictionValue
   - restrictionType
 properties:
   referenceMosaicId:
+    description: Mosaic identifier providing the restriction key used by this global restriction rule.
     $ref: "../../../schemas/MosaicId.yml"
   restrictionValue:
     $ref: "../../../schemas/RestrictionValue.yml"
