@@ -4,7 +4,7 @@ summary: Search metadata entries
 description: |
   Returns a paginated list of metadata entries.
 
-  Results can be filtered by source address, target address, scoped metadata key, target id, and
+  Results can be filtered by source address, target address, scoped metadata key, target ID, and
   metadata type.
 operationId: searchMetadataEntries
 parameters:
