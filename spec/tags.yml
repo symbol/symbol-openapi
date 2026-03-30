@@ -174,6 +174,16 @@
     **connected peers**, and **node metadata** (deployment tool, version).
 - name: Restriction Mosaic routes
 - name: Restriction Account routes
+  description: |
+    [Account restrictions](https://docs.symbol.dev/concepts/account-restriction.html) define
+    rule sets that limit which transactions an account can send to or receive from other accounts
+    on Symbol. Depending on the applied restriction flags, these rules can allow or block incoming
+    transactions from specific addresses, incoming transactions containing specific mosaic IDs,
+    outgoing transactions to specific addresses, and outgoing transactions of specific transaction
+    types.
+
+    Restriction account endpoints return individual account restriction entries, batch lookup
+    results, paginated search results, and Merkle proofs for account restriction state.
 - name: Receipt routes
   description: |
     [Receipts](https://docs.symbol.dev/concepts/receipt.html) are records produced while confirmed

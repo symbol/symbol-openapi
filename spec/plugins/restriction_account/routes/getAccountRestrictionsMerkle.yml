@@ -1,13 +1,13 @@
 tags:
   - Restriction Account routes
-summary: Get the account restrictions Merkle
-description: Returns the account restrictions Merkle for a given address.
+summary: Get account restrictions Merkle information
+description: Returns the Merkle state proof for the account restriction entry associated with the given account address.
 operationId: getAccountRestrictionsMerkle
 parameters:
   - $ref: "../../../parameters/path/addressPath.yml"
 responses:
   "200":
-    description: success
+    description: Merkle proof for the requested account restriction entry.
     content:
       application/json:
         schema:
