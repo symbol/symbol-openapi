@@ -1,7 +1,11 @@
 tags:
   - Restriction Mosaic routes
 summary: Get mosaic restrictions Merkle information
-description: Returns the Merkle state proof for the mosaic restriction entry associated with the given composite hash.
+description: |
+  Returns the Merkle state proof for the mosaic restriction entry associated with the given composite hash.
+  If no mosaic restriction entry exists for the supplied composite hash, the endpoint still returns
+  a Merkle proof response, but it is a negative proof showing that no mosaic restriction state entry
+  exists for the requested composite hash.
 operationId: getMosaicRestrictionsMerkle
 parameters:
   - $ref: "../../../parameters/path/compositeHashPath.yml"
@@ -37,7 +41,5 @@ responses:
                   nibbleCount: 60
                   value: "723D89E3E704EA9A55C52FDE1D4F462E1DA57748C9936E3B3D3D26B6EBC5DEDA"
                   leafHash: "A3AF589E15116C400D545D7BBE8EF52950EE5FBE72B5E7768EFBC565311647B1"
-  "404":
-    $ref: "../../../responses/ResourceNotFound.yml"
   "409":
     $ref: "../../../responses/InvalidArgument.yml"
