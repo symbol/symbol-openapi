@@ -1,17 +1,30 @@
 tags:
   - Transaction routes
 summary: Announce a cosignature transaction
-description: Announces a cosignature transaction to the network.
+description: |
+  Broadcasts a detached cosignature for an aggregate bonded transaction to the network through this node.
+
+  The request must contain the detached cosignature fields: cosignature version, signer public key,
+  cosignature signature, and the parent aggregate transaction hash.
+
+  To verify the effect of the cosignature, query the **parent aggregate bonded transaction**,
+  for example with [`GET /transactionStatus/{hash}`](/transactionStatus/{hash}) using the
+  parent aggregate transaction hash.
 operationId: announceCosignatureTransaction
 requestBody:
   $ref: "../../../request_bodies/cosignature.yml"
 responses:
   "202":
-    description: success
+    description: Detached cosignature accepted for processing and broadcast by the node.
     content:
       application/json:
         schema:
           $ref: "../../../core/transaction/schemas/AnnounceTransactionInfoDTO.yml"
+        examples:
+          success:
+            summary: Cosignature packet pushed to the node
+            value:
+              message: "packet 257 was pushed to the network via /transactions/cosignature"
   "400":
     $ref: "../../../responses/InvalidContent.yml"
   "409":

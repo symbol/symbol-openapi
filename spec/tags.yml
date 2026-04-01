@@ -222,6 +222,19 @@
     receipt-specific criteria. [Merkle proofs](https://docs.symbol.dev/concepts/data-validation.html#merkle-proof)
     for receipt statements are available under Block routes.
 - name: Transaction routes
+  description: |
+    Transaction announcement, lookup, and search. [Transactions](https://docs.symbol.dev/concepts/transaction.html)
+    are signed payloads announced to the network and, after validation, may become part of the chain.
+
+    - **Transaction hash**: 64-character hexadecimal identifier used for status lookup and as one way
+      to retrieve a transaction record.
+    - **Transaction ID**: node database record identifier used by some lookup and pagination flows.
+    - **Confirmed transaction**: a transaction included in a block.
+    - **Unconfirmed transaction**: a transaction accepted by a node but not yet included in a block.
+    - **Partial transaction**: an aggregate bonded transaction waiting for the remaining cosignatures.
+
+    These endpoints announce serialized transactions, retrieve single or multiple transaction
+    records, and search paginated transaction collections.
 - name: Transaction status routes
   description: |
     Transaction status endpoints return the current processing state of a transaction identified by its hash.
