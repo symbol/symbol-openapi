@@ -183,8 +183,10 @@
       what value is expected, and how the comparison is performed.
     - `Address restriction`: the value assigned to one specific account for a given mosaic and
       restriction key.
-    - `How they work together`: a global restriction defines the rule, and an address restriction
-      provides the account-specific value that is checked against that rule.
+    
+    How they work together`: a global restriction defines the rule, and an address restriction provides
+    the account-specific value that is checked against that rule.
+    
     - `Restriction key`: 64-bit identifier that links related global and address restrictions.
     - `Entry type`: tells whether the returned entry is a global restriction entry or an
       address-specific restriction entry.
