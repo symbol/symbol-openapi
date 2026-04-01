@@ -15,7 +15,7 @@ description: |
   - **Outgoing** `0x4000` (optional): restriction applies to transactions **from** this account; omit it for **incoming**.
   - **Block** `0x8000` (optional): **block** listed values; omit it for **allow** lists.
 
-  **Example:** block outgoing transactions of a given 
+  **Example:** block outgoing transactions of a given
   type = `Block` + `Outgoing` + `TransactionType` -> `0x8000 | 0x4000 | 0x0004` = `0xC004` = **49156**.
 
   All values accepted on-chain (other OR combinations are rejected by the node):
