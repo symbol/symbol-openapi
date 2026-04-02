@@ -6,6 +6,8 @@ description: |
 
   The request must contain the detached cosignature fields: cosignature version, signer public key,
   cosignature signature, and the parent aggregate transaction hash.
+  Detached cosignatures are normally created client-side with a [Symbol SDK](https://docs.symbol.dev/sdk.html)
+  and then announced with this endpoint.
 
   To verify the effect of the cosignature, query the **parent aggregate bonded transaction**,
   for example with [`GET /transactionStatus/{hash}`](/transactionStatus/{hash}) using the
