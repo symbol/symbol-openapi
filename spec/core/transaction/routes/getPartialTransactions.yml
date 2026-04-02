@@ -1,6 +1,6 @@
 tags:
   - Transaction routes
-summary: Get partial transactions information
+summary: Get information about partial transactions
 description: |
   Returns partial transactions for the list of identifiers in the request body.
 

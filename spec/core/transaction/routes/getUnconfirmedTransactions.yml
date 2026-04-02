@@ -1,6 +1,6 @@
 tags:
   - Transaction routes
-summary: Get unconfirmed transactions information
+summary: Get information about unconfirmed transactions
 description: |
   Returns unconfirmed transactions for the list of identifiers in the request body.
 

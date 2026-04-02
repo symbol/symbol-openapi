@@ -53,7 +53,7 @@
     - `Harvester`: [account](https://docs.symbol.dev/concepts/account.html) that created the block; receives
       transaction [fees](https://docs.symbol.dev/concepts/fees.html) and
       [inflation](https://docs.symbol.dev/concepts/inflation.html) rewards.
-    - `Beneficiary address`: optional account designated by the harvester to receive a
+    - `Beneficiary address`: optional account designated by the harvester to receive
       [the block reward](https://docs.symbol.dev/concepts/harvesting.html#rewards).
     - `Fee multiplier`: multiplier applied to transaction size to calculate the
       [effective fee](https://docs.symbol.dev/concepts/fees.html).
