@@ -4,6 +4,12 @@ summary: Get confirmed transactions information
 description: |
   Returns confirmed transactions for the list of identifiers in the request body.
   Each request item can be either a transaction ID assigned by the node or a transaction hash.
+  Both values are returned by transaction retrieval and search endpoints, for example
+  ``GET /transactions/confirmed`` and ``GET /transactions/confirmed/{transactionId}``.
+
+  Use this endpoint when you need on-chain data for multiple transactions in one call.
+  Use ``getUnconfirmedTransactions`` for transactions still pending in a node pool, and
+  use ``getPartialTransactions`` for aggregate bonded transactions waiting for cosignatures.
 operationId: getConfirmedTransactions
 requestBody:
   $ref: "../../../request_bodies/transactionIds.yml"

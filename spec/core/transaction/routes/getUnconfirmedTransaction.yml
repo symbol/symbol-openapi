@@ -3,8 +3,15 @@ tags:
 summary: Get unconfirmed transaction information
 description: |
   Returns one unconfirmed transaction identified by the path value.
+  An unconfirmed transaction is accepted by a node and pending inclusion in a block.
 
   The path accepts either the transaction ID assigned by the node or the transaction hash.
+  Both values are returned by transaction retrieval and search endpoints, for example
+  ``GET /transactions/unconfirmed`` and ``GET /transactions/unconfirmed/{transactionId}``.
+
+  Use this endpoint while a transaction is accepted by a node but not yet included in a block.
+  Use ``getConfirmedTransaction`` once it is confirmed on-chain, and use ``getPartialTransaction``
+  for aggregate bonded transactions waiting for cosignatures.
 operationId: getUnconfirmedTransaction
 parameters:
   - $ref: "../../../parameters/path/transactionIdPath.yml"

@@ -2,9 +2,16 @@ tags:
   - Transaction routes
 summary: Get information about partial transactions
 description: |
-  Returns partial transactions for the list of identifiers in the request body.
+  Returns partial transactions for the list of identifiers in the request body. Partial
+  transactions are aggregate bonded transactions waiting for the remaining cosignatures.
 
   Each request item can be either a transaction ID assigned by the node or a transaction hash.
+  Both values are returned by transaction retrieval and search endpoints, for example
+  ``GET /transactions/partial`` and ``GET /transactions/partial/{transactionId}``.
+
+  Use this endpoint for aggregate bonded transactions that still wait for required cosignatures.
+  Use ``getUnconfirmedTransactions`` for non-partial pending transactions accepted by a node but not
+  yet included in a block, and use ``getConfirmedTransactions`` once transactions are confirmed on-chain.
 operationId: getPartialTransactions
 requestBody:
   $ref: "../../../request_bodies/transactionIds.yml"

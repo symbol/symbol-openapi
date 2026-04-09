@@ -1,6 +1,6 @@
 type: object
 description: |
-  Metadata for a top-level transaction entry returned by the transaction endpoints.
+  Metadata for a top-level (non-embedded) transaction entry returned by the transaction endpoints.
   For confirmed transactions, these fields describe the transaction's position in the block and the
   proof-related hashes associated with that block entry.
 

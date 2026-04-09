@@ -1,7 +1,7 @@
 name: address
 in: query
 description: |
-  Filter by address.
+  Filter by address in Base32 format.
 
   The exact meaning depends on the endpoint:
   - transaction search: returns transactions involving the address, meaning the address is considered
