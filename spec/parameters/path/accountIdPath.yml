@@ -3,9 +3,7 @@ in: path
 description: Account identifier. Accepts either a public key or a Base32-encoded address.
 required: true
 schema:
-  oneOf:
-    - $ref: "../../schemas/PublicKey.yml"
-    - $ref: "../../schemas/Address.yml"
+  type: string
 examples:
   testnetAddress:
     summary: Testnet address (Base32, prefix T)
